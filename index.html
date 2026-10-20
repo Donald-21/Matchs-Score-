@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101522">
+  <meta name="description" content="Matchs Scrore : matchs de football, résultats, analyses et codes de réservation.">
+  <title>Matchs Scrore | Football en direct</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">MS</span><span>MATCHS <b>SCRORE</b></span></a>
+  <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  <nav id="nav"><a href="#matchs">Matchs</a><a href="#pronostics">Pronostics</a><a href="#codes">Codes</a><a href="#apropos">À propos</a></nav>
+</header>
+<main>
+<section class="hero">
+ <div class="hero-copy"><p class="eyebrow">FOOTBALL • SCORES • ANALYSES</p><h1>Tout le football.<br><span>Au même endroit.</span></h1>
+ <p>Bienvenue sur Matchs Scrore : explore les rencontres, consulte les analyses et retrouve les informations football utiles dans une seule interface.</p>
+ <div class="hero-actions"><a class="button primary" href="#matchs">Voir les matchs</a><a class="button ghost" href="#pronostics">Nos analyses</a></div>
+ <p class="note">Version de démonstration : les matchs et scores ci-dessous sont fictifs, pas des données en direct.</p></div>
+ <div class="hero-panel"><div class="panel-head"><span class="live-dot"></span> CENTRE FOOTBALL <span class="tiny-tag">DÉMO</span></div>
+ <div class="score-row"><div><small>ANGLETERRE • EXEMPLE</small><b>North City</b><b>United FC</b></div><div class="score">2 <i>–</i> 1</div></div>
+ <div class="score-row"><div><small>ESPAGNE • EXEMPLE</small><b>Real Azul</b><b>Atletico Verde</b></div><div class="score">0 <i>–</i> 0</div></div>
+ <div class="score-row"><div><small>ITALIE • EXEMPLE</small><b>AC Milano</b><b>Roma Calcio</b></div><div class="score">1 <i>–</i> 1</div></div><p class="panel-foot">Scores fictifs pour illustrer le design.</p></div>
+</section>
+<section class="section" id="matchs"><div class="section-heading"><div><p class="eyebrow">CALENDRIER</p><h2>Matchs à suivre</h2></div><span class="section-label">EXEMPLES</span></div>
+ <div class="match-grid">
+  <article class="match-card"><div class="league">ANGLETERRE • EXEMPLE</div><div class="teams"><span>North City</span><b>VS</b><span>United FC</span></div><div class="match-bottom"><span>Horaire à confirmer</span><span class="pill">À venir</span></div></article>
+  <article class="match-card"><div class="league">ESPAGNE • EXEMPLE</div><div class="teams"><span>Real Azul</span><b>VS</b><span>Atletico Verde</span></div><div class="match-bottom"><span>Horaire à confirmer</span><span class="pill">À venir</span></div></article>
+  <article class="match-card"><div class="league">ITALIE • EXEMPLE</div><div class="teams"><span>AC Milano</span><b>VS</b><span>Roma Calcio</span></div><div class="match-bottom"><span>Horaire à confirmer</span><span class="pill">À venir</span></div></article>
+ </div><p class="callout">Pour afficher les vrais scores en direct, il faudra connecter une API de résultats sportifs et respecter ses conditions d’utilisation.</p>
+</section>
+<section class="section dark-section" id="pronostics"><div class="section-heading"><div><p class="eyebrow">ANALYSES</p><h2>Pronostics et conseils</h2></div><span class="section-label">À MODIFIER</span></div>
+ <div class="tips-grid">
+  <article class="tip-card"><div class="tip-top"><span>Match exemple 01</span><span class="risk">À analyser</span></div><h3>Double chance 1X</h3><p>L’équipe à domicile gagne ou fait match nul. Vérifie les équipes, la forme et les cotes avant toute décision.</p></article>
+  <article class="tip-card"><div class="tip-top"><span>Match exemple 02</span><span class="risk">À analyser</span></div><h3>Plus de 1,5 buts</h3><p>Le match doit compter au moins deux buts au total. Aucun marché ne garantit un résultat.</p></article>
+  <article class="tip-card"><div class="tip-top"><span>Match exemple 03</span><span class="risk">Risque élevé</span></div><h3>Évite les certitudes</h3><p>Les scores exacts sont difficiles à prévoir. Ne mise jamais l’argent destiné aux dépenses essentielles.</p></article>
+ </div></section>
+<section class="section" id="codes"><div class="section-heading"><div><p class="eyebrow">COMMUNAUTÉ</p><h2>Code de réservation</h2></div></div>
+ <div class="code-box"><div><h3>Copier un code facilement</h3><p>Saisis un code de réservation pour le copier. Ce formulaire ne vérifie pas le code auprès d’un bookmaker et ne place aucun pari.</p></div>
+ <form id="code-form"><label for="booking-code">Code de réservation</label><div class="code-input-row"><input id="booking-code" placeholder="Ex. ABC12345" maxlength="80" autocomplete="off"><button class="button primary" type="submit">Copier le code</button></div><p id="code-message" role="status" aria-live="polite"></p></form></div>
+</section>
+<section class="section about" id="apropos"><p class="eyebrow">À PROPOS</p><h2>Matchs Scrore</h2><p>Une plateforme communautaire consacrée au football, aux résultats et à l’analyse des rencontres. Les pronostics sont des opinions, pas des certitudes.</p><a class="button primary" href="#matchs">Explorer le site</a></section>
+</main>
+<footer><div class="brand footer-brand"><span class="brand-mark">MS</span><span>MATCHS <b>SCRORE</b></span></div><p>© <span id="year"></span> Matchs Scrore • Site de démonstration</p><p class="disclaimer">18+ • Les paris comportent des risques. Aucun gain n’est garanti. Respecte les lois applicables dans ton pays.</p></footer>
+<script src="script.js"></script>
+</body></html>
