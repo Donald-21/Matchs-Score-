@@ -24,11 +24,14 @@ jobs:
             echo "API token is missing"
             exit 1
           }
+
           curl --fail --silent --show-error \
             -H "X-Auth-Token: $FOOTBALL_TOKEN" \
             "https://api.football-data.org/v4/matches" \
             -o matches.json
+
           python -m json.tool matches.json > /dev/null
+          echo "JSON valide : matches.json"
 
       - name: Save updated data
         run: |
