@@ -32,6 +32,7 @@ jobs:
 
           python -m json.tool matches.json > /dev/null
           echo "JSON valide : matches.json"
+          python -c "import json; d=json.load(open('matches.json')); print('Nombre de matchs :', len(d.get('matches', [])))"
 
       - name: Save updated data
         run: |
