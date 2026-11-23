@@ -161,9 +161,22 @@ function renderPrediction(item) {
   const league = document.createElement('p');
   league.className = 'prediction-league';
   league.textContent = item.competition || 'Football';
-  const title = document.createElement('h3');
-  title.className = 'prediction-teams';
-  title.textContent = (item.homeTeam || 'Domicile') + ' – ' + (item.awayTeam || 'Extérieur');
+  const teams = document.createElement('div');
+  teams.className = 'prediction-team-list';
+  [[item.homeTeam || 'Équipe domicile', item.homeCrest], [item.awayTeam || 'Équipe extérieure', item.awayCrest]].forEach(([teamName, crest]) => {
+    const row = document.createElement('div');
+    row.className = 'prediction-team';
+    const logo = document.createElement('img');
+    logo.className = 'team-logo';
+    logo.alt = '';
+    logo.loading = 'lazy';
+    if (crest) logo.src = crest;
+    logo.addEventListener('error', () => { logo.hidden = true; }, { once: true });
+    const name = document.createElement('strong');
+    name.textContent = teamName;
+    row.append(logo, name);
+    teams.append(row);
+  });
   const date = document.createElement('p');
   date.className = 'prediction-date';
   date.textContent = formatDate(item.utcDate);
@@ -191,12 +204,15 @@ function renderPrediction(item) {
   });
   const trend = document.createElement('p');
   trend.className = 'prediction-trend';
-  trend.textContent = 'Tendance du modèle : ' + (item.trend?.label || 'indéterminée') +
+  const trendLabel = item.trend?.label === '1' ? 'Victoire de ' + (item.homeTeam || 'l’équipe à domicile')
+    : item.trend?.label === '2' ? 'Victoire de ' + (item.awayTeam || 'l’équipe à l’extérieur')
+    : item.trend?.label === 'N' ? 'Match nul' : 'Indéterminée';
+  trend.textContent = 'Tendance du modèle : ' + trendLabel +
     ' (' + Number(item.trend?.probability || 0).toFixed(1) + '%)';
   const sample = document.createElement('p');
   sample.className = 'prediction-sample';
   sample.textContent = 'Échantillon : ' + (item.sampleMatches || 0) + ' matchs récents analysés';
-  card.append(league, title, date, bars, trend, sample);
+  card.append(league, teams, date, bars, trend, sample);
   return card;
 }
 
@@ -229,3 +245,44 @@ async function loadPredictions() {
   }
 }
 loadPredictions();
+
+
+const leagueSelect = document.querySelector('#league-select');
+async function loadStandings() {
+  const body = document.querySelector('#standings-body');
+  const status = document.querySelector('#standings-status');
+  if (!body) return;
+  const code = leagueSelect?.value || 'PL';
+  if (status) status.textContent = 'Chargement du classement…';
+  try {
+    const response = await fetch('./standings.json?t=' + Date.now(), {cache:'no-store'});
+    if (!response.ok) throw new Error('Classement indisponible');
+    const data = await response.json();
+    const table = data.competitions?.[code];
+    body.replaceChildren();
+    if (!table?.table?.length) throw new Error(table?.error || 'Aucun classement disponible pour cette compétition.');
+    table.table.forEach(team => {
+      const tr = document.createElement('tr');
+      const values = [team.position, team.team?.name || 'Club', team.playedGames, team.won, team.draw, team.lost, team.goalsFor, team.goalsAgainst, team.points];
+      values.forEach((value, index) => {
+        const td = document.createElement('td');
+        if (index === 1) {
+          td.className = 'standing-club';
+          const img = document.createElement('img');
+          img.alt = ''; img.loading = 'lazy'; img.src = team.team?.crest || '';
+          img.addEventListener('error', () => { img.hidden = true; }, {once:true});
+          const name = document.createElement('span'); name.textContent = value;
+          td.append(img, name);
+        } else td.textContent = value ?? '—';
+        tr.append(td);
+      });
+      body.append(tr);
+    });
+    if (status) status.textContent = (table.competition || code) + ' • classement actualisé automatiquement.';
+  } catch (error) {
+    body.innerHTML = '<tr><td colspan="9">Classement momentanément indisponible pour cette compétition.</td></tr>';
+    if (status) status.textContent = 'Les classements seront affichés dès que la source les fournira.';
+  }
+}
+leagueSelect?.addEventListener('change', loadStandings);
+loadStandings();
