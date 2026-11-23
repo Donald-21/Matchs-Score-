@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T20:51:35.459873+00:00",
+  "generatedAt": "2026-11-23T21:26:14.685362+00:00",
   "competitions": {
     "PL": {
       "competition": "Premier League",
@@ -1463,9 +1463,9 @@
           "draw": 1,
           "lost": 8,
           "points": 10,
-          "goalsFor": 18,
+          "goalsFor": 20,
           "goalsAgainst": 25,
-          "goalDifference": -7
+          "goalDifference": -5
         },
         {
           "position": 15,
@@ -1502,8 +1502,8 @@
           "lost": 7,
           "points": 9,
           "goalsFor": 17,
-          "goalsAgainst": 26,
-          "goalDifference": -9
+          "goalsAgainst": 28,
+          "goalDifference": -11
         },
         {
           "position": 17,
