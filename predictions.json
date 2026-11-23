@@ -1,6 +1,154 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-11-23T19:09:45.345230+00:00",
   "source": "football-data.org",
-  "predictions": [],
-  "note": "Le moteur statistique prépare ses premières analyses."
+  "model": "Poisson avec moyennes domicile/extérieur et forme récente",
+  "historyDays": 90,
+  "predictions": [
+    {
+      "matchId": 558519,
+      "utcDate": "2026-11-23T19:45:00Z",
+      "competition": "Serie A",
+      "homeTeam": "AC Monza",
+      "awayTeam": "ACF Fiorentina",
+      "homeCrest": "https://crests.football-data.org/5911.png",
+      "awayCrest": "https://crests.football-data.org/99.png",
+      "probabilities": {
+        "home": 37.3,
+        "draw": 21.2,
+        "away": 41.5
+      },
+      "expectedGoals": {
+        "home": 1.85,
+        "away": 1.96
+      },
+      "trend": {
+        "label": "2",
+        "probability": 41.5
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564757,
+      "utcDate": "2026-11-23T20:00:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "Levante UD",
+      "awayTeam": "Elche CF",
+      "homeCrest": "https://crests.football-data.org/88.png",
+      "awayCrest": "https://crests.football-data.org/285.png",
+      "probabilities": {
+        "home": 21.8,
+        "draw": 20.7,
+        "away": 57.5
+      },
+      "expectedGoals": {
+        "home": 1.24,
+        "away": 2.12
+      },
+      "trend": {
+        "label": "2",
+        "probability": 57.5
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560649,
+      "utcDate": "2026-11-23T20:00:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Brentford FC",
+      "awayTeam": "Everton FC",
+      "homeCrest": "https://crests.football-data.org/402.png",
+      "awayCrest": "https://crests.football-data.org/62.png",
+      "probabilities": {
+        "home": 49.6,
+        "draw": 27.4,
+        "away": 23.0
+      },
+      "expectedGoals": {
+        "home": 1.39,
+        "away": 0.85
+      },
+      "trend": {
+        "label": "1",
+        "probability": 49.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555097,
+      "utcDate": "2026-11-23T22:30:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "SC Internacional",
+      "awayTeam": "EC Vitória",
+      "homeCrest": "https://crests.football-data.org/6684.png",
+      "awayCrest": "https://crests.football-data.org/1782.png",
+      "probabilities": {
+        "home": 61.7,
+        "draw": 22.7,
+        "away": 15.5
+      },
+      "expectedGoals": {
+        "home": 1.78,
+        "away": 0.76
+      },
+      "trend": {
+        "label": "1",
+        "probability": 61.7
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555093,
+      "utcDate": "2026-11-23T23:00:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "Botafogo FR",
+      "awayTeam": "São Paulo FC",
+      "homeCrest": "https://crests.football-data.org/1770.png",
+      "awayCrest": "https://crests.football-data.org/1776.png",
+      "probabilities": {
+        "home": 49.9,
+        "draw": 25.9,
+        "away": 24.2
+      },
+      "expectedGoals": {
+        "home": 1.51,
+        "away": 0.97
+      },
+      "trend": {
+        "label": "1",
+        "probability": 49.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555099,
+      "utcDate": "2026-11-24T00:00:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "Santos FC",
+      "awayTeam": "Grêmio FBPA",
+      "homeCrest": "https://crests.football-data.org/6685.png",
+      "awayCrest": "https://crests.football-data.org/1767.png",
+      "probabilities": {
+        "home": 41.4,
+        "draw": 27.6,
+        "away": 31.0
+      },
+      "expectedGoals": {
+        "home": 1.3,
+        "away": 1.08
+      },
+      "trend": {
+        "label": "1",
+        "probability": 41.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    }
+  ],
+  "note": "Estimations statistiques indicatives, non garanties. Les absences, compositions, blessures et cotes ne sont pas intégrées.",
+  "warnings": []
 }
