@@ -50,3 +50,6 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .probability-track{height:8px;background:#edf0f6;border-radius:20px;overflow:hidden}
 .probability-track>span{display:block;height:100%;background:linear-gradient(90deg,#7958ef,#b09cff);border-radius:20px}
 .prediction-trend{font-size:11px!important;font-weight:850;color:#26334a!important;background:#f1efff;border-radius:8px;padding:9px;margin:10px 0!important}
+
+.promo-code{display:inline-block;margin:14px 0 8px;padding:12px 18px;border:1px dashed #7958ef;border-radius:10px;background:#f3f0ff;color:#5c3bc5;font-size:22px;font-weight:950;letter-spacing:1px;font-variant-numeric:tabular-nums}
+.promo-help{font-size:11px!important;margin-top:4px!important}
