@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T20:43:14.862234+00:00",
+  "generatedAt": "2026-11-23T20:51:35.464559+00:00",
   "source": "football-data.org",
   "model": "Poisson avec moyennes domicile/extérieur et forme récente",
   "historyDays": 90,
@@ -72,6 +72,2862 @@
       "trend": {
         "label": "1",
         "probability": 41.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575395,
+      "utcDate": "2026-11-24T17:45:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Galatasaray SK",
+      "awayTeam": "Aston Villa FC",
+      "homeCrest": "https://crests.football-data.org/610.png",
+      "awayCrest": "https://crests.football-data.org/58.png",
+      "probabilities": {
+        "home": 42.9,
+        "draw": 22.0,
+        "away": 35.1
+      },
+      "expectedGoals": {
+        "home": 1.88,
+        "away": 1.69
+      },
+      "trend": {
+        "label": "1",
+        "probability": 42.9
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575396,
+      "utcDate": "2026-11-24T17:45:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "FK Bodø/Glimt",
+      "awayTeam": "LASK Linz",
+      "homeCrest": "https://crests.football-data.org/5721.png",
+      "awayCrest": "https://crests.football-data.org/2016.png",
+      "probabilities": {
+        "home": 43.4,
+        "draw": 27.6,
+        "away": 29.0
+      },
+      "expectedGoals": {
+        "home": 1.32,
+        "away": 1.03
+      },
+      "trend": {
+        "label": "1",
+        "probability": 43.4
+      },
+      "sampleMatches": 8,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561958,
+      "utcDate": "2026-11-24T19:45:00Z",
+      "competition": "Championship",
+      "homeTeam": "Charlton Athletic FC",
+      "awayTeam": "Lincoln City FC",
+      "homeCrest": "https://crests.football-data.org/348.png",
+      "awayCrest": "https://crests.football-data.org/1126.png",
+      "probabilities": {
+        "home": 40.9,
+        "draw": 26.1,
+        "away": 33.0
+      },
+      "expectedGoals": {
+        "home": 1.4,
+        "away": 1.23
+      },
+      "trend": {
+        "label": "1",
+        "probability": 40.9
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561954,
+      "utcDate": "2026-11-24T19:45:00Z",
+      "competition": "Championship",
+      "homeTeam": "Middlesbrough FC",
+      "awayTeam": "Swansea City AFC",
+      "homeCrest": "https://crests.football-data.org/343.png",
+      "awayCrest": "https://crests.football-data.org/72.png",
+      "probabilities": {
+        "home": 71.8,
+        "draw": 17.2,
+        "away": 11.1
+      },
+      "expectedGoals": {
+        "home": 2.33,
+        "away": 0.8
+      },
+      "trend": {
+        "label": "1",
+        "probability": 71.8
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561960,
+      "utcDate": "2026-11-24T19:45:00Z",
+      "competition": "Championship",
+      "homeTeam": "Norwich City FC",
+      "awayTeam": "Queens Park Rangers FC",
+      "homeCrest": "https://crests.football-data.org/68.png",
+      "awayCrest": "https://crests.football-data.org/69.png",
+      "probabilities": {
+        "home": 54.0,
+        "draw": 21.4,
+        "away": 24.6
+      },
+      "expectedGoals": {
+        "home": 2.03,
+        "away": 1.32
+      },
+      "trend": {
+        "label": "1",
+        "probability": 54.0
+      },
+      "sampleMatches": 11,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561956,
+      "utcDate": "2026-11-24T19:45:00Z",
+      "competition": "Championship",
+      "homeTeam": "Sheffield United FC",
+      "awayTeam": "Southampton FC",
+      "homeCrest": "https://crests.football-data.org/356.png",
+      "awayCrest": "https://crests.football-data.org/340.png",
+      "probabilities": {
+        "home": 53.4,
+        "draw": 24.3,
+        "away": 22.3
+      },
+      "expectedGoals": {
+        "home": 1.67,
+        "away": 0.99
+      },
+      "trend": {
+        "label": "1",
+        "probability": 53.4
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561953,
+      "utcDate": "2026-11-24T19:45:00Z",
+      "competition": "Championship",
+      "homeTeam": "Cardiff City FC",
+      "awayTeam": "Preston North End FC",
+      "homeCrest": "https://crests.football-data.org/715.png",
+      "awayCrest": "https://crests.football-data.org/1081.png",
+      "probabilities": {
+        "home": 53.3,
+        "draw": 20.9,
+        "away": 25.8
+      },
+      "expectedGoals": {
+        "home": 2.12,
+        "away": 1.43
+      },
+      "trend": {
+        "label": "1",
+        "probability": 53.3
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561959,
+      "utcDate": "2026-11-24T19:45:00Z",
+      "competition": "Championship",
+      "homeTeam": "Bristol City FC",
+      "awayTeam": "Wrexham AFC",
+      "homeCrest": "https://crests.football-data.org/387.png",
+      "awayCrest": "https://crests.football-data.org/404.png",
+      "probabilities": {
+        "home": 30.5,
+        "draw": 26.2,
+        "away": 43.4
+      },
+      "expectedGoals": {
+        "home": 1.16,
+        "away": 1.43
+      },
+      "trend": {
+        "label": "2",
+        "probability": 43.4
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561955,
+      "utcDate": "2026-11-24T19:45:00Z",
+      "competition": "Championship",
+      "homeTeam": "Portsmouth FC",
+      "awayTeam": "West Ham United FC",
+      "homeCrest": "https://crests.football-data.org/325.png",
+      "awayCrest": "https://crests.football-data.org/563.png",
+      "probabilities": {
+        "home": 49.7,
+        "draw": 21.2,
+        "away": 29.1
+      },
+      "expectedGoals": {
+        "home": 2.06,
+        "away": 1.55
+      },
+      "trend": {
+        "label": "1",
+        "probability": 49.7
+      },
+      "sampleMatches": 11,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575401,
+      "utcDate": "2026-11-24T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "ŠK Slovan Bratislava",
+      "awayTeam": "Real Betis Balompié",
+      "homeCrest": "https://crests.football-data.org/7509.png",
+      "awayCrest": "https://crests.football-data.org/90.png",
+      "probabilities": {
+        "home": 27.8,
+        "draw": 26.2,
+        "away": 46.0
+      },
+      "expectedGoals": {
+        "home": 1.07,
+        "away": 1.46
+      },
+      "trend": {
+        "label": "2",
+        "probability": 46.0
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575397,
+      "utcDate": "2026-11-24T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Real Madrid CF",
+      "awayTeam": "PSV",
+      "homeCrest": "https://crests.football-data.org/86.png",
+      "awayCrest": "https://crests.football-data.org/674.png",
+      "probabilities": {
+        "home": 46.5,
+        "draw": 21.7,
+        "away": 31.8
+      },
+      "expectedGoals": {
+        "home": 1.97,
+        "away": 1.61
+      },
+      "trend": {
+        "label": "1",
+        "probability": 46.5
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575403,
+      "utcDate": "2026-11-24T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Como 1907",
+      "awayTeam": "PAE AEK",
+      "homeCrest": "https://crests.football-data.org/7397.png",
+      "awayCrest": "https://crests.football-data.org/1899.png",
+      "probabilities": {
+        "home": 76.9,
+        "draw": 14.2,
+        "away": 8.9
+      },
+      "expectedGoals": {
+        "home": 2.7,
+        "away": 0.82
+      },
+      "trend": {
+        "label": "1",
+        "probability": 76.9
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575399,
+      "utcDate": "2026-11-24T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Arsenal FC",
+      "awayTeam": "Borussia Dortmund",
+      "homeCrest": "https://crests.football-data.org/57.png",
+      "awayCrest": "https://crests.football-data.org/4.png",
+      "probabilities": {
+        "home": 50.6,
+        "draw": 28.3,
+        "away": 21.1
+      },
+      "expectedGoals": {
+        "home": 1.34,
+        "away": 0.75
+      },
+      "trend": {
+        "label": "1",
+        "probability": 50.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561957,
+      "utcDate": "2026-11-24T20:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "Wolverhampton Wanderers FC",
+      "awayTeam": "Derby County FC",
+      "homeCrest": "https://crests.football-data.org/76.png",
+      "awayCrest": "https://crests.football-data.org/342.png",
+      "probabilities": {
+        "home": 62.5,
+        "draw": 22.0,
+        "away": 15.5
+      },
+      "expectedGoals": {
+        "home": 1.86,
+        "away": 0.8
+      },
+      "trend": {
+        "label": "1",
+        "probability": 62.5
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575402,
+      "utcDate": "2026-11-24T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "RB Leipzig",
+      "awayTeam": "Racing Club de Lens",
+      "homeCrest": "https://crests.football-data.org/721.png",
+      "awayCrest": "https://crests.football-data.org/546.png",
+      "probabilities": {
+        "home": 61.4,
+        "draw": 19.5,
+        "away": 19.1
+      },
+      "expectedGoals": {
+        "home": 2.26,
+        "away": 1.19
+      },
+      "trend": {
+        "label": "1",
+        "probability": 61.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575398,
+      "utcDate": "2026-11-24T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Manchester City FC",
+      "awayTeam": "SSC Napoli",
+      "homeCrest": "https://crests.football-data.org/65.png",
+      "awayCrest": "https://crests.football-data.org/113.png",
+      "probabilities": {
+        "home": 51.0,
+        "draw": 21.0,
+        "away": 28.0
+      },
+      "expectedGoals": {
+        "home": 2.1,
+        "away": 1.52
+      },
+      "trend": {
+        "label": "1",
+        "probability": 51.0
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575400,
+      "utcDate": "2026-11-24T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Feyenoord Rotterdam",
+      "awayTeam": "FC Porto",
+      "homeCrest": "https://crests.football-data.org/675.png",
+      "awayCrest": "https://crests.football-data.org/503.png",
+      "probabilities": {
+        "home": 27.8,
+        "draw": 21.8,
+        "away": 50.4
+      },
+      "expectedGoals": {
+        "home": 1.43,
+        "away": 1.97
+      },
+      "trend": {
+        "label": "2",
+        "probability": 50.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555102,
+      "utcDate": "2026-11-24T21:00:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "Chapecoense AF",
+      "awayTeam": "SE Palmeiras",
+      "homeCrest": "https://crests.football-data.org/1772_large.png",
+      "awayCrest": "https://crests.football-data.org/1769.png",
+      "probabilities": {
+        "home": 24.7,
+        "draw": 24.9,
+        "away": 50.4
+      },
+      "expectedGoals": {
+        "home": 1.05,
+        "away": 1.61
+      },
+      "trend": {
+        "label": "2",
+        "probability": 50.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575405,
+      "utcDate": "2026-11-25T17:45:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "SK Slavia Praha",
+      "awayTeam": "Villarreal CF",
+      "homeCrest": "https://crests.football-data.org/930.png",
+      "awayCrest": "https://crests.football-data.org/94.png",
+      "probabilities": {
+        "home": 37.1,
+        "draw": 20.3,
+        "away": 42.6
+      },
+      "expectedGoals": {
+        "home": 2.0,
+        "away": 2.14
+      },
+      "trend": {
+        "label": "2",
+        "probability": 42.6
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575404,
+      "utcDate": "2026-11-25T17:45:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Sabah FK",
+      "awayTeam": "FC Barcelona",
+      "homeCrest": "https://crests.football-data.org/10233.png",
+      "awayCrest": "https://crests.football-data.org/81.png",
+      "probabilities": {
+        "home": 34.2,
+        "draw": 21.1,
+        "away": 44.7
+      },
+      "expectedGoals": {
+        "home": 1.78,
+        "away": 2.04
+      },
+      "trend": {
+        "label": "2",
+        "probability": 44.7
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561964,
+      "utcDate": "2026-11-25T19:45:00Z",
+      "competition": "Championship",
+      "homeTeam": "Burnley FC",
+      "awayTeam": "Birmingham City FC",
+      "homeCrest": "https://crests.football-data.org/328.png",
+      "awayCrest": "https://crests.football-data.org/332.png",
+      "probabilities": {
+        "home": 38.5,
+        "draw": 28.0,
+        "away": 33.5
+      },
+      "expectedGoals": {
+        "home": 1.22,
+        "away": 1.12
+      },
+      "trend": {
+        "label": "1",
+        "probability": 38.5
+      },
+      "sampleMatches": 11,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561963,
+      "utcDate": "2026-11-25T19:45:00Z",
+      "competition": "Championship",
+      "homeTeam": "Bolton Wanderers FC",
+      "awayTeam": "West Bromwich Albion FC",
+      "homeCrest": "https://crests.football-data.org/60.png",
+      "awayCrest": "https://crests.football-data.org/74.png",
+      "probabilities": {
+        "home": 23.2,
+        "draw": 19.6,
+        "away": 57.2
+      },
+      "expectedGoals": {
+        "home": 1.44,
+        "away": 2.32
+      },
+      "trend": {
+        "label": "2",
+        "probability": 57.2
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561961,
+      "utcDate": "2026-11-25T19:45:00Z",
+      "competition": "Championship",
+      "homeTeam": "Watford FC",
+      "awayTeam": "Blackburn Rovers FC",
+      "homeCrest": "https://crests.football-data.org/346.png",
+      "awayCrest": "https://crests.football-data.org/59.png",
+      "probabilities": {
+        "home": 54.8,
+        "draw": 24.4,
+        "away": 20.9
+      },
+      "expectedGoals": {
+        "home": 1.66,
+        "away": 0.92
+      },
+      "trend": {
+        "label": "1",
+        "probability": 54.8
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561962,
+      "utcDate": "2026-11-25T20:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "Stoke City FC",
+      "awayTeam": "Millwall FC",
+      "homeCrest": "https://crests.football-data.org/70.png",
+      "awayCrest": "https://crests.football-data.org/384.png",
+      "probabilities": {
+        "home": 64.5,
+        "draw": 22.6,
+        "away": 12.9
+      },
+      "expectedGoals": {
+        "home": 1.75,
+        "away": 0.63
+      },
+      "trend": {
+        "label": "1",
+        "probability": 64.5
+      },
+      "sampleMatches": 11,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575411,
+      "utcDate": "2026-11-25T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Sporting Clube de Portugal",
+      "awayTeam": "Manchester United FC",
+      "homeCrest": "https://crests.football-data.org/498.png",
+      "awayCrest": "https://crests.football-data.org/66.png",
+      "probabilities": {
+        "home": 61.3,
+        "draw": 20.8,
+        "away": 17.9
+      },
+      "expectedGoals": {
+        "home": 2.04,
+        "away": 1.0
+      },
+      "trend": {
+        "label": "1",
+        "probability": 61.3
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575407,
+      "utcDate": "2026-11-25T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Club Atlético de Madrid",
+      "awayTeam": "Viking FK",
+      "homeCrest": "https://crests.football-data.org/78.png",
+      "awayCrest": "https://crests.football-data.org/5720.png",
+      "probabilities": {
+        "home": 50.7,
+        "draw": 24.0,
+        "away": 25.2
+      },
+      "expectedGoals": {
+        "home": 1.7,
+        "away": 1.13
+      },
+      "trend": {
+        "label": "1",
+        "probability": 50.7
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575409,
+      "utcDate": "2026-11-25T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Club Brugge KV",
+      "awayTeam": "Liverpool FC",
+      "homeCrest": "https://crests.football-data.org/851.png",
+      "awayCrest": "https://crests.football-data.org/64.png",
+      "probabilities": {
+        "home": 36.7,
+        "draw": 19.7,
+        "away": 43.6
+      },
+      "expectedGoals": {
+        "home": 2.08,
+        "away": 2.27
+      },
+      "trend": {
+        "label": "2",
+        "probability": 43.6
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575410,
+      "utcDate": "2026-11-25T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Lille OSC",
+      "awayTeam": "FC Bayern München",
+      "homeCrest": "https://crests.football-data.org/521.png",
+      "awayCrest": "https://crests.football-data.org/5.png",
+      "probabilities": {
+        "home": 23.9,
+        "draw": 22.0,
+        "away": 54.1
+      },
+      "expectedGoals": {
+        "home": 1.23,
+        "away": 1.95
+      },
+      "trend": {
+        "label": "2",
+        "probability": 54.1
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575406,
+      "utcDate": "2026-11-25T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "FC Internazionale Milano",
+      "awayTeam": "VfB Stuttgart",
+      "homeCrest": "https://crests.football-data.org/108.png",
+      "awayCrest": "https://crests.football-data.org/10.png",
+      "probabilities": {
+        "home": 44.6,
+        "draw": 27.5,
+        "away": 27.9
+      },
+      "expectedGoals": {
+        "home": 1.34,
+        "away": 1.0
+      },
+      "trend": {
+        "label": "1",
+        "probability": 44.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575412,
+      "utcDate": "2026-11-25T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "FK Shakhtar Donetsk",
+      "awayTeam": "Fenerbahçe SK",
+      "homeCrest": "https://crests.football-data.org/1887.png",
+      "awayCrest": "https://crests.football-data.org/613.png",
+      "probabilities": {
+        "home": 65.6,
+        "draw": 18.5,
+        "away": 16.0
+      },
+      "expectedGoals": {
+        "home": 2.34,
+        "away": 1.08
+      },
+      "trend": {
+        "label": "1",
+        "probability": 65.6
+      },
+      "sampleMatches": 8,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 575408,
+      "utcDate": "2026-11-25T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "homeTeam": "Paris Saint-Germain FC",
+      "awayTeam": "AS Roma",
+      "homeCrest": "https://crests.football-data.org/524.png",
+      "awayCrest": "https://crests.football-data.org/100.png",
+      "probabilities": {
+        "home": 46.5,
+        "draw": 20.2,
+        "away": 33.2
+      },
+      "expectedGoals": {
+        "home": 2.22,
+        "away": 1.87
+      },
+      "trend": {
+        "label": "1",
+        "probability": 46.5
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555091,
+      "utcDate": "2026-11-25T23:00:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "CA Mineiro",
+      "awayTeam": "SC Corinthians Paulista",
+      "homeCrest": "https://crests.football-data.org/1766.png",
+      "awayCrest": "https://crests.football-data.org/1779.png",
+      "probabilities": {
+        "home": 54.2,
+        "draw": 25.1,
+        "away": 20.7
+      },
+      "expectedGoals": {
+        "home": 1.59,
+        "away": 0.88
+      },
+      "trend": {
+        "label": "1",
+        "probability": 54.2
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555108,
+      "utcDate": "2026-11-26T23:00:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "São Paulo FC",
+      "awayTeam": "Clube do Remo",
+      "homeCrest": "https://crests.football-data.org/1776.png",
+      "awayCrest": "https://crests.football-data.org/4287.png",
+      "probabilities": {
+        "home": 54.3,
+        "draw": 25.1,
+        "away": 20.6
+      },
+      "expectedGoals": {
+        "home": 1.6,
+        "away": 0.88
+      },
+      "trend": {
+        "label": "1",
+        "probability": 54.3
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558820,
+      "utcDate": "2026-11-27T19:00:00Z",
+      "competition": "Eredivisie",
+      "homeTeam": "FC Groningen",
+      "awayTeam": "Willem II Tilburg",
+      "homeCrest": "https://crests.football-data.org/677.png",
+      "awayCrest": "https://crests.football-data.org/672.png",
+      "probabilities": {
+        "home": 64.4,
+        "draw": 16.0,
+        "away": 19.6
+      },
+      "expectedGoals": {
+        "home": 3.04,
+        "away": 1.71
+      },
+      "trend": {
+        "label": "1",
+        "probability": 64.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 565869,
+      "utcDate": "2026-11-27T19:30:00Z",
+      "competition": "Bundesliga",
+      "homeTeam": "SV Werder Bremen",
+      "awayTeam": "Borussia Mönchengladbach",
+      "homeCrest": "https://crests.football-data.org/12.png",
+      "awayCrest": "https://crests.football-data.org/18.png",
+      "probabilities": {
+        "home": 72.8,
+        "draw": 14.8,
+        "away": 12.5
+      },
+      "expectedGoals": {
+        "home": 2.9,
+        "away": 1.17
+      },
+      "trend": {
+        "label": "1",
+        "probability": 72.8
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 559616,
+      "utcDate": "2026-11-27T19:45:00Z",
+      "competition": "Ligue 1",
+      "homeTeam": "Stade Brestois 29",
+      "awayTeam": "Paris FC",
+      "homeCrest": "https://crests.football-data.org/512.png",
+      "awayCrest": "https://crests.football-data.org/1045.png",
+      "probabilities": {
+        "home": 50.6,
+        "draw": 25.5,
+        "away": 24.0
+      },
+      "expectedGoals": {
+        "home": 1.55,
+        "away": 0.99
+      },
+      "trend": {
+        "label": "1",
+        "probability": 50.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558515,
+      "utcDate": "2026-11-27T19:45:00Z",
+      "competition": "Serie A",
+      "homeTeam": "Venezia FC",
+      "awayTeam": "Bologna FC 1909",
+      "homeCrest": "https://crests.football-data.org/454.png",
+      "awayCrest": "https://crests.football-data.org/103.png",
+      "probabilities": {
+        "home": 21.9,
+        "draw": 23.1,
+        "away": 54.9
+      },
+      "expectedGoals": {
+        "home": 1.05,
+        "away": 1.8
+      },
+      "trend": {
+        "label": "2",
+        "probability": 54.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561968,
+      "utcDate": "2026-11-27T20:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "Southampton FC",
+      "awayTeam": "Middlesbrough FC",
+      "homeCrest": "https://crests.football-data.org/340.png",
+      "awayCrest": "https://crests.football-data.org/343.png",
+      "probabilities": {
+        "home": 49.8,
+        "draw": 23.5,
+        "away": 26.7
+      },
+      "expectedGoals": {
+        "home": 1.76,
+        "away": 1.23
+      },
+      "trend": {
+        "label": "1",
+        "probability": 49.8
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560658,
+      "utcDate": "2026-11-27T20:00:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Nottingham Forest FC",
+      "awayTeam": "Chelsea FC",
+      "homeCrest": "https://crests.football-data.org/351.png",
+      "awayCrest": "https://crests.football-data.org/61.png",
+      "probabilities": {
+        "home": 44.0,
+        "draw": 27.7,
+        "away": 28.4
+      },
+      "expectedGoals": {
+        "home": 1.33,
+        "away": 1.01
+      },
+      "trend": {
+        "label": "1",
+        "probability": 44.0
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564765,
+      "utcDate": "2026-11-27T20:00:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "Levante UD",
+      "awayTeam": "Real Racing Club de Santander",
+      "homeCrest": "https://crests.football-data.org/88.png",
+      "awayCrest": "https://crests.football-data.org/5335.png",
+      "probabilities": {
+        "home": 61.9,
+        "draw": 17.1,
+        "away": 21.0
+      },
+      "expectedGoals": {
+        "home": 2.81,
+        "away": 1.65
+      },
+      "trend": {
+        "label": "1",
+        "probability": 61.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 567361,
+      "utcDate": "2026-11-27T20:15:00Z",
+      "competition": "Primeira Liga",
+      "homeTeam": "CS Marítimo",
+      "awayTeam": "CD Nacional",
+      "homeCrest": "https://crests.football-data.org/5575.png",
+      "awayCrest": "https://crests.football-data.org/5529.png",
+      "probabilities": {
+        "home": 33.9,
+        "draw": 25.8,
+        "away": 40.2
+      },
+      "expectedGoals": {
+        "home": 1.27,
+        "away": 1.41
+      },
+      "trend": {
+        "label": "2",
+        "probability": 40.2
+      },
+      "sampleMatches": 15,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555105,
+      "utcDate": "2026-11-27T23:00:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "Fluminense FC",
+      "awayTeam": "Cruzeiro EC",
+      "homeCrest": "https://crests.football-data.org/1765.png",
+      "awayCrest": "https://crests.football-data.org/1771.png",
+      "probabilities": {
+        "home": 48.1,
+        "draw": 22.6,
+        "away": 29.4
+      },
+      "expectedGoals": {
+        "home": 1.86,
+        "away": 1.41
+      },
+      "trend": {
+        "label": "1",
+        "probability": 48.1
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561972,
+      "utcDate": "2026-11-28T12:30:00Z",
+      "competition": "Championship",
+      "homeTeam": "Lincoln City FC",
+      "awayTeam": "Wolverhampton Wanderers FC",
+      "homeCrest": "https://crests.football-data.org/1126.png",
+      "awayCrest": "https://crests.football-data.org/76.png",
+      "probabilities": {
+        "home": 37.1,
+        "draw": 24.2,
+        "away": 38.7
+      },
+      "expectedGoals": {
+        "home": 1.5,
+        "away": 1.53
+      },
+      "trend": {
+        "label": "2",
+        "probability": 38.7
+      },
+      "sampleMatches": 11,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561973,
+      "utcDate": "2026-11-28T12:30:00Z",
+      "competition": "Championship",
+      "homeTeam": "Preston North End FC",
+      "awayTeam": "Norwich City FC",
+      "homeCrest": "https://crests.football-data.org/1081.png",
+      "awayCrest": "https://crests.football-data.org/68.png",
+      "probabilities": {
+        "home": 19.8,
+        "draw": 20.1,
+        "away": 60.1
+      },
+      "expectedGoals": {
+        "home": 1.18,
+        "away": 2.18
+      },
+      "trend": {
+        "label": "2",
+        "probability": 60.1
+      },
+      "sampleMatches": 11,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561969,
+      "utcDate": "2026-11-28T12:30:00Z",
+      "competition": "Championship",
+      "homeTeam": "Blackburn Rovers FC",
+      "awayTeam": "Charlton Athletic FC",
+      "homeCrest": "https://crests.football-data.org/59.png",
+      "awayCrest": "https://crests.football-data.org/348.png",
+      "probabilities": {
+        "home": 58.3,
+        "draw": 22.0,
+        "away": 19.8
+      },
+      "expectedGoals": {
+        "home": 1.92,
+        "away": 1.02
+      },
+      "trend": {
+        "label": "1",
+        "probability": 58.3
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564760,
+      "utcDate": "2026-11-28T13:00:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "Real Betis Balompié",
+      "awayTeam": "Rayo Vallecano de Madrid",
+      "homeCrest": "https://crests.football-data.org/90.png",
+      "awayCrest": "https://crests.football-data.org/87.png",
+      "probabilities": {
+        "home": 50.0,
+        "draw": 22.6,
+        "away": 27.4
+      },
+      "expectedGoals": {
+        "home": 1.86,
+        "away": 1.32
+      },
+      "trend": {
+        "label": "1",
+        "probability": 50.0
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558513,
+      "utcDate": "2026-11-28T14:00:00Z",
+      "competition": "Serie A",
+      "homeTeam": "Frosinone Calcio",
+      "awayTeam": "Parma Calcio 1913",
+      "homeCrest": "https://crests.football-data.org/470.png",
+      "awayCrest": "https://crests.football-data.org/112.png",
+      "probabilities": {
+        "home": 65.7,
+        "draw": 18.3,
+        "away": 16.0
+      },
+      "expectedGoals": {
+        "home": 2.37,
+        "away": 1.09
+      },
+      "trend": {
+        "label": "1",
+        "probability": 65.7
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 565868,
+      "utcDate": "2026-11-28T14:30:00Z",
+      "competition": "Bundesliga",
+      "homeTeam": "SC Paderborn 07",
+      "awayTeam": "FC Schalke 04",
+      "homeCrest": "https://crests.football-data.org/29.png",
+      "awayCrest": "https://crests.football-data.org/6.png",
+      "probabilities": {
+        "home": 40.7,
+        "draw": 25.7,
+        "away": 33.6
+      },
+      "expectedGoals": {
+        "home": 1.43,
+        "away": 1.27
+      },
+      "trend": {
+        "label": "1",
+        "probability": 40.7
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 565874,
+      "utcDate": "2026-11-28T14:30:00Z",
+      "competition": "Bundesliga",
+      "homeTeam": "Hamburger SV",
+      "awayTeam": "FC Bayern München",
+      "homeCrest": "https://crests.football-data.org/7.png",
+      "awayCrest": "https://crests.football-data.org/5.png",
+      "probabilities": {
+        "home": 39.9,
+        "draw": 23.7,
+        "away": 36.3
+      },
+      "expectedGoals": {
+        "home": 1.6,
+        "away": 1.52
+      },
+      "trend": {
+        "label": "1",
+        "probability": 39.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 565866,
+      "utcDate": "2026-11-28T14:30:00Z",
+      "competition": "Bundesliga",
+      "homeTeam": "1. FC Köln",
+      "awayTeam": "SV 07 Elversberg",
+      "homeCrest": "https://crests.football-data.org/1.png",
+      "awayCrest": "https://crests.football-data.org/719.png",
+      "probabilities": {
+        "home": 52.0,
+        "draw": 27.3,
+        "away": 20.7
+      },
+      "expectedGoals": {
+        "home": 1.41,
+        "away": 0.78
+      },
+      "trend": {
+        "label": "1",
+        "probability": 52.0
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 565867,
+      "utcDate": "2026-11-28T14:30:00Z",
+      "competition": "Bundesliga",
+      "homeTeam": "1. FSV Mainz 05",
+      "awayTeam": "1. FC Union Berlin",
+      "homeCrest": "https://crests.football-data.org/15.png",
+      "awayCrest": "https://crests.football-data.org/28.png",
+      "probabilities": {
+        "home": 56.2,
+        "draw": 19.6,
+        "away": 24.3
+      },
+      "expectedGoals": {
+        "home": 2.34,
+        "away": 1.51
+      },
+      "trend": {
+        "label": "1",
+        "probability": 56.2
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560655,
+      "utcDate": "2026-11-28T15:00:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Manchester United FC",
+      "awayTeam": "Brentford FC",
+      "homeCrest": "https://crests.football-data.org/66.png",
+      "awayCrest": "https://crests.football-data.org/402.png",
+      "probabilities": {
+        "home": 40.6,
+        "draw": 21.1,
+        "away": 38.3
+      },
+      "expectedGoals": {
+        "home": 1.97,
+        "away": 1.91
+      },
+      "trend": {
+        "label": "1",
+        "probability": 40.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561974,
+      "utcDate": "2026-11-28T15:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "West Ham United FC",
+      "awayTeam": "Stoke City FC",
+      "homeCrest": "https://crests.football-data.org/563.png",
+      "awayCrest": "https://crests.football-data.org/70.png",
+      "probabilities": {
+        "home": 27.1,
+        "draw": 21.9,
+        "away": 51.0
+      },
+      "expectedGoals": {
+        "home": 1.39,
+        "away": 1.97
+      },
+      "trend": {
+        "label": "2",
+        "probability": 51.0
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561970,
+      "utcDate": "2026-11-28T15:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "Birmingham City FC",
+      "awayTeam": "Bolton Wanderers FC",
+      "homeCrest": "https://crests.football-data.org/332.png",
+      "awayCrest": "https://crests.football-data.org/60.png",
+      "probabilities": {
+        "home": 56.5,
+        "draw": 22.5,
+        "away": 21.1
+      },
+      "expectedGoals": {
+        "home": 1.87,
+        "away": 1.05
+      },
+      "trend": {
+        "label": "1",
+        "probability": 56.5
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561966,
+      "utcDate": "2026-11-28T15:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "Queens Park Rangers FC",
+      "awayTeam": "Sheffield United FC",
+      "homeCrest": "https://crests.football-data.org/69.png",
+      "awayCrest": "https://crests.football-data.org/356.png",
+      "probabilities": {
+        "home": 58.0,
+        "draw": 20.3,
+        "away": 21.7
+      },
+      "expectedGoals": {
+        "home": 2.17,
+        "away": 1.27
+      },
+      "trend": {
+        "label": "1",
+        "probability": 58.0
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561971,
+      "utcDate": "2026-11-28T15:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "Derby County FC",
+      "awayTeam": "Watford FC",
+      "homeCrest": "https://crests.football-data.org/342.png",
+      "awayCrest": "https://crests.football-data.org/346.png",
+      "probabilities": {
+        "home": 51.9,
+        "draw": 21.7,
+        "away": 26.5
+      },
+      "expectedGoals": {
+        "home": 2.0,
+        "away": 1.38
+      },
+      "trend": {
+        "label": "1",
+        "probability": 51.9
+      },
+      "sampleMatches": 11,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561967,
+      "utcDate": "2026-11-28T15:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "Millwall FC",
+      "awayTeam": "Burnley FC",
+      "homeCrest": "https://crests.football-data.org/384.png",
+      "awayCrest": "https://crests.football-data.org/328.png",
+      "probabilities": {
+        "home": 53.1,
+        "draw": 20.8,
+        "away": 26.1
+      },
+      "expectedGoals": {
+        "home": 2.13,
+        "away": 1.45
+      },
+      "trend": {
+        "label": "1",
+        "probability": 53.1
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560652,
+      "utcDate": "2026-11-28T15:00:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Leeds United FC",
+      "awayTeam": "Coventry City FC",
+      "homeCrest": "https://crests.football-data.org/341.png",
+      "awayCrest": "https://crests.football-data.org/1076.png",
+      "probabilities": {
+        "home": 56.9,
+        "draw": 23.7,
+        "away": 19.4
+      },
+      "expectedGoals": {
+        "home": 1.72,
+        "away": 0.9
+      },
+      "trend": {
+        "label": "1",
+        "probability": 56.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561965,
+      "utcDate": "2026-11-28T15:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "Wrexham AFC",
+      "awayTeam": "Portsmouth FC",
+      "homeCrest": "https://crests.football-data.org/404.png",
+      "awayCrest": "https://crests.football-data.org/325.png",
+      "probabilities": {
+        "home": 44.6,
+        "draw": 28.5,
+        "away": 26.9
+      },
+      "expectedGoals": {
+        "home": 1.28,
+        "away": 0.92
+      },
+      "trend": {
+        "label": "1",
+        "probability": 44.6
+      },
+      "sampleMatches": 11,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561975,
+      "utcDate": "2026-11-28T15:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "West Bromwich Albion FC",
+      "awayTeam": "Bristol City FC",
+      "homeCrest": "https://crests.football-data.org/74.png",
+      "awayCrest": "https://crests.football-data.org/387.png",
+      "probabilities": {
+        "home": 51.9,
+        "draw": 24.5,
+        "away": 23.5
+      },
+      "expectedGoals": {
+        "home": 1.65,
+        "away": 1.02
+      },
+      "trend": {
+        "label": "1",
+        "probability": 51.9
+      },
+      "sampleMatches": 10,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564767,
+      "utcDate": "2026-11-28T15:15:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "Málaga CF",
+      "awayTeam": "Athletic Club",
+      "homeCrest": "https://crests.football-data.org/84.png",
+      "awayCrest": "https://crests.football-data.org/77.png",
+      "probabilities": {
+        "home": 33.0,
+        "draw": 24.2,
+        "away": 42.9
+      },
+      "expectedGoals": {
+        "home": 1.38,
+        "away": 1.61
+      },
+      "trend": {
+        "label": "2",
+        "probability": 42.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 567357,
+      "utcDate": "2026-11-28T15:30:00Z",
+      "competition": "Primeira Liga",
+      "homeTeam": "Moreirense FC",
+      "awayTeam": "CD Santa Clara",
+      "homeCrest": "https://crests.football-data.org/583.png",
+      "awayCrest": "https://crests.football-data.org/5530.png",
+      "probabilities": {
+        "home": 24.4,
+        "draw": 24.9,
+        "away": 50.6
+      },
+      "expectedGoals": {
+        "home": 1.03,
+        "away": 1.61
+      },
+      "trend": {
+        "label": "2",
+        "probability": 50.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 567362,
+      "utcDate": "2026-11-28T15:30:00Z",
+      "competition": "Primeira Liga",
+      "homeTeam": "FC Arouca",
+      "awayTeam": "Rio Ave FC",
+      "homeCrest": "https://crests.football-data.org/712.png",
+      "awayCrest": "https://crests.football-data.org/496.png",
+      "probabilities": {
+        "home": 59.2,
+        "draw": 23.6,
+        "away": 17.2
+      },
+      "expectedGoals": {
+        "home": 1.71,
+        "away": 0.8
+      },
+      "trend": {
+        "label": "1",
+        "probability": 59.2
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558825,
+      "utcDate": "2026-11-28T15:30:00Z",
+      "competition": "Eredivisie",
+      "homeTeam": "SBV Excelsior",
+      "awayTeam": "Telstar 1963",
+      "homeCrest": "https://crests.football-data.org/670.png",
+      "awayCrest": "https://crests.football-data.org/1912.png",
+      "probabilities": {
+        "home": 20.3,
+        "draw": 21.2,
+        "away": 58.5
+      },
+      "expectedGoals": {
+        "home": 1.11,
+        "away": 2.03
+      },
+      "trend": {
+        "label": "2",
+        "probability": 58.5
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 559612,
+      "utcDate": "2026-11-28T16:15:00Z",
+      "competition": "Ligue 1",
+      "homeTeam": "Angers SCO",
+      "awayTeam": "Racing Club de Lens",
+      "homeCrest": "https://crests.football-data.org/532.png",
+      "awayCrest": "https://crests.football-data.org/546.png",
+      "probabilities": {
+        "home": 37.1,
+        "draw": 25.4,
+        "away": 37.5
+      },
+      "expectedGoals": {
+        "home": 1.38,
+        "away": 1.39
+      },
+      "trend": {
+        "label": "2",
+        "probability": 37.5
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558514,
+      "utcDate": "2026-11-28T17:00:00Z",
+      "competition": "Serie A",
+      "homeTeam": "Torino FC",
+      "awayTeam": "SS Lazio",
+      "homeCrest": "https://crests.football-data.org/586.png",
+      "awayCrest": "https://crests.football-data.org/110.png",
+      "probabilities": {
+        "home": 20.2,
+        "draw": 19.2,
+        "away": 60.7
+      },
+      "expectedGoals": {
+        "home": 1.3,
+        "away": 2.34
+      },
+      "trend": {
+        "label": "2",
+        "probability": 60.7
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 565870,
+      "utcDate": "2026-11-28T17:30:00Z",
+      "competition": "Bundesliga",
+      "homeTeam": "VfB Stuttgart",
+      "awayTeam": "Eintracht Frankfurt",
+      "homeCrest": "https://crests.football-data.org/10.png",
+      "awayCrest": "https://crests.football-data.org/19.png",
+      "probabilities": {
+        "home": 51.0,
+        "draw": 22.4,
+        "away": 26.6
+      },
+      "expectedGoals": {
+        "home": 1.89,
+        "away": 1.31
+      },
+      "trend": {
+        "label": "1",
+        "probability": 51.0
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560653,
+      "utcDate": "2026-11-28T17:30:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Ipswich Town FC",
+      "awayTeam": "Aston Villa FC",
+      "homeCrest": "https://crests.football-data.org/349.png",
+      "awayCrest": "https://crests.football-data.org/58.png",
+      "probabilities": {
+        "home": 45.1,
+        "draw": 22.9,
+        "away": 32.0
+      },
+      "expectedGoals": {
+        "home": 1.79,
+        "away": 1.48
+      },
+      "trend": {
+        "label": "1",
+        "probability": 45.1
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564759,
+      "utcDate": "2026-11-28T17:30:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "Elche CF",
+      "awayTeam": "Club Atlético de Madrid",
+      "homeCrest": "https://crests.football-data.org/285.png",
+      "awayCrest": "https://crests.football-data.org/78.png",
+      "probabilities": {
+        "home": 16.9,
+        "draw": 24.8,
+        "away": 58.3
+      },
+      "expectedGoals": {
+        "home": 0.73,
+        "away": 1.61
+      },
+      "trend": {
+        "label": "2",
+        "probability": 58.3
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558826,
+      "utcDate": "2026-11-28T17:45:00Z",
+      "competition": "Eredivisie",
+      "homeTeam": "PSV",
+      "awayTeam": "Go Ahead Eagles",
+      "homeCrest": "https://crests.football-data.org/674.png",
+      "awayCrest": "https://crests.football-data.org/718.png",
+      "probabilities": {
+        "home": 70.1,
+        "draw": 16.8,
+        "away": 13.0
+      },
+      "expectedGoals": {
+        "home": 2.5,
+        "away": 0.99
+      },
+      "trend": {
+        "label": "1",
+        "probability": 70.1
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 567364,
+      "utcDate": "2026-11-28T18:00:00Z",
+      "competition": "Primeira Liga",
+      "homeTeam": "Académico de Viseu FC",
+      "awayTeam": "FC Alverca",
+      "homeCrest": "https://crests.football-data.org/5527.png",
+      "awayCrest": "https://crests.football-data.org/7822.png",
+      "probabilities": {
+        "home": 29.2,
+        "draw": 23.0,
+        "away": 47.9
+      },
+      "expectedGoals": {
+        "home": 1.37,
+        "away": 1.81
+      },
+      "trend": {
+        "label": "2",
+        "probability": 47.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 559620,
+      "utcDate": "2026-11-28T19:45:00Z",
+      "competition": "Ligue 1",
+      "homeTeam": "OGC Nice",
+      "awayTeam": "ES Troyes AC",
+      "homeCrest": "https://crests.football-data.org/522.png",
+      "awayCrest": "https://crests.football-data.org/531.png",
+      "probabilities": {
+        "home": 61.9,
+        "draw": 21.6,
+        "away": 16.4
+      },
+      "expectedGoals": {
+        "home": 1.91,
+        "away": 0.87
+      },
+      "trend": {
+        "label": "1",
+        "probability": 61.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 559614,
+      "utcDate": "2026-11-28T19:45:00Z",
+      "competition": "Ligue 1",
+      "homeTeam": "Paris Saint-Germain FC",
+      "awayTeam": "FC Lorient",
+      "homeCrest": "https://crests.football-data.org/524.png",
+      "awayCrest": "https://crests.football-data.org/525.png",
+      "probabilities": {
+        "home": 48.7,
+        "draw": 26.0,
+        "away": 25.4
+      },
+      "expectedGoals": {
+        "home": 1.5,
+        "away": 1.01
+      },
+      "trend": {
+        "label": "1",
+        "probability": 48.7
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 559617,
+      "utcDate": "2026-11-28T19:45:00Z",
+      "competition": "Ligue 1",
+      "homeTeam": "Le Mans FC",
+      "awayTeam": "Lille OSC",
+      "homeCrest": "https://crests.football-data.org/535.png",
+      "awayCrest": "https://crests.football-data.org/521.png",
+      "probabilities": {
+        "home": 38.9,
+        "draw": 26.6,
+        "away": 34.6
+      },
+      "expectedGoals": {
+        "home": 1.33,
+        "away": 1.24
+      },
+      "trend": {
+        "label": "1",
+        "probability": 38.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 559613,
+      "utcDate": "2026-11-28T19:45:00Z",
+      "competition": "Ligue 1",
+      "homeTeam": "Le Havre AC",
+      "awayTeam": "RC Strasbourg Alsace",
+      "homeCrest": "https://crests.football-data.org/533.png",
+      "awayCrest": "https://crests.football-data.org/576.png",
+      "probabilities": {
+        "home": 35.8,
+        "draw": 24.7,
+        "away": 39.6
+      },
+      "expectedGoals": {
+        "home": 1.42,
+        "away": 1.5
+      },
+      "trend": {
+        "label": "2",
+        "probability": 39.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558518,
+      "utcDate": "2026-11-28T19:45:00Z",
+      "competition": "Serie A",
+      "homeTeam": "FC Internazionale Milano",
+      "awayTeam": "Genoa CFC",
+      "homeCrest": "https://crests.football-data.org/108.png",
+      "awayCrest": "https://crests.football-data.org/107.png",
+      "probabilities": {
+        "home": 49.7,
+        "draw": 26.1,
+        "away": 24.2
+      },
+      "expectedGoals": {
+        "home": 1.49,
+        "away": 0.96
+      },
+      "trend": {
+        "label": "1",
+        "probability": 49.7
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564762,
+      "utcDate": "2026-11-28T20:00:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "Real Madrid CF",
+      "awayTeam": "Deportivo Alavés",
+      "homeCrest": "https://crests.football-data.org/86.png",
+      "awayCrest": "https://crests.football-data.org/263.png",
+      "probabilities": {
+        "home": 72.2,
+        "draw": 16.3,
+        "away": 11.5
+      },
+      "expectedGoals": {
+        "home": 2.49,
+        "away": 0.9
+      },
+      "trend": {
+        "label": "1",
+        "probability": 72.2
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558819,
+      "utcDate": "2026-11-28T20:00:00Z",
+      "competition": "Eredivisie",
+      "homeTeam": "SC Cambuur-Leeuwarden",
+      "awayTeam": "Sparta Rotterdam",
+      "homeCrest": "https://crests.football-data.org/1909.png",
+      "awayCrest": "https://crests.football-data.org/6806.png",
+      "probabilities": {
+        "home": 59.5,
+        "draw": 17.1,
+        "away": 23.5
+      },
+      "expectedGoals": {
+        "home": 2.9,
+        "away": 1.85
+      },
+      "trend": {
+        "label": "1",
+        "probability": 59.5
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 567356,
+      "utcDate": "2026-11-28T20:30:00Z",
+      "competition": "Primeira Liga",
+      "homeTeam": "Vitória SC",
+      "awayTeam": "CF Estrela da Amadora",
+      "homeCrest": "https://crests.football-data.org/5543.png",
+      "awayCrest": "https://crests.football-data.org/9136.png",
+      "probabilities": {
+        "home": 54.8,
+        "draw": 22.8,
+        "away": 22.4
+      },
+      "expectedGoals": {
+        "home": 1.84,
+        "away": 1.09
+      },
+      "trend": {
+        "label": "1",
+        "probability": 54.8
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555101,
+      "utcDate": "2026-11-29T00:00:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "Botafogo FR",
+      "awayTeam": "EC Bahia",
+      "homeCrest": "https://crests.football-data.org/1770.png",
+      "awayCrest": "https://crests.football-data.org/1777.png",
+      "probabilities": {
+        "home": 45.2,
+        "draw": 28.7,
+        "away": 26.2
+      },
+      "expectedGoals": {
+        "home": 1.27,
+        "away": 0.9
+      },
+      "trend": {
+        "label": "1",
+        "probability": 45.2
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558827,
+      "utcDate": "2026-11-29T11:15:00Z",
+      "competition": "Eredivisie",
+      "homeTeam": "ADO Den Haag",
+      "awayTeam": "FC Utrecht",
+      "homeCrest": "https://crests.football-data.org/680.png",
+      "awayCrest": "https://crests.football-data.org/676.png",
+      "probabilities": {
+        "home": 56.4,
+        "draw": 19.6,
+        "away": 24.0
+      },
+      "expectedGoals": {
+        "home": 2.34,
+        "away": 1.49
+      },
+      "trend": {
+        "label": "1",
+        "probability": 56.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558517,
+      "utcDate": "2026-11-29T11:30:00Z",
+      "competition": "Serie A",
+      "homeTeam": "Udinese Calcio",
+      "awayTeam": "ACF Fiorentina",
+      "homeCrest": "https://crests.football-data.org/115.png",
+      "awayCrest": "https://crests.football-data.org/99.png",
+      "probabilities": {
+        "home": 15.8,
+        "draw": 16.6,
+        "away": 67.7
+      },
+      "expectedGoals": {
+        "home": 1.26,
+        "away": 2.69
+      },
+      "trend": {
+        "label": "2",
+        "probability": 67.7
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 561976,
+      "utcDate": "2026-11-29T12:00:00Z",
+      "competition": "Championship",
+      "homeTeam": "Swansea City AFC",
+      "awayTeam": "Cardiff City FC",
+      "homeCrest": "https://crests.football-data.org/72.png",
+      "awayCrest": "https://crests.football-data.org/715.png",
+      "probabilities": {
+        "home": 66.7,
+        "draw": 18.2,
+        "away": 15.0
+      },
+      "expectedGoals": {
+        "home": 2.34,
+        "away": 1.02
+      },
+      "trend": {
+        "label": "1",
+        "probability": 66.7
+      },
+      "sampleMatches": 12,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560656,
+      "utcDate": "2026-11-29T12:00:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Everton FC",
+      "awayTeam": "Liverpool FC",
+      "homeCrest": "https://crests.football-data.org/62.png",
+      "awayCrest": "https://crests.football-data.org/64.png",
+      "probabilities": {
+        "home": 32.3,
+        "draw": 20.8,
+        "away": 46.9
+      },
+      "expectedGoals": {
+        "home": 1.74,
+        "away": 2.12
+      },
+      "trend": {
+        "label": "2",
+        "probability": 46.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564761,
+      "utcDate": "2026-11-29T13:00:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "Valencia CF",
+      "awayTeam": "CA Osasuna",
+      "homeCrest": "https://crests.football-data.org/95.png",
+      "awayCrest": "https://crests.football-data.org/79.png",
+      "probabilities": {
+        "home": 48.6,
+        "draw": 23.1,
+        "away": 28.3
+      },
+      "expectedGoals": {
+        "home": 1.8,
+        "away": 1.32
+      },
+      "trend": {
+        "label": "1",
+        "probability": 48.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558824,
+      "utcDate": "2026-11-29T13:30:00Z",
+      "competition": "Eredivisie",
+      "homeTeam": "Feyenoord Rotterdam",
+      "awayTeam": "AFC Ajax",
+      "homeCrest": "https://crests.football-data.org/675.png",
+      "awayCrest": "https://crests.football-data.org/678.png",
+      "probabilities": {
+        "home": 23.5,
+        "draw": 18.5,
+        "away": 57.9
+      },
+      "expectedGoals": {
+        "home": 1.6,
+        "away": 2.54
+      },
+      "trend": {
+        "label": "2",
+        "probability": 57.9
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558821,
+      "utcDate": "2026-11-29T13:30:00Z",
+      "competition": "Eredivisie",
+      "homeTeam": "Fortuna Sittard",
+      "awayTeam": "SC Heerenveen",
+      "homeCrest": "https://crests.football-data.org/1920.png",
+      "awayCrest": "https://crests.football-data.org/673.png",
+      "probabilities": {
+        "home": 21.9,
+        "draw": 19.9,
+        "away": 58.2
+      },
+      "expectedGoals": {
+        "home": 1.33,
+        "away": 2.25
+      },
+      "trend": {
+        "label": "2",
+        "probability": 58.2
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558509,
+      "utcDate": "2026-11-29T14:00:00Z",
+      "competition": "Serie A",
+      "homeTeam": "US Sassuolo Calcio",
+      "awayTeam": "SSC Napoli",
+      "homeCrest": "https://crests.football-data.org/471.png",
+      "awayCrest": "https://crests.football-data.org/113.png",
+      "probabilities": {
+        "home": 29.8,
+        "draw": 20.9,
+        "away": 49.3
+      },
+      "expectedGoals": {
+        "home": 1.62,
+        "away": 2.12
+      },
+      "trend": {
+        "label": "2",
+        "probability": 49.3
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 559619,
+      "utcDate": "2026-11-29T14:00:00Z",
+      "competition": "Ligue 1",
+      "homeTeam": "AJ Auxerre",
+      "awayTeam": "Olympique de Marseille",
+      "homeCrest": "https://crests.football-data.org/519.png",
+      "awayCrest": "https://crests.football-data.org/516.png",
+      "probabilities": {
+        "home": 30.4,
+        "draw": 26.4,
+        "away": 43.2
+      },
+      "expectedGoals": {
+        "home": 1.14,
+        "away": 1.41
+      },
+      "trend": {
+        "label": "2",
+        "probability": 43.2
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560661,
+      "utcDate": "2026-11-29T14:05:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Crystal Palace FC",
+      "awayTeam": "Hull City AFC",
+      "homeCrest": "https://crests.football-data.org/354.png",
+      "awayCrest": "https://crests.football-data.org/322.png",
+      "probabilities": {
+        "home": 40.3,
+        "draw": 24.5,
+        "away": 35.1
+      },
+      "expectedGoals": {
+        "home": 1.53,
+        "away": 1.41
+      },
+      "trend": {
+        "label": "1",
+        "probability": 40.3
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560657,
+      "utcDate": "2026-11-29T14:05:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Fulham FC",
+      "awayTeam": "AFC Bournemouth",
+      "homeCrest": "https://crests.football-data.org/63.png",
+      "awayCrest": "https://crests.football-data.org/bournemouth.png",
+      "probabilities": {
+        "home": 42.7,
+        "draw": 24.9,
+        "away": 32.4
+      },
+      "expectedGoals": {
+        "home": 1.54,
+        "away": 1.31
+      },
+      "trend": {
+        "label": "1",
+        "probability": 42.7
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560659,
+      "utcDate": "2026-11-29T14:05:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Brighton & Hove Albion FC",
+      "awayTeam": "Newcastle United FC",
+      "homeCrest": "https://crests.football-data.org/397.png",
+      "awayCrest": "https://crests.football-data.org/67.png",
+      "probabilities": {
+        "home": 75.8,
+        "draw": 14.8,
+        "away": 9.5
+      },
+      "expectedGoals": {
+        "home": 2.64,
+        "away": 0.84
+      },
+      "trend": {
+        "label": "1",
+        "probability": 75.8
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560660,
+      "utcDate": "2026-11-29T14:05:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Sunderland AFC",
+      "awayTeam": "Tottenham Hotspur FC",
+      "homeCrest": "https://crests.football-data.org/71.png",
+      "awayCrest": "https://crests.football-data.org/73.png",
+      "probabilities": {
+        "home": 27.1,
+        "draw": 31.3,
+        "away": 41.6
+      },
+      "expectedGoals": {
+        "home": 0.82,
+        "away": 1.09
+      },
+      "trend": {
+        "label": "2",
+        "probability": 41.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 565873,
+      "utcDate": "2026-11-29T14:30:00Z",
+      "competition": "Bundesliga",
+      "homeTeam": "SC Freiburg",
+      "awayTeam": "RB Leipzig",
+      "homeCrest": "https://crests.football-data.org/17.png",
+      "awayCrest": "https://crests.football-data.org/721.png",
+      "probabilities": {
+        "home": 60.4,
+        "draw": 18.0,
+        "away": 21.6
+      },
+      "expectedGoals": {
+        "home": 2.62,
+        "away": 1.55
+      },
+      "trend": {
+        "label": "1",
+        "probability": 60.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564766,
+      "utcDate": "2026-11-29T15:15:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "RC Deportivo La Coruña",
+      "awayTeam": "FC Barcelona",
+      "homeCrest": "https://crests.football-data.org/560.png",
+      "awayCrest": "https://crests.football-data.org/81.png",
+      "probabilities": {
+        "home": 30.0,
+        "draw": 22.0,
+        "away": 48.0
+      },
+      "expectedGoals": {
+        "home": 1.5,
+        "away": 1.94
+      },
+      "trend": {
+        "label": "2",
+        "probability": 48.0
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558823,
+      "utcDate": "2026-11-29T15:45:00Z",
+      "competition": "Eredivisie",
+      "homeTeam": "PEC Zwolle",
+      "awayTeam": "AZ",
+      "homeCrest": "https://crests.football-data.org/684.png",
+      "awayCrest": "https://crests.football-data.org/682.png",
+      "probabilities": {
+        "home": 27.8,
+        "draw": 21.8,
+        "away": 50.4
+      },
+      "expectedGoals": {
+        "home": 1.43,
+        "away": 1.97
+      },
+      "trend": {
+        "label": "2",
+        "probability": 50.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 559618,
+      "utcDate": "2026-11-29T16:15:00Z",
+      "competition": "Ligue 1",
+      "homeTeam": "Toulouse FC",
+      "awayTeam": "Stade Rennais FC 1901",
+      "homeCrest": "https://crests.football-data.org/511.png",
+      "awayCrest": "https://crests.football-data.org/529.png",
+      "probabilities": {
+        "home": 66.6,
+        "draw": 16.9,
+        "away": 16.5
+      },
+      "expectedGoals": {
+        "home": 2.66,
+        "away": 1.29
+      },
+      "trend": {
+        "label": "1",
+        "probability": 66.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 565871,
+      "utcDate": "2026-11-29T16:30:00Z",
+      "competition": "Bundesliga",
+      "homeTeam": "TSG 1899 Hoffenheim",
+      "awayTeam": "FC Augsburg",
+      "homeCrest": "https://crests.football-data.org/2.png",
+      "awayCrest": "https://crests.football-data.org/16.png",
+      "probabilities": {
+        "home": 63.4,
+        "draw": 16.5,
+        "away": 20.1
+      },
+      "expectedGoals": {
+        "home": 2.93,
+        "away": 1.67
+      },
+      "trend": {
+        "label": "1",
+        "probability": 63.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 560654,
+      "utcDate": "2026-11-29T16:30:00Z",
+      "competition": "Premier League",
+      "homeTeam": "Arsenal FC",
+      "awayTeam": "Manchester City FC",
+      "homeCrest": "https://crests.football-data.org/57.png",
+      "awayCrest": "https://crests.football-data.org/65.png",
+      "probabilities": {
+        "home": 63.4,
+        "draw": 20.3,
+        "away": 16.3
+      },
+      "expectedGoals": {
+        "home": 2.07,
+        "away": 0.94
+      },
+      "trend": {
+        "label": "1",
+        "probability": 63.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558512,
+      "utcDate": "2026-11-29T17:00:00Z",
+      "competition": "Serie A",
+      "homeTeam": "AS Roma",
+      "awayTeam": "AC Monza",
+      "homeCrest": "https://crests.football-data.org/100.png",
+      "awayCrest": "https://crests.football-data.org/5911.png",
+      "probabilities": {
+        "home": 77.3,
+        "draw": 13.1,
+        "away": 9.6
+      },
+      "expectedGoals": {
+        "home": 3.04,
+        "away": 1.03
+      },
+      "trend": {
+        "label": "1",
+        "probability": 77.3
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564758,
+      "utcDate": "2026-11-29T17:30:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "RC Celta de Vigo",
+      "awayTeam": "Villarreal CF",
+      "homeCrest": "https://crests.football-data.org/558.png",
+      "awayCrest": "https://crests.football-data.org/94.png",
+      "probabilities": {
+        "home": 57.6,
+        "draw": 21.4,
+        "away": 20.9
+      },
+      "expectedGoals": {
+        "home": 2.0,
+        "away": 1.13
+      },
+      "trend": {
+        "label": "1",
+        "probability": 57.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 567363,
+      "utcDate": "2026-11-29T18:00:00Z",
+      "competition": "Primeira Liga",
+      "homeTeam": "Gil Vicente FC",
+      "awayTeam": "GD Estoril Praia",
+      "homeCrest": "https://crests.football-data.org/5533.png",
+      "awayCrest": "https://crests.football-data.org/582.png",
+      "probabilities": {
+        "home": 45.9,
+        "draw": 29.8,
+        "away": 24.3
+      },
+      "expectedGoals": {
+        "home": 1.21,
+        "away": 0.8
+      },
+      "trend": {
+        "label": "1",
+        "probability": 45.9
+      },
+      "sampleMatches": 15,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 565872,
+      "utcDate": "2026-11-29T18:30:00Z",
+      "competition": "Bundesliga",
+      "homeTeam": "Borussia Dortmund",
+      "awayTeam": "Bayer 04 Leverkusen",
+      "homeCrest": "https://crests.football-data.org/4.png",
+      "awayCrest": "https://crests.football-data.org/3.png",
+      "probabilities": {
+        "home": 51.3,
+        "draw": 22.1,
+        "away": 26.6
+      },
+      "expectedGoals": {
+        "home": 1.93,
+        "away": 1.34
+      },
+      "trend": {
+        "label": "1",
+        "probability": 51.3
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555109,
+      "utcDate": "2026-11-29T19:00:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "EC Vitória",
+      "awayTeam": "Santos FC",
+      "homeCrest": "https://crests.football-data.org/1782.png",
+      "awayCrest": "https://crests.football-data.org/6685.png",
+      "probabilities": {
+        "home": 35.6,
+        "draw": 24.7,
+        "away": 39.7
+      },
+      "expectedGoals": {
+        "home": 1.41,
+        "away": 1.5
+      },
+      "trend": {
+        "label": "2",
+        "probability": 39.7
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558822,
+      "utcDate": "2026-11-29T19:00:00Z",
+      "competition": "Eredivisie",
+      "homeTeam": "NEC",
+      "awayTeam": "FC Twente '65",
+      "homeCrest": "https://crests.football-data.org/1915.png",
+      "awayCrest": "https://crests.football-data.org/666.png",
+      "probabilities": {
+        "home": 11.6,
+        "draw": 14.3,
+        "away": 74.1
+      },
+      "expectedGoals": {
+        "home": 1.13,
+        "away": 2.94
+      },
+      "trend": {
+        "label": "2",
+        "probability": 74.1
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555104,
+      "utcDate": "2026-11-29T19:00:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "Coritiba FBC",
+      "awayTeam": "CR Flamengo",
+      "homeCrest": "https://crests.football-data.org/4241.png",
+      "awayCrest": "https://crests.football-data.org/1783.png",
+      "probabilities": {
+        "home": 26.5,
+        "draw": 25.9,
+        "away": 47.6
+      },
+      "expectedGoals": {
+        "home": 1.05,
+        "away": 1.5
+      },
+      "trend": {
+        "label": "2",
+        "probability": 47.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558511,
+      "utcDate": "2026-11-29T19:45:00Z",
+      "competition": "Serie A",
+      "homeTeam": "Como 1907",
+      "awayTeam": "Juventus FC",
+      "homeCrest": "https://crests.football-data.org/7397.png",
+      "awayCrest": "https://crests.football-data.org/109.png",
+      "probabilities": {
+        "home": 58.0,
+        "draw": 23.7,
+        "away": 18.3
+      },
+      "expectedGoals": {
+        "home": 1.72,
+        "away": 0.85
+      },
+      "trend": {
+        "label": "1",
+        "probability": 58.0
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 559615,
+      "utcDate": "2026-11-29T19:45:00Z",
+      "competition": "Ligue 1",
+      "homeTeam": "Olympique Lyonnais",
+      "awayTeam": "AS Monaco FC",
+      "homeCrest": "https://crests.football-data.org/523.png",
+      "awayCrest": "https://crests.football-data.org/548.png",
+      "probabilities": {
+        "home": 64.6,
+        "draw": 20.9,
+        "away": 14.5
+      },
+      "expectedGoals": {
+        "home": 1.96,
+        "away": 0.8
+      },
+      "trend": {
+        "label": "1",
+        "probability": 64.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564764,
+      "utcDate": "2026-11-29T20:00:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "Real Sociedad de Fútbol",
+      "awayTeam": "Sevilla FC",
+      "homeCrest": "https://crests.football-data.org/92.png",
+      "awayCrest": "https://crests.football-data.org/559.png",
+      "probabilities": {
+        "home": 48.4,
+        "draw": 21.9,
+        "away": 29.6
+      },
+      "expectedGoals": {
+        "home": 1.95,
+        "away": 1.49
+      },
+      "trend": {
+        "label": "1",
+        "probability": 48.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 567358,
+      "utcDate": "2026-11-29T20:30:00Z",
+      "competition": "Primeira Liga",
+      "homeTeam": "FC Porto",
+      "awayTeam": "Sporting Clube de Portugal",
+      "homeCrest": "https://crests.football-data.org/503.png",
+      "awayCrest": "https://crests.football-data.org/498.png",
+      "probabilities": {
+        "home": 37.6,
+        "draw": 26.0,
+        "away": 36.4
+      },
+      "expectedGoals": {
+        "home": 1.35,
+        "away": 1.32
+      },
+      "trend": {
+        "label": "1",
+        "probability": 37.6
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555107,
+      "utcDate": "2026-11-29T21:30:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "Mirassol FC",
+      "awayTeam": "CA Paranaense",
+      "homeCrest": "https://crests.football-data.org/4364.png",
+      "awayCrest": "https://crests.football-data.org/1768.png",
+      "probabilities": {
+        "home": 44.4,
+        "draw": 27.2,
+        "away": 28.4
+      },
+      "expectedGoals": {
+        "home": 1.37,
+        "away": 1.03
+      },
+      "trend": {
+        "label": "1",
+        "probability": 44.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555103,
+      "utcDate": "2026-11-29T21:30:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "SC Corinthians Paulista",
+      "awayTeam": "Grêmio FBPA",
+      "homeCrest": "https://crests.football-data.org/1779.png",
+      "awayCrest": "https://crests.football-data.org/1767.png",
+      "probabilities": {
+        "home": 51.3,
+        "draw": 24.1,
+        "away": 24.6
+      },
+      "expectedGoals": {
+        "home": 1.69,
+        "away": 1.09
+      },
+      "trend": {
+        "label": "1",
+        "probability": 51.3
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555106,
+      "utcDate": "2026-11-29T21:30:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "SC Internacional",
+      "awayTeam": "RB Bragantino",
+      "homeCrest": "https://crests.football-data.org/6684.png",
+      "awayCrest": "https://crests.football-data.org/4286.png",
+      "probabilities": {
+        "home": 61.0,
+        "draw": 22.6,
+        "away": 16.3
+      },
+      "expectedGoals": {
+        "home": 1.8,
+        "away": 0.81
+      },
+      "trend": {
+        "label": "1",
+        "probability": 61.0
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 555100,
+      "utcDate": "2026-11-29T22:30:00Z",
+      "competition": "Campeonato Brasileiro Série A",
+      "homeTeam": "CA Mineiro",
+      "awayTeam": "CR Vasco da Gama",
+      "homeCrest": "https://crests.football-data.org/1766.png",
+      "awayCrest": "https://crests.football-data.org/1780.png",
+      "probabilities": {
+        "home": 37.1,
+        "draw": 30.8,
+        "away": 32.2
+      },
+      "expectedGoals": {
+        "home": 1.05,
+        "away": 0.95
+      },
+      "trend": {
+        "label": "1",
+        "probability": 37.1
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558516,
+      "utcDate": "2026-11-30T17:30:00Z",
+      "competition": "Serie A",
+      "homeTeam": "US Lecce",
+      "awayTeam": "Atalanta BC",
+      "homeCrest": "https://crests.football-data.org/5890.png",
+      "awayCrest": "https://crests.football-data.org/102.png",
+      "probabilities": {
+        "home": 32.9,
+        "draw": 24.7,
+        "away": 42.4
+      },
+      "expectedGoals": {
+        "home": 1.34,
+        "away": 1.55
+      },
+      "trend": {
+        "label": "2",
+        "probability": 42.4
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 558510,
+      "utcDate": "2026-11-30T19:45:00Z",
+      "competition": "Serie A",
+      "homeTeam": "Cagliari Calcio",
+      "awayTeam": "AC Milan",
+      "homeCrest": "https://crests.football-data.org/104.png",
+      "awayCrest": "https://crests.football-data.org/98.png",
+      "probabilities": {
+        "home": 28.5,
+        "draw": 27.5,
+        "away": 44.1
+      },
+      "expectedGoals": {
+        "home": 1.02,
+        "away": 1.34
+      },
+      "trend": {
+        "label": "2",
+        "probability": 44.1
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 564763,
+      "utcDate": "2026-11-30T20:00:00Z",
+      "competition": "Primera Division",
+      "homeTeam": "RCD Espanyol de Barcelona",
+      "awayTeam": "Getafe CF",
+      "homeCrest": "https://crests.football-data.org/80.png",
+      "awayCrest": "https://crests.football-data.org/82.png",
+      "probabilities": {
+        "home": 53.1,
+        "draw": 26.9,
+        "away": 19.9
+      },
+      "expectedGoals": {
+        "home": 1.44,
+        "away": 0.77
+      },
+      "trend": {
+        "label": "1",
+        "probability": 53.1
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 567359,
+      "utcDate": "2026-11-30T20:15:00Z",
+      "competition": "Primeira Liga",
+      "homeTeam": "Casa Pia AC",
+      "awayTeam": "Sporting Clube de Braga",
+      "homeCrest": "https://crests.football-data.org/6618.png",
+      "awayCrest": "https://crests.football-data.org/5613.png",
+      "probabilities": {
+        "home": 24.7,
+        "draw": 30.1,
+        "away": 45.2
+      },
+      "expectedGoals": {
+        "home": 0.8,
+        "away": 1.19
+      },
+      "trend": {
+        "label": "2",
+        "probability": 45.2
+      },
+      "sampleMatches": 16,
+      "method": "Poisson + forme récente (10 derniers matchs maximum)"
+    },
+    {
+      "matchId": 567360,
+      "utcDate": "2026-11-30T20:15:00Z",
+      "competition": "Primeira Liga",
+      "homeTeam": "Sport Lisboa e Benfica",
+      "awayTeam": "FC Famalicão",
+      "homeCrest": "https://crests.football-data.org/1903.png",
+      "awayCrest": "https://crests.football-data.org/5531.png",
+      "probabilities": {
+        "home": 43.4,
+        "draw": 24.3,
+        "away": 32.3
+      },
+      "expectedGoals": {
+        "home": 1.6,
+        "away": 1.35
+      },
+      "trend": {
+        "label": "1",
+        "probability": 43.4
       },
       "sampleMatches": 16,
       "method": "Poisson + forme récente (10 derniers matchs maximum)"
