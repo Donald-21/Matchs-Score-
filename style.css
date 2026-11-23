@@ -53,3 +53,17 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 
 .promo-code{display:inline-block;margin:14px 0 8px;padding:12px 18px;border:1px dashed #7958ef;border-radius:10px;background:#f3f0ff;color:#5c3bc5;font-size:22px;font-weight:950;letter-spacing:1px;font-variant-numeric:tabular-nums}
 .promo-help{font-size:11px!important;margin-top:4px!important}
+
+.standings-toolbar{display:flex;align-items:center;gap:12px;margin:0 0 12px;font-size:12px;font-weight:800}
+.standings-toolbar select{padding:10px 12px;border:1px solid #dfe4ed;border-radius:9px;background:white;color:#172033;font-weight:700}
+.standings-wrap{overflow-x:auto;background:white;border:1px solid #e4e8f0;border-radius:13px}
+.standings-table{width:100%;border-collapse:collapse;min-width:520px;font-size:12px;text-align:center}
+.standings-table th{background:#151e31;color:white;padding:12px 9px;font-size:10px}
+.standings-table td{padding:10px 9px;border-bottom:1px solid #edf0f5;font-variant-numeric:tabular-nums}
+.standings-table tbody tr:last-child td{border-bottom:0}
+.standings-table td:nth-child(1),.standings-table td:last-child{font-weight:900}
+.standing-club{display:flex;align-items:center;gap:8px;text-align:left;font-weight:800;min-width:170px}
+.standing-club img{width:21px;height:21px;object-fit:contain}
+.prediction-team-list{display:grid;gap:9px;margin:12px 0}
+.prediction-team{display:flex;align-items:center;gap:9px;font-size:13px;color:#172033}
+.prediction-team strong{font-weight:850}
