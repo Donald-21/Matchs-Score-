@@ -186,6 +186,26 @@ def main():
             standings[code] = {"competition": code, "table": [], "error": f"{type(exc).__name__}: {exc}"}
         if index < len(COMPETITIONS) - 1:
             time.sleep(7)
+    # Fetch top scorers for competitions that expose the scorers endpoint.
+    scorers = {}
+    for index, code in enumerate(COMPETITIONS):
+        if code in ("WC", "EC"):
+            scorers[code] = {"competition": code, "scorers": [], "error": "Classement des buteurs non disponible pour cette compétition."}
+            continue
+        try:
+            payload = api(f"/competitions/{code}/scorers?limit=20")
+            scorers[code] = {
+                "competition": payload.get("competition", {}).get("name", code),
+                "season": payload.get("season", {}).get("startDate"),
+                "scorers": payload.get("scorers", []),
+            }
+        except Exception as exc:
+            scorers[code] = {"competition": code, "scorers": [], "error": f"{type(exc).__name__}: {exc}"}
+        if index < len(COMPETITIONS) - 1:
+            time.sleep(7)
+    with open("scorers.json", "w", encoding="utf-8") as handle:
+        json.dump({"generatedAt": datetime.now(timezone.utc).isoformat(), "source": "football-data.org", "competitions": scorers}, handle, ensure_ascii=False, indent=2)
+
     with open("standings.json", "w", encoding="utf-8") as handle:
         json.dump({"generatedAt": datetime.now(timezone.utc).isoformat(), "competitions": standings}, handle, ensure_ascii=False, indent=2)
 
