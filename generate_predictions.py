@@ -11,7 +11,12 @@ from datetime import date, datetime, timedelta, timezone
 
 TOKEN = os.environ["FOOTBALL_TOKEN"]
 BASE = "https://api.football-data.org/v4"
-COMPETITIONS = ["PL", "PD", "SA", "BSA"]
+# 12 competitions included in the football-data.org Free plan.
+# Actual availability depends on the API subscription and current season.
+COMPETITIONS = [
+    "PL", "ELC", "BL1", "SA", "PD", "FL1",
+    "DED", "PPL", "BSA", "CL", "WC", "EC",
+]
 TODAY = date.today()
 DATE_FROM = (TODAY - timedelta(days=90)).isoformat()
 DATE_TO = TODAY.isoformat()
