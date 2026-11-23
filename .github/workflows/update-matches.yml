@@ -2,6 +2,10 @@ name: Update football matches and predictions
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "generate_predictions.py"
+      - ".github/workflows/update-matches.yml"
   schedule:
     - cron: "17 */6 * * *"
 
