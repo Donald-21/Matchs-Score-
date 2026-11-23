@@ -1,81 +1,9 @@
 {
-  "generatedAt": "2026-11-23T19:09:45.345230+00:00",
+  "generatedAt": "2026-11-23T20:24:04.889092+00:00",
   "source": "football-data.org",
   "model": "Poisson avec moyennes domicile/extérieur et forme récente",
   "historyDays": 90,
   "predictions": [
-    {
-      "matchId": 558519,
-      "utcDate": "2026-11-23T19:45:00Z",
-      "competition": "Serie A",
-      "homeTeam": "AC Monza",
-      "awayTeam": "ACF Fiorentina",
-      "homeCrest": "https://crests.football-data.org/5911.png",
-      "awayCrest": "https://crests.football-data.org/99.png",
-      "probabilities": {
-        "home": 37.3,
-        "draw": 21.2,
-        "away": 41.5
-      },
-      "expectedGoals": {
-        "home": 1.85,
-        "away": 1.96
-      },
-      "trend": {
-        "label": "2",
-        "probability": 41.5
-      },
-      "sampleMatches": 16,
-      "method": "Poisson + forme récente (10 derniers matchs maximum)"
-    },
-    {
-      "matchId": 564757,
-      "utcDate": "2026-11-23T20:00:00Z",
-      "competition": "Primera Division",
-      "homeTeam": "Levante UD",
-      "awayTeam": "Elche CF",
-      "homeCrest": "https://crests.football-data.org/88.png",
-      "awayCrest": "https://crests.football-data.org/285.png",
-      "probabilities": {
-        "home": 21.8,
-        "draw": 20.7,
-        "away": 57.5
-      },
-      "expectedGoals": {
-        "home": 1.24,
-        "away": 2.12
-      },
-      "trend": {
-        "label": "2",
-        "probability": 57.5
-      },
-      "sampleMatches": 16,
-      "method": "Poisson + forme récente (10 derniers matchs maximum)"
-    },
-    {
-      "matchId": 560649,
-      "utcDate": "2026-11-23T20:00:00Z",
-      "competition": "Premier League",
-      "homeTeam": "Brentford FC",
-      "awayTeam": "Everton FC",
-      "homeCrest": "https://crests.football-data.org/402.png",
-      "awayCrest": "https://crests.football-data.org/62.png",
-      "probabilities": {
-        "home": 49.6,
-        "draw": 27.4,
-        "away": 23.0
-      },
-      "expectedGoals": {
-        "home": 1.39,
-        "away": 0.85
-      },
-      "trend": {
-        "label": "1",
-        "probability": 49.6
-      },
-      "sampleMatches": 16,
-      "method": "Poisson + forme récente (10 derniers matchs maximum)"
-    },
     {
       "matchId": 555097,
       "utcDate": "2026-11-23T22:30:00Z",
