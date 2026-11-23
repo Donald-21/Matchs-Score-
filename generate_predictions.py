@@ -165,6 +165,25 @@ def main():
             "method": "Poisson + forme récente (10 derniers matchs maximum)",
         })
 
+
+    # Fetch current league tables for the same competitions.
+    standings = {}
+    for index, code in enumerate(COMPETITIONS):
+        try:
+            payload = api(f"/competitions/{code}/standings")
+            total = next((item for item in payload.get("standings", []) if item.get("type") == "TOTAL"), None)
+            standings[code] = {
+                "competition": payload.get("competition", {}).get("name", code),
+                "season": payload.get("season", {}).get("startDate"),
+                "table": total.get("table", []) if total else [],
+            }
+        except Exception as exc:
+            standings[code] = {"competition": code, "table": [], "error": f"{type(exc).__name__}: {exc}"}
+        if index < len(COMPETITIONS) - 1:
+            time.sleep(7)
+    with open("standings.json", "w", encoding="utf-8") as handle:
+        json.dump({"generatedAt": datetime.now(timezone.utc).isoformat(), "competitions": standings}, handle, ensure_ascii=False, indent=2)
+
     predictions.sort(key=lambda x: x["utcDate"])
     output = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
