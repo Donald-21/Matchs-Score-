@@ -39,9 +39,13 @@ jobs:
             exit 1
           }
 
+          DATE_FROM="$(date -u +%F)"
+          DATE_TO="$(date -u -d '+8 days' +%F)"
+          echo "Calendrier récupéré du $DATE_FROM au $DATE_TO (date de fin exclue)"
+
           curl --fail --silent --show-error \
             -H "X-Auth-Token: $FOOTBALL_TOKEN" \
-            "https://api.football-data.org/v4/matches" \
+            "https://api.football-data.org/v4/matches?dateFrom=$DATE_FROM&dateTo=$DATE_TO" \
             -o matches.json
 
           python -m json.tool matches.json > /dev/null
