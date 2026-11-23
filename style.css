@@ -38,3 +38,15 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .empty-state{color:#758095;background:white;border:1px solid #e4e8f0;border-radius:12px;padding:20px;grid-column:1/-1}
 @media(max-width:850px){.match-grid,.tips-grid{grid-template-columns:repeat(2,1fr)}.topbar nav{gap:13px}.topbar nav a{font-size:12px}}
 @media(max-width:680px){html{scroll-padding-top:72px}.topbar{height:68px}.menu-toggle{display:block}.topbar nav{display:none;position:absolute;top:68px;left:0;right:0;background:#101626;padding:18px 24px;flex-direction:column;gap:16px;border-top:1px solid var(--line)}.topbar nav.open{display:flex}.hero{grid-template-columns:1fr;padding-top:48px;gap:28px}.hero-panel{max-width:560px}.section{padding-top:48px;padding-bottom:48px}.match-grid,.tips-grid{grid-template-columns:1fr}.code-box{grid-template-columns:1fr;gap:18px;padding:20px}.section-heading{align-items:start;gap:12px}.section-label{white-space:nowrap;font-size:9px}.match-toolbar{align-items:flex-start;flex-direction:column}.refresh{width:100%}}
+
+.prediction-card{border-top:3px solid #7958ef}
+.prediction-league{font-size:10px!important;font-weight:900;letter-spacing:1px;color:#7958ef!important;text-transform:uppercase;margin:0 0 8px!important}
+.prediction-teams{font-size:17px!important;line-height:1.3;margin:0 0 6px!important}
+.prediction-date,.prediction-sample{font-size:10px!important;color:#8992a2!important;margin:0 0 12px!important}
+.probability-list{display:grid;gap:9px;margin:15px 0}
+.probability-line{display:grid;grid-template-columns:20px 1fr 48px;align-items:center;gap:8px;font-size:11px;font-weight:800}
+.probability-line>span{color:#6c4bdf}
+.probability-line strong{text-align:right;font-variant-numeric:tabular-nums}
+.probability-track{height:8px;background:#edf0f6;border-radius:20px;overflow:hidden}
+.probability-track>span{display:block;height:100%;background:linear-gradient(90deg,#7958ef,#b09cff);border-radius:20px}
+.prediction-trend{font-size:11px!important;font-weight:850;color:#26334a!important;background:#f1efff;border-radius:8px;padding:9px;margin:10px 0!important}
