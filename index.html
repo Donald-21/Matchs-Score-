@@ -1,63 +1,86 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101522">
-  <meta name="description" content="Matchs Scrore : matchs de football, résultats, analyses et codes de réservation.">
-  <title>Matchs Scrore | Football en direct</title><link rel="stylesheet" href="style.css">
+  <meta name="description" content="DONALD LA D PRONOSTIC : matchs de football, résultats, analyses et pronostics.">
+  <meta property="og:title" content="DONALD LA D PRONOSTIC | Football">
+  <meta property="og:description" content="Matchs, scores et analyses de football.">
+  <title>DONALD LA D PRONOSTIC | Matchs & analyses</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="topbar">
-  <a class="brand" href="#"><span class="brand-mark">MS</span><span>MATCHS <b>SCRORE</b></span></a>
+  <a class="brand" href="#" aria-label="Accueil"><span class="brand-mark">D</span><span>DONALD LA D <b>PRONOSTIC</b></span></a>
   <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
-  <nav id="nav"><a href="#matchs">Matchs</a><a href="#pronostics">Pronostics</a><a href="#codes">Codes</a><a href="#apropos">À propos</a></nav>
+  <nav id="nav">
+    <a href="#matchs">Matchs</a><a href="#pronostics">Pronostics</a><a href="#methode">Méthode</a><a href="#codes">Code promo</a><a href="#apropos">À propos</a>
+  </nav>
 </header>
 <main>
 <section class="hero">
- <div class="hero-copy"><p class="eyebrow">FOOTBALL • SCORES • ANALYSES</p><h1>Tout le football.<br><span>Au même endroit.</span></h1>
- <p>Bienvenue sur Matchs Scrore : explore les rencontres, consulte les analyses et retrouve les informations football utiles dans une seule interface.</p>
- <div class="hero-actions"><a class="button primary" href="#matchs">Voir les matchs</a><a class="button ghost" href="#pronostics">Nos analyses</a></div>
- <p class="note">Version de démonstration : les matchs et scores ci-dessous sont fictifs, pas des données en direct.</p></div>
- <div class="hero-panel"><div class="panel-head"><span class="live-dot"></span> CENTRE FOOTBALL <span class="tiny-tag">DÉMO</span></div>
- <div class="score-row"><div><small>ANGLETERRE • EXEMPLE</small><b>North City</b><b>United FC</b></div><div class="score">2 <i>–</i> 1</div></div>
- <div class="score-row"><div><small>ESPAGNE • EXEMPLE</small><b>Real Azul</b><b>Atletico Verde</b></div><div class="score">0 <i>–</i> 0</div></div>
- <div class="score-row"><div><small>ITALIE • EXEMPLE</small><b>AC Milano</b><b>Roma Calcio</b></div><div class="score">1 <i>–</i> 1</div></div><p class="panel-foot">Scores fictifs pour illustrer le design.</p></div>
+  <div class="hero-copy">
+    <p class="eyebrow">FOOTBALL • SCORES • ANALYSES</p>
+    <h1>Le football se lit.<br><span>Le pronostic s'analyse.</span></h1>
+    <p>Retrouve les rencontres, les résultats et des analyses présentées clairement. Une plateforme pour suivre le football avec méthode et responsabilité.</p>
+    <div class="hero-actions"><a class="button primary" href="#matchs">Voir les matchs</a><a class="button ghost" href="#pronostics">Nos pronostics</a></div>
+    <p class="note">Les données sont mises à jour automatiquement lorsque la source est disponible. Les horaires sont affichés à l'heure du Cameroun.</p>
+  </div>
+  <div class="hero-panel">
+    <div class="panel-head"><span class="live-dot"></span> TON ESPACE FOOTBALL <span class="tiny-tag">CAMEROUN</span></div>
+    <div class="hero-stat"><strong>Matchs</strong><span>Calendrier & résultats</span></div>
+    <div class="hero-stat"><strong>Analyses</strong><span>Conseils sans promesse de gain</span></div>
+    <div class="hero-stat"><strong>Football</strong><span>Europe & autres compétitions disponibles</span></div>
+    <p class="panel-foot">La qualité d'un pronostic dépend des informations disponibles au moment de l'analyse.</p>
+  </div>
 </section>
-<section class="section" id="matchs"><div class="section-heading"><div><p class="eyebrow">CALENDRIER</p><h2>Matchs à suivre</h2></div><span class="section-label">EXEMPLES</span></div>
- 
-<div class="match-grid" id="matches-container">
-  <p>Chargement des matchs de football...</p>
-</div>
 
-  <section class="section" id="matchs">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">CALENDRIER</p>
-      <h2>Matchs à suivre</h2>
+<section class="section" id="matchs">
+  <div class="section-heading"><div><p class="eyebrow">CALENDRIER & RÉSULTATS</p><h2>Les matchs à suivre</h2></div><span class="section-label">DONNÉES FOOTBALL</span></div>
+  <div class="match-toolbar">
+    <div class="filters" role="group" aria-label="Filtrer les matchs">
+      <button class="filter active" data-filter="all">Tous</button>
+      <button class="filter" data-filter="live">En cours</button>
+      <button class="filter" data-filter="upcoming">À venir</button>
+      <button class="filter" data-filter="finished">Terminés</button>
     </div>
-    <span class="section-label">EXEMPLES</span>
+    <button class="button refresh" id="refresh-matches" type="button">↻ Actualiser</button>
   </div>
-
-  <div class="match-grid" id="matches-container">
-    <p>Chargement des matchs de football...</p>
-  </div>
-
-  <p class="callout">
-    Les scores et horaires dépendent des données disponibles auprès de l’API.
-  </p>
-  </section>
-<section class="section dark-section" id="pronostics"><div class="section-heading"><div><p class="eyebrow">ANALYSES</p><h2>Pronostics et conseils</h2></div><span class="section-label">À MODIFIER</span></div>
- <div class="tips-grid">
-  <article class="tip-card"><div class="tip-top"><span>Match exemple 01</span><span class="risk">À analyser</span></div><h3>Double chance 1X</h3><p>L’équipe à domicile gagne ou fait match nul. Vérifie les équipes, la forme et les cotes avant toute décision.</p></article>
-  <article class="tip-card"><div class="tip-top"><span>Match exemple 02</span><span class="risk">À analyser</span></div><h3>Plus de 1,5 buts</h3><p>Le match doit compter au moins deux buts au total. Aucun marché ne garantit un résultat.</p></article>
-  <article class="tip-card"><div class="tip-top"><span>Match exemple 03</span><span class="risk">Risque élevé</span></div><h3>Évite les certitudes</h3><p>Les scores exacts sont difficiles à prévoir. Ne mise jamais l’argent destiné aux dépenses essentielles.</p></article>
- </div></section>
-<section class="section" id="codes"><div class="section-heading"><div><p class="eyebrow">COMMUNAUTÉ</p><h2>Code de réservation</h2></div></div>
- <div class="code-box"><div><h3>Copier un code facilement</h3><p>Saisis un code de réservation pour le copier. Ce formulaire ne vérifie pas le code auprès d’un bookmaker et ne place aucun pari.</p></div>
- <form id="code-form"><label for="booking-code">Code de réservation</label><div class="code-input-row"><input id="booking-code" placeholder="Ex. ABC12345" maxlength="80" autocomplete="off"><button class="button primary" type="submit">Copier le code</button></div><p id="code-message" role="status" aria-live="polite"></p></form></div>
+  <p id="matches-status" class="data-status" role="status" aria-live="polite">Chargement des rencontres…</p>
+  <div class="match-grid" id="matches-container"><p>Chargement des matchs de football…</p></div>
+  <p class="callout">Les scores et statuts dépendent des données transmises par le fournisseur. Une rencontre peut ne pas apparaître si elle n'est pas couverte par la source.</p>
 </section>
-<section class="section about" id="apropos"><p class="eyebrow">À PROPOS</p><h2>Matchs Scrore</h2><p>Une plateforme communautaire consacrée au football, aux résultats et à l’analyse des rencontres. Les pronostics sont des opinions, pas des certitudes.</p><a class="button primary" href="#matchs">Explorer le site</a></section>
+
+<section class="section dark-section" id="pronostics">
+  <div class="section-heading"><div><p class="eyebrow">SÉLECTION & ANALYSE</p><h2>Pronostics du jour</h2></div><span class="section-label">ANALYSE AVANT TOUT</span></div>
+  <div class="empty-picks"><div class="empty-icon">◎</div><h3>Les sélections doivent être vérifiées avant publication</h3><p>Cette rubrique est réservée aux pronostics accompagnés d'un match identifié, d'une justification et d'un niveau de risque. Aucun pari fictif ni résultat garanti ne sera affiché ici.</p></div>
+</section>
+
+<section class="section" id="methode">
+  <div class="section-heading"><div><p class="eyebrow">NOTRE APPROCHE</p><h2>Comment lire une analyse</h2></div></div>
+  <div class="tips-grid">
+    <article class="tip-card"><span class="tip-number">01</span><h3>Forme récente</h3><p>Comparer les derniers résultats, les buts marqués et encaissés, ainsi que les performances à domicile et à l'extérieur.</p></article>
+    <article class="tip-card"><span class="tip-number">02</span><h3>Contexte du match</h3><p>Vérifier les absences, la motivation, le calendrier, les confrontations et les informations d'avant-match.</p></article>
+    <article class="tip-card"><span class="tip-number">03</span><h3>Gestion du risque</h3><p>Éviter les mises excessives. Un pronostic reste incertain, même lorsque l'analyse semble solide.</p></article>
+  </div>
+</section>
+
+<section class="section" id="codes">
+  <div class="section-heading"><div><p class="eyebrow">ESPACE PARTENAIRE</p><h2>Code promo & réservation</h2></div></div>
+  <div class="code-box">
+    <div><h3>Retrouve ici les informations partenaires</h3><p>Le code promotionnel et le lien d'inscription officiels seront affichés ici lorsqu'ils seront confirmés. Vérifie toujours les conditions du bookmaker avant toute inscription.</p></div>
+    <div class="partner-note"><strong>Information importante</strong><p>Ce site ne reçoit pas les dépôts, ne crée pas de comptes de pari et ne garantit aucun gain.</p></div>
+  </div>
+</section>
+
+<section class="section about" id="apropos"><p class="eyebrow">À PROPOS</p><h2>DONALD LA D PRONOSTIC</h2><p>Un espace consacré au football, aux résultats et à l'analyse des rencontres. Notre objectif : présenter les informations avec clarté, sans vendre de certitudes.</p><a class="button primary" href="#matchs">Explorer les matchs</a></section>
 </main>
-<footer><div class="brand footer-brand"><span class="brand-mark">MS</span><span>MATCHS <b>SCRORE</b></span></div><p>© <span id="year"></span> Matchs Scrore • Site de démonstration</p><p class="disclaimer">18+ • Les paris comportent des risques. Aucun gain n’est garanti. Respecte les lois applicables dans ton pays.</p></footer>
+<footer>
+  <div class="brand footer-brand"><span class="brand-mark">D</span><span>DONALD LA D <b>PRONOSTIC</b></span></div>
+  <p>© <span id="year"></span> DONALD LA D PRONOSTIC</p>
+  <p class="disclaimer">18+ • Les paris comportent des risques de pertes financières. Aucun gain n'est garanti. Ne mise jamais l'argent nécessaire à tes besoins essentiels et respecte les lois applicables au Cameroun.</p>
+</footer>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
