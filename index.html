@@ -15,7 +15,7 @@
   <a class="brand" href="#" aria-label="Accueil"><span class="brand-mark">D</span><span>DONALD LA D <b>PRONOSTIC</b></span></a>
   <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
   <nav id="nav">
-    <a href="#matchs">Matchs</a><a href="#classements">Classements</a><a href="#pronostics">Pronostics</a><a href="#methode">Méthode</a><a href="#codes">Code promo</a><a href="#apropos">À propos</a>
+    <a href="#matchs">Matchs</a><a href="#classements">Classements</a><a href="#buteurs">Buteurs</a><a href="#pronostics">Pronostics</a><a href="#methode">Méthode</a><a href="#codes">Code promo</a><a href="#apropos">À propos</a>
   </nav>
 </header>
 <main>
@@ -58,6 +58,15 @@
   <div class="standings-toolbar"><label for="league-select">Choisir un championnat</label><select id="league-select"><option value="PL">Premier League (Angleterre)</option><option value="ELC">Championship (Angleterre)</option><option value="BL1">Bundesliga (Allemagne)</option><option value="SA">Serie A (Italie)</option><option value="PD">Liga (Espagne)</option><option value="FL1">Ligue 1 (France)</option><option value="DED">Eredivisie (Pays-Bas)</option><option value="PPL">Primeira Liga (Portugal)</option><option value="BSA">Brasileirão (Brésil)</option><option value="CL">Ligue des champions</option><option value="WC">Coupe du monde</option><option value="EC">Championnat d’Europe</option></select></div>
   <p id="standings-status" class="data-status" role="status">Chargement des classements…</p>
   <div class="standings-wrap"><table class="standings-table"><thead><tr><th>#</th><th>Club</th><th>J</th><th>G</th><th>N</th><th>P</th><th>BP</th><th>BC</th><th>Pts</th></tr></thead><tbody id="standings-body"><tr><td colspan="9">Chargement…</td></tr></tbody></table></div>
+</section>
+
+
+<section class="section" id="buteurs">
+  <div class="section-heading"><div><p class="eyebrow">STATISTIQUES INDIVIDUELLES</p><h2>Classement des buteurs</h2></div><span class="section-label">SAISON EN COURS</span></div>
+  <div class="standings-toolbar"><label for="scorer-league-select">Choisir un championnat</label><select id="scorer-league-select"><option value="PL">Premier League (Angleterre)</option><option value="ELC">Championship (Angleterre)</option><option value="BL1">Bundesliga (Allemagne)</option><option value="SA">Serie A (Italie)</option><option value="PD">Liga (Espagne)</option><option value="FL1">Ligue 1 (France)</option><option value="DED">Eredivisie (Pays-Bas)</option><option value="PPL">Primeira Liga (Portugal)</option><option value="BSA">Brasileirão (Brésil)</option><option value="CL">Ligue des champions</option></select></div>
+  <p id="scorers-status" class="data-status" role="status" aria-live="polite">Chargement des meilleurs buteurs…</p>
+  <div class="standings-wrap"><table class="standings-table scorers-table"><thead><tr><th>#</th><th>Joueur</th><th>Club</th><th>MJ</th><th>Buts</th><th>Pen.</th></tr></thead><tbody id="scorers-body"><tr><td colspan="6">Chargement…</td></tr></tbody></table></div>
+  <p class="callout">Classement fourni par football-data.org. La disponibilité dépend des compétitions couvertes par ton abonnement API.</p>
 </section>
 
 <section class="section dark-section" id="pronostics">
