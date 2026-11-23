@@ -286,3 +286,49 @@ async function loadStandings() {
 }
 leagueSelect?.addEventListener('change', loadStandings);
 loadStandings();
+
+
+// Current top scorers by competition.
+const scorerLeagueSelect = document.querySelector('#scorer-league-select');
+async function loadScorers() {
+  const body = document.querySelector('#scorers-body');
+  const status = document.querySelector('#scorers-status');
+  if (!body) return;
+  const code = scorerLeagueSelect?.value || 'PL';
+  if (status) status.textContent = 'Chargement des meilleurs buteurs…';
+  try {
+    const response = await fetch('./scorers.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!response.ok) throw new Error('Classement des buteurs indisponible');
+    const data = await response.json();
+    const competition = data.competitions?.[code];
+    const scorers = Array.isArray(competition?.scorers) ? competition.scorers : [];
+    body.replaceChildren();
+    if (!scorers.length) {
+      const tr = document.createElement('tr');
+      const td = document.createElement('td');
+      td.colSpan = 6;
+      td.textContent = competition?.error ? 'Données non disponibles pour ce championnat avec la source actuelle.' : 'Aucun buteur disponible pour le moment.';
+      tr.append(td); body.append(tr);
+    } else {
+      scorers.forEach((item, index) => {
+        const tr = document.createElement('tr');
+        const values = [index + 1, item.player?.name || 'Joueur', item.team?.shortName || item.team?.name || 'Club', item.playedMatches ?? '—', item.goals ?? 0, item.penalties ?? 0];
+        values.forEach((value, column) => {
+          const td = document.createElement('td');
+          if (column === 1) {
+            td.className = 'standing-club';
+            td.textContent = value;
+          } else td.textContent = String(value);
+          tr.append(td);
+        });
+        body.append(tr);
+      });
+    }
+    if (status) status.textContent = (competition?.competition || code) + ' • ' + scorers.length + ' buteur(s) affiché(s)' + (data.generatedAt ? ' • actualisé automatiquement.' : '.');
+  } catch (error) {
+    body.innerHTML = '<tr><td colspan="6">Classement des buteurs momentanément indisponible.</td></tr>';
+    if (status) status.textContent = 'Les données des buteurs seront affichées dès que la source les fournira.';
+  }
+}
+scorerLeagueSelect?.addEventListener('change', loadScorers);
+loadScorers();
