@@ -67,3 +67,5 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .prediction-team-list{display:grid;gap:9px;margin:12px 0}
 .prediction-team{display:flex;align-items:center;gap:9px;font-size:13px;color:#172033}
 .prediction-team strong{font-weight:850}
+
+.scorers-table{min-width:560px}.scorers-table td,.scorers-table th{padding:12px 14px}.scorers-table tbody tr:nth-child(even){background:#f7f8fc}.scorers-table tbody td:last-child{font-weight:900;color:#6c4bdf}
