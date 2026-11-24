@@ -20,7 +20,7 @@ const labels = {
   LIVE: 'En cours'
 };
 let currentFilter = 'all';
-let allMatches = [];
+let allMatches = [];\nlet matchStats = {};
 
 function formatDate(value) {
   if (!value) return 'Horaire indisponible';
@@ -332,3 +332,36 @@ async function loadScorers() {
 }
 scorerLeagueSelect?.addEventListener('change', loadScorers);
 loadScorers();
+
+\n// Automatically refreshed football headlines from RSS and ESPN.
+async function loadNews() {
+  const container = document.querySelector('#news-container');
+  const status = document.querySelector('#news-status');
+  if (!container) return;
+  try {
+    const response = await fetch('./news.json?t=' + Date.now(), {cache:'no-store'});
+    if (!response.ok) throw new Error('Actualités indisponibles');
+    const data = await response.json();
+    const articles = Array.isArray(data.articles) ? data.articles : [];
+    container.replaceChildren();
+    if (!articles.length) {
+      const empty = document.createElement('p'); empty.className = 'empty-state';
+      empty.textContent = 'Aucune actualité récente reçue. La rubrique sera actualisée à la prochaine collecte.';
+      container.append(empty);
+    } else {
+      articles.slice(0, 24).forEach(item => {
+        const card = document.createElement('article'); card.className = 'tip-card news-card';
+        const source = document.createElement('p'); source.className = 'prediction-league'; source.textContent = item.source || 'Actualité football';
+        const title = document.createElement('h3'); title.textContent = item.title || 'Actualité';
+        const summary = document.createElement('p'); summary.textContent = item.summary || '';
+        const link = document.createElement('a'); link.href = item.url; link.target = '_blank'; link.rel = 'noopener'; link.textContent = 'Lire l’article original ↗';
+        card.append(source, title, summary, link); container.append(card);
+      });
+    }
+    if (status) status.textContent = articles.length + ' actualité(s) chargée(s)' + (data.generatedAt ? ' • mise à jour ' + new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',dateStyle:'short',timeStyle:'short'}).format(new Date(data.generatedAt)) : '') + '.';
+  } catch (error) {
+    container.textContent = 'Les actualités sont momentanément indisponibles. Réessaie après la prochaine collecte.';
+    if (status) status.textContent = 'Source d’actualités en attente.';
+  }
+}
+loadNews();
