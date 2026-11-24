@@ -29,7 +29,7 @@ def get(url, timeout=20):
 
 def clean_html(value):
     value = re.sub(r"<[^>]+>", " ", value or "")
-    return re.sub(r"\\s+", " ", value).strip()
+    return re.sub(r"\s+", " ", value).strip()
 
 def parse_date(value):
     if not value:
@@ -90,7 +90,7 @@ def fetch_news():
 
 def norm(value):
     value = (value or "").lower()
-    value = re.sub(r"\\b(fc|cf|afc|sc|ac|club|football)\\b", " ", value)
+    value = re.sub(r"\b(fc|cf|afc|sc|ac|club|football)\b", " ", value)
     return re.sub(r"[^a-z0-9]", "", value)
 
 def similarity(a, b):
