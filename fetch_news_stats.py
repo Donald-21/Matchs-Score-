@@ -130,8 +130,12 @@ def fetch_stats(matches):
     candidates = [m for m in matches if m.get("status") in ("IN_PLAY", "PAUSED", "FINISHED", "LIVE", "SUSPENDED")]
     candidates.sort(key=lambda m: m.get("utcDate", ""), reverse=True)
     for match in candidates:
-        date_key = (match.get("utcDate") or "")[:10].replace("-", "")
-        day_items = by_day.get(date_key, [])
+        # ESPN indexes some fixtures by the competition's local date, while
+        # football-data.org stores UTC. Search the UTC date and its neighbours.
+        match_date = datetime.fromisoformat((match.get("utcDate") or "").replace("Z", "+00:00"))
+        day_keys = [(match_date.date() + timedelta(days=offset)).strftime("%Y%m%d")
+                    for offset in (-1, 0, 1)]
+        day_items = [item for day in day_keys for item in by_day.get(day, [])]
         best, best_score = None, 0
         home_name = match.get("homeTeam", {}).get("name", "")
         away_name = match.get("awayTeam", {}).get("name", "")
