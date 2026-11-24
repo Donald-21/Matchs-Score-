@@ -59,7 +59,13 @@ jobs:
           python generate_predictions.py
           python -m json.tool predictions.json > /dev/null
 
-      - name: Fetch football news and match statistics\n        run: |\n          python fetch_news_stats.py\n          python -m json.tool news.json > /dev/null\n          python -m json.tool match_stats.json > /dev/null\n\n      - name: Save updated data
+      - name: Fetch football news and match statistics
+        run: |
+          python fetch_news_stats.py
+          python -m json.tool news.json > /dev/null
+          python -m json.tool match_stats.json > /dev/null
+
+      - name: Save updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+users.noreply.github.com"
