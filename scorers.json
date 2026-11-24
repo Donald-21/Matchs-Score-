@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T00:03:12.657409+00:00",
+  "generatedAt": "2026-11-24T10:04:25.714941+00:00",
   "source": "football-data.org",
   "competitions": {
     "PL": {
@@ -689,7 +689,7 @@
             "venue": "Ewood Park",
             "lastUpdated": "2022-02-19T08:50:27Z"
           },
-          "playedMatches": 6,
+          "playedMatches": 7,
           "goals": 11,
           "assists": 1,
           "penalties": null
@@ -1247,7 +1247,7 @@
             "venue": "Ewood Park",
             "lastUpdated": "2022-02-19T08:50:27Z"
           },
-          "playedMatches": 7,
+          "playedMatches": 8,
           "goals": 5,
           "assists": 2,
           "penalties": null
@@ -5197,7 +5197,7 @@
           },
           "playedMatches": 34,
           "goals": 11,
-          "assists": 1,
+          "assists": 2,
           "penalties": 2
         },
         {
