@@ -20,7 +20,8 @@ const labels = {
   LIVE: 'En cours'
 };
 let currentFilter = 'all';
-let allMatches = [];\nlet matchStats = {};
+let allMatches = [];
+let matchStats = {};
 
 function formatDate(value) {
   if (!value) return 'Horaire indisponible';
@@ -333,7 +334,8 @@ async function loadScorers() {
 scorerLeagueSelect?.addEventListener('change', loadScorers);
 loadScorers();
 
-\n// Automatically refreshed football headlines from RSS and ESPN.
+
+// Automatically refreshed football headlines from RSS and ESPN.
 async function loadNews() {
   const container = document.querySelector('#news-container');
   const status = document.querySelector('#news-status');
