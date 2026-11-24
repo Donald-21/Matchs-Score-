@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T10:04:25.714941+00:00",
+  "generatedAt": "2026-11-24T21:45:49.690041+00:00",
   "source": "football-data.org",
   "competitions": {
     "PL": {
@@ -659,7 +659,7 @@
             "lastUpdated": "2022-02-19T08:58:41Z"
           },
           "playedMatches": 7,
-          "goals": 13,
+          "goals": 14,
           "assists": null,
           "penalties": null
         },
@@ -783,6 +783,37 @@
             "lastUpdated": "2022-05-11T10:55:59Z"
           },
           "playedMatches": 7,
+          "goals": 7,
+          "assists": null,
+          "penalties": null
+        },
+        {
+          "player": {
+            "id": 4863,
+            "name": "Adam Armstrong",
+            "firstName": "Adam",
+            "lastName": "Armstrong",
+            "dateOfBirth": "1997-02-10",
+            "nationality": "England",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-07-15T09:33:21Z"
+          },
+          "team": {
+            "id": 76,
+            "name": "Wolverhampton Wanderers FC",
+            "shortName": "Wolverhampton",
+            "tla": "WOL",
+            "crest": "https://crests.football-data.org/76.png",
+            "address": "Waterloo Road Wolverhampton WV1 4QR",
+            "website": "http://www.wolves.co.uk",
+            "founded": 1877,
+            "clubColors": "Black / Gold",
+            "venue": "Molineux Stadium",
+            "lastUpdated": "2024-07-29T17:16:22Z"
+          },
+          "playedMatches": 4,
           "goals": 7,
           "assists": null,
           "penalties": null
@@ -975,6 +1006,37 @@
         },
         {
           "player": {
+            "id": 210648,
+            "name": "Sydie Peck",
+            "firstName": "Sydie",
+            "lastName": "Peck",
+            "dateOfBirth": "2004-09-13",
+            "nationality": "England",
+            "section": "Midfield",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-07-15T09:33:22Z"
+          },
+          "team": {
+            "id": 356,
+            "name": "Sheffield United FC",
+            "shortName": "Sheffield Utd",
+            "tla": "SHE",
+            "crest": "https://crests.football-data.org/356.png",
+            "address": "Bramall Lane Sheffield, Yorkshire S2 4SU",
+            "website": "http://www.sufc.co.uk",
+            "founded": null,
+            "clubColors": "Red / White / Black",
+            "venue": "Bramall Lane",
+            "lastUpdated": "2024-07-29T17:17:53Z"
+          },
+          "playedMatches": 7,
+          "goals": 6,
+          "assists": 2,
+          "penalties": null
+        },
+        {
+          "player": {
             "id": 274561,
             "name": "Jimmy Morgan",
             "firstName": "Jimmy",
@@ -1032,8 +1094,39 @@
           },
           "playedMatches": 6,
           "goals": 5,
-          "assists": 4,
+          "assists": 5,
           "penalties": 1
+        },
+        {
+          "player": {
+            "id": 177457,
+            "name": "Tyreece Campbell",
+            "firstName": "Tyreece",
+            "lastName": "Campbell",
+            "dateOfBirth": "2003-09-14",
+            "nationality": "Jamaica",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-07-15T09:33:22Z"
+          },
+          "team": {
+            "id": 348,
+            "name": "Charlton Athletic FC",
+            "shortName": "Charlton",
+            "tla": "CHA",
+            "crest": "https://crests.football-data.org/348.png",
+            "address": "Floyd Road, Charlton London SE7 8BL",
+            "website": "http://www.cafc.co.uk",
+            "founded": 1905,
+            "clubColors": "Red / White",
+            "venue": "The Valley",
+            "lastUpdated": "2022-02-19T09:03:24Z"
+          },
+          "playedMatches": 8,
+          "goals": 5,
+          "assists": 1,
+          "penalties": null
         },
         {
           "player": {
@@ -1099,37 +1192,6 @@
         },
         {
           "player": {
-            "id": 4863,
-            "name": "Adam Armstrong",
-            "firstName": "Adam",
-            "lastName": "Armstrong",
-            "dateOfBirth": "1997-02-10",
-            "nationality": "England",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-07-15T09:33:21Z"
-          },
-          "team": {
-            "id": 76,
-            "name": "Wolverhampton Wanderers FC",
-            "shortName": "Wolverhampton",
-            "tla": "WOL",
-            "crest": "https://crests.football-data.org/76.png",
-            "address": "Waterloo Road Wolverhampton WV1 4QR",
-            "website": "http://www.wolves.co.uk",
-            "founded": 1877,
-            "clubColors": "Black / Gold",
-            "venue": "Molineux Stadium",
-            "lastUpdated": "2024-07-29T17:16:22Z"
-          },
-          "playedMatches": 4,
-          "goals": 5,
-          "assists": null,
-          "penalties": null
-        },
-        {
-          "player": {
             "id": 141451,
             "name": "Mohamed Toure",
             "firstName": "Mohamed",
@@ -1186,68 +1248,6 @@
             "lastUpdated": "2024-07-29T17:17:53Z"
           },
           "playedMatches": 7,
-          "goals": 5,
-          "assists": 2,
-          "penalties": null
-        },
-        {
-          "player": {
-            "id": 210648,
-            "name": "Sydie Peck",
-            "firstName": "Sydie",
-            "lastName": "Peck",
-            "dateOfBirth": "2004-09-13",
-            "nationality": "England",
-            "section": "Midfield",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-07-15T09:33:22Z"
-          },
-          "team": {
-            "id": 356,
-            "name": "Sheffield United FC",
-            "shortName": "Sheffield Utd",
-            "tla": "SHE",
-            "crest": "https://crests.football-data.org/356.png",
-            "address": "Bramall Lane Sheffield, Yorkshire S2 4SU",
-            "website": "http://www.sufc.co.uk",
-            "founded": null,
-            "clubColors": "Red / White / Black",
-            "venue": "Bramall Lane",
-            "lastUpdated": "2024-07-29T17:17:53Z"
-          },
-          "playedMatches": 7,
-          "goals": 5,
-          "assists": 2,
-          "penalties": null
-        },
-        {
-          "player": {
-            "id": 8226,
-            "name": "Oladapo Afolayan",
-            "firstName": "Oladapo",
-            "lastName": "Afolayan",
-            "dateOfBirth": "1998-02-12",
-            "nationality": "England",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": 18,
-            "lastUpdated": "2026-07-15T09:33:22Z"
-          },
-          "team": {
-            "id": 59,
-            "name": "Blackburn Rovers FC",
-            "shortName": "Blackburn",
-            "tla": "BLA",
-            "crest": "https://crests.football-data.org/59.png",
-            "address": "Ewood Park Blackburn BB2 4JF",
-            "website": "http://www.rovers.co.uk",
-            "founded": 1874,
-            "clubColors": "Blue / White",
-            "venue": "Ewood Park",
-            "lastUpdated": "2022-02-19T08:50:27Z"
-          },
-          "playedMatches": 8,
           "goals": 5,
           "assists": 2,
           "penalties": null
@@ -5642,6 +5642,37 @@
       "scorers": [
         {
           "player": {
+            "id": 3374,
+            "name": "Kylian Mbappé",
+            "firstName": "Kylian",
+            "lastName": "Mbappé",
+            "dateOfBirth": "1998-12-20",
+            "nationality": "France",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-06-01T11:16:30Z"
+          },
+          "team": {
+            "id": 86,
+            "name": "Real Madrid CF",
+            "shortName": "Real Madrid",
+            "tla": "RMA",
+            "crest": "https://crests.football-data.org/86.png",
+            "address": "Avenida Concha Espina, 1 Madrid 28036",
+            "website": "http://www.realmadrid.com",
+            "founded": 1902,
+            "clubColors": "White / Purple",
+            "venue": "Estadio Santiago Bernabéu",
+            "lastUpdated": "2022-02-19T08:59:31Z"
+          },
+          "playedMatches": 5,
+          "goals": 6,
+          "assists": 2,
+          "penalties": null
+        },
+        {
+          "player": {
             "id": 43285,
             "name": "Anastasios Douvikas",
             "firstName": "Anastasios",
@@ -5666,7 +5697,7 @@
             "venue": "Stadio Giuseppe Sinigaglia",
             "lastUpdated": "2025-02-17T16:52:41Z"
           },
-          "playedMatches": 4,
+          "playedMatches": 5,
           "goals": 6,
           "assists": 1,
           "penalties": null
@@ -5728,40 +5759,9 @@
             "venue": "Etihad Stadium",
             "lastUpdated": "2022-02-10T19:48:37Z"
           },
-          "playedMatches": 4,
+          "playedMatches": 5,
           "goals": 5,
           "assists": null,
-          "penalties": null
-        },
-        {
-          "player": {
-            "id": 3374,
-            "name": "Kylian Mbappé",
-            "firstName": "Kylian",
-            "lastName": "Mbappé",
-            "dateOfBirth": "1998-12-20",
-            "nationality": "France",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-06-01T11:16:30Z"
-          },
-          "team": {
-            "id": 86,
-            "name": "Real Madrid CF",
-            "shortName": "Real Madrid",
-            "tla": "RMA",
-            "crest": "https://crests.football-data.org/86.png",
-            "address": "Avenida Concha Espina, 1 Madrid 28036",
-            "website": "http://www.realmadrid.com",
-            "founded": 1902,
-            "clubColors": "White / Purple",
-            "venue": "Estadio Santiago Bernabéu",
-            "lastUpdated": "2022-02-19T08:59:31Z"
-          },
-          "playedMatches": 4,
-          "goals": 4,
-          "assists": 1,
           "penalties": null
         },
         {
@@ -5790,7 +5790,7 @@
             "venue": "Signal Iduna Park",
             "lastUpdated": "2022-02-25T16:50:16Z"
           },
-          "playedMatches": 4,
+          "playedMatches": 5,
           "goals": 4,
           "assists": null,
           "penalties": 1
@@ -5976,7 +5976,7 @@
             "venue": "Türk Telekom Arena",
             "lastUpdated": "2026-02-25T08:38:42Z"
           },
-          "playedMatches": 4,
+          "playedMatches": 5,
           "goals": 4,
           "assists": null,
           "penalties": null
@@ -6038,7 +6038,38 @@
             "venue": "Villa Park",
             "lastUpdated": "2022-04-03T16:22:14Z"
           },
-          "playedMatches": 4,
+          "playedMatches": 5,
+          "goals": 3,
+          "assists": null,
+          "penalties": null
+        },
+        {
+          "player": {
+            "id": 96,
+            "name": "Federico Valverde",
+            "firstName": "Federico",
+            "lastName": "Valverde",
+            "dateOfBirth": "1998-07-22",
+            "nationality": "Uruguay",
+            "section": "Midfield",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-06-01T11:07:17Z"
+          },
+          "team": {
+            "id": 86,
+            "name": "Real Madrid CF",
+            "shortName": "Real Madrid",
+            "tla": "RMA",
+            "crest": "https://crests.football-data.org/86.png",
+            "address": "Avenida Concha Espina, 1 Madrid 28036",
+            "website": "http://www.realmadrid.com",
+            "founded": 1902,
+            "clubColors": "White / Purple",
+            "venue": "Estadio Santiago Bernabéu",
+            "lastUpdated": "2022-02-19T08:59:31Z"
+          },
+          "playedMatches": 5,
           "goals": 3,
           "assists": null,
           "penalties": null
@@ -6227,37 +6258,6 @@
           "playedMatches": 4,
           "goals": 3,
           "assists": null,
-          "penalties": null
-        },
-        {
-          "player": {
-            "id": 177522,
-            "name": "Desire Doue",
-            "firstName": "Désiré",
-            "lastName": "Doué",
-            "dateOfBirth": "2005-06-03",
-            "nationality": "France",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-07-27T19:57:38Z"
-          },
-          "team": {
-            "id": 524,
-            "name": "Paris Saint-Germain FC",
-            "shortName": "PSG",
-            "tla": "PSG",
-            "crest": "https://crests.football-data.org/524.png",
-            "address": "24, rue de Commandant Guibaud Paris 7501",
-            "website": "http://www.psg.fr",
-            "founded": 1904,
-            "clubColors": "Red / Blue / White",
-            "venue": "Parc des Princes",
-            "lastUpdated": "2022-02-10T19:07:11Z"
-          },
-          "playedMatches": 4,
-          "goals": 3,
-          "assists": 2,
           "penalties": null
         }
       ]
