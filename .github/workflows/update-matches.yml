@@ -15,7 +15,7 @@ permissions:
 
 concurrency:
   group: football-data-update
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update:
@@ -91,6 +91,8 @@ jobs:
           python -m json.tool matches.json > /dev/null
 
       - name: Generate statistical predictions
+        continue-on-error: true
+        timeout-minutes: 8
         env:
           FOOTBALL_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
         run: |
