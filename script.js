@@ -23,6 +23,24 @@ let currentFilter = 'all';
 let allMatches = [];
 let matchStats = {};
 let matchesLoading = false;
+let favoriteIds = [];
+try { favoriteIds = JSON.parse(localStorage.getItem('matchs-score-favorites') || '[]'); } catch (_) { favoriteIds = []; }
+let favoritesOnly = false;
+
+function saveFavorites() {
+  try { localStorage.setItem('matchs-score-favorites', JSON.stringify(favoriteIds)); } catch (_) {}
+}
+function updateCompetitionOptions() {
+  const select = document.querySelector('#match-competition');
+  if (!select) return;
+  const previous = select.value || 'all';
+  const competitions = [...new Map(allMatches.map(m => [m.competition?.name, m.competition?.name]).filter(([name]) => name)).keys()].sort((a,b) => a.localeCompare(b, 'fr'));
+  select.replaceChildren();
+  const all = document.createElement('option'); all.value = 'all'; all.textContent = 'Tous les championnats'; select.append(all);
+  competitions.forEach(name => { const option = document.createElement('option'); option.value = name; option.textContent = name; select.append(option); });
+  select.value = competitions.includes(previous) ? previous : 'all';
+}
+
 
 function renderMatchStats(match) {
   const data = matchStats[String(match.id)];
@@ -152,7 +170,19 @@ function renderMatch(match) {
   round.className = 'matchday';
   round.textContent = match.matchday ? 'Journée ' + match.matchday : '';
   bottom.append(status, round);
-  card.append(league, date, teams, bottom);
+  const favorite = document.createElement('button');
+  favorite.type = 'button';
+  favorite.className = 'favorite-match' + (favoriteIds.includes(String(match.id)) ? ' is-favorite' : '');
+  favorite.setAttribute('aria-label', favoriteIds.includes(String(match.id)) ? 'Retirer des favoris' : 'Ajouter aux favoris');
+  favorite.setAttribute('aria-pressed', String(favoriteIds.includes(String(match.id))));
+  favorite.textContent = favoriteIds.includes(String(match.id)) ? '★ Favori' : '☆ Favori';
+  favorite.addEventListener('click', () => {
+    const id = String(match.id);
+    favoriteIds = favoriteIds.includes(id) ? favoriteIds.filter(value => value !== id) : [...favoriteIds, id];
+    saveFavorites();
+    renderMatches();
+  });
+  card.append(league, date, teams, bottom, favorite);
 
   const detailItems = [
     ['Stade', match.venue],
@@ -184,7 +214,18 @@ function renderMatch(match) {
 function renderMatches() {
   const container = document.querySelector('#matches-container');
   if (!container) return;
-  const filtered = allMatches.filter(match => currentFilter === 'all' || matchGroup(match.status) === currentFilter);
+  const query = (document.querySelector('#match-search')?.value || '').trim().toLocaleLowerCase('fr');
+  const competition = document.querySelector('#match-competition')?.value || 'all';
+  const date = document.querySelector('#match-date')?.value || '';
+  const filtered = allMatches.filter(match => {
+    const groupOk = currentFilter === 'all' || matchGroup(match.status) === currentFilter;
+    const names = [match.homeTeam?.name, match.homeTeam?.shortName, match.awayTeam?.name, match.awayTeam?.shortName, match.competition?.name].join(' ').toLocaleLowerCase('fr');
+    const queryOk = !query || names.includes(query);
+    const competitionOk = competition === 'all' || match.competition?.name === competition;
+    const dateOk = !date || (match.utcDate && new Date(match.utcDate).toLocaleDateString('en-CA', {timeZone:'Africa/Douala'}) === date);
+    const favoriteOk = !favoritesOnly || favoriteIds.includes(String(match.id));
+    return groupOk && queryOk && competitionOk && dateOk && favoriteOk;
+  });
   container.replaceChildren();
   if (!filtered.length) {
     const empty = document.createElement('p');
@@ -213,6 +254,7 @@ async function loadMatches() {
     const data = await response.json();
     allMatches = Array.isArray(data.matches) ? data.matches : [];
     allMatches.sort((a, b) => new Date(a.utcDate || 0) - new Date(b.utcDate || 0));
+    updateCompetitionOptions();
     renderMatches();
     const count = allMatches.length;
     const fetchedAt = data.fetchedAt ? new Date(data.fetchedAt) : null;
@@ -240,6 +282,16 @@ document.querySelectorAll('[data-filter]').forEach(button => {
   });
 });
 document.querySelector('#refresh-matches')?.addEventListener('click', loadMatches);
+['#match-search', '#match-competition', '#match-date'].forEach(selector => {
+  document.querySelector(selector)?.addEventListener(selector === '#match-search' ? 'input' : 'change', renderMatches);
+});
+document.querySelector('#favorites-filter')?.addEventListener('click', event => {
+  favoritesOnly = !favoritesOnly;
+  event.currentTarget.classList.toggle('active', favoritesOnly);
+  event.currentTarget.setAttribute('aria-pressed', String(favoritesOnly));
+  event.currentTarget.textContent = favoritesOnly ? '★ Afficher tous' : '☆ Mes favoris';
+  renderMatches();
+});
 
 async function loadMatchStats() {
   try {
