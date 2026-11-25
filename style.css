@@ -97,3 +97,33 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 @media(max-width:420px){.match-stats{padding:10px}.match-stats-grid{gap:8px}.match-stats-line{font-size:.7rem}}
 
 .site-logo{width:48px;height:48px;object-fit:cover;border-radius:50%;border:2px solid #d6a943;box-shadow:0 0 12px #d6a94355}.footer-brand .site-logo{width:42px;height:42px}
+
+
+/* Match cards: align with the black-and-gold site identity */
+.match-card{
+  background:linear-gradient(145deg,#171717,#0d1220);
+  border:1px solid rgba(212,165,70,.42);
+  color:#f5e7c2;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+}
+.match-card .league{color:#d6b66d}
+.match-card .match-date{color:#b8ad98}
+.match-card .team-name{color:#fff4d8}
+.match-card .team-score{color:#f4c542}
+.match-card .match-bottom{border-top-color:rgba(212,165,70,.22);color:#c8b98f}
+.match-card .matchday{color:#c8b98f}
+.match-card .match-stats{background:#202020;border-top-color:rgba(212,165,70,.3)}
+.match-card .match-stats-title{color:#f4c542}
+.match-card .match-stats-side-title{color:#d5c49c}
+.match-card .match-stats-line{color:#c8c0ae}
+.match-card .match-stats-line strong{color:#fff4d8}
+.match-card .match-stats a{color:#f4c542}
+.match-card .match-details{border-top-color:rgba(212,165,70,.25)}
+.match-card .match-details summary{color:#f4c542}
+.match-card .match-stat-panel{color:#e8dfca}
+.match-card .match-stat-line{background:#292929}
+.match-card .match-stat-line span:first-child,.match-card .match-stat-line span:last-child{color:#fff4d8}
+.match-card .match-stat-line span:nth-child(2){color:#d5c49c}
+.match-card .pill{background:#3a3020;color:#f4d58a}
+.match-card .pill.live{background:#173b2d;color:#8de0b5}
+.match-card .pill.finished{background:#303030;color:#ddd}
