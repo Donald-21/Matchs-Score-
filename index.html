@@ -47,6 +47,15 @@
     </div>
     <button class="button refresh" id="refresh-matches" type="button">↻ Actualiser</button>
   </div>
+  <div class="match-extra-filters" aria-label="Recherche et filtres avancés">
+    <label class="match-search-label" for="match-search">Rechercher un club ou championnat</label>
+    <input id="match-search" type="search" placeholder="Ex. Arsenal, Barça, Premier League…" autocomplete="off">
+    <label class="match-search-label" for="match-competition">Championnat</label>
+    <select id="match-competition"><option value="all">Tous les championnats</option></select>
+    <label class="match-search-label" for="match-date">Date</label>
+    <input id="match-date" type="date">
+    <button class="button refresh" id="favorites-filter" type="button" aria-pressed="false">☆ Mes favoris</button>
+  </div>
   <p id="matches-status" class="data-status" role="status" aria-live="polite">Chargement des rencontres…</p>
   <div class="match-grid" id="matches-container"><p>Chargement des matchs de football…</p></div>
   <p class="callout">Les scores et statuts dépendent des données transmises par le fournisseur. Une rencontre peut ne pas apparaître si elle n'est pas couverte par la source.</p>
