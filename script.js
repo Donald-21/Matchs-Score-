@@ -52,13 +52,20 @@ function renderMatchStats(match) {
   title.textContent = 'Statistiques du match';
   section.append(title);
   const labels = [
-    ['Possession', 'possessionPct', '%'],
-    ['Tirs', 'totalShots', ''],
-    ['Tirs cadrés', 'shotsOnTarget', ''],
-    ['Corners', 'wonCorners', ''],
-    ['Fautes', 'foulsCommitted', ''],
-    ['Cartons jaunes', 'yellowCards', ''],
-    ['Cartons rouges', 'redCards', '']
+    ['Possession', 'possessionPct', '%'], ['Tirs', 'totalShots', ''],
+    ['Tirs cadrés', 'shotsOnTarget', ''], ['Tirs bloqués', 'blockedShots', ''],
+    ['Précision des tirs', 'shotPct', '%'], ['Corners', 'wonCorners', ''],
+    ['Hors-jeu', 'offsides', ''], ['Fautes', 'foulsCommitted', ''],
+    ['Cartons jaunes', 'yellowCards', ''], ['Cartons rouges', 'redCards', ''],
+    ['Arrêts du gardien', 'saves', ''], ['Passes réussies', 'accuratePasses', ''],
+    ['Passes tentées', 'totalPasses', ''], ['Précision des passes', 'passPct', '%'],
+    ['Centres réussis', 'accurateCrosses', ''], ['Centres tentés', 'totalCrosses', ''],
+    ['Précision des centres', 'crossPct', '%'], ['Longs ballons réussis', 'accurateLongBalls', ''],
+    ['Longs ballons tentés', 'totalLongBalls', ''], ['Précision des longs ballons', 'longballPct', '%'],
+    ['Tacles réussis', 'effectiveTackles', ''], ['Tacles tentés', 'totalTackles', ''],
+    ['Réussite des tacles', 'tacklePct', '%'], ['Interceptions', 'interceptions', ''],
+    ['Dégagements', 'effectiveClearance', ''], ['Total dégagements', 'totalClearance', ''],
+    ['Buts sur penalty', 'penaltyKickGoals', ''], ['Tirs au but sur penalty', 'penaltyKickShots', '']
   ];
   const grid = document.createElement('div');
   grid.className = 'match-stats-grid';
@@ -80,7 +87,12 @@ function renderMatchStats(match) {
       const name = document.createElement('span');
       name.textContent = label;
       const value = document.createElement('strong');
-      value.textContent = String(values[key]) + suffix;
+      const rawValue = Number(values[key]);
+      const percentKeys = ['shotPct', 'passPct', 'crossPct', 'longballPct', 'tacklePct'];
+      const displayValue = percentKeys.includes(key) && Number.isFinite(rawValue)
+        ? (rawValue <= 1 ? Math.round(rawValue * 100) : rawValue) + '%'
+        : String(values[key]) + suffix;
+      value.textContent = displayValue;
       line.append(name, value);
       column.append(line);
     });
