@@ -257,3 +257,17 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
   .calendar-team:last-child{justify-content:flex-end}
   .calendar-match-status{grid-area:status;grid-column:1/-1;grid-row:auto;text-align:left}
 }
+
+
+/* Daily calendar uses the same clean match cards as the main match list. */
+.calendar-card-group{margin:18px 0 26px}
+.calendar-competition-title{display:flex;align-items:center;gap:10px;min-width:0}
+.calendar-competition-title h3{margin:0;color:#fff;font-size:15px;font-weight:900}
+.calendar-competition-logo{width:25px;height:25px;flex:0 0 25px;object-fit:contain;background:#fff;border-radius:7px;padding:2px}
+.calendar-card-group .competition-match-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.calendar-card-group .match-card{min-width:0}
+@media(max-width:680px){
+  .calendar-card-group .competition-match-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+  .calendar-card-group .competition-group-heading{padding:11px 12px}
+  .calendar-competition-title h3{font-size:13px}
+}
