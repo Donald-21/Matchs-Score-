@@ -80,7 +80,7 @@ def main():
                     continue
                 item = {
                     "date": match.get("utcDate", ""),
-                    "home_id": home["id"], "away_id": away["id"],
+                    "home_id": home["id"], "away_id": away["id"],\n                    "home_name": home.get("name", "Domicile"), "away_name": away.get("name", "Extérieur"),
                     "home_goals": int(hg), "away_goals": int(ag),
                     "competition": match.get("competition", {}).get("name", code),
                 }
