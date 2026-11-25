@@ -621,6 +621,7 @@ function matchesOnDate(dateKey) {
     .sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
 }
 function appendCalendarGroups(container, matches) {
+  if(!container)return;
   container.replaceChildren();
   if(!matches.length) {
     const p=document.createElement('p');p.className='empty-state';
@@ -639,8 +640,15 @@ function appendCalendarGroups(container, matches) {
       const time=document.createElement('time');time.dateTime=m.utcDate;
       time.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(m.utcDate));
       const teams=document.createElement('div');teams.className='calendar-match-teams';
-      const home=document.createElement('span');home.textContent=m.homeTeam?.shortName||m.homeTeam?.name||'Domicile';
-      const away=document.createElement('span');away.textContent=m.awayTeam?.shortName||m.awayTeam?.name||'Extérieur';
+      const makeCalendarTeam=(team)=>{
+        const wrap=document.createElement('span');wrap.className='calendar-team';
+        const crest=document.createElement('img');crest.className='calendar-team-logo';crest.alt='';crest.loading='lazy';crest.decoding='async';
+        if(team?.crest)crest.src=team.crest;
+        crest.addEventListener('error',()=>{crest.hidden=true;},{once:true});
+        const name=document.createElement('span');name.textContent=team?.shortName||team?.name||'Équipe';
+        wrap.append(crest,name);return wrap;
+      };
+      const home=makeCalendarTeam(m.homeTeam),away=makeCalendarTeam(m.awayTeam);
       const score=document.createElement('strong');const hs=m.score?.fullTime?.home??m.score?.regularTime?.home??m.score?.halfTime?.home;
       const as=m.score?.fullTime?.away??m.score?.regularTime?.away??m.score?.halfTime?.away;
       score.textContent=hs==null?'—':hs+' - '+(as??'—');
