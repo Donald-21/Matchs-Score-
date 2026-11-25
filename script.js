@@ -409,6 +409,21 @@ function renderMatch(match) {
   });
   card.append(openDetails);
 
+  openDetails.addEventListener('click', () => {
+    const isOpen = !detailPanel.hidden;
+    if (!isOpen && detailPanel.dataset.loaded !== 'true') {
+      populateMatchDetails(match, detailPanel);
+      detailPanel.dataset.loaded = 'true';
+    }
+    detailPanel.hidden = isOpen;
+    openDetails.setAttribute('aria-expanded', String(!isOpen));
+    openDetails.textContent = isOpen ? 'Voir le match et les statistiques' : 'Masquer les détails';
+  });
+  card.append(openDetails, detailPanel);
+  return card;
+}
+
+function populateMatchDetails(match, detailPanel) {
   const detailItems = [
     ['Stade', match.venue],
     ['Phase', match.stage],
@@ -483,8 +498,7 @@ function renderMatch(match) {
     }
     detailPanel.append(photoSection);
   }
-  card.append(detailPanel);
-  return card;
+
 }
 
 const doualaDatePartsFormatter = new Intl.DateTimeFormat('en-CA', {
