@@ -313,7 +313,7 @@ async function loadMatches() {
   if (status) status.textContent = 'Actualisation des rencontres…';
   if (refresh) { refresh.disabled = true; refresh.textContent = 'Chargement…'; }
   try {
-    const response = await fetch('./matches.json?t=' + Date.now(), { cache: 'no-store' });
+    const response = await fetch('./matches.json', { cache: 'default' });
     if (!response.ok) throw new Error('HTTP ' + response.status);
     const data = await response.json();
     allMatches = Array.isArray(data.matches) ? data.matches : [];
@@ -363,7 +363,7 @@ document.querySelector('#favorites-filter')?.addEventListener('click', event => 
 
 async function loadMatchStats() {
   try {
-    const response = await fetch('./match_stats.json?t=' + Date.now(), { cache: 'no-store' });
+    const response = await fetch('./match_stats.json', { cache: 'default' });
     if (!response.ok) throw new Error('Statistiques indisponibles');
     const data = await response.json();
     matchStats = data.matches && typeof data.matches === 'object' ? data.matches : {};
@@ -449,7 +449,7 @@ async function loadPredictions() {
   const status = document.querySelector('#picks-status');
   if (!container) return;
   try {
-    const response = await fetch('./predictions.json?t=' + Date.now(), { cache: 'no-store' });
+    const response = await fetch('./predictions.json', { cache: 'default' });
     if (!response.ok) throw new Error('Fichier de pronostics indisponible');
     const data = await response.json();
     const picks = Array.isArray(data.predictions) ? data.predictions : [];
@@ -525,7 +525,7 @@ async function loadScorers() {
   const code = scorerLeagueSelect?.value || 'PL';
   if (status) status.textContent = 'Chargement des meilleurs buteurs…';
   try {
-    const response = await fetch('./scorers.json?t=' + Date.now(), { cache: 'no-store' });
+    const response = await fetch('./scorers.json', { cache: 'default' });
     if (!response.ok) throw new Error('Classement des buteurs indisponible');
     const data = await response.json();
     const competition = data.competitions?.[code];
@@ -703,17 +703,6 @@ function setCalendarView(view) {
   if(dayContent)dayContent.hidden=view==='month';
   if(view==='month')renderCalendarMonth();else renderCalendarDay();
 }
-async function initMatchCalendar() {
-  try {
-    const response=await fetch('./matches.json?t='+Date.now(),{cache:'no-store'});
-    if(!response.ok)throw new Error('Flux indisponible');
-    const data=await response.json();calendarMatches=Array.isArray(data.matches)?data.matches:[];
-    if(!allMatches.length)allMatches=calendarMatches;
-    renderCalendarDay();renderCalendarMonth();
-  } catch(error) {
-    const status=document.querySelector('#calendar-status');if(status)status.textContent='Impossible de charger le calendrier pour le moment.';
-  }
-}
 document.querySelectorAll('[data-calendar-view]').forEach(button=>button.addEventListener('click',()=>setCalendarView(button.dataset.calendarView)));
 document.querySelector('#calendar-month')?.addEventListener('change',event=>{calendarMonthValue=event.target.value;calendarSelectedDate=calendarMonthValue+'-01';renderCalendarMonth();});
 document.querySelector('#calendar-prev-month')?.addEventListener('click',()=>changeCalendarMonth(-1));
@@ -724,7 +713,6 @@ function changeCalendarMonth(delta) {
   const input=document.querySelector('#calendar-month');if(input)input.value=calendarMonthValue;
   calendarSelectedDate=calendarMonthValue+'-01';renderCalendarMonth();
 }
-initMatchCalendar();
 
 /* Grande affiche défilante des derniers scores terminés.
    Les écussons officiels sont utilisés si aucune photo éditoriale du match n'est fournie. */
