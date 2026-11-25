@@ -44,7 +44,7 @@ jobs:
           DATE_TO="$(date -u -d '+8 days' +%F)"
           echo "Calendrier récupéré du $DATE_FROM au $DATE_TO (date de fin exclue)"
 
-          curl --fail --silent --show-error \
+          curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 10 --retry-max-time 120 \
             -H "X-Auth-Token: $FOOTBALL_TOKEN" \
             "https://api.football-data.org/v4/matches?dateFrom=$DATE_FROM&dateTo=$DATE_TO" \
             -o matches.json
