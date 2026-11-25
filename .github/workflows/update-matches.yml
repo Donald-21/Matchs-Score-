@@ -116,7 +116,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+users.noreply.github.com"
-          git add matches.json competitions.json predictions.json standings.json scorers.json news.json match_stats.json
+          git add matches.json competitions.json predictions.json standings.json scorers.json news.json match_stats.json pitch_players.json fetch_pitchapi.py
           if git diff --cached --quiet; then
             echo "Aucune modification à enregistrer."
             exit 0
