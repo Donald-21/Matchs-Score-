@@ -339,6 +339,7 @@ function makeTeam(team, scoreValue) {
 function renderMatch(match) {
   const card = document.createElement('article');
   card.className = 'match-card';
+  card.dataset.matchId = String(match.id);
   const league = document.createElement('div');
   league.className = 'league';
   if (match.competition?.emblem) {
@@ -636,7 +637,16 @@ async function loadMatchStats() {
     } catch (pitchError) {
       console.warn('Statistiques individuelles PitchAPI indisponibles :', pitchError);
     }
-    renderMatches();
+    // Met à jour les fiches déjà ouvertes sans reconstruire toute la liste.
+    document.querySelectorAll('.match-card').forEach(card => {
+      const panel = card.querySelector('.match-expanded-panel');
+      if (!panel || panel.hidden) return;
+      const match = allMatches.find(item => String(item.id) === card.dataset.matchId);
+      if (!match) return;
+      panel.replaceChildren();
+      populateMatchDetails(match, panel);
+      panel.dataset.loaded = 'true';
+    });
     renderResultHighlights();
     const status = document.querySelector('#matches-status');
     const count = Object.keys(matchStats).length;
