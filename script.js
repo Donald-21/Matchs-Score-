@@ -21,7 +21,7 @@ const labels = {
 };
 let currentFilter = 'all';
 let allMatches = [];
-let matchStats = {};
+let matchStats = {};\nlet predictionsByMatch = {};\nlet scorerData = {};
 let matchesLoading = false;
 let favoriteIds = [];
 try { favoriteIds = JSON.parse(localStorage.getItem('matchs-score-favorites') || '[]'); } catch (_) { favoriteIds = []; }
@@ -138,6 +138,122 @@ function renderMatchStats(match) {
     source.textContent = 'Source des statistiques';
     section.append(source);
   }
+  return section;
+}
+
+ 
+function appendText(parent, tag, className, value) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  node.textContent = value == null ? "—" : String(value);
+  parent.append(node);
+  return node;
+}
+
+function renderTeamForm(teamName, teamId, info, competitionCode) {
+  const box = document.createElement("div");
+  box.className = "team-analysis-side";
+  appendText(box, "h4", "team-analysis-name", teamName);
+  const summary = info || {};
+  appendText(box, "p", "team-analysis-record",
+    (summary.played || 0) + " matchs • " + (summary.wins || 0) + " V • " +
+    (summary.draws || 0) + " N • " + (summary.losses || 0) + " D");
+  appendText(box, "p", "team-analysis-goals",
+    "Buts : " + (summary.goalsFor ?? "—") + " marqués / " +
+    (summary.goalsAgainst ?? "—") + " encaissés");
+  appendText(box, "p", "team-analysis-averages",
+    "Moyenne : " + (summary.averageFor ?? "—") + " marqué(s), " +
+    (summary.averageAgainst ?? "—") + " encaissé(s) par match");
+  const form = document.createElement("div");
+  form.className = "team-form-strip";
+  (summary.form || []).slice(0, 10).forEach(item => {
+    const chip = document.createElement("span");
+    chip.className = "form-chip form-" + item.result;
+    chip.title = item.opponent + " : " + item.goalsFor + "-" + item.goalsAgainst;
+    chip.textContent = item.result;
+    form.append(chip);
+  });
+  if (!(summary.form || []).length) appendText(form, "small", "", "Historique récent non disponible.");
+  box.append(form);
+  const list = document.createElement("div");
+  list.className = "team-recent-list";
+  (summary.form || []).slice(0, 10).forEach(item => {
+    const line = document.createElement("p");
+    line.textContent = new Intl.DateTimeFormat("fr-FR", {timeZone:"Africa/Douala",day:"2-digit",month:"short"}).format(new Date(item.date)) +
+      " • " + item.opponent + " • " + item.goalsFor + "-" + item.goalsAgainst;
+    const result = document.createElement("strong");
+    result.className = "form-result form-" + item.result;
+    result.textContent = item.result === "W" ? "V" : item.result === "D" ? "N" : "D";
+    line.append(result);
+    list.append(line);
+  });
+  box.append(list);
+
+  const players = [];
+  const comp = scorerData.competitions?.[competitionCode];
+  (comp?.scorers || []).forEach(item => {
+    const id = item.team?.id;
+    const name = (item.team?.name || item.team?.shortName || "").toLocaleLowerCase("fr");
+    if ((teamId && id === teamId) || (!teamId && name && name === teamName.toLocaleLowerCase("fr"))) players.push(item);
+  });
+  const playerBox = document.createElement("div");
+  playerBox.className = "team-player-stats";
+  appendText(playerBox, "strong", "", "Joueurs — meilleurs buteurs");
+  if (players.length) {
+    players.slice(0, 5).forEach(item => {
+      const row = document.createElement("p");
+      row.textContent = (item.player?.name || "Joueur") + " • " + (item.goals ?? "—") +
+        " but(s) • " + (item.assists ?? "—") + " passe(s) décisive(s)";
+      playerBox.append(row);
+    });
+  } else {
+    appendText(playerBox, "small", "", "Statistiques individuelles non disponibles pour cette équipe.");
+  }
+  box.append(playerBox);
+  return box;
+}
+
+function renderTeamAnalysis(match) {
+  const prediction = predictionsByMatch[String(match.id)];
+  if (!prediction) return null;
+  const analysis = prediction.teamAnalysis;
+  if (!analysis) return null;
+  const section = document.createElement("section");
+  section.className = "team-analysis";
+  appendText(section, "h3", "team-analysis-title", "Analyse complète des équipes");
+  appendText(section, "p", "team-analysis-note", "Estimations calculées à partir des résultats historiques disponibles — elles ne garantissent pas le résultat.");
+  const probabilities = document.createElement("div");
+  probabilities.className = "team-win-probabilities";
+  [["1 • " + prediction.homeTeam, prediction.probabilities?.home],
+   ["N • Match nul", prediction.probabilities?.draw],
+   ["2 • " + prediction.awayTeam, prediction.probabilities?.away]].forEach(([label, value]) => {
+    const item = document.createElement("div");
+    item.className = "team-probability";
+    appendText(item, "span", "", label);
+    appendText(item, "strong", "", value == null ? "—" : Number(value).toFixed(1) + "%");
+    const track = document.createElement("div");
+    track.className = "team-probability-track";
+    const fill = document.createElement("span");
+    fill.style.width = Math.max(0, Math.min(100, Number(value || 0))) + "%";
+    track.append(fill); item.append(track); probabilities.append(item);
+  });
+  section.append(probabilities);
+  const sides = document.createElement("div");
+  sides.className = "team-analysis-grid";
+  sides.append(
+    renderTeamForm(prediction.homeTeam || "Domicile", prediction.homeTeamId, analysis.home, match.competition?.code),
+    renderTeamForm(prediction.awayTeam || "Extérieur", prediction.awayTeamId, analysis.away, match.competition?.code)
+  );
+  section.append(sides);
+  const h2h = document.createElement("div");
+  h2h.className = "team-h2h";
+  appendText(h2h, "h4", "", "Confrontations directes récentes");
+  if (analysis.headToHead?.length) {
+    analysis.headToHead.forEach(item => appendText(h2h, "p", "",
+      item.homeTeam + " " + item.homeGoals + " - " + item.awayGoals + " " + item.awayTeam +
+      " • " + new Intl.DateTimeFormat("fr-FR", {timeZone:"Africa/Douala",day:"2-digit",month:"short",year:"numeric"}).format(new Date(item.date))));
+  } else appendText(h2h, "p", "", "Aucune confrontation récente disponible dans les compétitions couvertes.");
+  section.append(h2h);
   return section;
 }
 
@@ -271,7 +387,7 @@ function renderMatch(match) {
     detailPanel.append(details);
   }
 
-  const stats = renderMatchStats(match);
+  const teamAnalysis = renderTeamAnalysis(match);\n  if (teamAnalysis) detailPanel.append(teamAnalysis);\n\n  const stats = renderMatchStats(match);
   if (stats) detailPanel.append(stats);
   if (!stats) {
     const unavailable = document.createElement('p');
@@ -483,7 +599,7 @@ async function loadPredictions() {
     const response = await fetch('./predictions.json', { cache: 'default' });
     if (!response.ok) throw new Error('Fichier de pronostics indisponible');
     const data = await response.json();
-    const picks = Array.isArray(data.predictions) ? data.predictions : [];
+    const picks = Array.isArray(data.predictions) ? data.predictions : [];\n    predictionsByMatch = Object.fromEntries(picks.map(item => [String(item.matchId), item]));\n    renderMatches();
     container.replaceChildren();
     if (!picks.length) {
       const empty = document.createElement('p');
@@ -559,7 +675,7 @@ async function loadScorers() {
     const response = await fetch('./scorers.json', { cache: 'default' });
     if (!response.ok) throw new Error('Classement des buteurs indisponible');
     const data = await response.json();
-    const competition = data.competitions?.[code];
+    scorerData = data;\n    renderMatches();\n    const competition = data.competitions?.[code];
     const scorers = Array.isArray(competition?.scorers) ? competition.scorers : [];
     body.replaceChildren();
     if (!scorers.length) {
