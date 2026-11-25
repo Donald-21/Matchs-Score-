@@ -177,6 +177,48 @@ def extract_match_photo(summary):
         return {"url": url, "caption": description[:220]}
     return None
 
+def extract_player_stats(summary):
+    """Extract only player names and statistics explicitly supplied by ESPN."""
+    box = summary.get("boxscore", {})
+    output = []
+    for team_block in box.get("players", []) if isinstance(box, dict) else []:
+        team = team_block.get("team", {}) if isinstance(team_block, dict) else {}
+        team_name = team.get("displayName") or team.get("name") or ""
+        categories = team_block.get("statistics", []) if isinstance(team_block, dict) else []
+        players = {}
+        for category in categories:
+            if not isinstance(category, dict):
+                continue
+            category_name = category.get("name") or category.get("label") or "Statistiques"
+            labels = category.get("labels") or category.get("keys") or []
+            for athlete_row in category.get("athletes", []) or []:
+                if not isinstance(athlete_row, dict):
+                    continue
+                athlete = athlete_row.get("athlete", {})
+                if not isinstance(athlete, dict):
+                    continue
+                name = athlete.get("displayName") or athlete.get("fullName") or athlete.get("name")
+                if not name:
+                    continue
+                values = athlete_row.get("stats") or []
+                if isinstance(values, dict):
+                    stats = {str(k): str(v) for k, v in values.items() if v is not None}
+                else:
+                    stats = {str(labels[i]): str(value) for i, value in enumerate(values)
+                             if i < len(labels) and value not in (None, "", "--")}
+                if not stats:
+                    continue
+                key = name
+                record = players.setdefault(key, {"name": name,
+                    "position": athlete.get("position", {}).get("abbreviation", "")
+                    if isinstance(athlete.get("position"), dict) else "",
+                    "starter": bool(athlete_row.get("starter")), "stats": {}})
+                record["stats"].update(stats)
+                record["category"] = category_name
+        if players:
+            output.append({"team": team_name, "players": list(players.values())[:30]})
+    return output
+
 def fetch_stats(matches):
     today = datetime.now(timezone.utc).date()
     dates = [(today - timedelta(days=n)).strftime("%Y%m%d") for n in range(3)]
@@ -243,13 +285,14 @@ def fetch_stats(matches):
                 if name:
                     stats[name] = vals
             scorers = extract_goal_events(summary)
+            player_stats = extract_player_stats(summary)
             photo = extract_match_photo(summary)
-            if stats or scorers or photo:
+            if stats or scorers or player_stats or photo:
                 record = {
                     "eventId": event_id, "league": best["league"], "url": f"https://www.espn.com/soccer/match/_/gameId/{event_id}",
                     "home": stats.get(best["home"].get("team", {}).get("displayName"), {}),
                     "away": stats.get(best["away"].get("team", {}).get("displayName"), {}),
-                    "teams": stats, "scorers": scorers, "available": bool(stats)
+                    "teams": stats, "scorers": scorers, "playerStats": player_stats, "available": bool(stats)
                 }
                 if photo:
                     record["photo"] = photo
