@@ -271,3 +271,11 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
   .calendar-card-group .competition-group-heading{padding:11px 12px}
   .calendar-competition-title h3{font-size:13px}
 }
+
+/* Result carousel: scorers and genuine match action photos */
+.result-match-photo{display:block;width:100%;max-width:620px;max-height:155px;object-fit:cover;border-radius:12px;margin:2px auto 6px;box-shadow:0 5px 18px #0005}
+.result-scorers-heading{margin:5px 0 0;color:#f4d36d;font-size:10px;font-weight:900;letter-spacing:.16em}
+.result-scorers{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;max-width:720px;margin:0 auto}
+.result-scorer{display:inline-block;padding:6px 9px;border:1px solid #ffffff24;border-radius:8px;background:#ffffff12;color:#fff;font-size:11px;font-weight:750}
+.result-scorers-empty{margin:2px 0 0;color:#c5cde0;font-size:10px}
+@media(max-width:600px){.result-match-photo{max-height:125px}.result-scorer{font-size:10px;padding:6px 7px}}
