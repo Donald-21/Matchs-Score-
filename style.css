@@ -139,3 +139,5 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .favorite-match.is-favorite{background:#d6a943;color:#171717}
 .match-card .match-details summary:focus-visible,.favorite-match:focus-visible,.match-extra-filters :focus-visible{outline:2px solid #f4c542;outline-offset:2px}
 @media(max-width:680px){.match-extra-filters{grid-template-columns:1fr 1fr}.match-extra-filters .match-search-label{grid-row:auto}.match-extra-filters input,.match-extra-filters select{grid-row:auto}.match-extra-filters #favorites-filter{grid-column:1/-1;grid-row:auto;width:100%}}
+
+.match-half-time{margin:2px 0 0;padding-top:8px;border-top:1px dashed rgba(212,165,70,.22);color:#d9c58e;font-size:10px;font-weight:800;text-align:right}
