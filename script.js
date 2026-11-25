@@ -45,60 +45,91 @@ function updateCompetitionOptions() {
 function renderMatchStats(match) {
   const data = matchStats[String(match.id)];
   if (!data || !data.available) return null;
-  const section = document.createElement('div');
+  const section = document.createElement('section');
   section.className = 'match-stats';
   const title = document.createElement('strong');
   title.className = 'match-stats-title';
   title.textContent = 'Statistiques du match';
   section.append(title);
-  const labels = [
-    ['Possession', 'possessionPct', '%'], ['Tirs', 'totalShots', ''],
-    ['Tirs cadrés', 'shotsOnTarget', ''], ['Tirs bloqués', 'blockedShots', ''],
-    ['Précision des tirs', 'shotPct', '%'], ['Corners', 'wonCorners', ''],
-    ['Hors-jeu', 'offsides', ''], ['Fautes', 'foulsCommitted', ''],
-    ['Cartons jaunes', 'yellowCards', ''], ['Cartons rouges', 'redCards', ''],
-    ['Arrêts du gardien', 'saves', ''], ['Passes réussies', 'accuratePasses', ''],
-    ['Passes tentées', 'totalPasses', ''], ['Précision des passes', 'passPct', '%'],
-    ['Centres réussis', 'accurateCrosses', ''], ['Centres tentés', 'totalCrosses', ''],
-    ['Précision des centres', 'crossPct', '%'], ['Longs ballons réussis', 'accurateLongBalls', ''],
-    ['Longs ballons tentés', 'totalLongBalls', ''], ['Précision des longs ballons', 'longballPct', '%'],
-    ['Tacles réussis', 'effectiveTackles', ''], ['Tacles tentés', 'totalTackles', ''],
-    ['Réussite des tacles', 'tacklePct', '%'], ['Interceptions', 'interceptions', ''],
-    ['Dégagements', 'effectiveClearance', ''], ['Total dégagements', 'totalClearance', ''],
-    ['Buts sur penalty', 'penaltyKickGoals', ''], ['Tirs au but sur penalty', 'penaltyKickShots', '']
+
+  const homeName = match.homeTeam?.name || 'Domicile';
+  const awayName = match.awayTeam?.name || 'Extérieur';
+  const groups = [
+    { title: 'Possession et jeu', items: [
+      ['Possession', 'possessionPct', '%', true],
+      ['Passes réussies', 'accuratePasses', ''],
+      ['Passes tentées', 'totalPasses', ''],
+      ['Précision des passes', 'passPct', '%', true]
+    ]},
+    { title: 'Attaque', items: [
+      ['Tirs', 'totalShots', ''],
+      ['Tirs cadrés', 'shotsOnTarget', ''],
+      ['Tirs bloqués', 'blockedShots', ''],
+      ['Précision des tirs', 'shotPct', '%', true],
+      ['Corners', 'wonCorners', '']
+    ]},
+    { title: 'Discipline et défense', items: [
+      ['Fautes', 'foulsCommitted', ''],
+      ['Hors-jeu', 'offsides', ''],
+      ['Cartons jaunes', 'yellowCards', ''],
+      ['Cartons rouges', 'redCards', ''],
+      ['Arrêts du gardien', 'saves', ''],
+      ['Tacles réussis', 'effectiveTackles', ''],
+      ['Interceptions', 'interceptions', ''],
+      ['Dégagements', 'effectiveClearance', '']
+    ]}
   ];
-  const grid = document.createElement('div');
-  grid.className = 'match-stats-grid';
-  const sides = [
-    ['Domicile', data.home || {}],
-    ['Extérieur', data.away || {}]
-  ];
-  sides.forEach(([side, values]) => {
-    const column = document.createElement('div');
-    column.className = 'match-stats-side';
-    const heading = document.createElement('span');
-    heading.className = 'match-stats-side-title';
-    heading.textContent = side;
-    column.append(heading);
-    labels.forEach(([label, key, suffix]) => {
-      if (values[key] === undefined || values[key] === null) return;
-      const line = document.createElement('p');
-      line.className = 'match-stats-line';
+
+  groups.forEach(group => {
+    const groupBox = document.createElement('div');
+    groupBox.className = 'match-stats-group';
+    const heading = document.createElement('h4');
+    heading.textContent = group.title;
+    groupBox.append(heading);
+    group.items.forEach(([label, key, suffix, percent]) => {
+      const home = data.home?.[key];
+      const away = data.away?.[key];
+      if (home == null && away == null) return;
+      const toNumber = value => {
+        const n = Number(value);
+        if (!Number.isFinite(n)) return null;
+        return percent && n <= 1 ? n * 100 : n;
+      };
+      const h = toNumber(home), a = toNumber(away);
+      const row = document.createElement('div');
+      row.className = 'match-stat-compare';
+      const values = document.createElement('div');
+      values.className = 'match-stat-values';
+      const left = document.createElement('strong');
+      left.textContent = home == null ? '—' : (percent ? Math.round(h) + '%' : String(home) + suffix);
       const name = document.createElement('span');
       name.textContent = label;
-      const value = document.createElement('strong');
-      const rawValue = Number(values[key]);
-      const percentKeys = ['shotPct', 'passPct', 'crossPct', 'longballPct', 'tacklePct'];
-      const displayValue = percentKeys.includes(key) && Number.isFinite(rawValue)
-        ? (rawValue <= 1 ? Math.round(rawValue * 100) : rawValue) + '%'
-        : String(values[key]) + suffix;
-      value.textContent = displayValue;
-      line.append(name, value);
-      column.append(line);
+      const right = document.createElement('strong');
+      right.textContent = away == null ? '—' : (percent ? Math.round(a) + '%' : String(away) + suffix);
+      values.append(left, name, right);
+      row.append(values);
+      if (h !== null && a !== null) {
+        const track = document.createElement('div');
+        track.className = 'match-stat-track';
+        const total = Math.max(0, h) + Math.max(0, a);
+        const homeBar = document.createElement('span');
+        homeBar.className = 'match-stat-home-bar';
+        homeBar.style.width = (total ? Math.max(0,h) / total * 100 : 50) + '%';
+        const awayBar = document.createElement('span');
+        awayBar.className = 'match-stat-away-bar';
+        awayBar.style.width = (total ? Math.max(0,a) / total * 100 : 50) + '%';
+        track.append(homeBar, awayBar);
+        row.append(track);
+      }
+      groupBox.append(row);
     });
-    grid.append(column);
+    if (groupBox.querySelector('.match-stat-compare')) section.append(groupBox);
   });
-  section.append(grid);
+
+  const teams = document.createElement('div');
+  teams.className = 'match-stats-team-names';
+  teams.textContent = homeName + '  —  ' + awayName;
+  section.insertBefore(teams, section.children[1] || null);
   if (data.url) {
     const source = document.createElement('a');
     source.href = data.url;
