@@ -320,6 +320,10 @@ async function loadMatches() {
     allMatches.sort((a, b) => new Date(a.utcDate || 0) - new Date(b.utcDate || 0));
     updateCompetitionOptions();
     renderMatches();
+    calendarMatches = allMatches;
+    renderCalendarDay();
+    renderCalendarMonth();
+    renderResultHighlights();
     const count = allMatches.length;
     const fetchedAt = data.fetchedAt ? new Date(data.fetchedAt) : null;
     const updated = data.matches?.reduce((latest, item) => {
@@ -364,6 +368,7 @@ async function loadMatchStats() {
     const data = await response.json();
     matchStats = data.matches && typeof data.matches === 'object' ? data.matches : {};
     renderMatches();
+    renderResultHighlights();
     const status = document.querySelector('#matches-status');
     const count = Object.keys(matchStats).length;
     if (status && count) status.textContent += ' • statistiques détaillées disponibles pour ' + count + ' match(s).';
@@ -590,68 +595,163 @@ async function loadNews() {
 }
 loadNews();
 
-/* Calendrier mensuel par championnat */
-let calendarCompetitions = [];
+
+/* Calendrier façon LiveScore : aujourd'hui, demain et sélection d'une date */
 let calendarMatches = [];
-const calendarMonthInput = document.querySelector('#calendar-month');
-const calendarCompetitionSelect = document.querySelector('#calendar-competition');
-const calendarSearchInput = document.querySelector('#calendar-competition-search');
-const calendarContainer = document.querySelector('#calendar-container');
-const calendarStatus = document.querySelector('#calendar-status');
-function localMonthValue() {
-  const p = new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Douala',year:'numeric',month:'2-digit'}).formatToParts(new Date());
-  return p.find(x=>x.type==='year').value+'-'+p.find(x=>x.type==='month').value;
+let calendarSelectedDate = localDateKey(new Date());
+let calendarMonthValue = localMonthValue();
+let calendarView = 'today';
+let resultSlideIndex = 0;
+let resultTimer = null;
+
+function localDateKey(date) {
+  const parts = new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Douala',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(date);
+  return parts.filter(p=>['year','month','day'].includes(p.type)).map(p=>p.value).join('-');
 }
-function renderCalendarOptions() {
-  if(!calendarCompetitionSelect) return;
-  const q=(calendarSearchInput?.value||'').trim().toLocaleLowerCase('fr');
-  const old=calendarCompetitionSelect.value;
-  const list=calendarCompetitions.filter(c=>(c.name+' '+(c.area?.name||'')).toLocaleLowerCase('fr').includes(q)).sort((a,b)=>(a.area?.name||'').localeCompare(b.area?.name||'','fr')||a.name.localeCompare(b.name,'fr'));
-  calendarCompetitionSelect.replaceChildren();
-  const first=document.createElement('option');first.value='';first.textContent=list.length?'Choisir un championnat…':'Aucun championnat trouvé';calendarCompetitionSelect.append(first);
-  list.forEach(c=>{const o=document.createElement('option');o.value=c.code;o.textContent=c.name+(c.area?.name?' — '+c.area.name:'');calendarCompetitionSelect.append(o);});
-  if(list.some(c=>c.code===old))calendarCompetitionSelect.value=old;
+function localMonthValue() { return localDateKey(new Date()).slice(0,7); }
+function dateOffsetKey(offset) {
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Douala',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);
+  const y=Number(parts.find(p=>p.type==='year').value),m=Number(parts.find(p=>p.type==='month').value),d=Number(parts.find(p=>p.type==='day').value);
+  const date=new Date(Date.UTC(y,m-1,d+offset,12));
+  return date.toISOString().slice(0,10);
 }
-async function initCompetitionCalendar() {
-  if(!calendarCompetitionSelect)return;
-  calendarMonthInput.value=localMonthValue();
-  try {
-    const [cr,mr]=await Promise.all([fetch('./competitions.json?t='+Date.now(),{cache:'no-store'}),fetch('./matches.json?t='+Date.now(),{cache:'no-store'})]);
-    if(!cr.ok)throw new Error('Catalogue indisponible');
-    const cd=await cr.json();calendarCompetitions=Array.isArray(cd.competitions)?cd.competitions:[];
-    if(mr.ok){const md=await mr.json();calendarMatches=Array.isArray(md.matches)?md.matches:[];}
-    if(!calendarCompetitions.length)calendarCompetitions=[...new Map(calendarMatches.map(m=>[m.competition?.code,{code:m.competition?.code,name:m.competition?.name,area:m.area}]).filter(x=>x[0])).values()];
-    renderCalendarOptions();
-    if(calendarStatus)calendarStatus.textContent=calendarCompetitions.length+' championnat(s) répertorié(s). Choisis une compétition.';
-    renderMonthlyCalendar();
-  } catch(e){if(calendarStatus)calendarStatus.textContent='Le catalogue des championnats est momentanément indisponible.';}
+function matchesOnDate(dateKey) {
+  return calendarMatches.filter(m=>m.utcDate && localDateKey(new Date(m.utcDate))===dateKey)
+    .sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
 }
-function renderMonthlyCalendar() {
-  if(!calendarContainer||!calendarCompetitionSelect)return;
-  const code=calendarCompetitionSelect.value;
-  calendarContainer.replaceChildren();
-  if(!code){const p=document.createElement('p');p.className='empty-state';p.textContent='Choisis un championnat pour afficher son calendrier.';calendarContainer.append(p);return;}
-  const month=calendarMonthInput.value||localMonthValue(), parts=month.split('-').map(Number), yy=String(parts[0]), mm=String(parts[1]).padStart(2,'0');
-  const matches=calendarMatches.filter(m=>{
-    if(m.competition?.code!==code||!m.utcDate)return false;
-    const d=new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Douala',year:'numeric',month:'2-digit'}).formatToParts(new Date(m.utcDate));
-    return d.find(x=>x.type==='year')?.value===yy&&d.find(x=>x.type==='month')?.value===mm;
-  }).sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
-  if(!matches.length){const p=document.createElement('p');p.className='empty-state';p.textContent='Aucun match reçu pour ce championnat et ce mois. Les données disponibles dépendent de la couverture du fournisseur.';calendarContainer.append(p);}
-  matches.forEach(m=>{
-    const row=document.createElement('article');row.className='calendar-match-row';
-    const date=document.createElement('time');date.dateTime=m.utcDate;date.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'short',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(m.utcDate));
-    const teams=document.createElement('div');teams.className='calendar-match-teams';
-    const h=document.createElement('span');h.textContent=m.homeTeam?.shortName||m.homeTeam?.name||'Domicile';
-    const a=document.createElement('span');a.textContent=m.awayTeam?.shortName||m.awayTeam?.name||'Extérieur';
-    const score=document.createElement('strong');const hs=m.score?.fullTime?.home??m.score?.regularTime?.home,as=m.score?.fullTime?.away??m.score?.regularTime?.away;score.textContent=hs==null?'—':hs+' - '+(as??'—');
-    const status=document.createElement('span');status.className='calendar-match-status '+matchGroup(m.status);status.textContent=labels[m.status]||m.status||'À venir';
-    teams.append(h,document.createTextNode(' — '),a);row.append(date,teams,score,status);calendarContainer.append(row);
+function appendCalendarGroups(container, matches) {
+  container.replaceChildren();
+  if(!matches.length) {
+    const p=document.createElement('p');p.className='empty-state';
+    p.textContent='Aucun match reçu pour cette date. Le calendrier affiche uniquement les rencontres disponibles auprès de la source.';
+    container.append(p);return;
+  }
+  const groups=new Map();
+  matches.forEach(m=>{const name=m.competition?.name||'Autres rencontres';if(!groups.has(name))groups.set(name,[]);groups.get(name).push(m);});
+  [...groups.entries()].sort((a,b)=>a[0].localeCompare(b[0],'fr')).forEach(([name,items])=>{
+    const section=document.createElement('section');section.className='calendar-competition-group';
+    const heading=document.createElement('h3');heading.textContent=name;
+    const count=document.createElement('span');count.textContent=items.length+' match(s)';
+    const head=document.createElement('div');head.className='calendar-competition-heading';head.append(heading,count);section.append(head);
+    items.forEach(m=>{
+      const row=document.createElement('article');row.className='calendar-match-row';
+      const time=document.createElement('time');time.dateTime=m.utcDate;
+      time.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(m.utcDate));
+      const teams=document.createElement('div');teams.className='calendar-match-teams';
+      const home=document.createElement('span');home.textContent=m.homeTeam?.shortName||m.homeTeam?.name||'Domicile';
+      const away=document.createElement('span');away.textContent=m.awayTeam?.shortName||m.awayTeam?.name||'Extérieur';
+      const score=document.createElement('strong');const hs=m.score?.fullTime?.home??m.score?.regularTime?.home??m.score?.halfTime?.home;
+      const as=m.score?.fullTime?.away??m.score?.regularTime?.away??m.score?.halfTime?.away;
+      score.textContent=hs==null?'—':hs+' - '+(as??'—');
+      const state=document.createElement('span');state.className='calendar-match-status '+matchGroup(m.status);state.textContent=labels[m.status]||m.status||'À venir';
+      teams.append(home,document.createTextNode(' — '),away);row.append(time,teams,score,state);section.append(row);
+    });
+    container.append(section);
   });
-  const name=calendarCompetitions.find(c=>c.code===code)?.name||code;
-  if(calendarStatus)calendarStatus.textContent=name+' : '+matches.length+' match(s) reçu(s) pour '+new Intl.DateTimeFormat('fr-FR',{month:'long',year:'numeric'}).format(new Date(parts[0],parts[1]-1,1))+'.';
 }
-calendarSearchInput?.addEventListener('input',renderCalendarOptions);
-calendarCompetitionSelect?.addEventListener('change',renderMonthlyCalendar);
-calendarMonthInput?.addEventListener('change',renderMonthlyCalendar);
-initCompetitionCalendar();
+function renderCalendarDay() {
+  const today=dateOffsetKey(0), tomorrow=dateOffsetKey(1);
+  const date=calendarView==='today'?today:tomorrow;
+  calendarSelectedDate=date;
+  const title=calendarView==='today'?'Aujourd’hui': 'Demain';
+  const status=document.querySelector('#calendar-status');
+  if(status)status.textContent=title+' • '+new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'long',day:'numeric',month:'long'}).format(new Date(date+'T12:00:00Z'))+' • '+matchesOnDate(date).length+' match(s)';
+  appendCalendarGroups(document.querySelector('#calendar-container'),matchesOnDate(date));
+}
+function renderCalendarMonth() {
+  const input=document.querySelector('#calendar-month');
+  const grid=document.querySelector('#calendar-days');
+  if(!input||!grid)return;
+  if(!input.value)input.value=calendarMonthValue;
+  calendarMonthValue=input.value;
+  const [year,month]=calendarMonthValue.split('-').map(Number);
+  const monthName=new Intl.DateTimeFormat('fr-FR',{month:'long',year:'numeric'}).format(new Date(year,month-1,1));
+  document.querySelector('#calendar-month-label').textContent=monthName;
+  grid.replaceChildren();
+  const firstDay=(new Date(year,month-1,1).getDay()+6)%7;
+  const days=new Date(year,month,0).getDate();
+  for(let i=0;i<firstDay;i++){const blank=document.createElement('span');blank.className='calendar-day blank';grid.append(blank);}
+  for(let day=1;day<=days;day++){
+    const key=year+'-'+String(month).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+    const count=matchesOnDate(key).length;
+    const button=document.createElement('button');button.type='button';button.className='calendar-day'+(key===calendarSelectedDate?' selected':'')+(count?' has-matches':'');
+    button.textContent=String(day);button.setAttribute('aria-label',day+' '+monthName+', '+count+' match(s)');
+    if(count){const dot=document.createElement('i');dot.textContent=String(count);button.append(dot);}
+    button.addEventListener('click',()=>{calendarSelectedDate=key;renderCalendarMonth();renderSelectedCalendarDate();});
+    grid.append(button);
+  }
+  renderSelectedCalendarDate();
+}
+function renderSelectedCalendarDate() {
+  const date=calendarSelectedDate;
+  const label=document.querySelector('#calendar-selected-label');
+  if(label)label.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(date+'T12:00:00Z'));
+  const matches=matchesOnDate(date);
+  const status=document.querySelector('#calendar-month-status');
+  if(status)status.textContent=matches.length+' rencontre(s) disponible(s) à cette date.';
+  appendCalendarGroups(document.querySelector('#calendar-selected-matches'),matches);
+}
+function setCalendarView(view) {
+  calendarView=view;
+  document.querySelectorAll('[data-calendar-view]').forEach(button=>{
+    const active=button.dataset.calendarView===view;button.classList.toggle('active',active);button.setAttribute('aria-selected',String(active));
+  });
+  const monthView=document.querySelector('#calendar-month-view');
+  const dayContent=document.querySelector('#calendar-day-content');
+  if(monthView)monthView.hidden=view!=='month';
+  if(dayContent)dayContent.hidden=view==='month';
+  if(view==='month')renderCalendarMonth();else renderCalendarDay();
+}
+async function initMatchCalendar() {
+  try {
+    const response=await fetch('./matches.json?t='+Date.now(),{cache:'no-store'});
+    if(!response.ok)throw new Error('Flux indisponible');
+    const data=await response.json();calendarMatches=Array.isArray(data.matches)?data.matches:[];
+    if(!allMatches.length)allMatches=calendarMatches;
+    renderCalendarDay();renderCalendarMonth();
+  } catch(error) {
+    const status=document.querySelector('#calendar-status');if(status)status.textContent='Impossible de charger le calendrier pour le moment.';
+  }
+}
+document.querySelectorAll('[data-calendar-view]').forEach(button=>button.addEventListener('click',()=>setCalendarView(button.dataset.calendarView)));
+document.querySelector('#calendar-month')?.addEventListener('change',event=>{calendarMonthValue=event.target.value;calendarSelectedDate=calendarMonthValue+'-01';renderCalendarMonth();});
+document.querySelector('#calendar-prev-month')?.addEventListener('click',()=>changeCalendarMonth(-1));
+document.querySelector('#calendar-next-month')?.addEventListener('click',()=>changeCalendarMonth(1));
+function changeCalendarMonth(delta) {
+  const [y,m]=calendarMonthValue.split('-').map(Number);const d=new Date(y,m-1+delta,1);
+  calendarMonthValue=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+  const input=document.querySelector('#calendar-month');if(input)input.value=calendarMonthValue;
+  calendarSelectedDate=calendarMonthValue+'-01';renderCalendarMonth();
+}
+initMatchCalendar();
+
+/* Grande affiche défilante des derniers scores terminés.
+   Les écussons officiels sont utilisés si aucune photo éditoriale du match n'est fournie. */
+function renderResultHighlights() {
+  const container=document.querySelector('#result-carousel');if(!container)return;
+  const finished=allMatches.filter(m=>['FINISHED','AWARDED'].includes(m.status)&&m.score?.fullTime?.home!=null)
+    .sort((a,b)=>new Date(b.utcDate)-new Date(a.utcDate)).slice(0,20);
+  container.replaceChildren();
+  if(!finished.length){const p=document.createElement('p');p.className='empty-state';p.textContent='Les affiches des matchs terminés apparaîtront ici dès que les scores finaux seront transmis.';container.append(p);return;}
+  resultSlideIndex=((resultSlideIndex%finished.length)+finished.length)%finished.length;
+  const m=finished[resultSlideIndex];
+  const slide=document.createElement('article');slide.className='result-slide';
+  const league=document.createElement('p');league.className='result-league';league.textContent=m.competition?.name||'Football';
+  const title=document.createElement('p');title.className='result-kicker';title.textContent='SCORE FINAL';
+  const teams=document.createElement('div');teams.className='result-teams';
+  [[m.homeTeam,m.score.fullTime.home],[m.awayTeam,m.score.fullTime.away]].forEach(([team,score])=>{
+    const item=document.createElement('div');item.className='result-team';
+    const crest=document.createElement('img');crest.alt='';crest.loading='lazy';crest.src=team?.crest||'';crest.addEventListener('error',()=>{crest.hidden=true;},{once:true});
+    const name=document.createElement('strong');name.textContent=team?.shortName||team?.name||'Équipe';
+    const goals=document.createElement('b');goals.textContent=String(score);
+    item.append(crest,name,goals);teams.append(item);
+  });
+  const date=document.createElement('p');date.className='result-date';date.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',dateStyle:'full'}).format(new Date(m.utcDate));
+  slide.append(league,title,teams,date);container.append(slide);
+}
+function moveResultSlide(direction) {resultSlideIndex+=direction;renderResultHighlights();}
+document.querySelector('#result-prev')?.addEventListener('click',()=>moveResultSlide(-1));
+document.querySelector('#result-next')?.addEventListener('click',()=>moveResultSlide(1));
+if(resultTimer)clearInterval(resultTimer);
+resultTimer=setInterval(()=>moveResultSlide(1),7000);
