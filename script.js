@@ -589,6 +589,21 @@ async function loadMatchStats() {
     if (!response.ok) throw new Error('Statistiques indisponibles');
     const data = await response.json();
     matchStats = data.matches && typeof data.matches === 'object' ? data.matches : {};
+    try {
+      const pitchResponse = await fetch('./pitch_players.json', { cache: 'default' });
+      if (pitchResponse.ok) {
+        const pitchData = await pitchResponse.json();
+        Object.entries(pitchData.matches || {}).forEach(([matchId, extra]) => {
+          if (!matchStats[matchId]) matchStats[matchId] = {};
+          if (Array.isArray(extra.playerStats) && extra.playerStats.length) {
+            matchStats[matchId].playerStats = extra.playerStats;
+            matchStats[matchId].playerStatsSource = extra.source || 'PitchAPI';
+          }
+        });
+      }
+    } catch (pitchError) {
+      console.warn('Statistiques individuelles PitchAPI indisponibles :', pitchError);
+    }
     renderMatches();
     renderResultHighlights();
     const status = document.querySelector('#matches-status');
