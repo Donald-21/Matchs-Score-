@@ -16,7 +16,7 @@ if (year) year.textContent = new Date().getFullYear();
 const labels = {
   SCHEDULED: 'À venir', TIMED: 'À venir', IN_PLAY: 'En cours',
   PAUSED: 'Pause', FINISHED: 'Terminé', POSTPONED: 'Reporté',
-  SUSPENDED: 'Suspendu', CANCELLED: 'Annulé', AWARDED: 'Décision officielle',
+  SUSPENDED: 'Match suspendu', CANCELLED: 'Annulé', AWARDED: 'Décision officielle',
   LIVE: 'En cours'
 };
 let currentFilter = 'all';
@@ -91,7 +91,7 @@ function formatDate(value) {
 }
 
 function matchGroup(status) {
-  if (['IN_PLAY', 'PAUSED', 'LIVE'].includes(status)) return 'live';
+  if (['IN_PLAY', 'PAUSED', 'LIVE', 'SUSPENDED'].includes(status)) return 'live';
   if (status === 'FINISHED' || status === 'AWARDED') return 'finished';
   return 'upcoming';
 }
@@ -153,6 +153,29 @@ function renderMatch(match) {
   round.textContent = match.matchday ? 'Journée ' + match.matchday : '';
   bottom.append(status, round);
   card.append(league, date, teams, bottom);
+
+  const detailItems = [
+    ['Stade', match.venue],
+    ['Phase', match.stage],
+    ['Journée', match.matchday ? String(match.matchday) : null],
+    ['Arbitre(s)', Array.isArray(match.referees) && match.referees.length ? match.referees.map(ref => ref.name).filter(Boolean).join(', ') : null]
+  ].filter(([, value]) => value);
+  if (detailItems.length) {
+    const details = document.createElement('details');
+    details.className = 'match-details';
+    const summary = document.createElement('summary');
+    summary.textContent = 'Détails de la rencontre';
+    const panel = document.createElement('div');
+    panel.className = 'match-stat-panel';
+    detailItems.forEach(([label, value]) => {
+      const line = document.createElement('p');
+      line.textContent = label + ' : ' + value;
+      panel.append(line);
+    });
+    details.append(summary, panel);
+    card.append(details);
+  }
+
   const stats = renderMatchStats(match);
   if (stats) card.append(stats);
   return card;
