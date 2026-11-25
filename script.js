@@ -403,14 +403,6 @@ function renderMatch(match) {
   detailPanel.hidden = true;
   openDetails.addEventListener('click', () => {
     const isOpen = !detailPanel.hidden;
-    detailPanel.hidden = isOpen;
-    openDetails.setAttribute('aria-expanded', String(!isOpen));
-    openDetails.textContent = isOpen ? 'Voir le match et les statistiques' : 'Masquer les détails';
-  });
-  card.append(openDetails);
-
-  openDetails.addEventListener('click', () => {
-    const isOpen = !detailPanel.hidden;
     if (!isOpen && detailPanel.dataset.loaded !== 'true') {
       populateMatchDetails(match, detailPanel);
       detailPanel.dataset.loaded = 'true';
