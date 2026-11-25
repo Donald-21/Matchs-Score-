@@ -101,6 +101,82 @@ def similarity(a, b):
         return 1
     return SequenceMatcher(None, a, b).ratio()
 
+
+def extract_goal_events(summary):
+    """Return confirmed goal events supplied by ESPN, when available."""
+    collections = []
+    for key in ("keyEvents", "scoringPlays", "plays"):
+        value = summary.get(key)
+        if isinstance(value, list):
+            collections.extend(value)
+    commentary = summary.get("commentary", {})
+    if isinstance(commentary, dict) and isinstance(commentary.get("items"), list):
+        collections.extend(commentary["items"])
+    goals, seen = [], set()
+    for event in collections:
+        if not isinstance(event, dict):
+            continue
+        kind = event.get("type", {})
+        kind_text = kind.get("text", "") if isinstance(kind, dict) else str(kind or "")
+        description = " ".join(str(event.get(key, "")) for key in ("text", "shortText", "description"))
+        marker = (kind_text + " " + description).lower()
+        if "goal" not in marker:
+            continue
+        participants = event.get("participants") or event.get("athletes") or event.get("players") or []
+        player_name = ""
+        for participant in participants:
+            if not isinstance(participant, dict):
+                continue
+            athlete = participant.get("athlete") or participant.get("player") or participant
+            if isinstance(athlete, dict):
+                player_name = athlete.get("displayName") or athlete.get("fullName") or athlete.get("name") or ""
+            if player_name:
+                break
+        if not player_name and isinstance(event.get("athlete"), dict):
+            player_name = event["athlete"].get("displayName", "")
+        if not player_name:
+            continue
+        team = event.get("team", {})
+        team_name = (team.get("displayName") or team.get("name")) if isinstance(team, dict) else ""
+        clock = event.get("clock", {})
+        minute = clock.get("displayValue") if isinstance(clock, dict) else clock
+        if not minute:
+            time_data = event.get("time", {})
+            minute = time_data.get("displayValue") if isinstance(time_data, dict) else time_data
+        if not minute:
+            minute = event.get("displayClock") or event.get("minute")
+        own_goal = "own goal" in marker
+        penalty = "penalty" in marker
+        item = {"player": player_name, "team": team_name or "", "minute": str(minute or ""),
+                "ownGoal": own_goal, "penalty": penalty}
+        identity = (item["player"], item["team"], item["minute"])
+        if identity not in seen:
+            seen.add(identity)
+            goals.append(item)
+    return goals
+
+def extract_match_photo(summary):
+    """Use an event/article action photo only; never substitute a team badge or headshot."""
+    candidates = []
+    article = summary.get("article", {})
+    if isinstance(article, dict):
+        candidates.extend(article.get("images", []) if isinstance(article.get("images"), list) else [])
+        image = article.get("image")
+        if isinstance(image, dict):
+            candidates.append(image)
+    candidates.extend(summary.get("images", []) if isinstance(summary.get("images"), list) else [])
+    for item in candidates:
+        if not isinstance(item, dict):
+            continue
+        url = item.get("url") or item.get("href")
+        if not isinstance(url, str) or not url.startswith("https://"):
+            continue
+        description = " ".join(str(item.get(key, "")) for key in ("caption", "alt", "name", "title")).strip()
+        if any(term in description.lower() for term in ("headshot", "portrait", "logo", "badge", "crest")):
+            continue
+        return {"url": url, "caption": description[:220]}
+    return None
+
 def fetch_stats(matches):
     today = datetime.now(timezone.utc).date()
     dates = [(today - timedelta(days=n)).strftime("%Y%m%d") for n in range(3)]
@@ -166,13 +242,18 @@ def fetch_stats(matches):
                         vals[str(key)] = value
                 if name:
                     stats[name] = vals
-            if stats:
-                output["matches"][str(match.get("id"))] = {
+            scorers = extract_goal_events(summary)
+            photo = extract_match_photo(summary)
+            if stats or scorers or photo:
+                record = {
                     "eventId": event_id, "league": best["league"], "url": f"https://www.espn.com/soccer/match/_/gameId/{event_id}",
                     "home": stats.get(best["home"].get("team", {}).get("displayName"), {}),
                     "away": stats.get(best["away"].get("team", {}).get("displayName"), {}),
-                    "teams": stats, "available": True
+                    "teams": stats, "scorers": scorers, "available": bool(stats)
                 }
+                if photo:
+                    record["photo"] = photo
+                output["matches"][str(match.get("id"))] = record
                 used.add(event_id)
         except Exception as exc:
             print(f"ESPN summary {event_id}: {type(exc).__name__}: {exc}")
