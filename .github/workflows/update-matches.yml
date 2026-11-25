@@ -40,9 +40,9 @@ jobs:
             exit 1
           }
 
-          DATE_FROM="$(date -u -d '-90 days' +%F)"
+          DATE_FROM="$(date -u -d '-3 days' +%F)"
           DATE_TO="$(date -u -d '+60 days' +%F)"
-          echo "Historique et calendrier récupérés du $DATE_FROM au $DATE_TO"
+          echo "Calendrier récupéré du $DATE_FROM au $DATE_TO"
 
           curl --fail --silent --show-error --retry 5 --retry-connrefused --retry-delay 10 --retry-max-time 120 \
             -H "X-Auth-Token: $FOOTBALL_TOKEN" \
@@ -51,7 +51,7 @@ jobs:
 
           python - <<'PY'
           import datetime, json, os, subprocess
-          start = datetime.date.today() - datetime.timedelta(days=90)
+          start = datetime.date.today() - datetime.timedelta(days=3)
           end = datetime.date.today() + datetime.timedelta(days=60)
           token = os.environ["FOOTBALL_TOKEN"]
           matches = {}
@@ -86,7 +86,7 @@ jobs:
               cursor = stop + datetime.timedelta(days=1)
           with open("matches.json","w") as f:
               json.dump({"matches":list(matches.values()),"count":len(matches),"fetchedAt":datetime.datetime.now(datetime.timezone.utc).isoformat()},f,ensure_ascii=False,separators=(",",":"))
-          print("Nombre de matchs récupérés (90 jours passés + 60 jours à venir) :",len(matches))
+          print("Nombre de matchs récupérés (3 jours passés + 60 jours à venir) :",len(matches))
           PY
           python -m json.tool matches.json > /dev/null
 
