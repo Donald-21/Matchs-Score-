@@ -589,3 +589,69 @@ async function loadNews() {
   }
 }
 loadNews();
+
+/* Calendrier mensuel par championnat */
+let calendarCompetitions = [];
+let calendarMatches = [];
+const calendarMonthInput = document.querySelector('#calendar-month');
+const calendarCompetitionSelect = document.querySelector('#calendar-competition');
+const calendarSearchInput = document.querySelector('#calendar-competition-search');
+const calendarContainer = document.querySelector('#calendar-container');
+const calendarStatus = document.querySelector('#calendar-status');
+function localMonthValue() {
+  const p = new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Douala',year:'numeric',month:'2-digit'}).formatToParts(new Date());
+  return p.find(x=>x.type==='year').value+'-'+p.find(x=>x.type==='month').value;
+}
+function renderCalendarOptions() {
+  if(!calendarCompetitionSelect) return;
+  const q=(calendarSearchInput?.value||'').trim().toLocaleLowerCase('fr');
+  const old=calendarCompetitionSelect.value;
+  const list=calendarCompetitions.filter(c=>(c.name+' '+(c.area?.name||'')).toLocaleLowerCase('fr').includes(q)).sort((a,b)=>(a.area?.name||'').localeCompare(b.area?.name||'','fr')||a.name.localeCompare(b.name,'fr'));
+  calendarCompetitionSelect.replaceChildren();
+  const first=document.createElement('option');first.value='';first.textContent=list.length?'Choisir un championnat…':'Aucun championnat trouvé';calendarCompetitionSelect.append(first);
+  list.forEach(c=>{const o=document.createElement('option');o.value=c.code;o.textContent=c.name+(c.area?.name?' — '+c.area.name:'');calendarCompetitionSelect.append(o);});
+  if(list.some(c=>c.code===old))calendarCompetitionSelect.value=old;
+}
+async function initCompetitionCalendar() {
+  if(!calendarCompetitionSelect)return;
+  calendarMonthInput.value=localMonthValue();
+  try {
+    const [cr,mr]=await Promise.all([fetch('./competitions.json?t='+Date.now(),{cache:'no-store'}),fetch('./matches.json?t='+Date.now(),{cache:'no-store'})]);
+    if(!cr.ok)throw new Error('Catalogue indisponible');
+    const cd=await cr.json();calendarCompetitions=Array.isArray(cd.competitions)?cd.competitions:[];
+    if(mr.ok){const md=await mr.json();calendarMatches=Array.isArray(md.matches)?md.matches:[];}
+    if(!calendarCompetitions.length)calendarCompetitions=[...new Map(calendarMatches.map(m=>[m.competition?.code,{code:m.competition?.code,name:m.competition?.name,area:m.area}]).filter(x=>x[0])).values()];
+    renderCalendarOptions();
+    if(calendarStatus)calendarStatus.textContent=calendarCompetitions.length+' championnat(s) répertorié(s). Choisis une compétition.';
+    renderMonthlyCalendar();
+  } catch(e){if(calendarStatus)calendarStatus.textContent='Le catalogue des championnats est momentanément indisponible.';}
+}
+function renderMonthlyCalendar() {
+  if(!calendarContainer||!calendarCompetitionSelect)return;
+  const code=calendarCompetitionSelect.value;
+  calendarContainer.replaceChildren();
+  if(!code){const p=document.createElement('p');p.className='empty-state';p.textContent='Choisis un championnat pour afficher son calendrier.';calendarContainer.append(p);return;}
+  const month=calendarMonthInput.value||localMonthValue(), parts=month.split('-').map(Number), yy=String(parts[0]), mm=String(parts[1]).padStart(2,'0');
+  const matches=calendarMatches.filter(m=>{
+    if(m.competition?.code!==code||!m.utcDate)return false;
+    const d=new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Douala',year:'numeric',month:'2-digit'}).formatToParts(new Date(m.utcDate));
+    return d.find(x=>x.type==='year')?.value===yy&&d.find(x=>x.type==='month')?.value===mm;
+  }).sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
+  if(!matches.length){const p=document.createElement('p');p.className='empty-state';p.textContent='Aucun match reçu pour ce championnat et ce mois. Les données disponibles dépendent de la couverture du fournisseur.';calendarContainer.append(p);}
+  matches.forEach(m=>{
+    const row=document.createElement('article');row.className='calendar-match-row';
+    const date=document.createElement('time');date.dateTime=m.utcDate;date.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'short',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(m.utcDate));
+    const teams=document.createElement('div');teams.className='calendar-match-teams';
+    const h=document.createElement('span');h.textContent=m.homeTeam?.shortName||m.homeTeam?.name||'Domicile';
+    const a=document.createElement('span');a.textContent=m.awayTeam?.shortName||m.awayTeam?.name||'Extérieur';
+    const score=document.createElement('strong');const hs=m.score?.fullTime?.home??m.score?.regularTime?.home,as=m.score?.fullTime?.away??m.score?.regularTime?.away;score.textContent=hs==null?'—':hs+' - '+(as??'—');
+    const status=document.createElement('span');status.className='calendar-match-status '+matchGroup(m.status);status.textContent=labels[m.status]||m.status||'À venir';
+    teams.append(h,document.createTextNode(' — '),a);row.append(date,teams,score,status);calendarContainer.append(row);
+  });
+  const name=calendarCompetitions.find(c=>c.code===code)?.name||code;
+  if(calendarStatus)calendarStatus.textContent=name+' : '+matches.length+' match(s) reçu(s) pour '+new Intl.DateTimeFormat('fr-FR',{month:'long',year:'numeric'}).format(new Date(parts[0],parts[1]-1,1))+'.';
+}
+calendarSearchInput?.addEventListener('input',renderCalendarOptions);
+calendarCompetitionSelect?.addEventListener('change',renderMonthlyCalendar);
+calendarMonthInput?.addEventListener('change',renderMonthlyCalendar);
+initCompetitionCalendar();
