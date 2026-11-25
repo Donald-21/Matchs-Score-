@@ -1,0 +1,69 @@
+name: Refresh live football scores
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/update-live-scores.yml"
+  schedule:
+    - cron: "*/15 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: football-data-update
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Get repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch latest fixtures and scores
+        env:
+          FOOTBALL_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: |
+          test -n "$FOOTBALL_TOKEN" || {
+            echo "API token is missing"
+            exit 1
+          }
+
+          DATE_FROM="$(date -u -d '-2 days' +%F)"
+          DATE_TO="$(date -u -d '+7 days' +%F)"
+          curl --fail --silent --show-error --retry 4 --retry-connrefused --retry-delay 5 --retry-max-time 90 \
+            -H "X-Auth-Token: $FOOTBALL_TOKEN" \
+            "https://api.football-data.org/v4/matches?dateFrom=$DATE_FROM&dateTo=$DATE_TO" \
+            -o matches.json
+
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          path = "matches.json"
+          with open(path, encoding="utf-8") as f:
+              data = json.load(f)
+          if not isinstance(data.get("matches"), list):
+              raise SystemExit("Invalid matches payload")
+          data["fetchedAt"] = datetime.now(timezone.utc).isoformat()
+          with open(path, "w", encoding="utf-8") as f:
+              json.dump(data, f, ensure_ascii=False, indent=2)
+          print(f"Valid feed: {len(data['matches'])} matches")
+          PY
+
+      - name: Publish updated scores
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+users.noreply.github.com"
+          git add matches.json
+          if git diff --cached --quiet; then
+            echo "No score changes to publish."
+            exit 0
+          fi
+          git commit -m "Refresh live football scores"
+          git pull --rebase origin main
+          git push
