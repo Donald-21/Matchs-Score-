@@ -780,7 +780,8 @@ async function loadPredictions() {
     if (status) status.textContent = 'Moteur d’analyse en attente de ses premières données.';
   }
 }
-loadSectionWhenNeeded('pronostics', loadPredictions);
+// Charge aussi les données de pronostic pour alimenter l'analyse des matchs du jour et de demain.
+loadPredictions();
 
 
 const leagueSelect = document.querySelector('#league-select');
