@@ -342,3 +342,11 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .match-player-photo{width:38px;height:38px;flex:none;object-fit:cover;object-position:center top;border-radius:50%;background:#e8eaf0;border:1px solid #d9dce5}
 .match-player-row small{font-size:11px;line-height:1.5;color:#647086;overflow-wrap:anywhere}
 @media(max-width:420px){.match-player-stats{padding:10px}.match-player-photo{width:34px;height:34px}}
+
+
+/* Mise en forme des buteurs et photos de match dans les détails */
+.match-scorers,.match-action-photo{margin-top:14px;padding:12px;background:#f7f8fc;border:1px solid #e5e9f1;border-radius:12px}
+.match-scorers h3{margin:0 0 8px;color:#4936a2;font-size:14px}
+.match-scorers p{margin:6px 0;color:#344054;font-size:12px}
+.match-action-photo img{display:block;width:100%;max-height:240px;object-fit:cover;border-radius:9px}
+.match-action-photo small{display:block;margin-top:7px;color:#687287;font-size:10px}
