@@ -56,7 +56,7 @@ def format_stat(item):
         return result + (f" ({pct}%)" if pct is not None else "")
     return str(value)
 
-def player_groups(raw_players):
+def player_groups(raw_players, team_names):
     teams = {}
     for entry in raw_players or []:
         if not isinstance(entry, dict):
@@ -66,7 +66,7 @@ def player_groups(raw_players):
         if not name:
             continue
         team_id = entry.get("team_id") or "unknown"
-        team = teams.setdefault(team_id, {"team": "", "players": []})
+        team = teams.setdefault(team_id, {"team": team_names.get(team_id, "Équipe"), "players": []})
         grouped = {}
         for group in entry.get("stats", []) or []:
             if not isinstance(group, dict):
@@ -138,7 +138,8 @@ def main():
             match_id = str(site_match.get("id"))
             try:
                 raw = request(f"/matches/{best['id']}/players")
-                groups = player_groups(raw or [])
+                team_names = {(best.get('home_team') or {}).get('id'): (best.get('home_team') or {}).get('name', ''), (best.get('away_team') or {}).get('id'): (best.get('away_team') or {}).get('name', '')}
+                groups = player_groups(raw or [], team_names)
                 if groups and any(group["players"] for group in groups):
                     team_names = {
                         (best.get("home_team") or {}).get("id"): (best.get("home_team") or {}).get("name", ""),
