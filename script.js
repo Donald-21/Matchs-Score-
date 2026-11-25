@@ -160,6 +160,13 @@ function renderMatch(match) {
   const teams = document.createElement('div');
   teams.className = 'match-teams';
   teams.append(makeTeam(match.homeTeam, homeScore), makeTeam(match.awayTeam, awayScore));
+  const halfTime = match.score?.halfTime;
+  if (halfTime && (halfTime.home !== null && halfTime.home !== undefined || halfTime.away !== null && halfTime.away !== undefined)) {
+    const half = document.createElement('p');
+    half.className = 'match-half-time';
+    half.textContent = 'Mi-temps : ' + (halfTime.home ?? '—') + ' - ' + (halfTime.away ?? '—');
+    teams.append(half);
+  }
 
   const bottom = document.createElement('div');
   bottom.className = 'match-bottom';
@@ -222,7 +229,9 @@ function renderMatches() {
     const names = [match.homeTeam?.name, match.homeTeam?.shortName, match.awayTeam?.name, match.awayTeam?.shortName, match.competition?.name].join(' ').toLocaleLowerCase('fr');
     const queryOk = !query || names.includes(query);
     const competitionOk = competition === 'all' || match.competition?.name === competition;
-    const dateOk = !date || (match.utcDate && new Date(match.utcDate).toLocaleDateString('en-CA', {timeZone:'Africa/Douala'}) === date);
+    const dateParts = match.utcDate ? new Intl.DateTimeFormat('en-CA', {timeZone:'Africa/Douala', year:'numeric', month:'2-digit', day:'2-digit'}).formatToParts(new Date(match.utcDate)) : [];
+    const localDate = dateParts.length ? dateParts.filter(part => ['year','month','day'].includes(part.type)).map(part => part.value).join('-') : '';
+    const dateOk = !date || localDate === date;
     const favoriteOk = !favoritesOnly || favoriteIds.includes(String(match.id));
     return groupOk && queryOk && competitionOk && dateOk && favoriteOk;
   });
