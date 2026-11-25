@@ -215,6 +215,35 @@ function renderTeamForm(teamName, teamId, info, competitionCode) {
   return box;
 }
 
+function renderPlayerStats(eventData) {
+  const teams = eventData?.playerStats;
+  if (!Array.isArray(teams) || !teams.length) return null;
+  const section = document.createElement("section");
+  section.className = "match-player-stats";
+  appendText(section, "h3", "", "Statistiques des joueurs");
+  appendText(section, "p", "team-analysis-note", "Données individuelles publiées par le fournisseur ; les catégories varient selon les rencontres.");
+  teams.forEach(team => {
+    const group = document.createElement("div");
+    group.className = "match-player-team";
+    appendText(group, "h4", "", team.team || "Équipe");
+    (team.players || []).forEach(player => {
+      const row = document.createElement("div");
+      row.className = "match-player-row";
+      const identity = document.createElement("strong");
+      identity.textContent = (player.name || "Joueur") +
+        (player.position ? " · " + player.position : "") +
+        (player.starter ? " · Titulaire" : "");
+      row.append(identity);
+      const stats = player.stats || {};
+      const summary = Object.entries(stats).map(([key, value]) => key + " : " + value).join(" · ");
+      if (summary) appendText(row, "small", "", summary);
+      group.append(row);
+    });
+    section.append(group);
+  });
+  return section;
+}
+
 function renderTeamAnalysis(match) {
   const prediction = predictionsByMatch[String(match.id)];
   if (!prediction) return null;
@@ -391,6 +420,9 @@ function renderMatch(match) {
 
   const teamAnalysis = renderTeamAnalysis(match);
   if (teamAnalysis) detailPanel.append(teamAnalysis);
+
+  const playerStats = renderPlayerStats(matchStats[String(match.id)]);
+  if (playerStats) detailPanel.append(playerStats);
 
   const stats = renderMatchStats(match);
   if (stats) detailPanel.append(stats);
