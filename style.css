@@ -298,3 +298,34 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .match-stat-away-bar{background:#16a085}
 .match-stats a{display:inline-block;margin-top:12px;color:#5c43c6;font-size:11px;font-weight:800;text-decoration:none}
 @media(max-width:420px){.match-stats{padding:12px}.match-stat-values{grid-template-columns:38px 1fr 38px;gap:5px}.match-stat-values span{font-size:10px}}
+
+
+/* Team dossier: recent form, match probabilities, head-to-head and player data */
+.team-analysis{margin-top:16px;padding:15px;background:#f7f8fc;border:1px solid #e4e7f0;border-radius:13px;color:#172033}
+.team-analysis-title{margin:0 0 5px;font-size:16px;color:#4936a2}
+.team-analysis-note{margin:0 0 13px;font-size:10px;color:#747e91}
+.team-win-probabilities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:12px 0 17px}
+.team-probability{padding:10px;background:white;border:1px solid #e8eaf2;border-radius:9px;min-width:0}
+.team-probability>span{display:block;min-height:30px;font-size:10px;font-weight:750;color:#626d80}
+.team-probability>strong{display:block;margin:4px 0;font-size:17px;color:#4f3aa5}
+.team-probability-track{height:6px;background:#eceef5;border-radius:10px;overflow:hidden}
+.team-probability-track span{display:block;height:100%;background:linear-gradient(90deg,#7958ef,#b09cff);border-radius:10px}
+.team-analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.team-analysis-side{padding:12px;background:white;border:1px solid #e7e9f1;border-radius:10px;min-width:0}
+.team-analysis-name{margin:0 0 7px;font-size:13px;color:#27334a}
+.team-analysis-record,.team-analysis-goals,.team-analysis-averages{margin:5px 0;font-size:10px;color:#667186}
+.team-form-strip{display:flex;gap:4px;flex-wrap:wrap;margin:9px 0}
+.form-chip{display:grid;place-items:center;width:23px;height:23px;border-radius:6px;font-size:10px;font-weight:900}
+.form-W,.form-result.form-W{background:#dcf8e9;color:#137747}
+.form-D,.form-result.form-D{background:#fff2cc;color:#8b6500}
+.form-L,.form-result.form-L{background:#ffe3e3;color:#b52c37}
+.team-recent-list{border-top:1px solid #edf0f5;padding-top:5px}
+.team-recent-list p{display:flex;justify-content:space-between;gap:6px;margin:5px 0;font-size:9px;color:#697386}
+.form-result{flex:none;font-size:9px;font-weight:900}
+.team-player-stats{margin-top:9px;padding-top:8px;border-top:1px solid #edf0f5}
+.team-player-stats>strong{font-size:10px;color:#4e3aa3}
+.team-player-stats p,.team-player-stats small{display:block;margin:5px 0;font-size:9px;color:#667186}
+.team-h2h{margin-top:12px;padding-top:10px;border-top:1px solid #e4e7ef}
+.team-h2h h4{margin:0 0 7px;font-size:11px;color:#4936a2}
+.team-h2h p{margin:5px 0;font-size:10px;color:#596579}
+@media(max-width:520px){.team-win-probabilities{gap:5px}.team-probability{padding:8px 6px}.team-probability>span{font-size:9px}.team-analysis-grid{grid-template-columns:1fr}.team-analysis{padding:10px}}
