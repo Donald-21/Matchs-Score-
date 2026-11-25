@@ -329,3 +329,16 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .team-h2h h4{margin:0 0 7px;font-size:11px;color:#4936a2}
 .team-h2h p{margin:5px 0;font-size:10px;color:#596579}
 @media(max-width:520px){.team-win-probabilities{gap:5px}.team-probability{padding:8px 6px}.team-probability>span{font-size:9px}.team-analysis-grid{grid-template-columns:1fr}.team-analysis{padding:10px}}
+
+/* Player portraits and compact individual-stat cards */
+.match-player-stats{margin-top:16px;padding:14px;background:#f7f8fc;border:1px solid #e6e9f1;border-radius:12px}
+.match-player-stats h3{margin:0 0 8px;font-size:16px;color:#172033}
+.match-player-team{margin-top:12px}
+.match-player-team h4{margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid #e5e8ef;font-size:13px;color:#4f3aa5}
+.match-player-row{display:flex;flex-direction:column;gap:5px;padding:9px 0;border-bottom:1px solid #e9ecf2}
+.match-player-row:last-child{border-bottom:0}
+.match-player-identity{display:flex;align-items:center;gap:9px;min-width:0}
+.match-player-identity strong{font-size:12px;color:#172033}
+.match-player-photo{width:38px;height:38px;flex:none;object-fit:cover;object-position:center top;border-radius:50%;background:#e8eaf0;border:1px solid #d9dce5}
+.match-player-row small{font-size:11px;line-height:1.5;color:#647086;overflow-wrap:anywhere}
+@media(max-width:420px){.match-player-stats{padding:10px}.match-player-photo{width:34px;height:34px}}
