@@ -56,15 +56,36 @@ jobs:
           token = os.environ["FOOTBALL_TOKEN"]
           matches = {}
           cursor = start
+
+          def compact_match(match):
+              def keep(source, keys):
+                  return {key: source[key] for key in keys if key in source}
+              return {
+                  "id": match.get("id"),
+                  "utcDate": match.get("utcDate"),
+                  "status": match.get("status"),
+                  "matchday": match.get("matchday"),
+                  "stage": match.get("stage"),
+                  "venue": match.get("venue"),
+                  "competition": keep(match.get("competition") or {}, ["id", "name", "code", "type", "emblem"]),
+                  "homeTeam": keep(match.get("homeTeam") or {}, ["id", "name", "shortName", "tla", "crest"]),
+                  "awayTeam": keep(match.get("awayTeam") or {}, ["id", "name", "shortName", "tla", "crest"]),
+                  "score": keep(match.get("score") or {}, ["winner", "duration", "fullTime", "regularTime", "halfTime"]),
+                  "referees": [
+                      keep(referee, ["id", "name", "type", "nationality"])
+                      for referee in match.get("referees", [])
+                  ]
+              }
+
           while cursor <= end:
               stop = min(cursor + datetime.timedelta(days=8), end)
               url = f"https://api.football-data.org/v4/matches?dateFrom={cursor:%Y-%m-%d}&dateTo={stop:%Y-%m-%d}"
               result = subprocess.run(["curl","--fail","--silent","--show-error","--retry","5","--retry-connrefused","--retry-delay","10","-H",f"X-Auth-Token: {token}",url],capture_output=True,text=True,check=True)
               for match in json.loads(result.stdout).get("matches", []):
-                  matches[str(match["id"])] = match
+                  matches[str(match["id"])] = compact_match(match)
               cursor = stop + datetime.timedelta(days=1)
           with open("matches.json","w") as f:
-              json.dump({"matches":list(matches.values()),"count":len(matches),"fetchedAt":datetime.datetime.now(datetime.timezone.utc).isoformat()},f,ensure_ascii=False,indent=2)
+              json.dump({"matches":list(matches.values()),"count":len(matches),"fetchedAt":datetime.datetime.now(datetime.timezone.utc).isoformat()},f,ensure_ascii=False,separators=(",",":"))
           print("Nombre de matchs sur les 60 prochains jours :",len(matches))
           PY
           python -m json.tool matches.json > /dev/null
