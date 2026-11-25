@@ -235,3 +235,7 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .result-carousel-controls{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
 @keyframes resultFade{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:600px){.calendar-tab{font-size:11px;padding:12px 5px}.calendar-month-toolbar{gap:6px;flex-wrap:wrap}.calendar-month-toolbar strong{min-width:110px}.calendar-weekdays,.calendar-days{gap:3px}.calendar-day{min-height:43px;font-size:11px}.calendar-match-row{grid-template-columns:45px minmax(0,1fr) 48px}.calendar-match-status{grid-column:2/-1;text-align:left}.result-slide{padding:18px 10px}.result-team img{width:48px;height:48px}.result-team strong{font-size:11px}.result-team b{font-size:23px}}
+
+/* Team crests in the date calendar */
+.calendar-team{display:inline-flex;align-items:center;gap:6px;min-width:0}.calendar-team-logo{width:20px;height:20px;object-fit:contain;flex:0 0 20px}.calendar-team-logo[hidden]{display:none}
+@media(max-width:600px){.calendar-team-logo{width:17px;height:17px;flex-basis:17px}}
