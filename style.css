@@ -183,3 +183,17 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .match-extra-filters #favorites-filter{background:#7958ef!important;color:#fff!important}
 @media(max-width:850px){.competition-match-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.competition-match-grid{grid-template-columns:1fr}.competition-group-heading h3{font-size:14px}}
+
+/* Calendrier mensuel */
+.calendar-intro{color:#697386;font-size:13px;margin:-8px 0 18px}
+.calendar-toolbar{display:grid;grid-template-columns:auto minmax(140px,1fr) auto minmax(180px,1.4fr) auto minmax(145px,.8fr);gap:9px;align-items:center;padding:14px;background:#f1efff;border:1px solid #ded7ff;border-radius:12px}
+.calendar-toolbar label{font-size:11px;font-weight:850;color:#51408f}
+.calendar-toolbar input,.calendar-toolbar select{width:100%;min-width:0;padding:11px 12px;border:1px solid #dcd6f2;border-radius:8px;background:white;color:#172033;font:inherit;font-size:12px}
+.calendar-list{display:grid;gap:8px;margin-top:14px}
+.calendar-match-row{display:grid;grid-template-columns:minmax(130px,.8fr) minmax(180px,1.5fr) 65px 90px;gap:12px;align-items:center;padding:13px 15px;background:white;border:1px solid #e5e2f3;border-radius:10px}
+.calendar-match-row time{font-size:11px;color:#737d90}
+.calendar-match-teams{display:flex;flex-wrap:wrap;gap:5px;font-size:12px;font-weight:800;color:#172033}
+.calendar-match-row>strong{text-align:center;color:#5d43c4;font-size:14px}
+.calendar-match-status{font-size:10px;font-weight:850;text-align:right;color:#737d90}
+.calendar-match-status.live{color:#14804e}.calendar-match-status.finished{color:#5f6878}
+@media(max-width:680px){.calendar-toolbar{grid-template-columns:1fr 1fr}.calendar-match-row{grid-template-columns:1fr auto;gap:7px}.calendar-match-row>strong{grid-column:2;grid-row:1/3}.calendar-match-status{text-align:left}}
