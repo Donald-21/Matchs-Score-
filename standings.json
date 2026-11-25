@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T11:16:31.735555+00:00",
+  "generatedAt": "2026-11-25T17:25:47.421765+00:00",
   "competitions": {
     "PL": {
       "competition": "Premier League",
@@ -2208,7 +2208,7 @@
             "name": "Le Mans FC",
             "shortName": "Le Mans",
             "tla": "LMF",
-            "crest": "https://crests.football-data.org/535.png"
+            "crest": "https://upload.wikimedia.org/wikipedia/en/5/57/Le_Mans_FC_logo.svg"
           },
           "playedGames": 11,
           "form": null,

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T11:16:31.728720+00:00",
+  "generatedAt": "2026-11-25T17:25:47.415364+00:00",
   "source": "football-data.org",
   "competitions": {
     "PL": {
@@ -5821,7 +5821,7 @@
             "venue": "Camp Nou",
             "lastUpdated": "2024-07-29T17:09:22Z"
           },
-          "playedMatches": 3,
+          "playedMatches": 4,
           "goals": 4,
           "assists": null,
           "penalties": null
