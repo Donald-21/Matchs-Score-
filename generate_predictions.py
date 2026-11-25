@@ -85,10 +85,14 @@ def main():
                     "competition": match.get("competition", {}).get("name", code),
                 }
                 histories[home["id"]].append({
-                    "date": item["date"], "gf": int(hg), "ga": int(ag), "venue": "home"
+                    "date": item["date"], "gf": int(hg), "ga": int(ag), "venue": "home",
+                    "opponent_id": away["id"], "opponent": away.get("name", "Adversaire"),
+                    "competition": item["competition"],
                 })
                 histories[away["id"]].append({
-                    "date": item["date"], "gf": int(ag), "ga": int(hg), "venue": "away"
+                    "date": item["date"], "gf": int(ag), "ga": int(hg), "venue": "away",
+                    "opponent_id": home["id"], "opponent": home.get("name", "Adversaire"),
+                    "competition": item["competition"],
                 })
                 finished_by_comp[code].append(item)
         except Exception as exc:
@@ -155,6 +159,41 @@ def main():
             key=lambda item: item[1],
         )
         sample = len(hhist) + len(ahist)
+        def team_analysis(recent):
+            form = []
+            wins = draws = losses = goals_for = goals_against = 0
+            for played in recent[:10]:
+                result = "W" if played["gf"] > played["ga"] else ("D" if played["gf"] == played["ga"] else "L")
+                wins += result == "W"
+                draws += result == "D"
+                losses += result == "L"
+                goals_for += played["gf"]
+                goals_against += played["ga"]
+                form.append({
+                    "date": played["date"], "opponent": played.get("opponent", "Adversaire"),
+                    "competition": played.get("competition", ""),
+                    "goalsFor": played["gf"], "goalsAgainst": played["ga"],
+                    "result": result, "venue": played.get("venue", ""),
+                })
+            count = len(form)
+            return {
+                "played": count, "wins": wins, "draws": draws, "losses": losses,
+                "goalsFor": goals_for, "goalsAgainst": goals_against,
+                "averageFor": round(goals_for / count, 2) if count else None,
+                "averageAgainst": round(goals_against / count, 2) if count else None,
+                "form": form,
+            }
+
+        h2h = []
+        for played in finished_by_comp.values():
+            for past in played:
+                same_pair = (
+                    (past["home_id"] == home.get("id") and past["away_id"] == away.get("id")) or
+                    (past["home_id"] == away.get("id") and past["away_id"] == home.get("id"))
+                )
+                if same_pair:
+                    h2h.append(past)
+        h2h.sort(key=lambda item: item["date"], reverse=True)
         predictions.append({
             "matchId": match.get("id"),
             "utcDate": match.get("utcDate"),
@@ -167,6 +206,15 @@ def main():
             "expectedGoals": {"home": round(hxg, 2), "away": round(axg, 2)},
             "trend": {"label": best[0], "probability": best[1]},
             "sampleMatches": sample,
+            "teamAnalysis": {
+                "home": team_analysis(hhist),
+                "away": team_analysis(ahist),
+                "headToHead": [{
+                    "date": item["date"], "homeTeam": item["home_name"],
+                    "awayTeam": item["away_name"], "homeGoals": item["home_goals"],
+                    "awayGoals": item["away_goals"], "competition": item["competition"],
+                } for item in h2h[:5]],
+            },
             "method": "Poisson + forme récente (10 derniers matchs maximum)",
         })
 
