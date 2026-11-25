@@ -733,6 +733,7 @@ function changeCalendarMonth(delta) {
 
 /* Grande affiche défilante des derniers scores terminés.
    Les écussons officiels sont utilisés si aucune photo éditoriale du match n'est fournie. */
+
 function renderResultHighlights() {
   const container=document.querySelector('#result-carousel');if(!container)return;
   const finished=allMatches.filter(m=>['FINISHED','AWARDED'].includes(m.status)&&m.score?.fullTime?.home!=null)
@@ -741,9 +742,17 @@ function renderResultHighlights() {
   if(!finished.length){const p=document.createElement('p');p.className='empty-state';p.textContent='Les affiches des matchs terminés apparaîtront ici dès que les scores finaux seront transmis.';container.append(p);return;}
   resultSlideIndex=((resultSlideIndex%finished.length)+finished.length)%finished.length;
   const m=finished[resultSlideIndex];
+  const data=matchStats[String(m.id)]||{};
   const slide=document.createElement('article');slide.className='result-slide';
   const league=document.createElement('p');league.className='result-league';league.textContent=m.competition?.name||'Football';
   const title=document.createElement('p');title.className='result-kicker';title.textContent='SCORE FINAL';
+  slide.append(league,title);
+  if(data.photo?.url){
+    const photo=document.createElement('img');photo.className='result-match-photo';photo.src=data.photo.url;
+    photo.alt=data.photo.caption||('Photo du match '+(m.homeTeam?.name||'')+' - '+(m.awayTeam?.name||''));
+    photo.loading='lazy';photo.referrerPolicy='no-referrer';
+    photo.addEventListener('error',()=>{photo.hidden=true;},{once:true});slide.append(photo);
+  }
   const teams=document.createElement('div');teams.className='result-teams';
   [[m.homeTeam,m.score.fullTime.home],[m.awayTeam,m.score.fullTime.away]].forEach(([team,score])=>{
     const item=document.createElement('div');item.className='result-team';
@@ -753,7 +762,24 @@ function renderResultHighlights() {
     item.append(crest,name,goals);teams.append(item);
   });
   const date=document.createElement('p');date.className='result-date';date.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',dateStyle:'full'}).format(new Date(m.utcDate));
-  slide.append(league,title,teams,date);container.append(slide);
+  slide.append(teams,date);
+  if(Array.isArray(data.scorers)&&data.scorers.length){
+    const heading=document.createElement('p');heading.className='result-scorers-heading';heading.textContent='BUTEURS';
+    const list=document.createElement('div');list.className='result-scorers';
+    data.scorers.forEach(scorer=>{
+      const line=document.createElement('span');line.className='result-scorer';
+      const minute=scorer.minute?' ('+scorer.minute+')':'';
+      const team=scorer.team?' · '+scorer.team:'';
+      line.textContent='⚽ '+(scorer.player||'Buteur')+minute+(scorer.ownGoal?' · CSC':'')+(scorer.penalty?' · Penalty':'')+team;
+      list.append(line);
+    });
+    slide.append(heading,list);
+  }else{
+    const missing=document.createElement('p');missing.className='result-scorers-empty';
+    missing.textContent='Les noms des buteurs ne sont pas transmis pour cette rencontre.';
+    slide.append(missing);
+  }
+  container.append(slide);
 }
 function moveResultSlide(direction) {resultSlideIndex+=direction;renderResultHighlights();}
 document.querySelector('#result-prev')?.addEventListener('click',()=>moveResultSlide(-1));
