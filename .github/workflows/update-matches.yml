@@ -40,7 +40,7 @@ jobs:
             exit 1
           }
 
-          DATE_FROM="$(date -u +%F)"
+          DATE_FROM="$(date -u -d '-3 days' +%F)"
           DATE_TO="$(date -u -d '+8 days' +%F)"
           echo "Calendrier récupéré du $DATE_FROM au $DATE_TO (date de fin exclue)"
 
