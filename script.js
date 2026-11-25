@@ -400,6 +400,44 @@ function renderMatch(match) {
     unavailable.textContent = 'Les statistiques détaillées ne sont pas encore fournies pour cette rencontre.';
     detailPanel.append(unavailable);
   }
+
+  // Confirmed ESPN goal events and match-action photos, when supplied.
+  const eventData = matchStats[String(match.id)];
+  if (Array.isArray(eventData?.scorers) && eventData.scorers.length) {
+    const scorerSection = document.createElement('section');
+    scorerSection.className = 'match-scorers';
+    const heading = document.createElement('h3');
+    heading.textContent = 'Buteurs du match';
+    scorerSection.append(heading);
+    eventData.scorers.forEach(scorer => {
+      const line = document.createElement('p');
+      const minute = scorer.minute ? ' (' + scorer.minute + ')' : '';
+      const team = scorer.team ? ' • ' + scorer.team : '';
+      line.textContent = '⚽ ' + (scorer.player || 'Buteur') + minute +
+        (scorer.ownGoal ? ' • CSC' : '') + (scorer.penalty ? ' • Penalty' : '') + team;
+      scorerSection.append(line);
+    });
+    detailPanel.append(scorerSection);
+  }
+
+  if (eventData?.photo?.url) {
+    const photoSection = document.createElement('section');
+    photoSection.className = 'match-action-photo';
+    const photo = document.createElement('img');
+    photo.src = eventData.photo.url;
+    photo.alt = eventData.photo.caption || ('Photo du match ' +
+      (match.homeTeam?.name || '') + ' - ' + (match.awayTeam?.name || ''));
+    photo.loading = 'lazy';
+    photo.referrerPolicy = 'no-referrer';
+    photo.addEventListener('error', () => { photoSection.remove(); }, { once: true });
+    photoSection.append(photo);
+    if (eventData.photo.caption) {
+      const caption = document.createElement('small');
+      caption.textContent = eventData.photo.caption;
+      photoSection.append(caption);
+    }
+    detailPanel.append(photoSection);
+  }
   card.append(detailPanel);
   return card;
 }
