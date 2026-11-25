@@ -141,3 +141,45 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 @media(max-width:680px){.match-extra-filters{grid-template-columns:1fr 1fr}.match-extra-filters .match-search-label{grid-row:auto}.match-extra-filters input,.match-extra-filters select{grid-row:auto}.match-extra-filters #favorites-filter{grid-column:1/-1;grid-row:auto;width:100%}}
 
 .match-half-time{margin:2px 0 0;padding-top:8px;border-top:1px dashed rgba(212,165,70,.22);color:#d9c58e;font-size:10px;font-weight:800;text-align:right}
+
+
+/* Match list: clear league sections and homepage-aligned light cards */
+#matches-container{display:block}
+.competition-group{margin:22px 0 28px}
+.competition-group-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px;padding:12px 15px;background:linear-gradient(100deg,#171f32,#29234b);border-left:4px solid var(--accent);border-radius:10px;color:#fff}
+.competition-group-heading h3{margin:0;font-size:16px;font-weight:900}
+.competition-group-heading span{font-size:11px;color:#d9d5f4;white-space:nowrap}
+.competition-match-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.match-card{background:#fff!important;color:#172033!important;border:1px solid #e1def5!important;border-top:3px solid #7958ef!important;box-shadow:0 7px 22px rgba(31,35,66,.07)!important}
+.match-card .league{color:#6548c7!important}
+.match-card .match-date{color:#7b8495!important}
+.match-card .team-name{color:#172033!important}
+.match-card .team-score{color:#5d43c4!important}
+.match-card .match-bottom{border-top-color:#eceaf6!important;color:#697386!important}
+.match-card .matchday{color:#8790a0!important}
+.match-card .match-stats{background:#f6f5fc!important;border-top-color:#e5e0fa!important}
+.match-card .match-stats-title{color:#4f3aa5!important}
+.match-card .match-stats-side-title,.match-card .match-stats-line{color:#657086!important}
+.match-card .match-stats-line strong{color:#172033!important}
+.match-card .match-stats a,.match-card .match-details summary{color:#6748d5!important}
+.match-card .match-stat-panel{color:#4e596c!important}
+.match-card .match-stat-line{background:#f0eef9!important}
+.match-card .match-stat-line span:first-child,.match-card .match-stat-line span:last-child{color:#172033!important}
+.match-card .match-stat-line span:nth-child(2){color:#687287!important}
+.match-card .pill{background:#f0edff!important;color:#6c4bdf!important}
+.match-card .pill.live{background:#e1f8ed!important;color:#14804e!important}
+.match-card .pill.finished{background:#edf0f5!important;color:#5f6878!important}
+.match-card .match-details{border-top-color:#eceaf6!important}
+.match-open-details{display:block;width:100%;margin-top:12px;padding:10px 12px;border:0;border-radius:9px;background:#eeeaff;color:#5b43bd;font-size:12px;font-weight:850;cursor:pointer}
+.match-open-details:hover{background:#e3dcff}
+.match-expanded-panel{margin-top:10px;padding-top:8px;border-top:1px solid #eceaf6}
+.match-expanded-panel[hidden]{display:none}
+.stats-unavailable{margin:10px 0 0;padding:10px;background:#fff7dc;border-radius:8px;color:#705c24;font-size:11px}
+.match-card .favorite-match{background:#f4f0ff!important;color:#5b43bd!important;border-color:#d9d0ff!important}
+.match-card .favorite-match.is-favorite{background:#d6a943!important;color:#171717!important}
+.match-extra-filters{background:#f1efff!important;border-color:#ded7ff!important}
+.match-search-label{color:#51408f!important}
+.match-extra-filters input,.match-extra-filters select{background:#fff!important;color:#172033!important;border-color:#dcd6f2!important}
+.match-extra-filters #favorites-filter{background:#7958ef!important;color:#fff!important}
+@media(max-width:850px){.competition-match-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.competition-match-grid{grid-template-columns:1fr}.competition-group-heading h3{font-size:14px}}
