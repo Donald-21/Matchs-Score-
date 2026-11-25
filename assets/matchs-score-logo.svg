@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs><radialGradient id="g"><stop stop-color="#332710"/><stop offset=".7" stop-color="#080808"/><stop offset="1" stop-color="#000"/></radialGradient><linearGradient id="gold" x2="1" y2="1"><stop stop-color="#fff0a6"/><stop offset=".45" stop-color="#c58a25"/><stop offset="1" stop-color="#ffe9a0"/></linearGradient></defs>
+<circle cx="256" cy="256" r="246" fill="url(#g)" stroke="url(#gold)" stroke-width="12"/><circle cx="256" cy="256" r="224" fill="none" stroke="#b88936" stroke-width="5"/>
+<text x="256" y="113" text-anchor="middle" fill="url(#gold)" font-family="Arial,sans-serif" font-size="43" font-weight="bold" letter-spacing="4">MATCHS SCORRE</text>
+<circle cx="256" cy="260" r="111" fill="#090909" stroke="url(#gold)" stroke-width="9"/>
+<path d="M256 191l43 31-16 51h-54l-16-51z M256 191l-43 31-44-14 17-49 46-18z M299 222l44-14-17-49-46-18-24 50z M229 273l-42 32 16 48 53 18 53-18 16-48-42-32z" fill="url(#gold)" stroke="#16110a" stroke-width="7" stroke-linejoin="round"/>
+<g fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"><path d="M145 357Q75 286 118 199M367 357Q437 286 394 199"/></g>
+<g fill="url(#gold)"><path d="M123 320l-35-8 25 25zM111 286l-34-12 24 29zM109 250l-31-18 20 33zM118 216l-27-23 15 36zM389 320l35-8-25 25zM401 286l34-12-24 29zM403 250l31-18-20 33zM394 216l27-23-15 36z"/></g>
+<text x="256" y="433" text-anchor="middle" fill="url(#gold)" font-family="Arial,sans-serif" font-size="34" letter-spacing="8">FOOTBALL</text>
+</svg>
