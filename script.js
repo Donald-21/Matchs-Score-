@@ -21,7 +21,9 @@ const labels = {
 };
 let currentFilter = 'all';
 let allMatches = [];
-let matchStats = {};\nlet predictionsByMatch = {};\nlet scorerData = {};
+let matchStats = {};
+let predictionsByMatch = {};
+let scorerData = {};
 let matchesLoading = false;
 let favoriteIds = [];
 try { favoriteIds = JSON.parse(localStorage.getItem('matchs-score-favorites') || '[]'); } catch (_) { favoriteIds = []; }
@@ -599,7 +601,8 @@ async function loadPredictions() {
     const response = await fetch('./predictions.json', { cache: 'default' });
     if (!response.ok) throw new Error('Fichier de pronostics indisponible');
     const data = await response.json();
-    const picks = Array.isArray(data.predictions) ? data.predictions : [];\n    predictionsByMatch = Object.fromEntries(picks.map(item => [String(item.matchId), item]));\n    renderMatches();
+    const picks = Array.isArray(data.predictions) ? data.predictions : [];\n    predictionsByMatch = Object.fromEntries(picks.map(item => [String(item.matchId), item]));
+    renderMatches();
     container.replaceChildren();
     if (!picks.length) {
       const empty = document.createElement('p');
@@ -675,7 +678,8 @@ async function loadScorers() {
     const response = await fetch('./scorers.json', { cache: 'default' });
     if (!response.ok) throw new Error('Classement des buteurs indisponible');
     const data = await response.json();
-    scorerData = data;\n    renderMatches();\n    const competition = data.competitions?.[code];
+    scorerData = data;
+    renderMatches();\n    const competition = data.competitions?.[code];
     const scorers = Array.isArray(competition?.scorers) ? competition.scorers : [];
     body.replaceChildren();
     if (!scorers.length) {
