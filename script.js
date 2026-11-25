@@ -621,40 +621,49 @@ function matchesOnDate(dateKey) {
     .sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
 }
 function appendCalendarGroups(container, matches) {
-  if(!container)return;
+  if (!container) return;
   container.replaceChildren();
-  if(!matches.length) {
-    const p=document.createElement('p');p.className='empty-state';
-    p.textContent='Aucun match reçu pour cette date. Le calendrier affiche uniquement les rencontres disponibles auprès de la source.';
-    container.append(p);return;
+  if (!matches.length) {
+    const p = document.createElement('p');
+    p.className = 'empty-state';
+    p.textContent = 'Aucun match reçu pour cette date. Les rencontres affichées dépendent des données disponibles auprès de la source.';
+    container.append(p);
+    return;
   }
-  const groups=new Map();
-  matches.forEach(m=>{const name=m.competition?.name||'Autres rencontres';if(!groups.has(name))groups.set(name,[]);groups.get(name).push(m);});
-  [...groups.entries()].sort((a,b)=>a[0].localeCompare(b[0],'fr')).forEach(([name,items])=>{
-    const section=document.createElement('section');section.className='calendar-competition-group';
-    const heading=document.createElement('h3');heading.textContent=name;
-    const count=document.createElement('span');count.textContent=items.length+' match(s)';
-    const head=document.createElement('div');head.className='calendar-competition-heading';head.append(heading,count);section.append(head);
-    items.forEach(m=>{
-      const row=document.createElement('article');row.className='calendar-match-row';
-      const time=document.createElement('time');time.dateTime=m.utcDate;
-      time.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(m.utcDate));
-      const teams=document.createElement('div');teams.className='calendar-match-teams';
-      const makeCalendarTeam=(team)=>{
-        const wrap=document.createElement('span');wrap.className='calendar-team';
-        const crest=document.createElement('img');crest.className='calendar-team-logo';crest.alt='';crest.loading='lazy';crest.decoding='async';
-        if(team?.crest)crest.src=team.crest;
-        crest.addEventListener('error',()=>{crest.hidden=true;},{once:true});
-        const name=document.createElement('span');name.textContent=team?.shortName||team?.name||'Équipe';
-        wrap.append(crest,name);return wrap;
-      };
-      const home=makeCalendarTeam(m.homeTeam),away=makeCalendarTeam(m.awayTeam);
-      const score=document.createElement('strong');const hs=m.score?.fullTime?.home??m.score?.regularTime?.home??m.score?.halfTime?.home;
-      const as=m.score?.fullTime?.away??m.score?.regularTime?.away??m.score?.halfTime?.away;
-      score.textContent=hs==null?'—':hs+' - '+(as??'—');
-      const state=document.createElement('span');state.className='calendar-match-status '+matchGroup(m.status);state.textContent=labels[m.status]||m.status||'À venir';
-      teams.append(home,document.createTextNode(' — '),away);row.append(time,teams,score,state);section.append(row);
-    });
+  const groups = new Map();
+  matches.forEach(match => {
+    const name = match.competition?.name || 'Autres rencontres';
+    if (!groups.has(name)) groups.set(name, []);
+    groups.get(name).push(match);
+  });
+  [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0], 'fr')).forEach(([name, items]) => {
+    const section = document.createElement('section');
+    section.className = 'competition-group calendar-card-group';
+    const heading = document.createElement('div');
+    heading.className = 'competition-group-heading';
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'calendar-competition-title';
+    const emblemUrl = items.find(match => match.competition?.emblem)?.competition?.emblem;
+    if (emblemUrl) {
+      const emblem = document.createElement('img');
+      emblem.className = 'calendar-competition-logo';
+      emblem.alt = '';
+      emblem.loading = 'lazy';
+      emblem.decoding = 'async';
+      emblem.src = emblemUrl;
+      emblem.addEventListener('error', () => { emblem.hidden = true; }, { once: true });
+      titleWrap.append(emblem);
+    }
+    const title = document.createElement('h3');
+    title.textContent = name;
+    titleWrap.append(title);
+    const count = document.createElement('span');
+    count.textContent = items.length + (items.length > 1 ? ' matchs' : ' match');
+    heading.append(titleWrap, count);
+    const grid = document.createElement('div');
+    grid.className = 'match-grid competition-match-grid';
+    items.forEach(match => grid.append(renderMatch(match)));
+    section.append(heading, grid);
     container.append(section);
   });
 }
