@@ -40,18 +40,34 @@ jobs:
             exit 1
           }
 
-          DATE_FROM="$(date -u -d '-2 days' +%F)"
-          DATE_TO="$(date -u -d '+7 days' +%F)"
-          echo "Calendrier récupéré du $DATE_FROM au $DATE_TO (date de fin exclue)"
+          DATE_FROM="$(date -u +%F)"
+          DATE_TO="$(date -u -d '+60 days' +%F)"
+          echo "Calendrier récupéré du $DATE_FROM au $DATE_TO"
 
           curl --fail --silent --show-error --retry 5 --retry-connrefused --retry-delay 10 --retry-max-time 120 \
             -H "X-Auth-Token: $FOOTBALL_TOKEN" \
-            "https://api.football-data.org/v4/matches?dateFrom=$DATE_FROM&dateTo=$DATE_TO" \
-            -o matches.json
+            "https://api.football-data.org/v4/competitions" -o competitions.json
+          python -m json.tool competitions.json > /dev/null
 
+          python - <<'PY'
+          import datetime, json, os, subprocess
+          start = datetime.date.today()
+          end = start + datetime.timedelta(days=60)
+          token = os.environ["FOOTBALL_TOKEN"]
+          matches = {}
+          cursor = start
+          while cursor <= end:
+              stop = min(cursor + datetime.timedelta(days=8), end)
+              url = f"https://api.football-data.org/v4/matches?dateFrom={cursor:%Y-%m-%d}&dateTo={stop:%Y-%m-%d}"
+              result = subprocess.run(["curl","--fail","--silent","--show-error","--retry","5","--retry-connrefused","--retry-delay","10","-H",f"X-Auth-Token: {token}",url],capture_output=True,text=True,check=True)
+              for match in json.loads(result.stdout).get("matches", []):
+                  matches[str(match["id"])] = match
+              cursor = stop + datetime.timedelta(days=1)
+          with open("matches.json","w") as f:
+              json.dump({"matches":list(matches.values()),"count":len(matches),"fetchedAt":datetime.datetime.now(datetime.timezone.utc).isoformat()},f,ensure_ascii=False,indent=2)
+          print("Nombre de matchs sur les 60 prochains jours :",len(matches))
+          PY
           python -m json.tool matches.json > /dev/null
-          echo "JSON valide : matches.json"
-          python -c "import json; d=json.load(open('matches.json')); print('Nombre de matchs :', len(d.get('matches', [])))"
 
       - name: Generate statistical predictions
         env:
@@ -70,7 +86,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+users.noreply.github.com"
-          git add matches.json predictions.json standings.json scorers.json news.json match_stats.json
+          git add matches.json competitions.json predictions.json standings.json scorers.json news.json match_stats.json
           if git diff --cached --quiet; then
             echo "Aucune modification à enregistrer."
             exit 0
