@@ -229,11 +229,24 @@ function renderPlayerStats(eventData) {
     (team.players || []).forEach(player => {
       const row = document.createElement("div");
       row.className = "match-player-row";
+      const identityBox = document.createElement("div");
+      identityBox.className = "match-player-identity";
+      if (player.image) {
+        const portrait = document.createElement("img");
+        portrait.className = "match-player-photo";
+        portrait.src = player.image;
+        portrait.alt = "Photo de " + (player.name || "joueur");
+        portrait.loading = "lazy";
+        portrait.referrerPolicy = "no-referrer";
+        portrait.addEventListener("error", () => { portrait.hidden = true; }, { once: true });
+        identityBox.append(portrait);
+      }
       const identity = document.createElement("strong");
       identity.textContent = (player.name || "Joueur") +
         (player.position ? " · " + player.position : "") +
         (player.starter ? " · Titulaire" : "");
-      row.append(identity);
+      identityBox.append(identity);
+      row.append(identityBox);
       const stats = player.stats || {};
       const summary = Object.entries(stats).map(([key, value]) => key + " : " + value).join(" · ");
       if (summary) appendText(row, "small", "", summary);
