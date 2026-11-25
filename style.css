@@ -127,3 +127,15 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .match-card .pill{background:#3a3020;color:#f4d58a}
 .match-card .pill.live{background:#173b2d;color:#8de0b5}
 .match-card .pill.finished{background:#303030;color:#ddd}
+
+
+/* Advanced match search, filters and favorites */
+.match-extra-filters{display:grid;grid-template-columns:minmax(180px,2fr) minmax(160px,1fr) minmax(140px,1fr) auto;gap:9px;align-items:end;margin:14px 0 10px;padding:14px;background:#111827;border:1px solid rgba(214,169,67,.35);border-radius:13px}
+.match-search-label{display:block;color:#d9c58e;font-size:10px;font-weight:800;grid-row:1}
+.match-extra-filters input,.match-extra-filters select{width:100%;min-width:0;padding:11px 12px;border:1px solid #51452d;border-radius:8px;background:#202637;color:#fff4d8;font:inherit;font-size:12px;grid-row:2}
+.match-extra-filters input::placeholder{color:#a7a1a0}
+.match-extra-filters #favorites-filter{grid-column:4;grid-row:2;white-space:nowrap;background:#d6a943;color:#171717}
+.favorite-match{margin-top:10px;border:1px solid rgba(214,169,67,.55);border-radius:8px;background:#28251d;color:#e7d39d;padding:7px 10px;font-size:11px;font-weight:800;cursor:pointer}
+.favorite-match.is-favorite{background:#d6a943;color:#171717}
+.match-card .match-details summary:focus-visible,.favorite-match:focus-visible,.match-extra-filters :focus-visible{outline:2px solid #f4c542;outline-offset:2px}
+@media(max-width:680px){.match-extra-filters{grid-template-columns:1fr 1fr}.match-extra-filters .match-search-label{grid-row:auto}.match-extra-filters input,.match-extra-filters select{grid-row:auto}.match-extra-filters #favorites-filter{grid-column:1/-1;grid-row:auto;width:100%}}
