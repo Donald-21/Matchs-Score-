@@ -95,3 +95,5 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 .match-stats-line strong{color:#172033}
 .match-stats a{display:inline-block;margin-top:8px;color:#2563eb;font-size:.8rem;text-decoration:none}
 @media(max-width:420px){.match-stats{padding:10px}.match-stats-grid{gap:8px}.match-stats-line{font-size:.7rem}}
+
+.site-logo{width:48px;height:48px;object-fit:cover;border-radius:50%;border:2px solid #d6a943;box-shadow:0 0 12px #d6a94355}.footer-brand .site-logo{width:42px;height:42px}
