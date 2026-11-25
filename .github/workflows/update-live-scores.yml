@@ -39,20 +39,32 @@ jobs:
           curl --fail --silent --show-error --retry 4 --retry-connrefused --retry-delay 5 --retry-max-time 90 \
             -H "X-Auth-Token: $FOOTBALL_TOKEN" \
             "https://api.football-data.org/v4/matches?dateFrom=$DATE_FROM&dateTo=$DATE_TO" \
-            -o matches.json
+            -o /tmp/live_matches.json
 
           python - <<'PY'
           import json
           from datetime import datetime, timezone
           path = "matches.json"
           with open(path, encoding="utf-8") as f:
-              data = json.load(f)
-          if not isinstance(data.get("matches"), list):
-              raise SystemExit("Invalid matches payload")
-          data["fetchedAt"] = datetime.now(timezone.utc).isoformat()
+              existing = json.load(f)
+          if not isinstance(existing.get("matches"), list):
+              raise SystemExit("Invalid existing matches payload")
+          with open("/tmp/live_matches.json", encoding="utf-8") as f:
+              live = json.load(f)
+          if not isinstance(live.get("matches"), list):
+              raise SystemExit("Invalid live matches payload")
+          # Merge the short live window into the full calendar instead of
+          # replacing fixtures scheduled beyond the next seven days.
+          merged = {str(match["id"]): match for match in existing["matches"] if match.get("id") is not None}
+          for match in live["matches"]:
+              if match.get("id") is not None:
+                  merged[str(match["id"])] = match
+          existing["matches"] = list(merged.values())
+          existing["count"] = len(existing["matches"])
+          existing["fetchedAt"] = datetime.now(timezone.utc).isoformat()
           with open(path, "w", encoding="utf-8") as f:
-              json.dump(data, f, ensure_ascii=False, indent=2)
-          print(f"Valid feed: {len(data['matches'])} matches")
+              json.dump(existing, f, ensure_ascii=False, indent=2)
+          print(f"Valid merged feed: {len(live['matches'])} refreshed, {len(existing['matches'])} total matches")
           PY
 
       - name: Publish updated scores
