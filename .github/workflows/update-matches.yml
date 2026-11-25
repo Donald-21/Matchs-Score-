@@ -105,6 +105,13 @@ jobs:
           python -m json.tool news.json > /dev/null
           python -m json.tool match_stats.json > /dev/null
 
+      - name: Fetch player statistics from PitchAPI
+        env:
+          PITCHAPI_API_KEY: ${{ secrets.PITCHAPI_API_KEY }}
+        run: |
+          python fetch_pitchapi.py
+          python -m json.tool pitch_players.json > /dev/null
+
       - name: Save updated data
         run: |
           git config user.name "github-actions[bot]"
