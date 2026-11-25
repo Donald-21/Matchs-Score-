@@ -15,7 +15,7 @@
   <a class="brand" href="#" aria-label="Accueil"><img class="site-logo" src="assets/matchs-score-logo.svg" alt="Logo Matchs Score"><span>MATCHS <b>SCORE</b></span></a>
   <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
   <nav id="nav">
-    <a href="#matchs">Matchs</a><a href="#actualites">Actualités</a><a href="#classements">Classements</a><a href="#buteurs">Buteurs</a><a href="#pronostics">Pronostics</a><a href="#methode">Méthode</a><a href="#codes">Code promo</a><a href="#apropos">À propos</a>
+    <a href="#matchs">Matchs</a><a href="#calendrier">Calendrier</a><a href="#actualites">Actualités</a><a href="#classements">Classements</a><a href="#buteurs">Buteurs</a><a href="#pronostics">Pronostics</a><a href="#methode">Méthode</a><a href="#codes">Code promo</a><a href="#apropos">À propos</a>
   </nav>
 </header>
 <main>
@@ -63,6 +63,18 @@
 
 
 
+
+<section class="section" id="calendrier">
+  <div class="section-heading"><div><p class="eyebrow">PROGRAMME DES RENCONTRES</p><h2>Calendrier des championnats</h2></div><span class="section-label">CHOISIS TA LIGUE</span></div>
+  <p class="calendar-intro">Choisis un championnat pour consulter simplement toutes les rencontres reçues pour le mois sélectionné.</p>
+  <div class="calendar-toolbar">
+    <label for="calendar-competition-search">Rechercher</label><input id="calendar-competition-search" type="search" placeholder="Nom du championnat…" autocomplete="off">
+    <label for="calendar-competition">Championnat</label><select id="calendar-competition"><option value="">Chargement…</option></select>
+    <label for="calendar-month">Mois</label><input id="calendar-month" type="month">
+  </div>
+  <p id="calendar-status" class="data-status" role="status" aria-live="polite">Chargement du catalogue…</p>
+  <div id="calendar-container" class="calendar-list"><p class="empty-state">Choisis un championnat pour afficher son calendrier.</p></div>
+</section>
 <section class="section" id="actualites">
   <div class="section-heading"><div><p class="eyebrow">DERNIÈRES INFORMATIONS</p><h2>Actualités du football</h2></div><span class="section-label">MISE À JOUR AUTOMATIQUE</span></div>
   <p id="news-status" class="data-status" role="status" aria-live="polite">Chargement des actualités…</p>
