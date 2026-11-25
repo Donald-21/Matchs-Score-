@@ -190,6 +190,21 @@ function renderMatch(match) {
     renderMatches();
   });
   card.append(league, date, teams, bottom, favorite);
+  const openDetails = document.createElement('button');
+  openDetails.type = 'button';
+  openDetails.className = 'match-open-details';
+  openDetails.textContent = 'Voir le match et les statistiques';
+  openDetails.setAttribute('aria-expanded', 'false');
+  const detailPanel = document.createElement('div');
+  detailPanel.className = 'match-expanded-panel';
+  detailPanel.hidden = true;
+  openDetails.addEventListener('click', () => {
+    const isOpen = !detailPanel.hidden;
+    detailPanel.hidden = isOpen;
+    openDetails.setAttribute('aria-expanded', String(!isOpen));
+    openDetails.textContent = isOpen ? 'Voir le match et les statistiques' : 'Masquer les détails';
+  });
+  card.append(openDetails);
 
   const detailItems = [
     ['Stade', match.venue],
@@ -210,11 +225,18 @@ function renderMatch(match) {
       panel.append(line);
     });
     details.append(summary, panel);
-    card.append(details);
+    detailPanel.append(details);
   }
 
   const stats = renderMatchStats(match);
-  if (stats) card.append(stats);
+  if (stats) detailPanel.append(stats);
+  if (!stats) {
+    const unavailable = document.createElement('p');
+    unavailable.className = 'stats-unavailable';
+    unavailable.textContent = 'Les statistiques détaillées ne sont pas encore fournies pour cette rencontre.';
+    detailPanel.append(unavailable);
+  }
+  card.append(detailPanel);
   return card;
 }
 
@@ -243,8 +265,29 @@ function renderMatches() {
     container.append(empty);
     return;
   }
+  const groups = new Map();
+  filtered.forEach(match => {
+    const name = match.competition?.name || 'Autres rencontres';
+    if (!groups.has(name)) groups.set(name, []);
+    groups.get(name).push(match);
+  });
   const fragment = document.createDocumentFragment();
-  filtered.forEach(match => fragment.append(renderMatch(match)));
+  [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0], 'fr')).forEach(([name, matches]) => {
+    const group = document.createElement('section');
+    group.className = 'competition-group';
+    const heading = document.createElement('div');
+    heading.className = 'competition-group-heading';
+    const title = document.createElement('h3');
+    title.textContent = name;
+    const count = document.createElement('span');
+    count.textContent = matches.length + (matches.length > 1 ? ' matchs' : ' match');
+    heading.append(title, count);
+    const grid = document.createElement('div');
+    grid.className = 'match-grid competition-match-grid';
+    matches.forEach(match => grid.append(renderMatch(match)));
+    group.append(heading, grid);
+    fragment.append(group);
+  });
   container.append(fragment);
 }
 
