@@ -239,3 +239,21 @@ footer{background:#0d1220;color:#8f9bb1;text-align:center;padding:28px 20px;font
 /* Team crests in the date calendar */
 .calendar-team{display:inline-flex;align-items:center;gap:6px;min-width:0}.calendar-team-logo{width:20px;height:20px;object-fit:contain;flex:0 0 20px}.calendar-team-logo[hidden]{display:none}
 @media(max-width:600px){.calendar-team-logo{width:17px;height:17px;flex-basis:17px}}
+
+
+/* Alignment fix: today's/tomorrow's fixture rows, especially on phones */
+.calendar-match-row{min-width:0}
+.calendar-match-teams{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;min-width:0}
+.calendar-team{min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.calendar-team:first-child{justify-content:flex-start}
+.calendar-team:last-child{justify-content:flex-end;text-align:right}
+.calendar-team-logo{display:block;object-fit:contain}
+@media(max-width:680px){
+  .calendar-match-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"time score" "teams teams" "status status";align-items:center;gap:8px 10px;padding:11px 12px}
+  .calendar-match-row time{grid-area:time}
+  .calendar-match-row>strong{grid-area:score;grid-column:auto;grid-row:auto;text-align:right;min-width:42px}
+  .calendar-match-teams{grid-area:teams;grid-column:1/-1;grid-row:auto;grid-template-columns:minmax(0,1fr) 12px minmax(0,1fr);gap:5px;font-size:11px}
+  .calendar-team{gap:5px}
+  .calendar-team:last-child{justify-content:flex-end}
+  .calendar-match-status{grid-area:status;grid-column:1/-1;grid-row:auto;text-align:left}
+}
