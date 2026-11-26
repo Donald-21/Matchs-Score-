@@ -19,6 +19,38 @@
   </nav>
 </header>
 <main>
+<section class="section" id="calendrier">
+  <div class="sports-strip" aria-label="Sports disponibles">
+    <button class="sport-chip active" type="button">⚽ <span>Football</span></button>
+    <button class="sport-chip" type="button" disabled>🏒 <span>Hockey sur glace</span></button>
+    <button class="sport-chip" type="button" disabled>🏀 <span>Basket-ball</span></button>
+  </div>
+  <div class="livescore-datebar">
+    <button class="live-chip" id="live-filter-button" type="button"><i></i> LIVE</button>
+    <button class="date-arrow" id="date-prev" type="button" aria-label="Jour précédent">‹</button>
+    <strong id="livescore-date-label">Aujourd’hui</strong>
+    <button class="date-arrow" id="date-next" type="button" aria-label="Jour suivant">›</button>
+    <button class="date-calendar" id="open-calendar" type="button" aria-label="Ouvrir le calendrier">▦</button>
+  </div>
+  <div class="calendar-tabs" role="tablist" aria-label="Choisir la période">
+    <button class="calendar-tab active" type="button" data-calendar-view="today" aria-selected="true">Aujourd’hui</button>
+    <button class="calendar-tab" type="button" data-calendar-view="tomorrow" aria-selected="false">Demain</button>
+    <button class="calendar-tab" type="button" data-calendar-view="month" aria-selected="false">Calendrier</button>
+  </div>
+  <div id="calendar-day-content" class="calendar-day-content">
+    <p id="calendar-status" class="data-status" role="status" aria-live="polite">Chargement des matchs…</p>
+    <div id="calendar-container" class="calendar-list"><p class="empty-state">Chargement des rencontres…</p></div>
+  </div>
+  <div id="calendar-month-view" class="calendar-month-view" hidden>
+    <div class="calendar-month-toolbar"><button type="button" id="calendar-prev-month" aria-label="Mois précédent">‹</button><strong id="calendar-month-label"></strong><button type="button" id="calendar-next-month" aria-label="Mois suivant">›</button><input id="calendar-month" type="month" aria-label="Choisir le mois"></div>
+    <div class="calendar-weekdays"><span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span></div>
+    <div id="calendar-days" class="calendar-days"></div>
+    <p id="calendar-selected-label" class="calendar-selected-label">Choisis une date pour voir les matchs.</p>
+    <p id="calendar-month-status" class="data-status" role="status" aria-live="polite"></p>
+    <div id="calendar-selected-matches" class="calendar-list"></div>
+  </div>
+</section>
+
 <section class="hero">
   <div class="hero-copy">
     <p class="eyebrow">FOOTBALL • SCORES • ANALYSES</p>
@@ -64,26 +96,7 @@
 
 
 
-<section class="section" id="calendrier">
-  <div class="section-heading"><div><p class="eyebrow">PROGRAMME DES RENCONTRES</p><h2>Calendrier des matchs</h2></div><span class="section-label">HEURE DU CAMEROUN</span></div>
-  <div class="calendar-tabs" role="tablist" aria-label="Choisir la période">
-    <button class="calendar-tab active" type="button" data-calendar-view="today" aria-selected="true">Aujourd’hui</button>
-    <button class="calendar-tab" type="button" data-calendar-view="tomorrow" aria-selected="false">Demain</button>
-    <button class="calendar-tab" type="button" data-calendar-view="month" aria-selected="false">Calendrier</button>
-  </div>
-  <div id="calendar-day-content" class="calendar-day-content">
-    <p id="calendar-status" class="data-status" role="status" aria-live="polite">Chargement des matchs…</p>
-    <div id="calendar-container" class="calendar-list"><p class="empty-state">Chargement des rencontres…</p></div>
-  </div>
-  <div id="calendar-month-view" class="calendar-month-view" hidden>
-    <div class="calendar-month-toolbar"><button type="button" id="calendar-prev-month" aria-label="Mois précédent">‹</button><strong id="calendar-month-label"></strong><button type="button" id="calendar-next-month" aria-label="Mois suivant">›</button><input id="calendar-month" type="month" aria-label="Choisir le mois"></div>
-    <div class="calendar-weekdays"><span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span></div>
-    <div id="calendar-days" class="calendar-days"></div>
-    <p id="calendar-selected-label" class="calendar-selected-label">Choisis une date pour voir les matchs.</p>
-    <p id="calendar-month-status" class="data-status" role="status" aria-live="polite"></p>
-    <div id="calendar-selected-matches" class="calendar-list"></div>
-  </div>
-</section>
+
 <section class="section" id="result-highlights">
   <div class="section-heading"><div><p class="eyebrow">LES DERNIERS RÉSULTATS</p><h2>Les affiches des matchs terminés</h2></div><span class="section-label">GRANDS CHAMPIONNATS</span></div>
   <div class="result-carousel" id="result-carousel"><p class="empty-state">Les derniers scores seront affichés ici après les rencontres.</p></div>
