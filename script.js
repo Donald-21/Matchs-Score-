@@ -913,6 +913,7 @@ let calendarDateIndex = new Map();
 let calendarSelectedDate = localDateKey(new Date());
 let calendarMonthValue = localMonthValue();
 let calendarView = 'today';
+let calendarDateOffset = 0;
 let resultSlideIndex = 0;
 let resultTimer = null;
 
@@ -989,10 +990,11 @@ function appendCalendarGroups(container, matches) {
   });
 }
 function renderCalendarDay() {
-  const today=dateOffsetKey(0), tomorrow=dateOffsetKey(1);
-  const date=calendarView==='today'?today:tomorrow;
+  const date=dateOffsetKey(calendarDateOffset);
+  const label=document.querySelector('#livescore-date-label');
+  if(label) label.textContent=calendarDateOffset===0?'Aujourd’hui':calendarDateOffset===1?'Demain':calendarDateOffset===-1?'Hier':new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'short',day:'numeric',month:'short'}).format(new Date(date+'T12:00:00Z'));
   calendarSelectedDate=date;
-  const title=calendarView==='today'?'Aujourd’hui': 'Demain';
+  const title=calendarDateOffset===0?'Aujourd’hui':calendarDateOffset===1?'Demain':new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'long',day:'numeric',month:'long'}).format(new Date(date+'T12:00:00Z'));
   const status=document.querySelector('#calendar-status');
   if(status)status.textContent=title+' • '+new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'long',day:'numeric',month:'long'}).format(new Date(date+'T12:00:00Z'))+' • '+matchesOnDate(date).length+' match(s)';
   appendCalendarGroups(document.querySelector('#calendar-container'),matchesOnDate(date));
@@ -1032,6 +1034,7 @@ function renderSelectedCalendarDate() {
 }
 function setCalendarView(view) {
   calendarView=view;
+  if(view==='today')calendarDateOffset=0;else if(view==='tomorrow')calendarDateOffset=1;
   document.querySelectorAll('[data-calendar-view]').forEach(button=>{
     const active=button.dataset.calendarView===view;button.classList.toggle('active',active);button.setAttribute('aria-selected',String(active));
   });
@@ -1045,6 +1048,11 @@ document.querySelectorAll('[data-calendar-view]').forEach(button=>button.addEven
 document.querySelector('#calendar-month')?.addEventListener('change',event=>{calendarMonthValue=event.target.value;calendarSelectedDate=calendarMonthValue+'-01';renderCalendarMonth();});
 document.querySelector('#calendar-prev-month')?.addEventListener('click',()=>changeCalendarMonth(-1));
 document.querySelector('#calendar-next-month')?.addEventListener('click',()=>changeCalendarMonth(1));
+document.querySelector('#date-prev')?.addEventListener('click',()=>{calendarDateOffset--;calendarView=calendarDateOffset===1?'tomorrow':'today';renderCalendarDay();});
+document.querySelector('#date-next')?.addEventListener('click',()=>{calendarDateOffset++;calendarView=calendarDateOffset===1?'tomorrow':'today';renderCalendarDay();});
+document.querySelector('#open-calendar')?.addEventListener('click',()=>setCalendarView('month'));
+document.querySelector('#live-filter-button')?.addEventListener('click',()=>{document.querySelector('[data-filter="live"]')?.click();document.querySelector('#matchs')?.scrollIntoView({behavior:'smooth'});});
+
 function changeCalendarMonth(delta) {
   const [y,m]=calendarMonthValue.split('-').map(Number);const d=new Date(y,m-1+delta,1);
   calendarMonthValue=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
