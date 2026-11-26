@@ -492,3 +492,6 @@ body{background:#111!important}
  .livescore-datebar strong{font-size:16px}
  .live-chip{padding:11px 10px}
 }
+
+#calendrier .calendar-card-group .match-open-details{grid-area:auto;grid-column:1/-1}
+#calendrier .calendar-card-group .match-expanded-panel{grid-area:auto;grid-column:1/-1}
