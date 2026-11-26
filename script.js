@@ -984,7 +984,12 @@ function appendCalendarGroups(container, matches) {
     heading.append(titleWrap, count);
     const grid = document.createElement('div');
     grid.className = 'match-grid competition-match-grid';
-    items.forEach(match => grid.append(renderMatch(match)));
+    items.forEach(match => {
+      const card=renderMatch(match);
+      const time=card.querySelector('.match-date');
+      if(time && match.utcDate) time.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(match.utcDate));
+      grid.append(card);
+    });
     section.append(heading, grid);
     container.append(section);
   });
