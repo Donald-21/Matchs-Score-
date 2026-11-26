@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T12:51:18.549244+00:00",
+  "generatedAt": "2026-11-26T23:59:12.421937+00:00",
   "source": "football-data.org",
   "competitions": {
     "PL": {
@@ -751,7 +751,7 @@
             "venue": "St. Mary's Stadium",
             "lastUpdated": "2022-02-10T19:48:04Z"
           },
-          "playedMatches": 8,
+          "playedMatches": 9,
           "goals": 8,
           "assists": null,
           "penalties": null
@@ -1030,7 +1030,7 @@
             "venue": "Bramall Lane",
             "lastUpdated": "2024-07-29T17:17:53Z"
           },
-          "playedMatches": 7,
+          "playedMatches": 8,
           "goals": 6,
           "assists": 2,
           "penalties": null
@@ -5202,6 +5202,37 @@
         },
         {
           "player": {
+            "id": 3137,
+            "name": "Jonathan Calleri",
+            "firstName": "Jonathan",
+            "lastName": "Calleri",
+            "dateOfBirth": "1993-09-23",
+            "nationality": "Argentina",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2023-07-30T23:15:46Z"
+          },
+          "team": {
+            "id": 1776,
+            "name": "São Paulo FC",
+            "shortName": "São Paulo",
+            "tla": "PAU",
+            "crest": "https://crests.football-data.org/1776.png",
+            "address": "null São Paulo, SP null",
+            "website": "http://www.saopaulofc.net",
+            "founded": 1930,
+            "clubColors": "White / Red / Black",
+            "venue": "Estádio do Morumbi",
+            "lastUpdated": "2023-02-18T08:43:44Z"
+          },
+          "playedMatches": 33,
+          "goals": 11,
+          "assists": 2,
+          "penalties": 2
+        },
+        {
+          "player": {
             "id": 45490,
             "name": "Matheus Pereira",
             "firstName": "",
@@ -5357,37 +5388,6 @@
         },
         {
           "player": {
-            "id": 3137,
-            "name": "Jonathan Calleri",
-            "firstName": "Jonathan",
-            "lastName": "Calleri",
-            "dateOfBirth": "1993-09-23",
-            "nationality": "Argentina",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2023-07-30T23:15:46Z"
-          },
-          "team": {
-            "id": 1776,
-            "name": "São Paulo FC",
-            "shortName": "São Paulo",
-            "tla": "PAU",
-            "crest": "https://crests.football-data.org/1776.png",
-            "address": "null São Paulo, SP null",
-            "website": "http://www.saopaulofc.net",
-            "founded": 1930,
-            "clubColors": "White / Red / Black",
-            "venue": "Estádio do Morumbi",
-            "lastUpdated": "2023-02-18T08:43:44Z"
-          },
-          "playedMatches": 32,
-          "goals": 10,
-          "assists": 2,
-          "penalties": 2
-        },
-        {
-          "player": {
             "id": 119594,
             "name": "Mauricio",
             "firstName": null,
@@ -5443,7 +5443,7 @@
             "venue": "Estádio do Morumbi",
             "lastUpdated": "2023-02-18T08:43:44Z"
           },
-          "playedMatches": 29,
+          "playedMatches": 30,
           "goals": 9,
           "assists": 2,
           "penalties": 2

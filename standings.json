@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T12:51:18.553727+00:00",
+  "generatedAt": "2026-11-26T23:59:12.428172+00:00",
   "competitions": {
     "PL": {
       "competition": "Premier League",
@@ -3191,6 +3191,25 @@
         {
           "position": 10,
           "team": {
+            "id": 1776,
+            "name": "São Paulo FC",
+            "shortName": "São Paulo",
+            "tla": "PAU",
+            "crest": "https://crests.football-data.org/1776.png"
+          },
+          "playedGames": 37,
+          "form": null,
+          "won": 13,
+          "draw": 9,
+          "lost": 15,
+          "points": 48,
+          "goalsFor": 41,
+          "goalsAgainst": 41,
+          "goalDifference": 0
+        },
+        {
+          "position": 11,
+          "team": {
             "id": 1780,
             "name": "CR Vasco da Gama",
             "shortName": "Vasco da Gama",
@@ -3206,25 +3225,6 @@
           "goalsFor": 47,
           "goalsAgainst": 52,
           "goalDifference": -5
-        },
-        {
-          "position": 11,
-          "team": {
-            "id": 1776,
-            "name": "São Paulo FC",
-            "shortName": "São Paulo",
-            "tla": "PAU",
-            "crest": "https://crests.football-data.org/1776.png"
-          },
-          "playedGames": 36,
-          "form": null,
-          "won": 12,
-          "draw": 9,
-          "lost": 15,
-          "points": 45,
-          "goalsFor": 40,
-          "goalsAgainst": 41,
-          "goalDifference": -1
         },
         {
           "position": 12,
@@ -3368,15 +3368,15 @@
             "tla": "CRE",
             "crest": "https://crests.football-data.org/4287.png"
           },
-          "playedGames": 36,
+          "playedGames": 37,
           "form": null,
           "won": 7,
           "draw": 11,
-          "lost": 18,
+          "lost": 19,
           "points": 32,
           "goalsFor": 41,
-          "goalsAgainst": 61,
-          "goalDifference": -20
+          "goalsAgainst": 62,
+          "goalDifference": -21
         },
         {
           "position": 20,
