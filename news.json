@@ -1,9 +1,93 @@
 {
-  "generatedAt": "2026-11-26T01:54:53.635538+00:00",
+  "generatedAt": "2026-11-26T12:51:19.557000+00:00",
   "source": "BBC Sport, The Guardian, ESPN",
   "articles": [
     {
-      "title": "Frustration reigns for Pochettino in chaotic start to Man Utd job",
+      "title": "How to follow the Premier League on the BBC this weekend",
+      "summary": "Our Ask Me Anything team explains how to follow matches from week 12 of the Premier League season on the BBC this weekend.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cp30ggvqj0do?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-26T12:06:15+00:00"
+    },
+    {
+      "title": "Manchester United, Liverpool and Spurs using same law firm to set up legal claim against City",
+      "summary": "Rivals engage law firm Wiggin as they seek damages Claim could be worth hundreds of millions of pounds Manchester United, Liverpool and Tottenham are using the same law firm to prepare a legal claim against Manchester City for breaking the Premier League’s financial rules that could be worth hundreds of millions of pounds. The clubs have engaged the services",
+      "url": "https://www.theguardian.com/football/2026/nov/26/manchester-united-liverpool-tottenham-arsenal-city-legal-claim-financial-breaches-damages",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-26T12:00:34+00:00"
+    },
+    {
+      "title": "Fifa confirms internal data stolen in cyber attack",
+      "summary": "Fifa has confirmed it has been the victim of a cyber-attack which resulted in personal and business information being stolen.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/crd61nvg4d84o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-26T11:30:07+00:00"
+    },
+    {
+      "title": "‘We are on the edge’: how Swedish league declined from summit of women’s game",
+      "summary": "The Damallsvenskan once mastered Europe and attracted the best players, but many are now worried for its future On 12 October 2003, Sweden stood still. The women’s football team were playing Germany in the World Cup final. TV4 set a new viewing record as almost half the nation watched the game go into extra time, where Nia Künzer scored the golden goal winne",
+      "url": "https://www.theguardian.com/football/2026/nov/26/damallsvenskan-swedish-league-decline-fans-attendances-media-coverage-finances",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-26T11:00:32+00:00"
+    },
+    {
+      "title": "Neville, Carragher and the inescapable podcasting feedback loop of doom | Jonathan Liew",
+      "summary": "Even the best managers can struggle to escape ex-players’ need to manufacture a crisis for content. Enter Michael Carrick … A podcast studio in Manchester. A production runner pours water into jugs. Gary Neville enters the room with Michael Carrick. Neville: Just so you know, we’re already filming. This is the intro bit, where we show everyone coming on to s",
+      "url": "https://www.theguardian.com/football/2026/nov/26/gary-neville-jamie-carragher-podcast-manchester-united-michael-carrick",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-26T10:19:16+00:00"
+    },
+    {
+      "title": "‘Not Bayern-like’: Joshua Kimmich fumes at club’s treatment of Jamal Musiala",
+      "summary": "Bundesliga champions lost 2-1 to Lille on Wednesday Kimmich defends Musiala’s neurological condition The Bayern Munich midfielder Joshua Kimmich has launched a stinging attack on the club’s “not Bayern-like” treatment of his teammate Jamal Musiala, who has a condition which causes seizures. Senior Bayern figures have publicly questioned Musiala’s performance",
+      "url": "https://www.theguardian.com/football/2026/nov/26/bayern-munich-joshua-kimmich-jamal-musiala",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-26T10:19:07+00:00"
+    },
+    {
+      "title": "Pochettino claims officials ‘punished’ Manchester United in chaotic Sporting draw",
+      "summary": "Head coach questions ‘difficult to understand’ decisions Zirkzee joins Pochettino in offering support to Lammens Mauricio Pochettino claimed Manchester United were punished unfairly after again appearing to suffer from faulty officiating in Wednesday night’s 2-2 draw at Sporting . The key decision from Szymon Marciniak came when Amad Diallo’s first-half stri",
+      "url": "https://www.theguardian.com/football/2026/nov/25/mauricio-pochettino-officials-punished-manchester-united-sporting",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-26T09:00:56+00:00"
+    },
+    {
+      "title": "No drums, no tifo … no point? The impact of Palace’s missing Holmesdale Fanatics",
+      "summary": "Crystal Palace’s influential supporters’ group disbanded 24 hours before their first home game this season – and Selhurst Park has not been the same since Simon Teesdale could not help feeling mixed emotions when his beloved Crystal Palace won the Conference League in Leipzig in May. He started going to Selhurst Park with his father in the 1980s, became a se",
+      "url": "https://www.theguardian.com/football/2026/nov/26/no-drums-no-tifo-no-point-the-impact-of-palaces-missing-holmesdale-fanatics",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-26T08:00:50+00:00"
+    },
+    {
+      "title": "Why KMI Panel frustrates referees too - and impacts their salary",
+      "summary": "For Premier League referees, the KMI Panel is more important than you might realise. It determines a significant portion of their salary.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq20x16zxxzeo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-26T07:28:18+00:00"
+    },
+    {
+      "title": "The Portuguese second-tier team hosting Celtic in Europe",
+      "summary": "Portuguese second-tier side Torreense host Celtic in the Europa League. But how did they end up here?",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cw99zxvyzj04o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-26T07:26:12+00:00"
+    },
+    {
+      "title": "Who am I? Plus today's other quizzes",
+      "summary": "Test your ball knowledge against today's Who Am I?, Five in Five and Brainteaser.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6ly5125qgy9o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-26T06:53:51+00:00"
+    },
+    {
+      "title": "'Laughing gas has ended careers' - so how common is it in football?",
+      "summary": "After Raheem Sterling's court case, BBC Sport looks at how common the use of nitrous oxide is among footballers.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6kgdrj9nxgdo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-26T06:18:30+00:00"
+    },
+    {
+      "title": "More ref frustration as Pochettino's chaotic start at Man Utd continues",
       "summary": "What are the findings for Mauricio Pochettino after his first two matches as Manchester United manager?",
       "url": "https://www.bbc.co.uk/sport/football/articles/c6vg24l724l4o?at_medium=RSS&at_campaign=rss",
       "source": "BBC Sport",
@@ -50,13 +134,6 @@
       "url": "https://www.theguardian.com/football/2026/nov/25/championship-roundup-stoke-millwall-burnley-home-record-birmingham",
       "source": "The Guardian",
       "publishedAt": "2026-11-25T22:55:48+00:00"
-    },
-    {
-      "title": "Champions League: Lille comeback adds to Bayern woes, Gordon leads Barcelona rout",
-      "summary": "Lille 2-1 Bayern Munich, Sabah 1-4 Barcelona Malen penalty earns Roma 2-2 draw at PSG Bayern Munich endured their first defeat of the season on Wednesday, losing 2-1 at Lille in the Champions League as a tough week for the German giants worsened. Dayot Upamecano opened the scoring for Bayern but Ayase Ueda levelled for Lille before a horror Aleksandar Pavlov",
-      "url": "https://www.theguardian.com/football/2026/nov/25/champions-league-barcelona-psg-roma-lille-bayern-munich-villarreal",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-25T22:38:19+00:00"
     },
     {
       "title": "Lammens howler denies Man Utd victory against Sporting in incident-packed game",
@@ -115,13 +192,6 @@
       "publishedAt": "2026-11-25T22:05:49+00:00"
     },
     {
-      "title": "Lammens errors cost Manchester United victory in frantic finale at Sporting",
-      "summary": "“We are a strong team,” Mauricio Pochettino exhorted, then watched Manchester United’s unerring ability to cause drama every time they lace up their boots. Cruising, it seemed, at 2-1 and with 10 minutes left, they unravelled, as Senne Lammens dropped a high ball in front of his goal and a grateful Luis Suárez equalised with a bicycle kick. Cut almost instan",
-      "url": "https://www.theguardian.com/football/2026/nov/25/sporting-lisbon-manchester-united-champions-league-match-report",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-25T22:05:49+00:00"
-    },
-    {
       "title": "Real Madrid put in five-star second half to win against PSV",
       "summary": "Jude Bellingham comes off the bench to score a stunning goal as Real Madrid come from behind to beat PSV Eindhoven and maintain their 100% record in the Champions League.",
       "url": "https://www.bbc.co.uk/sport/football/videos/c5evr0y83197o?at_medium=RSS&at_campaign=rss",
@@ -151,7 +221,7 @@
     },
     {
       "title": "Oliver Glasner criticises Nottingham Forest players for not learning English",
-      "summary": "‘Players are here for four years and can’t speak English’ Glasner has held talks with owner over January moves Nottingham Forest’s manager, Oliver Glasner, believes standards at the club were not good enough prior to his arrival as he questioned why some of his squad cannot speak English after a number of years in the country. Glasner was tempted to move to ",
+      "summary": "‘Players are here for four years and can’t speak English’ Glasner has held talks with owner over January moves Nottingham Forest’s manager, Oliver Glasner, believes standards at the club were not good enough before his arrival as he questioned why some of his squad cannot speak English after a number of years in the country. Glasner was tempted to move to th",
       "url": "https://www.theguardian.com/football/2026/nov/25/oliver-glasner-criticises-nottingham-forest-for-not-making-players-learn-english",
       "source": "The Guardian",
       "publishedAt": "2026-11-25T21:17:34+00:00"
@@ -176,13 +246,6 @@
       "url": "https://www.theguardian.com/news/video/2026/nov/25/raheem-sterlings-rise-and-fall-a-sign-football-is-broken-the-latest",
       "source": "The Guardian",
       "publishedAt": "2026-11-25T18:48:50+00:00"
-    },
-    {
-      "title": "Can Iordanescu make a difference at Watford & how do you become a free-kick specialist?",
-      "summary": "Stockport County's Ollie Norwood tells us what has meant he keeps scoring epic free kicks",
-      "url": "https://www.bbc.co.uk/sounds/play/p0ppxp3z?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T18:35:00+00:00"
     },
     {
       "title": "Glasner criticises Forest players yet to learn English",
@@ -220,25 +283,11 @@
       "publishedAt": "2026-11-25T16:46:36+00:00"
     },
     {
-      "title": "Leicester no longer for sale as owner looks to future",
-      "summary": "Leicester owner Khun Aiyawatt 'Top' Srivaddhanaprabha confirms the one-time Premier League title winners are no longer up for sale.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/ck1l0j77j43eo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T16:19:45+00:00"
-    },
-    {
       "title": "Saudi Arabia’s PIF looking to sell 25% of Newcastle through share issue",
       "summary": "PIF seeking investment to fund infrastructure projects JP Morgan appointed to handle the sale Newcastle United’s owner, Saudi Arabia’s Public Investment Fund (PIF), is looking to sell up to 25% of the club by issuing new shares. The New York-based bank JP Morgan, whose most recent involvement in a major football deal was Fifa’s aborted attempt to sell off 20",
       "url": "https://www.theguardian.com/football/2026/nov/25/saudi-arabia-pif-newcastle-share-issue",
       "source": "The Guardian",
       "publishedAt": "2026-11-25T15:36:32+00:00"
-    },
-    {
-      "title": "Botty? AI helps resurrect voice of John Motson for football video game",
-      "summary": "Late broadcaster’s family allows EA Sports to create digital version of ‘Motty’ to commentate on popular FC27 First it was Val Kilmer, then Greta Garbo, but finally AI has resurrected a star the terraces can cheer for: John Motson, the BBC football pundit who died in February 2023, is coming back to commentate on the next generation of footballers – at least",
-      "url": "https://www.theguardian.com/media/2026/nov/25/ai-helps-resurrect-voice-john-motson-football-video-game-fc27",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-25T15:13:10+00:00"
     },
     {
       "title": "Premier League’s burst of early sendings-off may not last – but red cards are on the rise for a reason",
@@ -302,55 +351,6 @@
       "url": "https://www.theguardian.com/football/2026/nov/25/raheem-sterling-avoids-jail-reckless-driving-nitrous-oxide-sentence",
       "source": "The Guardian",
       "publishedAt": "2026-11-25T11:34:10+00:00"
-    },
-    {
-      "title": "Lincoln sack head coach duo Cohen and Shaw after only six months",
-      "summary": "Lincoln sack head coaches Chris Cohen and Tom Shaw just six months after they took joint charge of the Championship side.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cmglrzg3zx9no?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T11:32:28+00:00"
-    },
-    {
-      "title": "Watford appoint Iordanescu as head coach",
-      "summary": "Watford appoint former Romania boss Edward Iordanescu as their new head coach after sacking Alessio Dionisi.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cv1j65j2lw3po?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T11:15:34+00:00"
-    },
-    {
-      "title": "The story of how Pelé and Maradona went from friends to bitter rivals",
-      "summary": "A new book charts the complicated relationship between the two legends, starting on a sunny afternoon in Rio in 1979 Pelé and Diego Maradona first met in April 1979, not long after the Argentinian led his country’s under-20 side to the finals of the World Youth Cup. Maradona told a journalist friend that his dream was to meet the Brazilian, and after a few w",
-      "url": "https://www.theguardian.com/football/2026/nov/25/pele-diego-maradona-brazil-argentina-world-cup",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-25T08:00:10+00:00"
-    },
-    {
-      "title": "Has a footballer had a longer career hiatus than Ronaldinho’s 11 year-gap? | The Knowledge",
-      "summary": "Plus: the quickest team to go from FA Cup winners to the first round and matches delayed by snowball fights Mail us with all of your questions and answers “Ronaldinho played for Ravenna, in Serie C, earlier this month. It was his first professional appearance in more than 11 years,” writes George Jones. “Have any other footballers had long career hiatuses? A",
-      "url": "https://www.theguardian.com/football/2026/nov/25/has-a-footballer-had-a-longer-career-hiatus-than-ronaldinhos-11-year-gap",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-25T08:00:09+00:00"
-    },
-    {
-      "title": "How to unearth young stars, the Bayern Munich way",
-      "summary": "Bayern Munich initially aim to find local young players from Bavaria before looking further afield - here's how they do it.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c6702wddqz17o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T07:22:27+00:00"
-    },
-    {
-      "title": "Who am I? Plus today's other quizzes",
-      "summary": "Test your ball knowledge against today's Who Am I?, Five in Five and Brainteaser.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cxvg2e6l57j7o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T06:56:11+00:00"
-    },
-    {
-      "title": "Are Manchester United this season's Tottenham?",
-      "summary": "Tottenham escaped an unthinkable Premier League relegation last season on the final day, but are Manchester United in danger of being the new Spurs?",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cj4gndepk312o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T06:22:36+00:00"
     }
   ]
 }
