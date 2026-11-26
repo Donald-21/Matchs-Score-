@@ -1,13 +1,209 @@
 {
-  "generatedAt": "2026-11-25T17:25:48.698489+00:00",
+  "generatedAt": "2026-11-26T01:54:53.635538+00:00",
   "source": "BBC Sport, The Guardian, ESPN",
   "articles": [
     {
-      "title": "EFL Trophy holders Luton face Palace U21s in last 32",
-      "summary": "EFL Trophy holders Luton Town will meet Crystal Palace Under-21s in the last 32 of the competition.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/ckzd9vqed5d7o?at_medium=RSS&at_campaign=rss",
+      "title": "Frustration reigns for Pochettino in chaotic start to Man Utd job",
+      "summary": "What are the findings for Mauricio Pochettino after his first two matches as Manchester United manager?",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6vg24l724l4o?at_medium=RSS&at_campaign=rss",
       "source": "BBC Sport",
-      "publishedAt": "2026-11-25T17:12:57+00:00"
+      "publishedAt": "2026-11-26T00:24:48+00:00"
+    },
+    {
+      "title": "Divots, howlers and bad decisions - dissecting Man Utd's draw in Lisbon",
+      "summary": "BBC Sport breaks down the chaos amid Manchester United's rollercoaster Champions League draw against Sporting in Lisbon.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvrlg074ld74o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-26T00:22:28+00:00"
+    },
+    {
+      "title": "How Isak and Wirtz are becoming Liverpool's 'big-game players'",
+      "summary": "Match of the Day's Stephen Warnock and Nedum Onuoha analyse the recent resurgence of Alexander Isak and Florian Wirtz for as they led Liverpool to victory against Club Brugge.debut seasons last year.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cmqx527v3x19o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T23:38:42+00:00"
+    },
+    {
+      "title": "'All coming together' - Isak repaying Liverpool faith",
+      "summary": "Alexander Isak's two goals against Club Brugge take his tally for the season to 10 as the striker continues to show why Liverpool last year paid £125m to bring him to the club.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqm2l0gelkzxo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T23:25:30+00:00"
+    },
+    {
+      "title": "Fenerbahce squeeze past Shakhtar to seal back-to-back wins",
+      "summary": "Turkish side Fenerbahce defeat Shakhtar Donetsk in a close affair at Stamford Bridge to give their hopes of Champions League qualification a huge boost.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c6ly51452xe7o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T23:16:18+00:00"
+    },
+    {
+      "title": "Martinez secures Inter win against Stuttgart",
+      "summary": "Lautaro Martinez comes off the bench to score as Inter Milan beat Stuttgart and boost their chances of reaching the Champions League knockout stages.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c6j9mvjkkzymo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T23:02:15+00:00"
+    },
+    {
+      "title": "Championship roundup: Stoke rise to second, Birmingham condemn Burnley to record drought",
+      "summary": "George Hirst double earns Potters 2-1 win over Millwall Burnley’s winless home run extends to 24 matches George Hirst scored both goals as Stoke secured a fifth successive Championship win by beating Millwall 2-1 to go level on points with Middlesbrough at the top. The Scotland international scored his second goal for the Potters in the 1-0 win over Birmingh",
+      "url": "https://www.theguardian.com/football/2026/nov/25/championship-roundup-stoke-millwall-burnley-home-record-birmingham",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-25T22:55:48+00:00"
+    },
+    {
+      "title": "Champions League: Lille comeback adds to Bayern woes, Gordon leads Barcelona rout",
+      "summary": "Lille 2-1 Bayern Munich, Sabah 1-4 Barcelona Malen penalty earns Roma 2-2 draw at PSG Bayern Munich endured their first defeat of the season on Wednesday, losing 2-1 at Lille in the Champions League as a tough week for the German giants worsened. Dayot Upamecano opened the scoring for Bayern but Ayase Ueda levelled for Lille before a horror Aleksandar Pavlov",
+      "url": "https://www.theguardian.com/football/2026/nov/25/champions-league-barcelona-psg-roma-lille-bayern-munich-villarreal",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-25T22:38:19+00:00"
+    },
+    {
+      "title": "Lammens howler denies Man Utd victory against Sporting in incident-packed game",
+      "summary": "Goalkeeper Senne Lammens endures a topsy-turvy night as Manchester United draw with Sporting.controversial decisions.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c6ly5145gg1do?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T22:32:51+00:00"
+    },
+    {
+      "title": "PSG held by Roma as in-form Malen scores again",
+      "summary": "Donyell Malen scores for the fourth Champions League game running as Roma ends Paris St-Germain's 100% start to the competition.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cwvg2832elr4o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T22:27:14+00:00"
+    },
+    {
+      "title": "Terrible Pavlovic own goal gifts Lille shock win against Bayern",
+      "summary": "Bayern Munich suffer their first defeat of the Champions League campaign as Lille find the net twice in three minutes in the second half, including a comical Aleksander Pavlovic own goal, to inflict a huge upset.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cq36gx1g10p6o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T22:24:57+00:00"
+    },
+    {
+      "title": "Isak scores twice as clinical Liverpool beat Brugge",
+      "summary": "Liverpool defeat Club Brugge in a clinical performance thanks to goals from Alexander Isak and Florian Wirtz, bouncing back after a defeat in their last Champions League match.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cqvg28l0z8mro?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T22:12:19+00:00"
+    },
+    {
+      "title": "Gordon stars in comfortable Barca win over Sabah",
+      "summary": "Anthony Gordon scores Barcelona's opening two goals as they ease past Sabah with a 4-1 win in the Champions League.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c6z74ljxjv2xo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T22:07:02+00:00"
+    },
+    {
+      "title": "Borussia Dortmund fight back to draw with Arsenal",
+      "summary": "Borussia Dortmund fight back from a goal behind to draw with Arsenal in the Champions League.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cmedqg06d8vwo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T22:05:57+00:00"
+    },
+    {
+      "title": "Blunt Villa beaten by late Galatasaray winner",
+      "summary": "Deniz Gul scores a late winner for Galatasaray as Aston Villa slip to successive Champions League defeats.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c6r7g92p5k79o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T22:05:53+00:00"
+    },
+    {
+      "title": "Cherki rescues point for Man City against Napoli",
+      "summary": "Rayan Cherki's late equaliser rescues a point for Manchester City at home to Napoli in the Champions League, who have now won just one of their past seven games in all competitions.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cjy5xwygqg9do?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T22:05:49+00:00"
+    },
+    {
+      "title": "Lammens errors cost Manchester United victory in frantic finale at Sporting",
+      "summary": "“We are a strong team,” Mauricio Pochettino exhorted, then watched Manchester United’s unerring ability to cause drama every time they lace up their boots. Cruising, it seemed, at 2-1 and with 10 minutes left, they unravelled, as Senne Lammens dropped a high ball in front of his goal and a grateful Luis Suárez equalised with a bicycle kick. Cut almost instan",
+      "url": "https://www.theguardian.com/football/2026/nov/25/sporting-lisbon-manchester-united-champions-league-match-report",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-25T22:05:49+00:00"
+    },
+    {
+      "title": "Real Madrid put in five-star second half to win against PSV",
+      "summary": "Jude Bellingham comes off the bench to score a stunning goal as Real Madrid come from behind to beat PSV Eindhoven and maintain their 100% record in the Champions League.",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c5evr0y83197o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T22:05:45+00:00"
+    },
+    {
+      "title": "Isak and Wirtz on target as resurgent Liverpool sweep aside Club Brugge",
+      "summary": "Liverpool, from big money individuals to the collective, are building formidable momentum. On a bitterly cold night in Belgium, Andoni Iraola’s team delivered an accomplished away display to bring Club Brugge’s impressive run to a halt and step closer to automatic qualification from the Champions League group. A week that supposedly represented a test of Liv",
+      "url": "https://www.theguardian.com/football/2026/nov/25/club-brugge-liverpool-champions-league-match-report",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-25T22:04:10+00:00"
+    },
+    {
+      "title": "Ferguson's Glentoran reign hits early turbulence",
+      "summary": "Duncan Ferguson's short tenure at Glentoran is already proving anything but straightforward with just one win so far and the former Everton striker now suspended for seven games.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cxzd9v7457nro?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T21:41:00+00:00"
+    },
+    {
+      "title": "Regulator chief 'has stomach' to face Man City",
+      "summary": "The chair of English football's independent regulator tells MPs he \"has the stomach\" to take potential action against Manchester City.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c65y10z8k59jo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T21:27:35+00:00"
+    },
+    {
+      "title": "Oliver Glasner criticises Nottingham Forest players for not learning English",
+      "summary": "‘Players are here for four years and can’t speak English’ Glasner has held talks with owner over January moves Nottingham Forest’s manager, Oliver Glasner, believes standards at the club were not good enough prior to his arrival as he questioned why some of his squad cannot speak English after a number of years in the country. Glasner was tempted to move to ",
+      "url": "https://www.theguardian.com/football/2026/nov/25/oliver-glasner-criticises-nottingham-forest-for-not-making-players-learn-english",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-25T21:17:34+00:00"
+    },
+    {
+      "title": "Liverpool mull Quansah return - Thursday's gossip",
+      "summary": "Liverpool consider return for Jarrell Quansah, Tottenham scout Vangelis Pavlidis and Paris St-Germain target Estevao Willian, plus more",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6n831jk3x4mo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T20:57:48+00:00"
+    },
+    {
+      "title": "MLS settles on new playoff format after considering double elimination",
+      "summary": "16 teams will qualify for the playoffs, down from 18 Best-of-three format eliminated in first round Semi-finals, MLS Cup will be single-elimination The 2026 MLS Cup playoffs have only just begun, but the league is already finalizing another change to its postseason format. Beginning with the 2027-28 season, MLS will eliminate its short-lived wild card round ",
+      "url": "https://www.theguardian.com/football/2026/nov/25/mls-playoff-format-changes",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-25T19:33:24+00:00"
+    },
+    {
+      "title": "Raheem Sterling’s rise and fall: a sign football is broken? - The Latest",
+      "summary": "Raheem Sterling has been handed a 12-month jail term, suspended for 18 months, for reckless driving and possession of nitrous oxide. It marks a remarkable fall from grace for the former England and Manchester City player, who was awarded an MBE in 2021. Sterling started playing professional football at 16, and his sentencing has raised questions about whethe",
+      "url": "https://www.theguardian.com/news/video/2026/nov/25/raheem-sterlings-rise-and-fall-a-sign-football-is-broken-the-latest",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-25T18:48:50+00:00"
+    },
+    {
+      "title": "Can Iordanescu make a difference at Watford & how do you become a free-kick specialist?",
+      "summary": "Stockport County's Ollie Norwood tells us what has meant he keeps scoring epic free kicks",
+      "url": "https://www.bbc.co.uk/sounds/play/p0ppxp3z?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T18:35:00+00:00"
+    },
+    {
+      "title": "Glasner criticises Forest players yet to learn English",
+      "summary": "Nottingham Forest manager Oliver Glasner has questioned why some of his squad cannot speak English after being in the country for a number of years.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cw20xr4d7x55o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T18:32:55+00:00"
+    },
+    {
+      "title": "Peter Storey obituary",
+      "summary": "Arsenal midfielder capped by England 19 times whose life after football suffered a drink-fuelled decline The footballer Peter Storey , who has died aged 81, was a tough-tackling midfielder for Arsenal when they won the double of the First Division championship and the FA Cup in 1971. Arsenal were only the fourth team to achieve the double at that point (it h",
+      "url": "https://www.theguardian.com/football/2026/nov/25/peter-storey-obituary",
+      "source": "The Guardian",
+      "publishedAt": "2026-11-25T17:40:02+00:00"
+    },
+    {
+      "title": "'Justice for sport' - Afcon reaction as Senegal reinstated as winners",
+      "summary": "Players and officials in Senegal have welcomed the decision to reinstate the West Africans as Afcon 2025 champions, but those in Morocco still contest the decision.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6vg2e32e7vno?at_medium=RSS&at_campaign=rss",
+      "source": "BBC Sport",
+      "publishedAt": "2026-11-25T17:32:30+00:00"
     },
     {
       "title": "Alejandro Garnacho and the curious case of Aston Villa’s outcast loanees | Ben Fisher",
@@ -22,13 +218,6 @@
       "url": "https://www.bbc.co.uk/sport/football/articles/cmkgdjkr2y70o?at_medium=RSS&at_campaign=rss",
       "source": "BBC Sport",
       "publishedAt": "2026-11-25T16:46:36+00:00"
-    },
-    {
-      "title": "Confusion and anger - Yoro red card rescinded, but row goes on",
-      "summary": "Leny Yoro's red card against Liverpool has prompted an unseemly difference of opinion between Man Utd and Pro Ref.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cvze7y6n2redo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T16:28:10+00:00"
     },
     {
       "title": "Leicester no longer for sale as owner looks to future",
@@ -52,15 +241,8 @@
       "publishedAt": "2026-11-25T15:13:10+00:00"
     },
     {
-      "title": "Football Daily | Manchester City get that empty feeling as they fail to win again",
-      "summary": "Sign up now! Sign up now! Sign up now? Sign up now! Early in the second half of Tuesday night’s National League South match between Torquay United and Chesham, play was briefly suspended due to an ear-splitting din emitted over the Plainmoor public address system. “The game has stopped because the Torquay Tannoy system is making a loud noise that won’t stop,",
-      "url": "https://www.theguardian.com/football/2026/nov/25/manchester-city-empty-feeling-football-daily-newsletter",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-25T15:13:01+00:00"
-    },
-    {
       "title": "Premier League’s burst of early sendings-off may not last – but red cards are on the rise for a reason",
-      "summary": "While referees tend to reach for red early in the season before easing off, players are under increasing pressure to keep pace in a frenetic environment Off! Off! Off! The past three Premier League games have featured a red card, each for a different reason. Brighton’s Costinha was sent off for two bookings at Hull , Leny Yoro collected a red card against Li",
+      "summary": "While referees tend to reach for red early in the season before easing off, players are under increasing pressure to keep pace in a frenetic environment Off! Off! Off! The past three Premier League games have featured a red card, each for a different reason. Brighton’s Costinha was sent off for two bookings at Hull, Leny Yoro collected a red card against Liv",
       "url": "https://www.theguardian.com/football/2026/nov/25/premier-league-red-cards-costinha-leny-yoro-james-tarkowski-referees",
       "source": "The Guardian",
       "publishedAt": "2026-11-25T14:46:33+00:00"
@@ -73,7 +255,7 @@
       "publishedAt": "2026-11-25T14:38:54+00:00"
     },
     {
-      "title": "Guardiola says next coaching role will be with a national team amid USA links",
+      "title": "Pep Guardiola says next coaching role will be with a national team amid USA links",
       "summary": "Coach turned down Italy offer, needing ‘time for myself’ Pochettino says he’d tell Guardiola to take USMNT job Pep Guardiola has said he doesn’t know when he’ll return to football but that his next coaching role will be with a national team. In an interview with former Barcelona teammate Romario on Tuesday, Guardiola was asked if there was a team he had neve",
       "url": "https://www.theguardian.com/football/2026/nov/25/pep-guardiola-coaching-job-usmnt-italy",
       "source": "The Guardian",
@@ -94,7 +276,7 @@
       "publishedAt": "2026-11-25T12:42:57+00:00"
     },
     {
-      "title": "Senegal regaining Afcon title is the right end to embarrassing farrago but issues do not stop here | Osasu Obayiuwana",
+      "title": "Senegal regaining Afcon title is the right end to fiasco but issues do not stop there | Osasu Obayiuwana",
       "summary": "After African football was dragged into needless disrepute the next step is to tackle two key areas of governance A journey of 310 days and three legal proceedings to confirm two things we know – that Senegal beat Morocco 1-0 to win the 2025 Africa Cup of Nations and, most importantly, that the decision of a referee remains final and sacrosanct – has produce",
       "url": "https://www.theguardian.com/football/2026/nov/25/senegal-regaining-afcon-title-right-end-african-football",
       "source": "The Guardian",
@@ -136,32 +318,11 @@
       "publishedAt": "2026-11-25T11:15:34+00:00"
     },
     {
-      "title": "Millwall face partial stadium closure after discriminatory chants",
-      "summary": "Millwall must play a home game in front of a partially-closed stadium as punishment for fans' discriminatory chants.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c6wy474lxd22o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T10:58:32+00:00"
-    },
-    {
-      "title": "EA adds AI-generated John Motson to FC 27 video game",
-      "summary": "The AI-generated Motson will appear in the game on 26 November, with the consent of his son and wife.",
-      "url": "https://www.bbc.co.uk/news/articles/c65y10j841jpo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T10:11:34+00:00"
-    },
-    {
-      "title": "'Most frustrating of career' - Martin on Foxes draw at Blackpool",
-      "summary": "Leicester City boss Russell Martin describes Tuesday's 1-1 draw with Blackpool as the most frustrating result of his career.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c6y97xpqe4e5o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-25T10:09:10+00:00"
-    },
-    {
-      "title": "Search for next USMNT head coach needs to prioritize competence over fame",
-      "summary": "The job of Mauricio Pochettino’s successor is to fine-tune a team on the up. That requires a bureaucrat rather than a figurehead First, let’s get the Pep Exception out of the way. Or perhaps we’d better call it the Guardiola Caveat. Regardless, the point is the same. If US Soccer can get Pep Guardiola to manage the United States men’s national team, it shoul",
-      "url": "https://www.theguardian.com/football/2026/nov/25/usmnt-head-coach-search",
+      "title": "The story of how Pelé and Maradona went from friends to bitter rivals",
+      "summary": "A new book charts the complicated relationship between the two legends, starting on a sunny afternoon in Rio in 1979 Pelé and Diego Maradona first met in April 1979, not long after the Argentinian led his country’s under-20 side to the finals of the World Youth Cup. Maradona told a journalist friend that his dream was to meet the Brazilian, and after a few w",
+      "url": "https://www.theguardian.com/football/2026/nov/25/pele-diego-maradona-brazil-argentina-world-cup",
       "source": "The Guardian",
-      "publishedAt": "2026-11-25T10:00:12+00:00"
+      "publishedAt": "2026-11-25T08:00:10+00:00"
     },
     {
       "title": "Has a footballer had a longer career hiatus than Ronaldinho’s 11 year-gap? | The Knowledge",
@@ -190,167 +351,6 @@
       "url": "https://www.bbc.co.uk/sport/football/articles/cj4gndepk312o?at_medium=RSS&at_campaign=rss",
       "source": "BBC Sport",
       "publishedAt": "2026-11-25T06:22:36+00:00"
-    },
-    {
-      "title": "Bellingham plays down Zidane comparison after wonder goal",
-      "summary": "Jose Mourinho says Jude Bellingham is the best midfielder in the world, but the Real Madrid star played down comparisons to Zinedine Zidane.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c893r9kdwl91o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-24T23:54:10+00:00"
-    },
-    {
-      "title": "Arteta says Arsenal need more luck to kill off games",
-      "summary": "Arsenal need more luck to kill off games says manager Mikel Arteta after they are held to a draw by Borussia Dortmund.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c3ewv0kdjlp9o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-24T23:44:04+00:00"
-    },
-    {
-      "title": "'Pass, pass, slow, slow' - Man City's slick machine grinding to a halt",
-      "summary": "Manchester City's slick footballing machine is starting to grind to a halt, as displayed in their laborious Champions League draw against Napoli.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cj3vgdp2edpxo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-24T23:17:42+00:00"
-    },
-    {
-      "title": "Pochettino leads Man Utd fury at Yoro red card ruling",
-      "summary": "Manchester United and Mauricio Pochettino are furious at how Leny Yoro's red card has been handled by VAR John Brooks and referees' chief Howard Webb",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cqzr5ylmeerlo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-24T22:05:31+00:00"
-    },
-    {
-      "title": "Rayan Cherki magic denies Napoli but Manchester City’s struggles continue",
-      "summary": "For reasons best known to those eyeing the pound signs, Manchester City gave a debut to a special rust-coloured kit in front of a nonplussed crowd. It was of a piece with their performance for most of a familiarly frustrating night that at least concluded with a shot of energy, the home side belatedly shaking off their torpor and ending the prospect of a tri",
-      "url": "https://www.theguardian.com/football/2026/nov/24/manchester-city-napoli-champions-league-match-report",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-24T22:01:51+00:00"
-    },
-    {
-      "title": "Dortmund’s Beier halts Arsenal charge after thunderbolt from Gyökeres",
-      "summary": "Arsenal’s sky-high standards are slipping. For the second time in four days, Mikel Arteta’s side found themselves a goal up at half-time and apparently coasting toward victory, only for their opponents to rouse themselves and earn a deserved draw. After Newcastle on Saturday , this time it was an impressive Borussia Dortmund who became only the second side t",
-      "url": "https://www.theguardian.com/football/2026/nov/24/arsenal-borussia-dortmund-champions-league-match-report",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-24T22:01:50+00:00"
-    },
-    {
-      "title": "Pochettino criticises Premier League officiating after Yoro red card overturned",
-      "summary": "Manchester United defender wrongly sent off in 4-0 loss ‘If we have VAR, what were they doing?’ asks head coach Mauricio Pochettino has criticised officiating in English football, saying: “We have an unbelievable car, but we need to be in the level to drive [it],” after Leny Yoro’s Anfield red card was overturned on Tuesday. Despite the Football Association ",
-      "url": "https://www.theguardian.com/football/2026/nov/23/manchester-united-appeal-leny-yoro-red-card-liverpool",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-24T21:51:31+00:00"
-    },
-    {
-      "title": "Man Utd target Collins - Wednesday's gossip",
-      "summary": "Manchester United target Brentford defender Nathan Collins, Bournemouth price forward Eli Junior Kroupi at £100m and Liverpool close in on new Rio Ngumoha contract.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cm15en5je9eko?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-24T20:51:44+00:00"
-    },
-    {
-      "title": "Gul takes pain for buoyant Galatasaray to condemn Aston Villa to Champions League loss",
-      "summary": "This was Aston Villa’s third trip to Istanbul in the calendar year but, this time, they departed with different emotions. Unlike on the banks of the Bosphorus at Besiktas Park in May, the scene of their unforgettable Europa League triumph , or at Fenerbahce in January, they came away with a bloody nose. Galatasaray’s match-winner, Deniz Gul, finished with si",
-      "url": "https://www.theguardian.com/football/2026/nov/24/galatasaray-aston-villa-champions-league-match-report",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-24T20:03:50+00:00"
-    },
-    {
-      "title": "Florian Wirtz hails Iraola and Klopp as he reaches new levels for Liverpool",
-      "summary": "Playmaker in best form since moving to Anfield ‘I am really enjoying playing under Iraola’ Florian Wirtz has credited Andoni Iraola with helping him recapture the form that made him one of the most coveted players in Europe when he joined Liverpool in a deal worth up to £116m in 2025. The Germany international believes he is in the best form of his Liverpool",
-      "url": "https://www.theguardian.com/football/2026/nov/24/florian-wirtz-hails-iraola-and-klopp-as-he-reaches-new-levels-for-liverpool",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-24T19:02:09+00:00"
-    },
-    {
-      "title": "Senegal reinstated as Afcon 2025 winners by court ruling",
-      "summary": "Ten months after the 2025 Africa Cup of Nations final, Senegal are reinstated as champions following a ruling by the Court of Arbitration for Sport.",
-      "url": "https://www.bbc.co.uk/sport/football/articles/crn80y2l1404o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-24T17:16:09+00:00"
-    },
-    {
-      "title": "‘I’m loving it at Brugge’: Freddie Potts on going from West Ham’s bench to Champions League",
-      "summary": "Midfielder is preparing to face Liverpool after leaving the club he loves and overcoming a tough start in Belgium In April Freddie Potts was absorbing the disappointment of being substituted at half-time during West Ham’s FA Cup quarter-final defeat by Leeds. The midfielder was out of favour under Nuno Espírito Santo and could not have imagined that he would",
-      "url": "https://www.theguardian.com/football/2026/nov/24/freddie-potts-brugge-champions-league-liverpool-west-ham",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-24T13:00:47+00:00"
-    },
-    {
-      "title": "David Squires on … Pochettino flying into a storm at Manchester United. Here we go again",
-      "summary": "Our cartoonist on a nightmare start for the Argentinian as he took charge of the Premier League’s biggest crisis club Buy this cartoon | Some of David’s favourite works And his latest book, Chaos in the Box: get it now Continue reading...",
-      "url": "https://www.theguardian.com/football/picture/2026/nov/24/david-squires-on-mauricio-pochettino-manchester-united-here-we-go-again",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-24T11:31:27+00:00"
-    },
-    {
-      "title": "Philippe Diallo learns harsh reality of mounting global challenge to Infantino",
-      "summary": "French Football Federation president faces uphill battle to win backing of Africa’s decision-makers in Fifa election Philippe Diallo must be learning very quickly that the battle to wrest the Fifa presidency from Gianni Infantino will be very challenging. When Patrice Motsepe, the president of the Confederation of African Football (Caf), asked the presidents",
-      "url": "https://www.theguardian.com/football/2026/nov/24/philippe-diallo-gianni-infantino-fifa-president-confederation-african-football",
-      "source": "The Guardian",
-      "publishedAt": "2026-11-24T10:07:44+00:00"
-    },
-    {
-      "title": "The youngest Premier League goalscorers this season",
-      "summary": "After the stellar performances of Liverpool's Rio Ngumoha and Tottenham's Luca Williams-Barnett, BBC Sport looks at the youngest players to score in the Premier League this season.",
-      "url": "https://www.bbc.co.uk/sport/football/videos/cme39v4w7ykqo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-24T09:10:34+00:00"
-    },
-    {
-      "title": "Andrews praises 'versatile' Lewis-Potter",
-      "summary": "Brentford manager Keith Andrews praises the performance of Keane Lewis-Potter, who scored twice in his side's 4-0 win against Everton.",
-      "url": "https://www.bbc.co.uk/sport/football/videos/c6z0kdgz39p3o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-23T22:59:14+00:00"
-    },
-    {
-      "title": "Moyes questions Tarkowski red in Brentford loss",
-      "summary": "Everton manager David Moyes questions whether the force of James Tarkowski's challenge was taken into consideration, after the defender was shown a red card in his side's 4-0 loss by Brentford.",
-      "url": "https://www.bbc.co.uk/sport/football/videos/cq4gnk062y8go?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-23T22:54:51+00:00"
-    },
-    {
-      "title": "Janelt scores stunner as Brentford beat 10-man Everton",
-      "summary": "Watch highlights as Brentford earn a comfortable 3-0 win against 10-man Everton in the Premier League, including a great goal by Vitaly Janelt.",
-      "url": "https://www.bbc.co.uk/sport/football/videos/c5gm3jlw7l7xo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-23T22:31:27+00:00"
-    },
-    {
-      "title": "Every goal from the Women's Super League - matchweek 11",
-      "summary": "Watch all the goals from matchweek 11 in the WSL, including Annabelle Blanchard's delightful volley against London City Lionesses and Lee Geum-Min's thumping finish for Birmingham City.",
-      "url": "https://www.bbc.co.uk/sport/football/videos/cq8j4glgw4pvo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-23T09:34:52+00:00"
-    },
-    {
-      "title": "Watch highlights of the weekend's SPFL action",
-      "summary": "Watch the best of the action from the weekend's action in the Scottish Championship, League 1 and League 2.",
-      "url": "https://www.bbc.co.uk/sport/football/videos/c6p3e4388lq1o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-23T08:14:17+00:00"
-    },
-    {
-      "title": "Did Liverpool 'get lucky' with red card decision?",
-      "summary": "Match of the Day pundits Danny Murphy and Ashley Young believe that Liverpool were perhaps \"lucky\" when Manchester United's Leny Yoro was sent off in the 8th-minute at Anfield.",
-      "url": "https://www.bbc.co.uk/sport/football/videos/cq23jmklrj33o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-22T23:59:59+00:00"
-    },
-    {
-      "title": "McBurnie stoppage-time double earns Hull win over 10-man Brighton",
-      "summary": "Oli McBurnie's stoppage-time double earns victory for Hull City against second-placed Brighton in the Premier League.",
-      "url": "https://www.bbc.co.uk/sport/football/videos/ck62pzzezqz2o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-22T19:59:38+00:00"
-    },
-    {
-      "title": "Ngumoha stars as Liverpool thrash 10-man Man Utd",
-      "summary": "Mauricio Pochettino's reign as Manchester United head coach begins in desperate fashion as his team are thrashed by rivals Liverpool to remain in the Premier League relegation zone.",
-      "url": "https://www.bbc.co.uk/sport/football/videos/c933g77knz00o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC Sport",
-      "publishedAt": "2026-11-22T19:59:35+00:00"
     }
   ]
 }

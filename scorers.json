@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T17:25:47.415364+00:00",
+  "generatedAt": "2026-11-26T01:54:52.263497+00:00",
   "source": "football-data.org",
   "competitions": {
     "PL": {
@@ -882,6 +882,37 @@
         },
         {
           "player": {
+            "id": 176016,
+            "name": "August Priske",
+            "firstName": "August",
+            "lastName": "Priske",
+            "dateOfBirth": "2004-03-23",
+            "nationality": "Denmark",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-04-22T09:42:10Z"
+          },
+          "team": {
+            "id": 332,
+            "name": "Birmingham City FC",
+            "shortName": "Birmingham",
+            "tla": "BIR",
+            "crest": "https://crests.football-data.org/332.png",
+            "address": "St. Andrew's Stadium Birmingham B9 4RL",
+            "website": "http://www.bcfc.com",
+            "founded": 1875,
+            "clubColors": "Blue / White",
+            "venue": "St Andrew's Trillion Trophy Stadium",
+            "lastUpdated": "2022-02-20T08:43:10Z"
+          },
+          "playedMatches": 7,
+          "goals": 7,
+          "assists": 1,
+          "penalties": 1
+        },
+        {
+          "player": {
             "id": 170340,
             "name": "Yousef Salech",
             "firstName": "Yousef",
@@ -975,37 +1006,6 @@
         },
         {
           "player": {
-            "id": 176016,
-            "name": "August Priske",
-            "firstName": "August",
-            "lastName": "Priske",
-            "dateOfBirth": "2004-03-23",
-            "nationality": "Denmark",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-04-22T09:42:10Z"
-          },
-          "team": {
-            "id": 332,
-            "name": "Birmingham City FC",
-            "shortName": "Birmingham",
-            "tla": "BIR",
-            "crest": "https://crests.football-data.org/332.png",
-            "address": "St. Andrew's Stadium Birmingham B9 4RL",
-            "website": "http://www.bcfc.com",
-            "founded": 1875,
-            "clubColors": "Blue / White",
-            "venue": "St Andrew's Trillion Trophy Stadium",
-            "lastUpdated": "2022-02-20T08:43:10Z"
-          },
-          "playedMatches": 7,
-          "goals": 6,
-          "assists": 1,
-          "penalties": 1
-        },
-        {
-          "player": {
             "id": 210648,
             "name": "Sydie Peck",
             "firstName": "Sydie",
@@ -1034,6 +1034,37 @@
           "goals": 6,
           "assists": 2,
           "penalties": null
+        },
+        {
+          "player": {
+            "id": 38373,
+            "name": "Aune Heggebø",
+            "firstName": "Aune",
+            "lastName": "Heggebø",
+            "dateOfBirth": "2001-07-29",
+            "nationality": "Norway",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": 19,
+            "lastUpdated": "2025-10-15T09:42:36Z"
+          },
+          "team": {
+            "id": 74,
+            "name": "West Bromwich Albion FC",
+            "shortName": "West Brom",
+            "tla": "WBA",
+            "crest": "https://crests.football-data.org/74.png",
+            "address": "The Hawthorns West Bromwich B71 4LF",
+            "website": "http://www.wba.co.uk",
+            "founded": 1879,
+            "clubColors": "White / Navy Blue",
+            "venue": "The Hawthorns",
+            "lastUpdated": "2022-02-19T09:11:36Z"
+          },
+          "playedMatches": 6,
+          "goals": 5,
+          "assists": 2,
+          "penalties": 1
         },
         {
           "player": {
@@ -1219,37 +1250,6 @@
           "playedMatches": 4,
           "goals": 5,
           "assists": null,
-          "penalties": null
-        },
-        {
-          "player": {
-            "id": 4223,
-            "name": "Patrick Bamford",
-            "firstName": "Patrick",
-            "lastName": "Bamford",
-            "dateOfBirth": "1993-09-05",
-            "nationality": "England",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-07-15T09:33:22Z"
-          },
-          "team": {
-            "id": 356,
-            "name": "Sheffield United FC",
-            "shortName": "Sheffield Utd",
-            "tla": "SHE",
-            "crest": "https://crests.football-data.org/356.png",
-            "address": "Bramall Lane Sheffield, Yorkshire S2 4SU",
-            "website": "http://www.sufc.co.uk",
-            "founded": null,
-            "clubColors": "Red / White / Black",
-            "venue": "Bramall Lane",
-            "lastUpdated": "2024-07-29T17:17:53Z"
-          },
-          "playedMatches": 7,
-          "goals": 5,
-          "assists": 2,
           "penalties": null
         }
       ]
@@ -5673,6 +5673,37 @@
         },
         {
           "player": {
+            "id": 32386,
+            "name": "Luis Suárez",
+            "firstName": "Luis",
+            "lastName": "Suárez",
+            "dateOfBirth": "1997-12-02",
+            "nationality": "Colombia",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2025-02-20T09:44:47Z"
+          },
+          "team": {
+            "id": 498,
+            "name": "Sporting Clube de Portugal",
+            "shortName": "Sporting CP",
+            "tla": "SPO",
+            "crest": "https://crests.football-data.org/498.png",
+            "address": "Edifício Visconde de Alvalade, Apartado 42099 Lisboa 1601-801",
+            "website": "http://www.sporting.pt",
+            "founded": 1906,
+            "clubColors": "Green / White",
+            "venue": "Estádio José Alvalade",
+            "lastUpdated": "2022-07-26T17:38:53Z"
+          },
+          "playedMatches": 5,
+          "goals": 6,
+          "assists": null,
+          "penalties": 3
+        },
+        {
+          "player": {
             "id": 43285,
             "name": "Anastasios Douvikas",
             "firstName": "Anastasios",
@@ -5728,7 +5759,7 @@
             "venue": "Jan Breydelstadion",
             "lastUpdated": "2025-12-12T17:33:04Z"
           },
-          "playedMatches": 4,
+          "playedMatches": 5,
           "goals": 5,
           "assists": null,
           "penalties": 2
@@ -5763,6 +5794,37 @@
           "goals": 5,
           "assists": null,
           "penalties": null
+        },
+        {
+          "player": {
+            "id": 7457,
+            "name": "Donyell Malen",
+            "firstName": "Donyell",
+            "lastName": "Malen",
+            "dateOfBirth": "1999-01-19",
+            "nationality": "Netherlands",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-08-19T06:54:16Z"
+          },
+          "team": {
+            "id": 100,
+            "name": "AS Roma",
+            "shortName": "Roma",
+            "tla": "ROM",
+            "crest": "https://crests.football-data.org/100.png",
+            "address": "Via di Trigoria km. 3,600 Roma 00128",
+            "website": "http://www.asroma.it",
+            "founded": 1927,
+            "clubColors": "Maroon / Orange / White",
+            "venue": "Stadio Olimpico",
+            "lastUpdated": "2025-02-17T16:53:31Z"
+          },
+          "playedMatches": 5,
+          "goals": 5,
+          "assists": 2,
+          "penalties": 3
         },
         {
           "player": {
@@ -5852,10 +5914,41 @@
             "venue": "Mercedes-Benz Arena",
             "lastUpdated": "2026-01-26T10:51:52Z"
           },
-          "playedMatches": 4,
+          "playedMatches": 5,
           "goals": 4,
           "assists": null,
           "penalties": null
+        },
+        {
+          "player": {
+            "id": 3373,
+            "name": "Ousmane Dembélé",
+            "firstName": "Ousmane",
+            "lastName": "Dembélé",
+            "dateOfBirth": "1997-05-15",
+            "nationality": "France",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-06-01T11:16:30Z"
+          },
+          "team": {
+            "id": 524,
+            "name": "Paris Saint-Germain FC",
+            "shortName": "PSG",
+            "tla": "PSG",
+            "crest": "https://crests.football-data.org/524.png",
+            "address": "24, rue de Commandant Guibaud Paris 7501",
+            "website": "http://www.psg.fr",
+            "founded": 1904,
+            "clubColors": "Red / Blue / White",
+            "venue": "Parc des Princes",
+            "lastUpdated": "2022-02-10T19:07:11Z"
+          },
+          "playedMatches": 4,
+          "goals": 4,
+          "assists": 3,
+          "penalties": 1
         },
         {
           "player": {
@@ -5883,41 +5976,10 @@
             "venue": "Parc des Princes",
             "lastUpdated": "2022-02-10T19:07:11Z"
           },
-          "playedMatches": 4,
+          "playedMatches": 5,
           "goals": 4,
           "assists": 1,
           "penalties": null
-        },
-        {
-          "player": {
-            "id": 32386,
-            "name": "Luis Suárez",
-            "firstName": "Luis",
-            "lastName": "Suárez",
-            "dateOfBirth": "1997-12-02",
-            "nationality": "Colombia",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2025-02-20T09:44:47Z"
-          },
-          "team": {
-            "id": 498,
-            "name": "Sporting Clube de Portugal",
-            "shortName": "Sporting CP",
-            "tla": "SPO",
-            "crest": "https://crests.football-data.org/498.png",
-            "address": "Edifício Visconde de Alvalade, Apartado 42099 Lisboa 1601-801",
-            "website": "http://www.sporting.pt",
-            "founded": 1906,
-            "clubColors": "Green / White",
-            "venue": "Estádio José Alvalade",
-            "lastUpdated": "2022-07-26T17:38:53Z"
-          },
-          "playedMatches": 4,
-          "goals": 4,
-          "assists": null,
-          "penalties": 2
         },
         {
           "player": {
@@ -5952,6 +6014,37 @@
         },
         {
           "player": {
+            "id": 3257,
+            "name": "Bruno Fernandes",
+            "firstName": "",
+            "lastName": "Bruno Fernandes",
+            "dateOfBirth": "1994-09-08",
+            "nationality": "Portugal",
+            "section": "Midfield",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-06-01T11:16:29Z"
+          },
+          "team": {
+            "id": 66,
+            "name": "Manchester United FC",
+            "shortName": "Man United",
+            "tla": "MUN",
+            "crest": "https://crests.football-data.org/66.png",
+            "address": "Sir Matt Busby Way Manchester M16 0RA",
+            "website": "http://www.manutd.com",
+            "founded": 1878,
+            "clubColors": "Red / White",
+            "venue": "Old Trafford",
+            "lastUpdated": "2022-02-10T19:27:46Z"
+          },
+          "playedMatches": 5,
+          "goals": 4,
+          "assists": null,
+          "penalties": 2
+        },
+        {
+          "player": {
             "id": 205981,
             "name": "Aleksey Batrakov",
             "firstName": "Aleksey",
@@ -5980,37 +6073,6 @@
           "goals": 4,
           "assists": null,
           "penalties": null
-        },
-        {
-          "player": {
-            "id": 7457,
-            "name": "Donyell Malen",
-            "firstName": "Donyell",
-            "lastName": "Malen",
-            "dateOfBirth": "1999-01-19",
-            "nationality": "Netherlands",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-08-19T06:54:16Z"
-          },
-          "team": {
-            "id": 100,
-            "name": "AS Roma",
-            "shortName": "Roma",
-            "tla": "ROM",
-            "crest": "https://crests.football-data.org/100.png",
-            "address": "Via di Trigoria km. 3,600 Roma 00128",
-            "website": "http://www.asroma.it",
-            "founded": 1927,
-            "clubColors": "Maroon / Orange / White",
-            "venue": "Stadio Olimpico",
-            "lastUpdated": "2025-02-17T16:53:31Z"
-          },
-          "playedMatches": 4,
-          "goals": 4,
-          "assists": 2,
-          "penalties": 2
         },
         {
           "player": {
@@ -6076,6 +6138,37 @@
         },
         {
           "player": {
+            "id": 82515,
+            "name": "Karim Adeyemi",
+            "firstName": "Karim",
+            "lastName": "Adeyemi",
+            "dateOfBirth": "2002-01-18",
+            "nationality": "Germany",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-07-20T16:51:43Z"
+          },
+          "team": {
+            "id": 81,
+            "name": "FC Barcelona",
+            "shortName": "Barça",
+            "tla": "FCB",
+            "crest": "https://crests.football-data.org/81.png",
+            "address": "Avenida Arístides Maillol s/n Barcelona 08028",
+            "website": "http://www.fcbarcelona.com",
+            "founded": 1899,
+            "clubColors": "Red / Navy Blue / Orange",
+            "venue": "Camp Nou",
+            "lastUpdated": "2024-07-29T17:09:22Z"
+          },
+          "playedMatches": 5,
+          "goals": 3,
+          "assists": null,
+          "penalties": null
+        },
+        {
+          "player": {
             "id": 202283,
             "name": "Lamine Yamal",
             "firstName": "",
@@ -6131,40 +6224,9 @@
             "venue": "Anfield",
             "lastUpdated": "2022-02-10T19:30:22Z"
           },
-          "playedMatches": 4,
+          "playedMatches": 5,
           "goals": 3,
           "assists": null,
-          "penalties": null
-        },
-        {
-          "player": {
-            "id": 3373,
-            "name": "Ousmane Dembélé",
-            "firstName": "Ousmane",
-            "lastName": "Dembélé",
-            "dateOfBirth": "1997-05-15",
-            "nationality": "France",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-06-01T11:16:30Z"
-          },
-          "team": {
-            "id": 524,
-            "name": "Paris Saint-Germain FC",
-            "shortName": "PSG",
-            "tla": "PSG",
-            "crest": "https://crests.football-data.org/524.png",
-            "address": "24, rue de Commandant Guibaud Paris 7501",
-            "website": "http://www.psg.fr",
-            "founded": 1904,
-            "clubColors": "Red / Blue / White",
-            "venue": "Parc des Princes",
-            "lastUpdated": "2022-02-10T19:07:11Z"
-          },
-          "playedMatches": 3,
-          "goals": 3,
-          "assists": 3,
           "penalties": null
         },
         {
@@ -6193,69 +6255,7 @@
             "venue": "Parc des Princes",
             "lastUpdated": "2022-02-10T19:07:11Z"
           },
-          "playedMatches": 4,
-          "goals": 3,
-          "assists": null,
-          "penalties": null
-        },
-        {
-          "player": {
-            "id": 30842,
-            "name": "Matheus Cunha",
-            "firstName": "",
-            "lastName": "Matheus Cunha",
-            "dateOfBirth": "1999-05-27",
-            "nationality": "Brazil",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-06-01T11:16:32Z"
-          },
-          "team": {
-            "id": 66,
-            "name": "Manchester United FC",
-            "shortName": "Man United",
-            "tla": "MUN",
-            "crest": "https://crests.football-data.org/66.png",
-            "address": "Sir Matt Busby Way Manchester M16 0RA",
-            "website": "http://www.manutd.com",
-            "founded": 1878,
-            "clubColors": "Red / White",
-            "venue": "Old Trafford",
-            "lastUpdated": "2022-02-10T19:27:46Z"
-          },
-          "playedMatches": 4,
-          "goals": 3,
-          "assists": null,
-          "penalties": null
-        },
-        {
-          "player": {
-            "id": 172762,
-            "name": "Bradley Barcola",
-            "firstName": "Bradley",
-            "lastName": "Barcola",
-            "dateOfBirth": "2002-09-02",
-            "nationality": "France",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-06-01T11:16:30Z"
-          },
-          "team": {
-            "id": 64,
-            "name": "Liverpool FC",
-            "shortName": "Liverpool",
-            "tla": "LIV",
-            "crest": "https://crests.football-data.org/64.png",
-            "address": "Anfield Road Liverpool L4 0TH",
-            "website": "http://www.liverpoolfc.tv",
-            "founded": 1892,
-            "clubColors": "Red / White",
-            "venue": "Anfield",
-            "lastUpdated": "2022-02-10T19:30:22Z"
-          },
-          "playedMatches": 4,
+          "playedMatches": 5,
           "goals": 3,
           "assists": null,
           "penalties": null
