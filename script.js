@@ -1069,10 +1069,10 @@ async function loadSportEvents(){
     if(['basketball','tennis','cricket'].includes(activeSport)){
       const providerSport=activeSport;
       const response=await fetch('https://sportscore.com/api/widget/matches/?sport='+providerSport+'&limit=50&src=matchs-scrore',{cache:'no-store'});
-      if(!response.ok)throw new Error('La source Basket ne répond pas pour le moment (HTTP '+response.status+').');
+      if(!response.ok)throw new Error('La source '+cfg.label+' ne répond pas pour le moment (HTTP '+response.status+').');
       const payload=await response.json();
       if(token!==sportRequestToken)return;
-      if(!Array.isArray(payload.matches))throw new Error('Format de données Basket inattendu.');
+      if(!Array.isArray(payload.matches))throw new Error('Format de données '+cfg.label+' inattendu.');
       sportEvents=payload.matches.map(normalizeSportScoreMatch).filter(e=>e.startsAt);
       renderSportEvents();
       showSportScoreCredit(note);
@@ -1182,7 +1182,7 @@ document.querySelector('#live-filter-button')?.addEventListener('click',()=>{
   const button=document.querySelector('#live-filter-button');
   button?.classList.toggle('active',calendarLiveOnly);
   button?.setAttribute('aria-pressed',String(calendarLiveOnly));
-  button&&(button.textContent=calendarLiveOnly?'● LIVE actif':'● LIVE');
+  button&&(button.setAttribute('aria-label',calendarLiveOnly?'Désactiver le filtre des matchs en direct':'Afficher les matchs en direct'));
   if(activeSport==='football')renderCalendarDay();else renderSportEvents();
   document.querySelector('#calendrier')?.scrollIntoView({behavior:'smooth',block:'start'});
 });
