@@ -405,3 +405,41 @@ body{background:#111!important}
 
 #calendrier .calendar-card-group .match-open-details{grid-area:auto;grid-column:1/-1}
 #calendrier .calendar-card-group .match-expanded-panel{grid-area:auto;grid-column:1/-1}
+
+
+/* Thème violet historique et interface multisports claire */
+body{background:#f5f7fb!important;color:#172033}
+#calendrier{background:#f5f7fb!important}
+#calendrier>.sports-strip{background:#f1efff!important;border-bottom:1px solid #ded7ff!important}
+.sport-chip{background:#fff!important;color:#51408f!important;border:1px solid #ded7ff!important;cursor:pointer}
+.sport-chip.active{background:#6748d5!important;color:#fff!important;border-color:#6748d5!important}
+.sport-chip:disabled{opacity:1}
+.livescore-datebar{background:#f5f7fb!important}
+.livescore-datebar strong{color:#382b72!important}
+.live-chip{background:#eee9ff!important;color:#51408f!important}
+.date-arrow,.date-calendar{background:#eee9ff!important;color:#6748d5!important}
+#calendrier .calendar-tabs{background:#f5f7fb!important}
+#calendrier .calendar-tab{background:#fff!important;border-color:#ded7ff!important;color:#51408f!important}
+#calendrier .calendar-tab.active{background:#6748d5!important;color:#fff!important}
+#calendrier .data-status{color:#68738a!important}
+#calendrier .calendar-competition-title h3{color:#382b72!important}
+#calendrier .competition-group-heading>span{color:#746b90!important}
+#calendrier .calendar-card-group .match-card{background:#fff!important;border:1px solid #e5e2f3!important;box-shadow:0 4px 14px #45358b0c}
+#calendrier .calendar-card-group .match-card>.match-date{color:#5d43c4!important;border-color:#e8e2ff!important}
+#calendrier .calendar-card-group .team-name{color:#172033!important}
+#calendrier .calendar-card-group .match-bottom{border-color:#eceaf6!important}
+.dark-section{background:#f0edff!important;color:#172033!important}
+.dark-section .eyebrow{color:#6748d5!important}
+.dark-section .section-label{background:#e4ddff!important;color:#51408f!important}
+.empty-picks{background:#fff!important;border-color:#d9d0ff!important;color:#172033!important}
+.empty-picks p{color:#697386!important}
+footer{background:#0d1220!important;color:#8f9bb1!important}
+.sport-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;background:#fff;border-bottom:1px solid #e5e2f3;color:#51408f;font-size:12px}
+.sport-tools label{font-weight:800}.sport-tools select{padding:8px 10px;border:1px solid #dcd6f2;border-radius:8px;background:#fff;color:#172033}
+#sport-source-note{color:#737d90;font-size:11px}
+.sport-event-list{display:grid;gap:8px}
+.sport-event-row{display:grid;grid-template-columns:80px minmax(0,1fr) auto;align-items:center;gap:12px;padding:14px;background:#fff;border:1px solid #e5e2f3;border-radius:11px;color:#172033}
+.sport-event-row time,.sport-event-row>span{font-size:11px;color:#6c7688}
+.sport-event-row>strong{font-size:13px;overflow-wrap:anywhere}
+.sport-football-hidden{display:none!important}
+@media(max-width:600px){.sport-event-row{grid-template-columns:1fr auto;gap:7px}.sport-event-row time{grid-column:1}.sport-event-row>strong{grid-column:1/-1;grid-row:2}.sport-event-row>span{grid-column:2;grid-row:1}.sports-strip{scroll-snap-type:x proximity}.sport-chip{scroll-snap-align:start}}
