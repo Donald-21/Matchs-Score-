@@ -15,14 +15,14 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 5
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Refresh fixtures and scores
+      - name: Refresh recent and live fixtures
         env:
           FOOTBALL_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
         run: |
@@ -35,9 +35,16 @@ jobs:
 
           token = os.environ["FOOTBALL_TOKEN"]
           today = dt.datetime.now(dt.timezone.utc).date()
-          start = today - dt.timedelta(days=3)
-          end = today + dt.timedelta(days=60)
-          matches = {}
+          start = today - dt.timedelta(days=2)
+          end = today + dt.timedelta(days=2)
+          url = f"https://api.football-data.org/v4/matches?dateFrom={start:%Y-%m-%d}&dateTo={end:%Y-%m-%d}"
+          raw = subprocess.run(
+              ["curl", "--fail", "--silent", "--show-error", "--retry", "3",
+               "--retry-connrefused", "--retry-delay", "5", "--retry-max-time", "60",
+               "-H", f"X-Auth-Token: {token}", url],
+              capture_output=True, text=True, check=True
+          ).stdout
+          source = json.loads(raw)
 
           def keep(obj, keys):
               obj = obj or {}
@@ -58,40 +65,27 @@ jobs:
                   "referees": [keep(r, ["id", "name", "type", "nationality"]) for r in m.get("referees", [])]
               }
 
-          cursor = start
-          while cursor <= end:
-              stop = min(cursor + dt.timedelta(days=8), end)
-              url = f"https://api.football-data.org/v4/matches?dateFrom={cursor:%Y-%m-%d}&dateTo={stop:%Y-%m-%d}"
-              raw = subprocess.run(
-                  ["curl", "--fail", "--silent", "--show-error", "--retry", "3",
-                   "--retry-connrefused", "--retry-delay", "5", "--retry-max-time", "60",
-                   "-H", f"X-Auth-Token: {token}", url],
-                  capture_output=True, text=True, check=True
-              ).stdout
-              for match in json.loads(raw).get("matches", []):
-                  matches[str(match["id"])] = compact(match)
-              cursor = stop + dt.timedelta(days=1)
-
+          matches = [compact(m) for m in source.get("matches", [])]
           payload = {
-              "matches": list(matches.values()),
+              "matches": matches,
               "count": len(matches),
               "fetchedAt": dt.datetime.now(dt.timezone.utc).isoformat()
           }
-          with open("matches.json", "w", encoding="utf-8") as f:
+          with open("live-matches.json", "w", encoding="utf-8") as f:
               json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
-          print(f"Scores et calendrier rafraîchis : {len(matches)} matchs.")
+          print(f"Flux récent actualisé : {len(matches)} matchs du {start} au {end}.")
           PY
-          python -m json.tool matches.json > /dev/null
+          python -m json.tool live-matches.json > /dev/null
 
-      - name: Publish refreshed data
+      - name: Publish refreshed live data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+users.noreply.github.com"
-          git add matches.json
+          git add live-matches.json
           if git diff --cached --quiet; then
-            echo "Aucune modification des scores."
+            echo "Aucune modification des scores récents."
             exit 0
           fi
-          git commit -m "Refresh football scores and fixtures"
+          git commit -m "Refresh recent football live scores"
           git pull --rebase origin main
           git push
