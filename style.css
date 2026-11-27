@@ -443,3 +443,15 @@ footer{background:#0d1220!important;color:#8f9bb1!important}
 .sport-event-row>strong{font-size:13px;overflow-wrap:anywhere}
 .sport-football-hidden{display:none!important}
 @media(max-width:600px){.sport-event-row{grid-template-columns:1fr auto;gap:7px}.sport-event-row time{grid-column:1}.sport-event-row>strong{grid-column:1/-1;grid-row:2}.sport-event-row>span{grid-column:2;grid-row:1}.sports-strip{scroll-snap-type:x proximity}.sport-chip{scroll-snap-align:start}}
+
+/* Calendrier LIVE et espace TV officiel Champions League */
+.tv-chip{border:0;border-radius:9px;padding:9px 13px;background:#eee9ff;color:#51408f;font-weight:900;cursor:pointer}
+.tv-chip[aria-expanded="true"],.live-chip.active{background:#6748d5!important;color:#fff!important}
+.tv-panel{padding:14px;background:#fff;border:1px solid #e5e2f3;border-radius:12px;margin:10px 0 14px;color:#172033}
+.tv-panel[hidden]{display:none!important}.tv-panel-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;color:#382b72}
+.tv-matches{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:9px;margin:12px 0}
+.tv-match-card{display:grid;gap:6px;padding:12px;border:1px solid #e5e2f3;border-radius:10px;background:#faf9ff}
+.tv-match-card time,.tv-match-card small{font-size:11px;color:#68738a}.tv-match-card strong{font-size:13px}
+.tv-broadcasters{border-top:1px solid #e9e5f5;padding-top:12px;display:grid;gap:8px}.tv-broadcasters>div{display:flex;flex-wrap:wrap;gap:8px}
+.tv-broadcasters>div span{padding:7px 10px;border-radius:8px;background:#eee9ff;color:#51408f;font-size:12px;font-weight:800}
+.tv-broadcasters small{color:#68738a}.tv-broadcasters a{font-size:12px;color:#6748d5;font-weight:800}
