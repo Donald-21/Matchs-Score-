@@ -571,6 +571,31 @@ async function loadMatches() {
     if (!response.ok) throw new Error('HTTP ' + response.status);
     const data = await response.json();
     allMatches = Array.isArray(data.matches) ? data.matches : [];
+    let liveFetchedAt = null;
+    try {
+      const liveResponse = await fetch('./live-matches.json?refresh=' + Date.now(), { cache: 'no-store' });
+      if (liveResponse.ok) {
+        const liveData = await liveResponse.json();
+        const latest = Array.isArray(liveData.matches) ? liveData.matches : [];
+        const byId = new Map(allMatches.map(match => [String(match.id), match]));
+        latest.forEach(match => {
+          const id = String(match.id);
+          const previous = byId.get(id);
+          byId.set(id, previous ? {
+            ...previous,
+            ...match,
+            competition: match.competition || previous.competition,
+            homeTeam: match.homeTeam || previous.homeTeam,
+            awayTeam: match.awayTeam || previous.awayTeam,
+            score: match.score || previous.score
+          } : match);
+        });
+        allMatches = [...byId.values()];
+        liveFetchedAt = liveData.fetchedAt || null;
+      }
+    } catch (liveError) {
+      console.warn('Flux LIVE récent indisponible :', liveError);
+    }
     allMatches.sort((a, b) => new Date(a.utcDate || 0) - new Date(b.utcDate || 0));
     updateCompetitionOptions();
     renderMatches();
@@ -580,7 +605,7 @@ async function loadMatches() {
     renderCalendarMonth();
     renderResultHighlights();
     const count = allMatches.length;
-    const fetchedAt = data.fetchedAt ? new Date(data.fetchedAt) : null;
+    const fetchedAt = liveFetchedAt ? new Date(liveFetchedAt) : (data.fetchedAt ? new Date(data.fetchedAt) : null);
     const updated = data.matches?.reduce((latest, item) => {
       const value = item.lastUpdated ? new Date(item.lastUpdated) : null;
       return value && (!latest || value > latest) ? value : latest;
