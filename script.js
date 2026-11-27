@@ -1211,20 +1211,35 @@ function renderChampionsLeagueTV(){
   const status=document.querySelector('#tv-status');
   const host=document.querySelector('#tv-matches');
   if(!host)return;
-  if(label)label.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(date+'T12:00:00Z'));
-  const matches=matchesOnDate(date).filter(m=>m.competition?.code==='CL'||/champions league|ligue des champions/i.test(m.competition?.name||''));
-  host.replaceChildren();
+  const competitionMatch=m=>m.competition?.code==='CL'||/champions league|ligue des champions/i.test(m.competition?.name||'');
+  let matches=matchesOnDate(date).filter(competitionMatch);
+  let nextMatches=false;
   if(!matches.length){
-    if(status)status.textContent='Aucun match de Ligue des champions enregistré pour cette date. Choisis le jour de la prochaine journée.';
+    matches=allMatches.filter(m=>competitionMatch(m)&&getMatchLocalDate(m)>=date&&!['FINISHED','AWARDED','CANCELLED'].includes(m.status))
+      .sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate)).slice(0,12);
+    nextMatches=true;
+  }
+  host.replaceChildren();
+  if(label)label.textContent=nextMatches?'Prochaines rencontres':new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(date+'T12:00:00Z'));
+  if(!matches.length){
+    if(status)status.textContent='Aucune rencontre de Ligue des champions disponible dans les données reçues pour cette date ou les prochaines journées.';
     return;
   }
-  if(status)status.textContent=matches.length+' match(s) de Ligue des champions uniquement.';
+  if(status)status.textContent=(nextMatches?'Pas de match à la date choisie. Voici les prochaines affiches. ':'')+matches.length+' rencontre(s) de Ligue des champions.';
   matches.forEach(match=>{
     const card=document.createElement('article');card.className='tv-match-card';
-    const time=document.createElement('time');time.textContent=match.utcDate?new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',hour:'2-digit',minute:'2-digit'}).format(new Date(match.utcDate)):'Horaire à confirmer';
+    const time=document.createElement('time');
+    const localDate=getMatchLocalDate(match);
+    const dateText=localDate?new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',day:'2-digit',month:'short'}).format(new Date(localDate+'T12:00:00Z')):'';
+    const timeText=match.utcDate?new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',hour:'2-digit',minute:'2-digit'}).format(new Date(match.utcDate)):'Horaire à confirmer';
+    time.textContent=(dateText?dateText+' • ':'')+timeText;
     const teams=document.createElement('strong');teams.textContent=(match.homeTeam?.name||'Équipe')+' — '+(match.awayTeam?.name||'Équipe');
+    const score=document.createElement('b');
+    const home=match.score?.fullTime?.home,away=match.score?.fullTime?.away;
+    score.textContent=home!=null&&away!=null?home+' — '+away:(['IN_PLAY','PAUSED','LIVE'].includes(match.status)?'EN DIRECT':'À venir');
+    if(['IN_PLAY','PAUSED','LIVE'].includes(match.status))score.classList.add('tv-live-score');
     const comp=document.createElement('small');comp.textContent=match.competition?.name||'Ligue des champions';
-    card.append(time,teams,comp);host.append(card);
+    card.append(time,teams,score,comp);host.append(card);
   });
 }
 
