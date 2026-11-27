@@ -38,10 +38,17 @@
   <div class="sport-tools"><label for="sport-country">Pays des compétitions</label><select id="sport-country"><option value="CM" selected>Cameroun</option><option value="GB">Royaume-Uni</option></select><span id="sport-source-note">Choisis un sport pour charger ses rencontres et tournois.</span></div>
   <div class="livescore-datebar">
     <button class="live-chip" id="live-filter-button" type="button"><i></i> LIVE</button>
+    <button class="tv-chip" id="tv-button" type="button">📺 TV</button>
     <button class="date-arrow" id="date-prev" type="button" aria-label="Jour précédent">‹</button>
     <strong id="livescore-date-label">Aujourd’hui</strong>
     <button class="date-arrow" id="date-next" type="button" aria-label="Jour suivant">›</button>
     <button class="date-calendar" id="open-calendar" type="button" aria-label="Ouvrir le calendrier">▦</button>
+  </div>
+  <div id="tv-panel" class="tv-panel" hidden>
+    <div class="tv-panel-heading"><strong>📺 TV — Ligue des champions</strong><span id="tv-date-label"></span></div>
+    <p id="tv-status" class="data-status">Les rencontres de Ligue des champions de la date sélectionnée seront affichées ici.</p>
+    <div id="tv-matches" class="tv-matches"></div>
+    <div class="tv-broadcasters"><strong>Diffuseurs officiels au Cameroun</strong><div><span>CRTV</span><span>SuperSport</span><span>Canal+</span><span>New World TV</span></div><small>La chaîne qui retransmet chaque affiche dépend de sa programmation. Aucun flux vidéo pirate ou non autorisé n’est intégré.</small><a href="https://www.uefa.com/uefachampionsleague/news/0253-0d82038c2222-b314a8a981a5-1000--ou-regarder-la-ligue-des-champions-diffuseurs-tv-partenair/" target="_blank" rel="noopener">Vérifier les diffuseurs auprès de l’UEFA</a></div>
   </div>
   <div class="calendar-tabs" role="tablist" aria-label="Choisir la période">
     <button class="calendar-tab active" type="button" data-calendar-view="today" aria-selected="true">Aujourd’hui</button>
