@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Synchronise les calendriers multisports vers un JSON statique pour GitHub Pages."""
+"""Synchronise les calendriers multisports vers un JSON statique pour GitHub Pages.
+Déclenchement automatique après modification du synchroniseur."""
 import datetime as dt
 import json
 import os
