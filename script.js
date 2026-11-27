@@ -1013,7 +1013,7 @@ function renderSportEvents(){
   const host=document.querySelector('#calendar-container');if(!host)return;
   host.replaceChildren();
   const date=dateOffsetKey(calendarDateOffset);
-  const day=sportEvents.filter(e=>(e.startsAt||'').slice(0,10)===date&&(!calendarLiveOnly||e.isLive||String(e.result||'').toLowerCase()==='en cours'));
+  const day=sportEvents.filter(e=>e.startsAt&&new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Douala',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(e.startsAt))===date&&(!calendarLiveOnly||e.isLive));
   const status=document.querySelector('#calendar-status');
   if(status)status.textContent=(sportsConfig[activeSport]?.label||'Sport')+' • '+date+' • '+day.length+' rencontre(s)';
   if(!day.length){const p=document.createElement('p');p.className='empty-state';p.textContent='Aucune rencontre publiée pour ce sport, ce pays et cette date. Essaie un autre pays ou une autre date.';host.append(p);return;}
@@ -1037,15 +1037,17 @@ function renderSportEvents(){
 }
 function normalizeSportScoreMatch(match){
   const teamName=value=>typeof value==='string'?value:(value?.name||value?.title||value?.short_name||value?.shortName||'À déterminer');
-  const dateValue=match.start_at||match.start_time||match.starts_at||match.startTime||match.utc_date||match.utcDate||match.date||match.kickoff||match.timestamp;
+  const dateValue=match.time_utc||match.kickoff_utc||match.datetime||match.start_at||match.start_time||match.starts_at||match.startTime||match.utc_date||match.utcDate||match.date||match.kickoff||match.timestamp;
   let date=null;try{const parsed=dateValue?(typeof dateValue==='number'?new Date(dateValue*1000):new Date(dateValue)):null;if(parsed&&!Number.isNaN(parsed.getTime()))date=parsed.toISOString();}catch(_){}
-  const homeScore=match.home_score??match.homeScore??match.score?.home??match.scores?.home;
-  const awayScore=match.away_score??match.awayScore??match.score?.away??match.scores?.away;
-  const status=String(match.status||match.state||'').toLowerCase();
-  const isLive=['live','in_play','in-play','playing','1h','2h','q1','q2','q3','q4','set1','set2','set3'].includes(status);
-  const result=homeScore!=null||awayScore!=null?String(homeScore??'—')+' - '+String(awayScore??'—'):(status==='live'||status==='in_play'?'En cours':status==='finished'?'Terminé':'À venir');
+  const homeScore=match.home_score??match.score_home??match.homeScore??match.score?.home??match.scores?.home;
+  const awayScore=match.away_score??match.score_away??match.awayScore??match.score?.away??match.scores?.away;
+  const status=String(match.status||match.state||'').toLowerCase().replace(/[ -]/g,'_');
+  const isLive=['live','in_progress','inprogress','in_play','playing','1h','2h','q1','q2','q3','q4','set1','set2','set3','in_set'].includes(status);
+  const isFinished=['finished','ft','full_time','completed','final','ended','after_extra_time','after_penalties'].includes(status);
+  const score=homeScore!=null||awayScore!=null?String(homeScore??'—')+' - '+String(awayScore??'—'):'';
+  const result=isLive?(score?score+' • En cours':'En cours'):isFinished?(score?score+' • Terminé':'Terminé'):(score||'À venir');
   const competition=match.competition?.name||match.competition_name||match.tournament?.name||match.tournament||match.league?.name||'Basket-ball';
-  return {startsAt:date,tournament:competition,teamHome:teamName(match.home||match.home_team||match.homeTeam),teamAway:teamName(match.away||match.away_team||match.awayTeam),result,isLive};
+  return {startsAt:date,tournament:competition,teamHome:teamName(match.home||match.home_team||match.homeTeam),teamAway:teamName(match.away||match.away_team||match.awayTeam),result,isLive,status};
 }
 function showSportScoreCredit(note){
   if(!note)return;
@@ -1068,15 +1070,24 @@ async function loadSportEvents(){
   try{
     if(['basketball','tennis','cricket'].includes(activeSport)){
       const providerSport=activeSport;
-      const response=await fetch('https://sportscore.com/api/widget/matches/?sport='+providerSport+'&limit=50&src=matchs-scrore',{cache:'no-store'});
-      if(!response.ok)throw new Error('La source '+cfg.label+' ne répond pas pour le moment (HTTP '+response.status+').');
-      const payload=await response.json();
+      const selectedDate=dateOffsetKey(calendarDateOffset);
+      const d=new Date(selectedDate+'T12:00:00Z');
+      d.setUTCDate(d.getUTCDate()-1);
+      const utcDates=[d.toISOString().slice(0,10),selectedDate];
+      const responses=await Promise.all(utcDates.map(day=>fetch('https://sportscore.com/api/v1/fixtures/?sport='+providerSport+'&date='+day+'&limit=50',{cache:'no-store'})));
+      const failed=responses.find(response=>!response.ok);
+      if(failed)throw new Error('La source '+cfg.label+' ne répond pas pour le moment (HTTP '+failed.status+').');
+      const payloads=await Promise.all(responses.map(response=>response.json()));
       if(token!==sportRequestToken)return;
-      if(!Array.isArray(payload.matches))throw new Error('Format de données '+cfg.label+' inattendu.');
-      sportEvents=payload.matches.map(normalizeSportScoreMatch).filter(e=>e.startsAt);
+      const rows=payloads.flatMap(payload=>Array.isArray(payload.matches)?payload.matches:Array.isArray(payload.data)?payload.data:Array.isArray(payload.fixtures)?payload.fixtures:[]);
+      const unique=new Map();
+      rows.forEach((match,index)=>{const normalized=normalizeSportScoreMatch(match);if(normalized.startsAt)unique.set(String(match.id||normalized.startsAt+'|'+normalized.teamHome+'|'+normalized.teamAway),normalized);});
+      sportEvents=[...unique.values()];
       renderSportEvents();
       showSportScoreCredit(note);
-      if(status)status.textContent=cfg.label+' • '+dateOffsetKey(calendarDateOffset)+' • '+sportEvents.filter(e=>(e.startsAt||'').slice(0,10)===dateOffsetKey(calendarDateOffset)).length+' rencontre(s) • source SportScore';
+      if(note)note.append(document.createTextNode(' • Flux international, non limité au pays sélectionné.'));
+      const localCount=sportEvents.filter(e=>e.startsAt&&new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Douala',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(e.startsAt))===selectedDate).length;
+      if(status)status.textContent=cfg.label+' • '+selectedDate+' • '+localCount+' rencontre(s) • SportScore';
       return;
     }
     const response=await fetch('./sports-events.json?update='+Date.now(),{cache:'no-store'});
@@ -1096,7 +1107,7 @@ async function loadSportEvents(){
   }catch(error){
     if(token!==sportRequestToken)return;
     if(status)status.textContent='⚠️ '+(error.message||'Impossible de charger les rencontres.');
-    if(note)note.textContent=['basketball','tennis','cricket'].includes(activeSport)?'La source SportScore est temporairement indisponible. Réessaie dans un instant.':'Les rencontres sont récupérées par GitHub Actions puis publiées sur le site.';
+    if(note)note.textContent=['basketball','tennis','cricket'].includes(activeSport)?'Source SportScore : fixtures du jour demandées pour le calendrier local. Réessaie si la source est temporairement indisponible.':'Source SportsEvents24 : couverture limitée aux pays synchronisés et aux événements effectivement fournis; aucun match fictif ne sera affiché.';
     if(host)host.replaceChildren();
   }
 }
