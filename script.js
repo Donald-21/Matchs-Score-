@@ -1039,22 +1039,29 @@ async function loadSportEvents(){
   const token=++sportRequestToken;
   const cfg=sportsConfig[activeSport],country=document.querySelector('#sport-country')?.value||'GB';
   const status=document.querySelector('#calendar-status'),note=document.querySelector('#sport-source-note');
-  if(status)status.textContent='Chargement des rencontres '+cfg.label+'…';
+  if(!cfg){if(status)status.textContent='Ce sport n’est pas encore relié à une source de résultats.';if(note)note.textContent='Choisis Basket, Volleyball ou un autre sport connecté.';return;}
+  if(status)status.textContent='⏳ '+cfg.label+' sélectionné — chargement des rencontres…';
   if(note)note.textContent='Recherche des compétitions et matchs publiés pour le pays choisi.';
   try{
     const from=dateOffsetKey(-7),to=dateOffsetKey(30);
     const url='https://sportsevents24.com/api/v1/events?country='+encodeURIComponent(country)+'&sport_id='+cfg.id+'&from='+from+'&to='+to+'&limit=100';
-    const response=await fetch(url,{cache:'no-store'});
-    if(!response.ok)throw new Error(response.status===429?'Quota gratuit temporairement atteint':'Source indisponible ('+response.status+')');
+    const controller=new AbortController();
+    const timeout=setTimeout(()=>controller.abort(),12000);
+    let response;
+    try{response=await fetch(url,{cache:'no-store',signal:controller.signal});}finally{clearTimeout(timeout);}
+    if(!response.ok)throw new Error(response.status===429?'Quota gratuit temporairement atteint':'Source indisponible (HTTP '+response.status+')');
     const data=await response.json();if(token!==sportRequestToken)return;
-    sportEvents=Array.isArray(data.data)?data.data:[];
+    sportEvents=Array.isArray(data.data)?data.data:Array.isArray(data.events)?data.events:Array.isArray(data.results)?data.results:[];
+    if(!sportEvents.length && data.error)throw new Error(data.error.message||'La source a refusé la demande');
     renderSportEvents();
     if(note)note.textContent=(data.usage?.requestsRemaining??'—')+' requête(s) restante(s) aujourd’hui • '+(data.usage?.rowsRemaining??'—')+' ligne(s) ce mois-ci.';
-  }catch(error){if(token!==sportRequestToken)return;if(status)status.textContent=error.message+' . Réessaie plus tard ou change de pays.';if(note)note.textContent='Source gratuite externe • couverture variable selon les compétitions.';}
+  }catch(error){if(token!==sportRequestToken)return;const message=error.name==='AbortError'?'La source met trop de temps à répondre.':error.message||'Erreur de chargement';if(status)status.textContent='⚠️ '+cfg.label+' : '+message+' Réessaie ou change de pays.';if(note)note.textContent='Le bouton fonctionne, mais le fournisseur de données ne répond pas correctement pour le moment.';}
 }
 document.querySelectorAll('.sport-chip[data-sport]').forEach(button=>button.addEventListener('click',()=>{
   activeSport=button.dataset.sport;
-  document.querySelectorAll('.sport-chip').forEach(item=>item.classList.toggle('active',item===button));
+  document.querySelectorAll('.sport-chip').forEach(item=>{const selected=item===button;item.classList.toggle('active',selected);item.setAttribute('aria-pressed',String(selected));});
+  const immediateStatus=document.querySelector('#calendar-status');
+  if(immediateStatus)immediateStatus.textContent='Sport sélectionné : '+(sportsConfig[activeSport]?.label||button.textContent.trim())+'. Préparation des rencontres…';
   const isFootball=activeSport==='football';
   document.querySelector('#matchs')?.classList.toggle('sport-football-hidden',!isFootball);
   document.querySelector('#calendar-day-content')?.classList.remove('hidden');
