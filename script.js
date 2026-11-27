@@ -1034,14 +1034,48 @@ function renderSportEvents(){
     section.append(heading,list);host.append(section);
   });
 }
+function normalizeSportScoreMatch(match){
+  const teamName=value=>typeof value==='string'?value:(value?.name||value?.title||value?.short_name||value?.shortName||'À déterminer');
+  const dateValue=match.start_time||match.starts_at||match.startTime||match.utc_date||match.utcDate||match.date||match.kickoff||match.timestamp;
+  const date=dateValue?(typeof dateValue==='number'?new Date(dateValue*1000).toISOString():new Date(dateValue).toISOString()):null;
+  const homeScore=match.home_score??match.homeScore??match.score?.home??match.scores?.home;
+  const awayScore=match.away_score??match.awayScore??match.score?.away??match.scores?.away;
+  const status=String(match.status||match.state||'').toLowerCase();
+  const result=homeScore!=null||awayScore!=null?String(homeScore??'—')+' - '+String(awayScore??'—'):(status==='live'||status==='in_play'?'En cours':status==='finished'?'Terminé':'À venir');
+  const competition=match.competition?.name||match.competition_name||match.tournament?.name||match.tournament||match.league?.name||'Basket-ball';
+  return {startsAt:date,tournament:competition,teamHome:teamName(match.home||match.home_team||match.homeTeam),teamAway:teamName(match.away||match.away_team||match.awayTeam),result};
+}
+function showSportScoreCredit(note){
+  if(!note)return;
+  note.replaceChildren(document.createTextNode('Scores fournis par SportScore • '));
+  const link=document.createElement('a');
+  link.href='https://sportscore.com/';
+  link.rel='dofollow';
+  link.target='_blank';
+  link.textContent='Powered by SportScore';
+  note.append(link);
+}
 async function loadSportEvents(){
   if(activeSport==='football'){renderCalendarDay();return;}
   const token=++sportRequestToken;
-  const cfg=sportsConfig[activeSport],country=document.querySelector('#sport-country')?.value||'GB';
+  const cfg=sportsConfig[activeSport],country=document.querySelector('#sport-country')?.value||'CM';
   const status=document.querySelector('#calendar-status'),note=document.querySelector('#sport-source-note');
+  const host=document.querySelector('#calendar-container');
   if(!cfg){if(status)status.textContent='Ce sport n’est pas encore relié à une source de résultats.';return;}
-  if(status)status.textContent='⏳ '+cfg.label+' : lecture des rencontres synchronisées…';
+  if(status)status.textContent='⏳ '+cfg.label+' : chargement des rencontres…';
   try{
+    if(activeSport==='basketball'){
+      const response=await fetch('https://sportscore.com/api/widget/matches/?sport=basketball&limit=50&src=matchs-scrore',{cache:'no-store'});
+      if(!response.ok)throw new Error('La source Basket ne répond pas pour le moment (HTTP '+response.status+').');
+      const payload=await response.json();
+      if(token!==sportRequestToken)return;
+      if(!Array.isArray(payload.matches))throw new Error('Format de données Basket inattendu.');
+      sportEvents=payload.matches.map(normalizeSportScoreMatch).filter(e=>e.startsAt);
+      renderSportEvents();
+      showSportScoreCredit(note);
+      if(status)status.textContent='Basket-ball • '+dateOffsetKey(calendarDateOffset)+' • '+sportEvents.filter(e=>(e.startsAt||'').slice(0,10)===dateOffsetKey(calendarDateOffset)).length+' rencontre(s) • source en direct';
+      return;
+    }
     const response=await fetch('./sports-events.json?update='+Date.now(),{cache:'no-store'});
     if(!response.ok)throw new Error('Le fichier de résultats multisports n’est pas encore publié.');
     const data=await response.json();
@@ -1051,15 +1085,16 @@ async function loadSportEvents(){
     if(!availableCountries.includes(country)){
       if(status)status.textContent='Les rencontres de ce pays ne sont pas encore synchronisées.';
       if(note)note.textContent='Pays actuellement synchronisés : '+availableCountries.join(', ')+'.';
-      const host=document.querySelector('#calendar-container');if(host)host.replaceChildren();
+      if(host)host.replaceChildren();
       return;
     }
     renderSportEvents();
     if(note)note.textContent='Données synchronisées automatiquement • dernière mise à jour : '+(data.fetchedAt?new Date(data.fetchedAt).toLocaleString('fr-FR'):'date inconnue')+'.';
   }catch(error){
     if(token!==sportRequestToken)return;
-    if(status)status.textContent='⚠️ '+(error.message||'Impossible de lire les résultats multisports.');
-    if(note)note.textContent='Les rencontres sont récupérées par GitHub Actions puis publiées sur le site.';
+    if(status)status.textContent='⚠️ '+(error.message||'Impossible de charger les rencontres.');
+    if(note)note.textContent=activeSport==='basketball'?'La source Basket est temporairement indisponible. Réessaie dans un instant.':'Les rencontres sont récupérées par GitHub Actions puis publiées sur le site.';
+    if(host)host.replaceChildren();
   }
 }
 document.querySelectorAll('.sport-chip[data-sport]').forEach(button=>button.addEventListener('click',()=>{
