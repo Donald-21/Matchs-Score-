@@ -360,7 +360,7 @@ body{background:#111!important}
 .sport-chip{display:flex;align-items:center;gap:9px;flex:none;border:0;border-radius:28px;padding:12px 17px;background:#222;color:#aaa;font-size:14px;font-weight:750}
 .sport-chip.active{background:#f5f5f5;color:#111}
 .sport-chip:disabled{opacity:.72}
-.livescore-datebar{display:grid;grid-template-columns:auto 34px minmax(0,1fr) 34px auto;align-items:center;gap:8px;padding:22px 14px 18px;background:#111}
+.livescore-datebar{display:grid;grid-template-columns:auto 38px minmax(0,1fr) 38px 38px 38px;align-items:center;gap:8px;padding:22px 14px 18px;background:#111}
 .livescore-datebar strong{text-align:center;font-size:18px;color:#f6f6f6}
 .live-chip{border:0;border-radius:24px;padding:12px 14px;background:#222;color:#fff;font-size:11px;font-weight:900}
 .live-chip i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e94d5a;margin-right:5px}
@@ -398,8 +398,9 @@ body{background:#111!important}
  #calendrier .calendar-card-group .match-card{grid-template-columns:66px minmax(0,1fr) 30px;padding:12px 10px;gap:7px}
  #calendrier .calendar-card-group .team-name{font-size:12px}
  #calendrier .calendar-card-group .team-logo{width:23px;height:23px}
- .livescore-datebar{gap:5px;padding:18px 10px}
+ .livescore-datebar{grid-template-columns:auto 32px minmax(0,1fr) 32px 34px 34px;gap:5px;padding:18px 10px}
  .livescore-datebar strong{font-size:16px}
+ .tv-chip{width:34px;height:34px;font-size:16px}
  .live-chip{padding:11px 10px}
 }
 
@@ -445,7 +446,7 @@ footer{background:#0d1220!important;color:#8f9bb1!important}
 @media(max-width:600px){.sport-event-row{grid-template-columns:1fr auto;gap:7px}.sport-event-row time{grid-column:1}.sport-event-row>strong{grid-column:1/-1;grid-row:2}.sport-event-row>span{grid-column:2;grid-row:1}.sports-strip{scroll-snap-type:x proximity}.sport-chip{scroll-snap-align:start}}
 
 /* Calendrier LIVE et espace TV officiel Champions League */
-.tv-chip{border:0;border-radius:9px;padding:9px 13px;background:#eee9ff;color:#51408f;font-weight:900;cursor:pointer}
+.tv-chip{border:0;border-radius:50%;width:38px;height:38px;padding:0;display:grid;place-items:center;background:#eee9ff;color:#51408f;font-size:18px;font-weight:900;cursor:pointer;justify-self:end}
 .tv-chip[aria-expanded="true"],.live-chip.active{background:#6748d5!important;color:#fff!important}
 .tv-panel{padding:14px;background:#fff;border:1px solid #e5e2f3;border-radius:12px;margin:10px 0 14px;color:#172033}
 .tv-panel[hidden]{display:none!important}.tv-panel-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;color:#382b72}
