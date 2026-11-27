@@ -998,7 +998,7 @@ function appendCalendarGroups(container, matches) {
 // Sports multisports : les données sont chargées à la demande pour respecter le quota gratuit.
 const sportsConfig = {
   football:{id:1,label:'Football',icon:'⚽'}, basketball:{id:2,label:'Basket-ball',icon:'🏀'},
-  'ice-hockey':{id:3,label:'Hockey sur glace',icon:'🏒'}, volleyball:{id:4,label:'Volleyball',icon:'🏐'},
+  'ice-hockey':{id:3,label:'Hockey sur glace',icon:'🏒'}, volleyball:{id:4,label:'Volleyball',icon:'🏐'}, tennis:{id:10,label:'Tennis',icon:'🎾'},
   rugby:{id:5,label:'Rugby',icon:'🏉'}, handball:{id:6,label:'Handball',icon:'🤾'},
   'field-hockey':{id:13,label:'Hockey sur gazon',icon:'🏑'}, 'american-football':{id:9,label:'Football américain',icon:'🏈'},
   cricket:{id:11,label:'Cricket',icon:'🏏'}, baseball:{id:8,label:'Baseball',icon:'⚾'},
@@ -1007,12 +1007,13 @@ const sportsConfig = {
 let activeSport='football';
 let sportEvents=[];
 let sportRequestToken=0;
+let calendarLiveOnly=false;
 const sportNameMap={1:'Football',2:'Basket-ball',3:'Hockey sur glace',4:'Volleyball',5:'Rugby',6:'Handball',8:'Baseball',9:'Football américain',11:'Cricket',13:'Hockey sur gazon',14:'Water-polo',27:'Futsal'};
 function renderSportEvents(){
   const host=document.querySelector('#calendar-container');if(!host)return;
   host.replaceChildren();
   const date=dateOffsetKey(calendarDateOffset);
-  const day=sportEvents.filter(e=>(e.startsAt||'').slice(0,10)===date);
+  const day=sportEvents.filter(e=>(e.startsAt||'').slice(0,10)===date&&(!calendarLiveOnly||e.isLive||String(e.result||'').toLowerCase()==='en cours'));
   const status=document.querySelector('#calendar-status');
   if(status)status.textContent=(sportsConfig[activeSport]?.label||'Sport')+' • '+date+' • '+day.length+' rencontre(s)';
   if(!day.length){const p=document.createElement('p');p.className='empty-state';p.textContent='Aucune rencontre publiée pour ce sport, ce pays et cette date. Essaie un autre pays ou une autre date.';host.append(p);return;}
@@ -1037,13 +1038,14 @@ function renderSportEvents(){
 function normalizeSportScoreMatch(match){
   const teamName=value=>typeof value==='string'?value:(value?.name||value?.title||value?.short_name||value?.shortName||'À déterminer');
   const dateValue=match.start_at||match.start_time||match.starts_at||match.startTime||match.utc_date||match.utcDate||match.date||match.kickoff||match.timestamp;
-  const date=dateValue?(typeof dateValue==='number'?new Date(dateValue*1000).toISOString():new Date(dateValue).toISOString()):null;
+  let date=null;try{const parsed=dateValue?(typeof dateValue==='number'?new Date(dateValue*1000):new Date(dateValue)):null;if(parsed&&!Number.isNaN(parsed.getTime()))date=parsed.toISOString();}catch(_){}
   const homeScore=match.home_score??match.homeScore??match.score?.home??match.scores?.home;
   const awayScore=match.away_score??match.awayScore??match.score?.away??match.scores?.away;
   const status=String(match.status||match.state||'').toLowerCase();
+  const isLive=['live','in_play','in-play','playing','1h','2h','q1','q2','q3','q4','set1','set2','set3'].includes(status);
   const result=homeScore!=null||awayScore!=null?String(homeScore??'—')+' - '+String(awayScore??'—'):(status==='live'||status==='in_play'?'En cours':status==='finished'?'Terminé':'À venir');
   const competition=match.competition?.name||match.competition_name||match.tournament?.name||match.tournament||match.league?.name||'Basket-ball';
-  return {startsAt:date,tournament:competition,teamHome:teamName(match.home||match.home_team||match.homeTeam),teamAway:teamName(match.away||match.away_team||match.awayTeam),result};
+  return {startsAt:date,tournament:competition,teamHome:teamName(match.home||match.home_team||match.homeTeam),teamAway:teamName(match.away||match.away_team||match.awayTeam),result,isLive};
 }
 function showSportScoreCredit(note){
   if(!note)return;
@@ -1064,8 +1066,9 @@ async function loadSportEvents(){
   if(!cfg){if(status)status.textContent='Ce sport n’est pas encore relié à une source de résultats.';return;}
   if(status)status.textContent='⏳ '+cfg.label+' : chargement des rencontres…';
   try{
-    if(activeSport==='basketball'){
-      const response=await fetch('https://sportscore.com/api/widget/matches/?sport=basketball&limit=50&src=matchs-scrore',{cache:'no-store'});
+    if(['basketball','tennis','cricket'].includes(activeSport)){
+      const providerSport=activeSport;
+      const response=await fetch('https://sportscore.com/api/widget/matches/?sport='+providerSport+'&limit=50&src=matchs-scrore',{cache:'no-store'});
       if(!response.ok)throw new Error('La source Basket ne répond pas pour le moment (HTTP '+response.status+').');
       const payload=await response.json();
       if(token!==sportRequestToken)return;
@@ -1073,7 +1076,7 @@ async function loadSportEvents(){
       sportEvents=payload.matches.map(normalizeSportScoreMatch).filter(e=>e.startsAt);
       renderSportEvents();
       showSportScoreCredit(note);
-      if(status)status.textContent='Basket-ball • '+dateOffsetKey(calendarDateOffset)+' • '+sportEvents.filter(e=>(e.startsAt||'').slice(0,10)===dateOffsetKey(calendarDateOffset)).length+' rencontre(s) • source en direct';
+      if(status)status.textContent=cfg.label+' • '+dateOffsetKey(calendarDateOffset)+' • '+sportEvents.filter(e=>(e.startsAt||'').slice(0,10)===dateOffsetKey(calendarDateOffset)).length+' rencontre(s) • source SportScore';
       return;
     }
     const response=await fetch('./sports-events.json?update='+Date.now(),{cache:'no-store'});
@@ -1093,7 +1096,7 @@ async function loadSportEvents(){
   }catch(error){
     if(token!==sportRequestToken)return;
     if(status)status.textContent='⚠️ '+(error.message||'Impossible de charger les rencontres.');
-    if(note)note.textContent=activeSport==='basketball'?'La source Basket est temporairement indisponible. Réessaie dans un instant.':'Les rencontres sont récupérées par GitHub Actions puis publiées sur le site.';
+    if(note)note.textContent=['basketball','tennis','cricket'].includes(activeSport)?'La source SportScore est temporairement indisponible. Réessaie dans un instant.':'Les rencontres sont récupérées par GitHub Actions puis publiées sur le site.';
     if(host)host.replaceChildren();
   }
 }
@@ -1118,8 +1121,9 @@ function renderCalendarDay() {
   calendarSelectedDate=date;
   const title=calendarDateOffset===0?'Aujourd’hui':calendarDateOffset===1?'Demain':new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'long',day:'numeric',month:'long'}).format(new Date(date+'T12:00:00Z'));
   const status=document.querySelector('#calendar-status');
-  if(status)status.textContent=title+' • '+new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'long',day:'numeric',month:'long'}).format(new Date(date+'T12:00:00Z'))+' • '+matchesOnDate(date).length+' match(s)';
-  appendCalendarGroups(document.querySelector('#calendar-container'),matchesOnDate(date));
+  const dayMatches=matchesOnDate(date).filter(m=>!calendarLiveOnly||['IN_PLAY','PAUSED','LIVE'].includes(m.status));
+  if(status)status.textContent=title+' • '+new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'long',day:'numeric',month:'long'}).format(new Date(date+'T12:00:00Z'))+' • '+dayMatches.length+' match(s)'+(calendarLiveOnly?' en direct':'');
+  appendCalendarGroups(document.querySelector('#calendar-container'),dayMatches);
 }
 function renderCalendarMonth() {
   const input=document.querySelector('#calendar-month');
@@ -1173,7 +1177,45 @@ document.querySelector('#calendar-next-month')?.addEventListener('click',()=>cha
 document.querySelector('#date-prev')?.addEventListener('click',()=>{calendarDateOffset--;calendarView=calendarDateOffset===1?'tomorrow':'today';activeSport==='football'?renderCalendarDay():loadSportEvents();});
 document.querySelector('#date-next')?.addEventListener('click',()=>{calendarDateOffset++;calendarView=calendarDateOffset===1?'tomorrow':'today';activeSport==='football'?renderCalendarDay():loadSportEvents();});
 document.querySelector('#open-calendar')?.addEventListener('click',()=>setCalendarView('month'));
-document.querySelector('#live-filter-button')?.addEventListener('click',()=>{document.querySelector('[data-filter="live"]')?.click();document.querySelector('#matchs')?.scrollIntoView({behavior:'smooth'});});
+document.querySelector('#live-filter-button')?.addEventListener('click',()=>{
+  calendarLiveOnly=!calendarLiveOnly;
+  const button=document.querySelector('#live-filter-button');
+  button?.classList.toggle('active',calendarLiveOnly);
+  button?.setAttribute('aria-pressed',String(calendarLiveOnly));
+  button&&(button.textContent=calendarLiveOnly?'● LIVE actif':'● LIVE');
+  if(activeSport==='football')renderCalendarDay();else renderSportEvents();
+  document.querySelector('#calendrier')?.scrollIntoView({behavior:'smooth',block:'start'});
+});
+document.querySelector('#tv-button')?.addEventListener('click',()=>{
+  const panel=document.querySelector('#tv-panel');
+  if(!panel)return;
+  panel.hidden=!panel.hidden;
+  document.querySelector('#tv-button')?.setAttribute('aria-expanded',String(!panel.hidden));
+  if(!panel.hidden)renderChampionsLeagueTV();
+});
+
+function renderChampionsLeagueTV(){
+  const date=dateOffsetKey(calendarDateOffset);
+  const label=document.querySelector('#tv-date-label');
+  const status=document.querySelector('#tv-status');
+  const host=document.querySelector('#tv-matches');
+  if(!host)return;
+  if(label)label.textContent=new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(date+'T12:00:00Z'));
+  const matches=matchesOnDate(date).filter(m=>m.competition?.code==='CL'||/champions league|ligue des champions/i.test(m.competition?.name||''));
+  host.replaceChildren();
+  if(!matches.length){
+    if(status)status.textContent='Aucun match de Ligue des champions enregistré pour cette date. Choisis le jour de la prochaine journée.';
+    return;
+  }
+  if(status)status.textContent=matches.length+' match(s) de Ligue des champions uniquement.';
+  matches.forEach(match=>{
+    const card=document.createElement('article');card.className='tv-match-card';
+    const time=document.createElement('time');time.textContent=match.utcDate?new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',hour:'2-digit',minute:'2-digit'}).format(new Date(match.utcDate)):'Horaire à confirmer';
+    const teams=document.createElement('strong');teams.textContent=(match.homeTeam?.name||'Équipe')+' — '+(match.awayTeam?.name||'Équipe');
+    const comp=document.createElement('small');comp.textContent=match.competition?.name||'Ligue des champions';
+    card.append(time,teams,comp);host.append(card);
+  });
+}
 
 function changeCalendarMonth(delta) {
   const [y,m]=calendarMonthValue.split('-').map(Number);const d=new Date(y,m-1+delta,1);
