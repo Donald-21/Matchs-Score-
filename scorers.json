@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T08:49:08.945310+00:00",
+  "generatedAt": "2026-11-27T19:07:52.668520+00:00",
   "source": "football-data.org",
   "competitions": {
     "PL": {
@@ -249,7 +249,7 @@
             "venue": "Stamford Bridge",
             "lastUpdated": "2022-02-10T19:24:40Z"
           },
-          "playedMatches": 11,
+          "playedMatches": 12,
           "goals": 5,
           "assists": 2,
           "penalties": null
@@ -1284,7 +1284,7 @@
             "venue": "Weserstadion",
             "lastUpdated": "2024-07-29T17:13:29Z"
           },
-          "playedMatches": 10,
+          "playedMatches": 11,
           "goals": 10,
           "assists": 1,
           "penalties": 3
@@ -1749,7 +1749,7 @@
             "venue": "Stadion im Borussia-Park",
             "lastUpdated": "2023-02-28T07:59:45Z"
           },
-          "playedMatches": 10,
+          "playedMatches": 11,
           "goals": 4,
           "assists": 1,
           "penalties": null
@@ -2598,7 +2598,7 @@
             "venue": "Campos de Sport de El Sardinero",
             "lastUpdated": "2023-04-28T08:38:16Z"
           },
-          "playedMatches": 13,
+          "playedMatches": 14,
           "goals": 11,
           "assists": null,
           "penalties": null
@@ -2939,7 +2939,7 @@
             "venue": "Estadio Ciudad de Valencia",
             "lastUpdated": "2024-07-29T17:11:36Z"
           },
-          "playedMatches": 12,
+          "playedMatches": 13,
           "goals": 5,
           "assists": 1,
           "penalties": null
@@ -3162,7 +3162,7 @@
             "venue": "Stade Sébastien Charléty",
             "lastUpdated": "2022-06-19T00:04:35Z"
           },
-          "playedMatches": 11,
+          "playedMatches": 12,
           "goals": 9,
           "assists": 5,
           "penalties": 3
@@ -3441,7 +3441,7 @@
             "venue": "Stade Francis-Le Blé",
             "lastUpdated": "2026-07-04T12:08:19Z"
           },
-          "playedMatches": 11,
+          "playedMatches": 12,
           "goals": 5,
           "assists": 1,
           "penalties": 1
@@ -3534,7 +3534,7 @@
             "venue": "Stade Francis-Le Blé",
             "lastUpdated": "2026-07-04T12:08:19Z"
           },
-          "playedMatches": 10,
+          "playedMatches": 11,
           "goals": 4,
           "assists": 2,
           "penalties": 1
@@ -3819,7 +3819,7 @@
             "venue": "Hitachi Capital Mobility Stadion",
             "lastUpdated": "2022-03-22T10:10:56Z"
           },
-          "playedMatches": 13,
+          "playedMatches": 14,
           "goals": 9,
           "assists": 1,
           "penalties": null
@@ -3850,7 +3850,7 @@
             "venue": "Hitachi Capital Mobility Stadion",
             "lastUpdated": "2022-03-22T10:10:56Z"
           },
-          "playedMatches": 13,
+          "playedMatches": 14,
           "goals": 9,
           "assists": 3,
           "penalties": 1
