@@ -1041,7 +1041,7 @@ function renderSportEvents(){
   const day=sportEvents.filter(e=>e.startsAt&&new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Douala',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(e.startsAt))===date&&(!calendarLiveOnly||e.isLive));
   const status=document.querySelector('#calendar-status');
   if(status)status.textContent=(sportsConfig[activeSport]?.label||'Sport')+' • '+date+' • '+day.length+' rencontre(s)';
-  if(!day.length){const p=document.createElement('p');p.className='empty-state';p.textContent='Aucune rencontre publiée pour ce sport, ce pays et cette date. Essaie un autre pays ou une autre date.';host.append(p);return;}
+  if(!day.length){const p=document.createElement('p');p.className='empty-state';p.textContent=['basketball','tennis','cricket'].includes(activeSport)?'La source SportScore n’a renvoyé aucune rencontre pour cette date. Essaie une autre date.':'Le bouton fonctionne, mais la source SportsEvents24 ne fournit actuellement aucune rencontre pour ce sport, ce pays et cette date. Aucun match fictif ne sera affiché.';host.append(p);return;}
   const groups=new Map();day.forEach(e=>{const name=e.tournament||'Autres compétitions';if(!groups.has(name))groups.set(name,[]);groups.get(name).push(e);});
   [...groups].sort((a,b)=>a[0].localeCompare(b[0],'fr')).forEach(([name,items])=>{
     const section=document.createElement('section');section.className='competition-group calendar-card-group';
