@@ -1039,23 +1039,28 @@ async function loadSportEvents(){
   const token=++sportRequestToken;
   const cfg=sportsConfig[activeSport],country=document.querySelector('#sport-country')?.value||'GB';
   const status=document.querySelector('#calendar-status'),note=document.querySelector('#sport-source-note');
-  if(!cfg){if(status)status.textContent='Ce sport n’est pas encore relié à une source de résultats.';if(note)note.textContent='Choisis Basket, Volleyball ou un autre sport connecté.';return;}
-  if(status)status.textContent='⏳ '+cfg.label+' sélectionné — chargement des rencontres…';
-  if(note)note.textContent='Recherche des compétitions et matchs publiés pour le pays choisi.';
+  if(!cfg){if(status)status.textContent='Ce sport n’est pas encore relié à une source de résultats.';return;}
+  if(status)status.textContent='⏳ '+cfg.label+' : lecture des rencontres synchronisées…';
   try{
-    const from=dateOffsetKey(-7),to=dateOffsetKey(30);
-    const url='https://sportsevents24.com/api/v1/events?country='+encodeURIComponent(country)+'&sport_id='+cfg.id+'&from='+from+'&to='+to+'&limit=100';
-    const controller=new AbortController();
-    const timeout=setTimeout(()=>controller.abort(),12000);
-    let response;
-    try{response=await fetch(url,{cache:'no-store',signal:controller.signal});}finally{clearTimeout(timeout);}
-    if(!response.ok)throw new Error(response.status===429?'Quota gratuit temporairement atteint':'Source indisponible (HTTP '+response.status+')');
-    const data=await response.json();if(token!==sportRequestToken)return;
-    sportEvents=Array.isArray(data.data)?data.data:Array.isArray(data.events)?data.events:Array.isArray(data.results)?data.results:[];
-    if(!sportEvents.length && data.error)throw new Error(data.error.message||'La source a refusé la demande');
+    const response=await fetch('./sports-events.json?update='+Date.now(),{cache:'no-store'});
+    if(!response.ok)throw new Error('Le fichier de résultats multisports n’est pas encore publié.');
+    const data=await response.json();
+    if(token!==sportRequestToken)return;
+    const availableCountries=Array.isArray(data.countries)?data.countries:[];
+    sportEvents=(Array.isArray(data.events)?data.events:[]).filter(e=>Number(e.sportId)===cfg.id&&e.requestedCountry===country);
+    if(!availableCountries.includes(country)){
+      if(status)status.textContent='Les rencontres de ce pays ne sont pas encore synchronisées.';
+      if(note)note.textContent='Pays actuellement synchronisés : '+availableCountries.join(', ')+'.';
+      const host=document.querySelector('#calendar-container');if(host)host.replaceChildren();
+      return;
+    }
     renderSportEvents();
-    if(note)note.textContent=(data.usage?.requestsRemaining??'—')+' requête(s) restante(s) aujourd’hui • '+(data.usage?.rowsRemaining??'—')+' ligne(s) ce mois-ci.';
-  }catch(error){if(token!==sportRequestToken)return;const message=error.name==='AbortError'?'La source met trop de temps à répondre.':error.message||'Erreur de chargement';if(status)status.textContent='⚠️ '+cfg.label+' : '+message+' Réessaie ou change de pays.';if(note)note.textContent='Le bouton fonctionne, mais le fournisseur de données ne répond pas correctement pour le moment.';}
+    if(note)note.textContent='Données synchronisées automatiquement • dernière mise à jour : '+(data.fetchedAt?new Date(data.fetchedAt).toLocaleString('fr-FR'):'date inconnue')+'.';
+  }catch(error){
+    if(token!==sportRequestToken)return;
+    if(status)status.textContent='⚠️ '+(error.message||'Impossible de lire les résultats multisports.');
+    if(note)note.textContent='Les rencontres sont récupérées par GitHub Actions puis publiées sur le site.';
+  }
 }
 document.querySelectorAll('.sport-chip[data-sport]').forEach(button=>button.addEventListener('click',()=>{
   activeSport=button.dataset.sport;
