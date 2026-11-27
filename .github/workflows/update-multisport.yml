@@ -1,0 +1,43 @@
+name: Update multisport events
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "35 1 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: multisport-data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Get repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Fetch multisport events
+        run: |
+          python fetch_multisport.py
+          python -m json.tool sports-events.json > /dev/null
+      - name: Save multisport data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+users.noreply.github.com"
+          git add sports-events.json
+          if git diff --cached --quiet; then
+            echo "Aucune nouvelle donnée multisport."
+            exit 0
+          fi
+          git commit -m "Update multisport events"
+          git pull --rebase origin main
+          git push
