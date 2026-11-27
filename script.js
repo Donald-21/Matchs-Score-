@@ -1036,7 +1036,7 @@ function renderSportEvents(){
 }
 function normalizeSportScoreMatch(match){
   const teamName=value=>typeof value==='string'?value:(value?.name||value?.title||value?.short_name||value?.shortName||'À déterminer');
-  const dateValue=match.start_time||match.starts_at||match.startTime||match.utc_date||match.utcDate||match.date||match.kickoff||match.timestamp;
+  const dateValue=match.start_at||match.start_time||match.starts_at||match.startTime||match.utc_date||match.utcDate||match.date||match.kickoff||match.timestamp;
   const date=dateValue?(typeof dateValue==='number'?new Date(dateValue*1000).toISOString():new Date(dateValue).toISOString()):null;
   const homeScore=match.home_score??match.homeScore??match.score?.home??match.scores?.home;
   const awayScore=match.away_score??match.awayScore??match.score?.away??match.scores?.away;
