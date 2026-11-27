@@ -456,3 +456,6 @@ footer{background:#0d1220!important;color:#8f9bb1!important}
 .tv-broadcasters{border-top:1px solid #e9e5f5;padding-top:12px;display:grid;gap:8px}.tv-broadcasters>div{display:flex;flex-wrap:wrap;gap:8px}
 .tv-broadcasters>div span{padding:7px 10px;border-radius:8px;background:#eee9ff;color:#51408f;font-size:12px;font-weight:800}
 .tv-broadcasters small{color:#68738a}.tv-broadcasters a{font-size:12px;color:#6748d5;font-weight:800}
+
+.tv-match-card .tv-live-score{color:#d9364f;font-weight:950;letter-spacing:.03em}
+.tv-match-card b{font-size:13px;color:#382b72}
