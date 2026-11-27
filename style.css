@@ -466,3 +466,14 @@ footer{background:#0d1220!important;color:#8f9bb1!important}
 .tv-broadcaster img{width:34px;height:34px;object-fit:contain;flex:none;border-radius:6px}
 .tv-broadcaster:hover{border-color:#7958ef;transform:translateY(-1px)}
 @media(max-width:420px){.tv-broadcaster{min-width:calc(50% - 6px);flex:1}.tv-broadcaster img{width:30px;height:30px}}
+
+/* Logos des équipes dans les prochaines affiches TV */
+.tv-match-teams{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px}
+.tv-match-team{display:flex;align-items:center;gap:7px;min-width:0}
+.tv-match-team:last-child{flex-direction:row-reverse;text-align:right}
+.tv-team-logo{width:30px;height:30px;object-fit:contain;flex:none}
+.tv-team-name{font-size:12px;font-weight:850;line-height:1.25;overflow-wrap:anywhere}
+.tv-match-card> b{justify-self:center}
+.tv-broadcaster-logos{gap:8px;align-items:center}
+.tv-broadcaster{min-width:0;width:48px;height:48px;padding:6px;justify-content:center;border-radius:10px}
+.tv-broadcaster img{width:34px;height:34px}
