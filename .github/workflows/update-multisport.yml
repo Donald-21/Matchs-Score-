@@ -2,6 +2,10 @@ name: Update multisport events
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "fetch_multisport.py"
+      - ".github/workflows/update-multisport.yml"
   schedule:
     - cron: "35 1 * * *"
 
