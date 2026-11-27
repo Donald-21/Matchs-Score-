@@ -20,11 +20,22 @@
 </header>
 <main>
 <section class="section" id="calendrier">
-  <div class="sports-strip" aria-label="Sports disponibles">
-    <button class="sport-chip active" type="button">⚽ <span>Football</span></button>
-    <button class="sport-chip" type="button" disabled>🏒 <span>Hockey sur glace</span></button>
-    <button class="sport-chip" type="button" disabled>🏀 <span>Basket-ball</span></button>
+  <div class="sports-strip" id="sports-strip" aria-label="Choisir un sport">
+    <button class="sport-chip active" type="button" data-sport="football">⚽ <span>Football</span></button>
+    <button class="sport-chip" type="button" data-sport="basketball">🏀 <span>Basket-ball</span></button>
+    <button class="sport-chip" type="button" data-sport="volleyball">🏐 <span>Volleyball</span></button>
+    <button class="sport-chip" type="button" data-sport="tennis">🎾 <span>Tennis</span></button>
+    <button class="sport-chip" type="button" data-sport="ice-hockey">🏒 <span>Hockey sur glace</span></button>
+    <button class="sport-chip" type="button" data-sport="handball">🤾 <span>Handball</span></button>
+    <button class="sport-chip" type="button" data-sport="cricket">🏏 <span>Cricket</span></button>
+    <button class="sport-chip" type="button" data-sport="baseball">⚾ <span>Baseball</span></button>
+    <button class="sport-chip" type="button" data-sport="rugby">🏉 <span>Rugby</span></button>
+    <button class="sport-chip" type="button" data-sport="american-football">🏈 <span>Football US</span></button>
+    <button class="sport-chip" type="button" data-sport="futsal">🥅 <span>Futsal</span></button>
+    <button class="sport-chip" type="button" data-sport="field-hockey">🏑 <span>Hockey sur gazon</span></button>
+    <button class="sport-chip" type="button" data-sport="water-polo">🤽 <span>Water-polo</span></button>
   </div>
+  <div class="sport-tools"><label for="sport-country">Pays des compétitions</label><select id="sport-country"><option value="CM">Cameroun</option><option value="GB" selected>Royaume-Uni</option><option value="FR">France</option><option value="ES">Espagne</option><option value="DE">Allemagne</option><option value="US">États-Unis</option><option value="IT">Italie</option><option value="BR">Brésil</option></select><span id="sport-source-note">Choisis un sport pour charger ses rencontres et tournois.</span></div>
   <div class="livescore-datebar">
     <button class="live-chip" id="live-filter-button" type="button"><i></i> LIVE</button>
     <button class="date-arrow" id="date-prev" type="button" aria-label="Jour précédent">‹</button>
