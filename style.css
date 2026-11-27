@@ -459,3 +459,10 @@ footer{background:#0d1220!important;color:#8f9bb1!important}
 
 .tv-match-card .tv-live-score{color:#d9364f;font-weight:950;letter-spacing:.03em}
 .tv-match-card b{font-size:13px;color:#382b72}
+
+/* Logos des diffuseurs TV */
+.tv-broadcaster-logos{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.tv-broadcaster{display:flex;align-items:center;gap:8px;min-width:112px;padding:8px 11px;border:1px solid #e5e2f3;border-radius:10px;background:#fff;color:#26314a;text-decoration:none;font-size:12px;font-weight:850;box-shadow:0 3px 12px #171f3210}
+.tv-broadcaster img{width:34px;height:34px;object-fit:contain;flex:none;border-radius:6px}
+.tv-broadcaster:hover{border-color:#7958ef;transform:translateY(-1px)}
+@media(max-width:420px){.tv-broadcaster{min-width:calc(50% - 6px);flex:1}.tv-broadcaster img{width:30px;height:30px}}
