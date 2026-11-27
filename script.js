@@ -1258,10 +1258,18 @@ function renderChampionsLeagueTV(){
     const dateText=localDate?new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',day:'2-digit',month:'short'}).format(new Date(localDate+'T12:00:00Z')):'';
     const timeText=match.utcDate?new Intl.DateTimeFormat('fr-FR',{timeZone:'Africa/Douala',hour:'2-digit',minute:'2-digit'}).format(new Date(match.utcDate)):'Horaire à confirmer';
     time.textContent=(dateText?dateText+' • ':'')+timeText;
-    const teams=document.createElement('strong');teams.textContent=(match.homeTeam?.name||'Équipe')+' — '+(match.awayTeam?.name||'Équipe');
+    const teams=document.createElement('div');teams.className='tv-match-teams';
+    [[match.homeTeam,'home'],[match.awayTeam,'away']].forEach(([team,side])=>{
+      const item=document.createElement('div');item.className='tv-match-team';
+      const logo=document.createElement('img');logo.className='tv-team-logo';logo.alt='';logo.loading='lazy';
+      logo.src=team?.crest||'';
+      logo.addEventListener('error',()=>{logo.hidden=true;},{once:true});
+      const name=document.createElement('span');name.className='tv-team-name';name.textContent=team?.shortName||team?.name||'Équipe';
+      item.append(logo,name);teams.append(item);
+    });
     const score=document.createElement('b');
     const home=match.score?.fullTime?.home,away=match.score?.fullTime?.away;
-    score.textContent=home!=null&&away!=null?home+' — '+away:(['IN_PLAY','PAUSED','LIVE'].includes(match.status)?'EN DIRECT':'À venir');
+    score.textContent=home!=null&&away!=null?home+' — '+away:(['IN_PLAY','PAUSED','LIVE'].includes(match.status)?'EN DIRECT':'VS');
     if(['IN_PLAY','PAUSED','LIVE'].includes(match.status))score.classList.add('tv-live-score');
     const comp=document.createElement('small');comp.textContent=match.competition?.name||'Ligue des champions';
     card.append(time,teams,score,comp);host.append(card);
