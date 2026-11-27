@@ -37,12 +37,12 @@
   </div>
   <div class="sport-tools"><label for="sport-country">Pays des compétitions</label><select id="sport-country"><option value="CM" selected>Cameroun</option><option value="GB">Royaume-Uni</option></select><span id="sport-source-note">Choisis un sport pour charger ses rencontres et tournois.</span></div>
   <div class="livescore-datebar">
-    <button class="live-chip" id="live-filter-button" type="button"><i></i> LIVE</button>
-    <button class="tv-chip" id="tv-button" type="button">📺 TV</button>
+    <button class="live-chip" id="live-filter-button" type="button" aria-label="Afficher les matchs en direct"><i></i> LIVE</button>
     <button class="date-arrow" id="date-prev" type="button" aria-label="Jour précédent">‹</button>
     <strong id="livescore-date-label">Aujourd’hui</strong>
     <button class="date-arrow" id="date-next" type="button" aria-label="Jour suivant">›</button>
     <button class="date-calendar" id="open-calendar" type="button" aria-label="Ouvrir le calendrier">▦</button>
+    <button class="tv-chip" id="tv-button" type="button" aria-label="Ouvrir TV Ligue des champions" title="TV — Ligue des champions" aria-expanded="false">📺</button>
   </div>
   <div id="tv-panel" class="tv-panel" hidden>
     <div class="tv-panel-heading"><strong>📺 TV — Ligue des champions</strong><span id="tv-date-label"></span></div>
