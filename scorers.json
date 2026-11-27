@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T23:59:12.421937+00:00",
+  "generatedAt": "2026-11-27T08:49:08.945310+00:00",
   "source": "football-data.org",
   "competitions": {
     "PL": {
@@ -5171,37 +5171,6 @@
         },
         {
           "player": {
-            "id": 37833,
-            "name": "Carlos Vinícius",
-            "firstName": "",
-            "lastName": "Carlos Vinícius",
-            "dateOfBirth": "1995-03-25",
-            "nationality": "Brazil",
-            "section": "Centre-Forward",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2024-08-23T09:25:15Z"
-          },
-          "team": {
-            "id": 1767,
-            "name": "Grêmio FBPA",
-            "shortName": "Grêmio",
-            "tla": "FBP",
-            "crest": "https://crests.football-data.org/1767.png",
-            "address": "Avenida Padre Leopoldo Bretano, 110, Humaitá Porto Alegre, RS 90250-590",
-            "website": "http://www.gremio.net",
-            "founded": 1903,
-            "clubColors": "Blue / Black / White",
-            "venue": "Arena do Grêmio",
-            "lastUpdated": "2023-02-18T08:42:52Z"
-          },
-          "playedMatches": 34,
-          "goals": 11,
-          "assists": 2,
-          "penalties": 2
-        },
-        {
-          "player": {
             "id": 3137,
             "name": "Jonathan Calleri",
             "firstName": "Jonathan",
@@ -5227,6 +5196,37 @@
             "lastUpdated": "2023-02-18T08:43:44Z"
           },
           "playedMatches": 33,
+          "goals": 12,
+          "assists": 2,
+          "penalties": 2
+        },
+        {
+          "player": {
+            "id": 37833,
+            "name": "Carlos Vinícius",
+            "firstName": "",
+            "lastName": "Carlos Vinícius",
+            "dateOfBirth": "1995-03-25",
+            "nationality": "Brazil",
+            "section": "Centre-Forward",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2024-08-23T09:25:15Z"
+          },
+          "team": {
+            "id": 1767,
+            "name": "Grêmio FBPA",
+            "shortName": "Grêmio",
+            "tla": "FBP",
+            "crest": "https://crests.football-data.org/1767.png",
+            "address": "Avenida Padre Leopoldo Bretano, 110, Humaitá Porto Alegre, RS 90250-590",
+            "website": "http://www.gremio.net",
+            "founded": 1903,
+            "clubColors": "Blue / Black / White",
+            "venue": "Arena do Grêmio",
+            "lastUpdated": "2023-02-18T08:42:52Z"
+          },
+          "playedMatches": 34,
           "goals": 11,
           "assists": 2,
           "penalties": 2
