@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T19:07:52.668520+00:00",
+  "generatedAt": "2026-11-28T03:27:06.699607+00:00",
   "source": "football-data.org",
   "competitions": {
     "PL": {
@@ -1285,7 +1285,7 @@
             "lastUpdated": "2024-07-29T17:13:29Z"
           },
           "playedMatches": 11,
-          "goals": 10,
+          "goals": 11,
           "assists": 1,
           "penalties": 3
         },
@@ -1725,6 +1725,37 @@
         },
         {
           "player": {
+            "id": 150733,
+            "name": "Eren Dinkci",
+            "firstName": "Eren",
+            "lastName": "Dinkçi",
+            "dateOfBirth": "2001-12-13",
+            "nationality": "Turkey",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-07-20T16:51:42Z"
+          },
+          "team": {
+            "id": 12,
+            "name": "SV Werder Bremen",
+            "shortName": "Bremen",
+            "tla": "SVW",
+            "crest": "https://crests.football-data.org/12.png",
+            "address": "Franz-Böhmert-Str. 1c Bremen 28205",
+            "website": "http://www.werder.de",
+            "founded": 1899,
+            "clubColors": "Green / White",
+            "venue": "Weserstadion",
+            "lastUpdated": "2024-07-29T17:13:29Z"
+          },
+          "playedMatches": 11,
+          "goals": 4,
+          "assists": 1,
+          "penalties": null
+        },
+        {
+          "player": {
             "id": 82442,
             "name": "Joseph Scally",
             "firstName": "Joe",
@@ -1841,37 +1872,6 @@
             "clubColors": "Red / White / Blue",
             "venue": "Allianz Arena",
             "lastUpdated": "2024-07-09T17:26:37Z"
-          },
-          "playedMatches": 10,
-          "goals": 3,
-          "assists": null,
-          "penalties": null
-        },
-        {
-          "player": {
-            "id": 6634,
-            "name": "Ridle Baku",
-            "firstName": "Ridle",
-            "lastName": "Baku",
-            "dateOfBirth": "1998-04-08",
-            "nationality": "Germany",
-            "section": "Defence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-07-20T16:51:41Z"
-          },
-          "team": {
-            "id": 721,
-            "name": "RB Leipzig",
-            "shortName": "RB Leipzig",
-            "tla": "RBL",
-            "crest": "https://crests.football-data.org/721.png",
-            "address": "Neumarkt 29-33 Leipzig 04109",
-            "website": "http://www.dierotenbullen.com",
-            "founded": 2009,
-            "clubColors": "White / Red",
-            "venue": "Red Bull Arena",
-            "lastUpdated": "2022-02-19T09:03:00Z"
           },
           "playedMatches": 10,
           "goals": 3,
@@ -2599,7 +2599,7 @@
             "lastUpdated": "2023-04-28T08:38:16Z"
           },
           "playedMatches": 14,
-          "goals": 11,
+          "goals": 12,
           "assists": null,
           "penalties": null
         },
@@ -3070,6 +3070,37 @@
         },
         {
           "player": {
+            "id": 274546,
+            "name": "Pablo García",
+            "firstName": "",
+            "lastName": "Pablo García",
+            "dateOfBirth": "2006-08-15",
+            "nationality": "Spain",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2025-09-23T09:42:15Z"
+          },
+          "team": {
+            "id": 5335,
+            "name": "Real Racing Club de Santander",
+            "shortName": "Santander",
+            "tla": "SAN",
+            "crest": "https://crests.football-data.org/5335.png",
+            "address": "Calle Real Racing Club, s/n Santander 39005",
+            "website": "http://www.realracingclub.com",
+            "founded": 1913,
+            "clubColors": "White / Black / Green",
+            "venue": "Campos de Sport de El Sardinero",
+            "lastUpdated": "2023-04-28T08:38:16Z"
+          },
+          "playedMatches": 14,
+          "goals": 4,
+          "assists": null,
+          "penalties": null
+        },
+        {
+          "player": {
             "id": 82516,
             "name": "Luka Sučić",
             "firstName": "Luka",
@@ -3095,37 +3126,6 @@
             "lastUpdated": "2024-07-29T17:10:27Z"
           },
           "playedMatches": 13,
-          "goals": 4,
-          "assists": null,
-          "penalties": null
-        },
-        {
-          "player": {
-            "id": 182319,
-            "name": "Orri Oskarsson",
-            "firstName": "Orri",
-            "lastName": "Óskarsson",
-            "dateOfBirth": "2004-08-29",
-            "nationality": "Iceland",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2025-02-05T09:42:25Z"
-          },
-          "team": {
-            "id": 92,
-            "name": "Real Sociedad de Fútbol",
-            "shortName": "Real Sociedad",
-            "tla": "RSO",
-            "crest": "https://crests.football-data.org/92.png",
-            "address": "Anoeta Pasalekua, 1 San Sebastián 20014",
-            "website": "http://www.realsociedad.com",
-            "founded": 1903,
-            "clubColors": "Blue / White",
-            "venue": "Estadio Municipal de Anoeta",
-            "lastUpdated": "2024-07-29T17:10:27Z"
-          },
-          "playedMatches": 12,
           "goals": 4,
           "assists": null,
           "penalties": null
@@ -3536,7 +3536,7 @@
           },
           "playedMatches": 11,
           "goals": 4,
-          "assists": 2,
+          "assists": 3,
           "penalties": 1
         },
         {
@@ -3764,6 +3764,37 @@
       "scorers": [
         {
           "player": {
+            "id": 188914,
+            "name": "Thom van Bergen",
+            "firstName": "Thom",
+            "lastName": "van Bergen",
+            "dateOfBirth": "2004-01-06",
+            "nationality": "Netherlands",
+            "section": "Midfield",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-08-30T14:53:17Z"
+          },
+          "team": {
+            "id": 677,
+            "name": "FC Groningen",
+            "shortName": "Groningen",
+            "tla": "GRO",
+            "crest": "https://crests.football-data.org/677.png",
+            "address": "Boumaboulevard 41 Groningen 9701 BJ",
+            "website": "http://www.fcgroningen.nl",
+            "founded": 1921,
+            "clubColors": "Green / White",
+            "venue": "Hitachi Capital Mobility Stadion",
+            "lastUpdated": "2022-03-22T10:10:56Z"
+          },
+          "playedMatches": 14,
+          "goals": 10,
+          "assists": 3,
+          "penalties": 1
+        },
+        {
+          "player": {
             "id": 121280,
             "name": "Søren Tengstedt",
             "firstName": "Søren",
@@ -3823,37 +3854,6 @@
           "goals": 9,
           "assists": 1,
           "penalties": null
-        },
-        {
-          "player": {
-            "id": 188914,
-            "name": "Thom van Bergen",
-            "firstName": "Thom",
-            "lastName": "van Bergen",
-            "dateOfBirth": "2004-01-06",
-            "nationality": "Netherlands",
-            "section": "Midfield",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-08-30T14:53:17Z"
-          },
-          "team": {
-            "id": 677,
-            "name": "FC Groningen",
-            "shortName": "Groningen",
-            "tla": "GRO",
-            "crest": "https://crests.football-data.org/677.png",
-            "address": "Boumaboulevard 41 Groningen 9701 BJ",
-            "website": "http://www.fcgroningen.nl",
-            "founded": 1921,
-            "clubColors": "Green / White",
-            "venue": "Hitachi Capital Mobility Stadion",
-            "lastUpdated": "2022-03-22T10:10:56Z"
-          },
-          "playedMatches": 14,
-          "goals": 9,
-          "assists": 3,
-          "penalties": 1
         },
         {
           "player": {
@@ -5133,8 +5133,8 @@
             "venue": "Estádio Governador Magalhães Pinto",
             "lastUpdated": "2022-04-10T11:03:46Z"
           },
-          "playedMatches": 29,
-          "goals": 14,
+          "playedMatches": 30,
+          "goals": 15,
           "assists": 2,
           "penalties": 4
         },
@@ -5257,7 +5257,7 @@
             "venue": "Estádio Governador Magalhães Pinto",
             "lastUpdated": "2022-04-10T11:03:46Z"
           },
-          "playedMatches": 32,
+          "playedMatches": 33,
           "goals": 11,
           "assists": 7,
           "penalties": null
