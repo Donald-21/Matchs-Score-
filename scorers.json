@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T03:27:06.699607+00:00",
+  "generatedAt": "2026-11-28T15:43:51.606928+00:00",
   "source": "football-data.org",
   "competitions": {
     "PL": {
@@ -287,6 +287,37 @@
         },
         {
           "player": {
+            "id": 7839,
+            "name": "Dominic Calvert-Lewin",
+            "firstName": "Dominic",
+            "lastName": "Calvert-Lewin",
+            "dateOfBirth": "1997-03-16",
+            "nationality": "England",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-07-15T09:25:44Z"
+          },
+          "team": {
+            "id": 341,
+            "name": "Leeds United FC",
+            "shortName": "Leeds United",
+            "tla": "LEE",
+            "crest": "https://crests.football-data.org/341.png",
+            "address": "Elland Road Leeds LS11 0ES",
+            "website": "http://www.leedsunited.com",
+            "founded": 1904,
+            "clubColors": "White / Blue",
+            "venue": "Elland Road",
+            "lastUpdated": "2022-02-10T19:27:14Z"
+          },
+          "playedMatches": 12,
+          "goals": 5,
+          "assists": 2,
+          "penalties": 1
+        },
+        {
+          "player": {
             "id": 101910,
             "name": "Keane Lewis-Potter",
             "firstName": "Keane",
@@ -311,7 +342,7 @@
             "venue": "Griffin Park",
             "lastUpdated": "2022-04-03T16:24:00Z"
           },
-          "playedMatches": 11,
+          "playedMatches": 12,
           "goals": 4,
           "assists": 1,
           "penalties": null
@@ -349,37 +380,6 @@
         },
         {
           "player": {
-            "id": 7839,
-            "name": "Dominic Calvert-Lewin",
-            "firstName": "Dominic",
-            "lastName": "Calvert-Lewin",
-            "dateOfBirth": "1997-03-16",
-            "nationality": "England",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-07-15T09:25:44Z"
-          },
-          "team": {
-            "id": 341,
-            "name": "Leeds United FC",
-            "shortName": "Leeds United",
-            "tla": "LEE",
-            "crest": "https://crests.football-data.org/341.png",
-            "address": "Elland Road Leeds LS11 0ES",
-            "website": "http://www.leedsunited.com",
-            "founded": 1904,
-            "clubColors": "White / Blue",
-            "venue": "Elland Road",
-            "lastUpdated": "2022-02-10T19:27:14Z"
-          },
-          "playedMatches": 11,
-          "goals": 4,
-          "assists": 2,
-          "penalties": 1
-        },
-        {
-          "player": {
             "id": 3257,
             "name": "Bruno Fernandes",
             "firstName": "",
@@ -404,7 +404,7 @@
             "venue": "Old Trafford",
             "lastUpdated": "2022-02-10T19:27:46Z"
           },
-          "playedMatches": 11,
+          "playedMatches": 12,
           "goals": 4,
           "assists": 2,
           "penalties": 2
@@ -435,7 +435,7 @@
             "venue": "Old Trafford",
             "lastUpdated": "2022-02-10T19:27:46Z"
           },
-          "playedMatches": 11,
+          "playedMatches": 12,
           "goals": 4,
           "assists": null,
           "penalties": null
@@ -466,7 +466,7 @@
             "venue": "Elland Road",
             "lastUpdated": "2022-02-10T19:27:14Z"
           },
-          "playedMatches": 10,
+          "playedMatches": 11,
           "goals": 4,
           "assists": null,
           "penalties": null
@@ -1006,6 +1006,37 @@
         },
         {
           "player": {
+            "id": 4223,
+            "name": "Patrick Bamford",
+            "firstName": "Patrick",
+            "lastName": "Bamford",
+            "dateOfBirth": "1993-09-05",
+            "nationality": "England",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-07-15T09:33:22Z"
+          },
+          "team": {
+            "id": 356,
+            "name": "Sheffield United FC",
+            "shortName": "Sheffield Utd",
+            "tla": "SHE",
+            "crest": "https://crests.football-data.org/356.png",
+            "address": "Bramall Lane Sheffield, Yorkshire S2 4SU",
+            "website": "http://www.sufc.co.uk",
+            "founded": null,
+            "clubColors": "Red / White / Black",
+            "venue": "Bramall Lane",
+            "lastUpdated": "2024-07-29T17:17:53Z"
+          },
+          "playedMatches": 8,
+          "goals": 6,
+          "assists": 2,
+          "penalties": null
+        },
+        {
+          "player": {
             "id": 210648,
             "name": "Sydie Peck",
             "firstName": "Sydie",
@@ -1220,37 +1251,6 @@
           "goals": 5,
           "assists": null,
           "penalties": 1
-        },
-        {
-          "player": {
-            "id": 141451,
-            "name": "Mohamed Toure",
-            "firstName": "Mohamed",
-            "lastName": "Touré",
-            "dateOfBirth": "2004-03-26",
-            "nationality": "Australia",
-            "section": "Offence",
-            "position": null,
-            "shirtNumber": 49,
-            "lastUpdated": "2024-08-04T23:09:45Z"
-          },
-          "team": {
-            "id": 68,
-            "name": "Norwich City FC",
-            "shortName": "Norwich",
-            "tla": "NOR",
-            "crest": "https://crests.football-data.org/68.png",
-            "address": "Carrow Road Norwich NR1 1JE",
-            "website": "http://www.canaries.co.uk",
-            "founded": 1902,
-            "clubColors": "Yellow / Green",
-            "venue": "Carrow Road",
-            "lastUpdated": "2022-03-23T08:28:03Z"
-          },
-          "playedMatches": 4,
-          "goals": 5,
-          "assists": null,
-          "penalties": null
         }
       ]
     },
@@ -1439,7 +1439,7 @@
             "venue": "Opel Arena",
             "lastUpdated": "2023-02-28T07:59:34Z"
           },
-          "playedMatches": 10,
+          "playedMatches": 11,
           "goals": 6,
           "assists": null,
           "penalties": null
@@ -1718,7 +1718,38 @@
             "venue": "Allianz Arena",
             "lastUpdated": "2024-07-09T17:26:37Z"
           },
-          "playedMatches": 6,
+          "playedMatches": 7,
+          "goals": 4,
+          "assists": 1,
+          "penalties": null
+        },
+        {
+          "player": {
+            "id": 247659,
+            "name": "Said El Mala",
+            "firstName": "Saïd",
+            "lastName": "El Mala",
+            "dateOfBirth": "2006-08-26",
+            "nationality": "Germany",
+            "section": "Offence",
+            "position": null,
+            "shirtNumber": null,
+            "lastUpdated": "2026-03-31T09:41:39Z"
+          },
+          "team": {
+            "id": 1,
+            "name": "1. FC Köln",
+            "shortName": "1. FC Köln",
+            "tla": "KOE",
+            "crest": "https://crests.football-data.org/1.png",
+            "address": "Franz-Kremer-Allee 1 Köln 50937",
+            "website": "http://www.fc-koeln.de",
+            "founded": 1948,
+            "clubColors": "Red / White",
+            "venue": "RheinEnergieSTADION",
+            "lastUpdated": "2022-02-25T16:49:46Z"
+          },
+          "playedMatches": 10,
           "goals": 4,
           "assists": 1,
           "penalties": null
@@ -1811,7 +1842,7 @@
             "venue": "Ursapharm-Arena an der Kaiserlinde",
             "lastUpdated": "2022-07-22T08:44:52Z"
           },
-          "playedMatches": 10,
+          "playedMatches": 11,
           "goals": 4,
           "assists": 1,
           "penalties": null
@@ -1846,37 +1877,6 @@
           "goals": 4,
           "assists": 7,
           "penalties": 1
-        },
-        {
-          "player": {
-            "id": 9541,
-            "name": "Dayot Upamecano",
-            "firstName": "Dayot",
-            "lastName": "Upamecano",
-            "dateOfBirth": "1998-10-27",
-            "nationality": "France",
-            "section": "Defence",
-            "position": null,
-            "shirtNumber": null,
-            "lastUpdated": "2026-06-01T11:16:30Z"
-          },
-          "team": {
-            "id": 5,
-            "name": "FC Bayern München",
-            "shortName": "Bayern",
-            "tla": "FCB",
-            "crest": "https://crests.football-data.org/5.png",
-            "address": "Säbenerstr. 51 München 81547",
-            "website": "http://www.fcbayern.de",
-            "founded": 1900,
-            "clubColors": "Red / White / Blue",
-            "venue": "Allianz Arena",
-            "lastUpdated": "2024-07-09T17:26:37Z"
-          },
-          "playedMatches": 10,
-          "goals": 3,
-          "assists": null,
-          "penalties": null
         }
       ]
     },
@@ -1972,7 +1972,7 @@
             "venue": "Stadio Benito Stirpe",
             "lastUpdated": "2022-03-20T17:51:41Z"
           },
-          "playedMatches": 10,
+          "playedMatches": 11,
           "goals": 8,
           "assists": null,
           "penalties": null
@@ -2344,7 +2344,7 @@
             "venue": "Stadio Benito Stirpe",
             "lastUpdated": "2022-03-20T17:51:41Z"
           },
-          "playedMatches": 12,
+          "playedMatches": 13,
           "goals": 5,
           "assists": 1,
           "penalties": 1
@@ -2753,7 +2753,7 @@
             "venue": "Estadio del Rayo Vallecano",
             "lastUpdated": "2024-07-29T17:10:35Z"
           },
-          "playedMatches": 13,
+          "playedMatches": 14,
           "goals": 7,
           "assists": 2,
           "penalties": null
@@ -2970,7 +2970,7 @@
             "venue": "Estadio La Rosaleda",
             "lastUpdated": "2022-07-26T17:35:29Z"
           },
-          "playedMatches": 9,
+          "playedMatches": 10,
           "goals": 5,
           "assists": 1,
           "penalties": null
@@ -3348,7 +3348,7 @@
             "venue": "Stade Bollaert-Delelis",
             "lastUpdated": "2026-01-19T12:05:38Z"
           },
-          "playedMatches": 11,
+          "playedMatches": 12,
           "goals": 5,
           "assists": 8,
           "penalties": 3
@@ -4569,7 +4569,7 @@
             "venue": "Estádio Municipal de Arouca",
             "lastUpdated": "2022-02-25T16:58:25Z"
           },
-          "playedMatches": 11,
+          "playedMatches": 12,
           "goals": 5,
           "assists": null,
           "penalties": null
@@ -4724,7 +4724,7 @@
             "venue": "Cidade do Futebol",
             "lastUpdated": "2022-02-20T08:40:31Z"
           },
-          "playedMatches": 9,
+          "playedMatches": 10,
           "goals": 5,
           "assists": 1,
           "penalties": 1
@@ -4848,7 +4848,7 @@
             "venue": "P.D. Comendador Joaquim de Almeida Freitas",
             "lastUpdated": "2023-03-05T07:40:05Z"
           },
-          "playedMatches": 11,
+          "playedMatches": 12,
           "goals": 3,
           "assists": null,
           "penalties": null
@@ -5003,7 +5003,7 @@
             "venue": "Estádio do Rio Ave Futebol Clube",
             "lastUpdated": "2022-07-26T17:38:50Z"
           },
-          "playedMatches": 11,
+          "playedMatches": 12,
           "goals": 3,
           "assists": 1,
           "penalties": 2
